@@ -1,5 +1,5 @@
 ---
-name: "[Retrospect] N주차 회고 - 이름"
+name: "[Retrospect] 4주프로젝트 N주차 회고 - 이름"
 about: N주차 회고
 title: ''
 labels: 회고
@@ -18,4 +18,5 @@ assignees: ''
 ### Finding (교훈) : 사건에서 얻은 교훈을 적는다  
 - 내용  
 
-### Futur
+### Future action(행동) : 그래서 내가 앞으로 취할 행동을 미래형으로 적는다  
+- 내용
