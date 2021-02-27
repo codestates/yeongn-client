@@ -18,11 +18,5 @@ assignees: ''
 3. [ ] Job3
 
 ### Estimated time
-> Pick one
+
 ### `0.5h`
-
-
-### Labels
-- Estimated time: `E: 1h`
-- Group : `client`, 
-- Urgency: `High`, `Middle`, `Low`
