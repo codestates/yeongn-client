@@ -1,0 +1,98 @@
+.appraisal {
+	max-width: 1024px;
+	margin: auto;
+}
+.appraisal__title__wrap {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 50px;
+	margin-bottom: 30px;
+}
+.appraisal__title {
+	font-size: 1.5rem;
+	color: rgb(255, 126, 75);
+	font-weight: bold;
+}
+.appraisal__title__button {
+	font-size: 1.1rem;
+	background-color: transparent;
+	cursor: pointer;
+	border: none;
+	outline: none;
+}
+
+.appraisal__highPriceList {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+.appraisal__highPriceList__card {
+	width: 330px;
+	margin-bottom: 20px;
+}
+
+.appraisal__highPriceList__card__wrap {
+	justify-content: space-between;
+	display: flex;
+}
+.appraisal__highPriceList__img {
+	background-color: rgb(255, 229, 212);
+	width: 330px;
+	height: 200px;
+	margin-bottom: 7px;
+}
+.appraisal__highPriceList__title {
+	font-weight: bold;
+	font-size: 1.1rem;
+}
+.appraisal__highPriceList__price__name {
+	position: relative;
+	font-size: 0.9rem;
+}
+.appraisal__highPriceList__price {
+	position: relative;
+	font-size: 1.1rem;
+}
+
+@media all and (min-width: 768px) and (max-width: 1023px) {
+	.appraisal__highPriceList__card {
+		margin: auto;
+		width: 370px;
+		margin-bottom: 20px;
+	}
+	.appraisal__highPriceList__img {
+		width: 370px;
+	}
+}
+
+@media all and (min-width: 480px) and (max-width: 767px) {
+	.appraisal__highPriceList {
+		height: 970px;
+		margin: auto;
+		overflow: hidden;
+	}
+	.appraisal__highPriceList__card {
+		margin: auto;
+		width: 350px;
+		margin-bottom: 20px;
+	}
+	.appraisal__highPriceList__img {
+		width: 350px;
+	}
+}
+
+@media all and (max-width: 479px) {
+	.appraisal__highPriceList {
+		height: 490px;
+		margin: auto;
+		overflow: hidden;
+	}
+	.appraisal__highPriceList__card {
+		margin: auto;
+		width: 320px;
+		margin-bottom: 20px;
+	}
+	.appraisal__highPriceList__img {
+		width: 320px;
+	}
+}

@@ -5,7 +5,7 @@ function AppraisalContent() {
 	return (
 		<div>
 			{/* 밑에 h1 삭제하고 컴포넌트 입력하기 */}
-			<h1>감정소 게시물입니다.</h1>
+			<h1>감정소 게시물입ss니다.</h1>
 			{/* todo */}
 		</div>
 	);
