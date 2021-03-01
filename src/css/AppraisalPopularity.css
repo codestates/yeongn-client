@@ -1,0 +1,75 @@
+.appraisal__popularityList {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+.appraisal__popularityList__card {
+	width: 330px;
+	margin-bottom: 20px;
+}
+
+.appraisal__popularityList__card__wrap {
+	justify-content: space-between;
+	display: flex;
+}
+.appraisal__popularityList__img {
+	background-color: rgb(255, 229, 212);
+	width: 330px;
+	height: 200px;
+	margin-bottom: 7px;
+}
+.appraisal__popularityList__title {
+	font-weight: bold;
+	font-size: 1.1rem;
+}
+.appraisal__popularityList__price__name {
+	position: relative;
+	font-size: 0.9rem;
+}
+.appraisal__popularityList__price {
+	position: relative;
+	font-size: 1.1rem;
+}
+
+@media all and (min-width: 768px) and (max-width: 1023px) {
+	.appraisal__popularityList__card {
+		margin: auto;
+		width: 370px;
+		margin-bottom: 20px;
+	}
+	.appraisal__popularityList__img {
+		width: 370px;
+	}
+}
+
+@media all and (min-width: 480px) and (max-width: 767px) {
+	.appraisal__popularityList {
+		height: 970px;
+		margin: auto;
+		overflow: hidden;
+	}
+	.appraisal__popularityList__card {
+		margin: auto;
+		width: 350px;
+		margin-bottom: 20px;
+	}
+	.appraisal__popularityList__img {
+		width: 350px;
+	}
+}
+
+@media all and (max-width: 479px) {
+	.appraisal__popularityList {
+		height: 490px;
+		margin: auto;
+		overflow: hidden;
+	}
+	.appraisal__popularityList__card {
+		margin: auto;
+		width: 320px;
+		margin-bottom: 20px;
+	}
+	.appraisal__popularityList__img {
+		width: 320px;
+	}
+}

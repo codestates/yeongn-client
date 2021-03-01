@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
+import "../css/AppraisalHighPrice.css"
 
 const initialState = 
     [
@@ -17,27 +18,27 @@ const initialState =
         {
             id: 3,
             name: "개구리 안대",
-            price: 2900,
+            price: 290000,
         },
         {
             id: 4,
             name: "뜯어온 보도블럭",
-            price: 4900,
+            price: 4900000,
         },
         {
             id: 5,
             name: "칼라 립스틱",
-            price: 2900,
+            price: 29000000,
         },
         {
             id: 6,
             name: "잉어 슈즈",
-            price: 3900,
+            price: 39000000,
         },
         {
             id: 7,
             name: "웰컴 매트",
-            price: 6900,
+            price: 690000000,
         },
         {
             id: 8,
@@ -47,17 +48,13 @@ const initialState =
     ]
 
 
-function AppraisalHighPrice() {
-    
-    type AppraisalListtype = {
-        id: number;
-        name: string;
-        price: number;
-    }
+function AppraisalHighPrice () {
+
     const [appraisalList, setAppraisalList] = useState(initialState);
 
+
     // useEffect(() => {
-    //     getAppraisalData()
+        // getAppraisalData()
     // })
 
     // const getAppraisalData = () => {
@@ -66,38 +63,41 @@ function AppraisalHighPrice() {
     //         .catch((error) => console.log(error))
     // }
 
-    // const getMoreAppraisaDataButton = () => {
-    // }
-
-
     return (
         <section className="appraisal">
             <div className="appraisal__title__wrap">
                 <div className="appraisal__title">
                     높은 감정가 리스트
                 </div>
-                {/* <Link to={`/appraisal/list`}> */}
+                <Link to={`/list/appraisal`}>
                 <button className="appraisal__title__button">
                         리스트 더보기
                 </button>
-                {/* </Link> */}
+                </Link>
             </div>
-            <div className="highPriceList">
-                {appraisalList.slice(0, 6).map((appraisalList) => (
-                    <div>
-                    {/* <Link to ={`/appraisal/{id}`} key={appraisalList.id}> */}
-                    <div className="highPriceList__img">
-                            이미지 입네다.
+
+                <div className="appraisal__highPriceList">
+                    {appraisalList.slice(0, 6).map((appraisalList) => (
+                    <div className="appraisal__highPriceList__card" key={appraisalList.id}>
+                    <Link to ={`/appraisal/${appraisalList.id}`} key={appraisalList.id}>
+                    <div className="appraisal__highPriceList__img">
+                                이미지 입네다.
                     </div>
-                        <div className="highPriceList__title">{appraisalList.name}</div>
-                        <div className="highPriceList__price">감정가 {appraisalList.price}</div>
-                        {/* </Link> */}
+                        <div className="appraisal__highPriceList__card__wrap">
+                            <div className="appraisal__highPriceList__title">{appraisalList.name}</div>
+                                <span className="appraisal__highPriceList__price">
+                                    <span className="appraisal__highPriceList__price">감정가 </span>
+                                    {appraisalList.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}원 </span>
                         </div>
+                        </Link>
+                </div>
+            
                 )
-                )}
+                    )}
+        
             </div>
         </section>
     );
 }
 
-export default AppraisalHighPrice
+export default withRouter(AppraisalHighPrice)

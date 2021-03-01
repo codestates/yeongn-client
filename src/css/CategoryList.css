@@ -1,0 +1,31 @@
+.CategoryList {
+	position: relative;
+	max-width: 1024px;
+	margin: auto;
+	top: 70px;
+}
+
+.CategoryList__title {
+	font-size: 1.5rem;
+	font-weight: bold;
+	margin-bottom: 20px;
+	color: rgb(255, 126, 75);
+}
+
+.CategoryList__buttonBox__button {
+	font-size: 0.9rem;
+	color: rgb(0, 0, 0);
+	background-color: rgb(255, 126, 75);
+	border-radius: 20px;
+	cursor: pointer;
+	border: none;
+	outline: none;
+	padding: 10px;
+	margin: 6px;
+	transition: all 250ms ease-in;
+}
+.CategoryList__buttonBox__button:hover {
+	font-size: 0.9rem;
+	color: white;
+	background-color: rgb(255, 126, 75);
+}

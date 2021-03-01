@@ -1,12 +1,29 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
+import AppraisalHighPrice from "../components/AppraisalHighPrice"
+import AppraisalPopularity from "../components/AppraisalPopularity"
+import "../css/Appraisal.css"
+
 
 function Appraisal() {
+
 	return (
 		<div>
-			{/* 밑에 h1 삭제하고 컴포넌트 입력하기 */}
-			<h1>감정소페이지입니다.</h1>
-			{/* todo */}
+			<section className="Appraisal__main">
+				<div className="Appraisal__main__container">
+					<div className="Appraisal__main__image"></div>
+					<div className="Appraisal__main__wrap">
+						<div className="Appraisal__main__title">
+						믿을 수 있는 감정!
+						</div>
+						<button className="Appraisal__main__button">즉시 나의 물건 감정하러 가기</button>
+					</div>
+				</div>
+			</section>
+			<AppraisalHighPrice/>
+			<div className="Appraisal__division__line"></div>
+			<AppraisalPopularity />
+			<div className="Appraisal__division__line"></div>
 		</div>
 	);
 }
