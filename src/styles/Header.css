@@ -34,13 +34,16 @@
 	justify-content: space-around;
 	align-items: center;
 }
+
 .header__menu__search {
 	display: flex;
 	justify-content: center;
 }
+
 .header__menu__search > input::placeholder {
 	color: var(--color-light-grey);
 }
+
 .header__menu__search__input {
 	margin-left: 30px;
 	width: 350px;
