@@ -27,16 +27,15 @@ function Footer() {
 					</div>
 					<div className="footer__crew">
 						<div className="footer__crew__title">선원</div>
-						<p>
-							<a
-								href="https://github.com/sleepybird96"
-								target="blank"
-								className="footer__crew__description"
-							>
-								<GitHubIcon />
-								박지상
-							</a>
-						</p>
+						<a
+							href="https://github.com/sleepybird96"
+							target="blank"
+							className="footer__crew__description"
+						>
+							<GitHubIcon />
+							박지상
+						</a>
+
 						<a
 							href="https://github.com/SangKwon-Lee"
 							target="blank"

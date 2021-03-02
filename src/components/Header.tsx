@@ -16,7 +16,7 @@ function Header() {
 	const [id, setId] = useState("lovvp");
 	const [toggleState, setToggle] = useState(true);
 	let headerMenu = document.querySelector(".header__menu") as HTMLElement;
-
+	const root = document.querySelector("#root") as HTMLElement;
 	const toggleBtnClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
 		setToggle(!toggleState);
 	};
@@ -24,9 +24,9 @@ function Header() {
 	return (
 		<div className="header">
 			<div className="header__container">
-				<div className="header__logo">
+				<Link to="/" className="header__logo">
 					<img src={yeongnLogo} alt="yeongnLogo" />
-				</div>
+				</Link>
 				{/* 컴포넌트 Search.tsx로 변경예정 */}
 				<div className={toggleState ? "header__menu" : "header__menu open"}>
 					<div className="header__menu__search">
