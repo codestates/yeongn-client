@@ -2,6 +2,7 @@ import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import ArrowUp from "../components/ArrowUp";
 import "../styles/Home.css";
 import toy from "../assets/img/toy.png";
 import lucky from "../assets/img/lucky.png";
@@ -92,6 +93,7 @@ function Home() {
 				</div>
 			</section>
 			<Footer />
+			<ArrowUp />
 		</div>
 	);
 }

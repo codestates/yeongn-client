@@ -1,12 +1,12 @@
 .header {
 	width: 100%;
-	background: var(--color-white);
-	border-bottom: 0.1px solid black;
+	background: var(--color-yellow);
 	font-family: "jua";
 	color: black;
 	font-weight: var(--weight-bold);
 	position: sticky;
 	top: 0px;
+	z-index: 3;
 }
 
 .header__container {
