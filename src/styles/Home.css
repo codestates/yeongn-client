@@ -1,0 +1,198 @@
+.home__appraisal {
+	background: var(--color-white);
+	width: 100%;
+	font-family: "jua";
+}
+.home__appraisal__container {
+	max-width: 1024px;
+	margin: auto;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	padding: 30px 30px 20px 30px;
+}
+.home__appraisal__img,
+.home__store__img {
+	width: 60%;
+}
+.home__appraisal__img > img,
+.home__store__img > img {
+	width: 100%;
+}
+.home__category__img {
+	width: 45%;
+}
+.home__category__img > img {
+	width: 100%;
+}
+.home__appraisal__contents {
+	margin-left: 30px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.home__appraisal__contents__title {
+	text-align: center;
+}
+.home__appraisal__contents__description {
+	text-align: center;
+}
+.home__appraisal__contents__button {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	padding: 4px 10px 0 10px;
+	text-decoration: none;
+	color: black;
+	cursor: pointer;
+	border: 3px dashed var(--color-dark-orange);
+	width: 150px;
+	text-align: center;
+	height: 50px;
+	font-size: 30px;
+	line-height: 50px;
+	margin-top: 20px;
+	border-radius: var(--size-border-radius);
+}
+
+.home__store__contents__button:hover {
+	background: var(--color-dark-orange);
+}
+.home__appraisal__contents__button:hover {
+	background: var(--color-dark-orange);
+}
+.home__store {
+	background: var(--color-light-green);
+	width: 100%;
+	font-family: "jua";
+}
+.home__store__container {
+	max-width: 1024px;
+	margin: auto;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	padding: 30px 30px 20px 30px;
+}
+
+.home__store__contents {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.home__store__contents__title {
+	text-align: center;
+}
+.home__store__contents__description {
+	text-align: center;
+}
+.home__store__contents__button {
+	display: flex;
+	align-items: center;
+	padding: 4px 20px 0 20px;
+	justify-content: space-around;
+	border: 3px dashed var(--color-dark-orange);
+	text-decoration: none;
+	color: black;
+	cursor: pointer;
+	border: 3px dashed var(--color-dark-orange);
+	width: 150px;
+	text-align: center;
+	height: 50px;
+	font-size: 30px;
+	line-height: 30px;
+	border-radius: var(--size-border-radius);
+	margin-top: 20px;
+}
+.home__category {
+	background: var(--color-white);
+	width: 100%;
+	font-family: "jua";
+}
+.home__category__container {
+	max-width: 1024px;
+	margin: auto;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	padding: 30px 30px 20px 30px;
+}
+.home__category__contents {
+	margin-right: 100px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.home__category__contents__title {
+	text-align: center;
+}
+.home__category__contents__description {
+	text-align: center;
+}
+.home__category__button__container {
+	display: flex;
+	justify-content: center;
+	width: 350px;
+	flex-wrap: wrap;
+}
+.home__category__button {
+	margin-right: 10px;
+	margin-bottom: 10px;
+	background: var(--color-dark-orange);
+	padding: 8px;
+	border-radius: 10px;
+}
+@media screen and (min-width: 769px) and (max-width: 1023px) {
+}
+@media all and (max-width: 768px) {
+	.home__appraisal__container {
+		flex-direction: column;
+	}
+	.home__appraisal__contents {
+		margin-left: 0px;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		align-items: center;
+		width: 300px;
+		margin-bottom: 30px;
+	}
+	.home__store__container {
+		flex-direction: column;
+	}
+	.home__store__contents {
+		margin-left: 0px;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		align-items: center;
+		width: 300px;
+		order: 1;
+		margin-bottom: 30px;
+	}
+	.home__category__container {
+		flex-direction: column;
+	}
+	.home__category__contents {
+		margin-right: 0px;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		align-items: center;
+		width: 300px;
+		margin-bottom: 10px;
+	}
+	.home__category__contents > h2 {
+		font-size: 24px;
+	}
+	.home__store__contents,
+	.home__appraisal__contents,
+	.home__category__contents {
+		min-width: 250px;
+	}
+	.home__store__img,
+	.home__appraisal__img,
+	.home__category__img {
+		min-width: 250px;
+	}
+}

@@ -13,6 +13,7 @@
 	--color-blue: #73aace;
 	--color-yellow: #fff7d1;
 	--color-orange: #f3d6aa;
+	--color-beige: #fdead5;
 	--color-dark-orange: #ff9e75;
 	--color-black: #000000;
 	--color-green: #00251a;
@@ -36,17 +37,15 @@
 	/* Annimation */
 	--animation-duration: 30;
 }
-
+/* universal tags */
 body {
-	padding: 0;
 	margin: 0;
-	/* min-width: 800px; */
-	overflow-x: auto;
 	font-family: "noto_sans";
 }
 * {
 	box-sizing: border-box;
 }
+/* typography */
 a {
 	cursor: pointer;
 	outline: none;
@@ -62,6 +61,38 @@ button {
 
 input {
 	outline: none;
+}
+
+h1 {
+	font-size: var(--font-large);
+	font-weight: var(--weight-bold);
+	color: var(--color-black);
+}
+
+h2 {
+	font-size: var(--font-medium);
+	font-weight: var(--weight-semi-bold);
+	color: var(--color-black);
+	margin: 8px 0;
+}
+
+h3 {
+	font-size: var(--font-regular);
+	font-weight: var(--weight-regular);
+	color: var(--color-black);
+	margin: 8px 0;
+}
+
+p {
+	font-size: var(--font-regular);
+	font-weight: var(--weight-regular);
+	color: var(--color-black);
+	margin: 4px 0;
+}
+
+ul {
+	list-style: none;
+	padding-left: 0;
 }
 
 @font-face {
