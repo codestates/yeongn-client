@@ -1,0 +1,78 @@
+#footer {
+	width: 100%;
+	background: var(--color-beige);
+	font-family: "jua";
+	min-width: 360px;
+}
+.footer__container {
+	margin: auto;
+	padding: 30px 0px 0px 0px;
+	display: flex;
+	max-width: 1024px;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.footer__top {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	margin-bottom: 20px;
+}
+.footer__market {
+	flex-basis: 25%;
+	padding-left: 15px;
+	border-left: 1px solid lightgray;
+}
+.footer__team {
+	flex-basis: 25%;
+	padding-left: 15px;
+	border-left: 1px solid lightgray;
+}
+.footer__captain {
+	padding-left: 15px;
+	border-left: 1px solid lightgray;
+	flex-basis: 25%;
+}
+.footer__crew {
+	padding-left: 15px;
+	border-left: 1px solid lightgray;
+	flex-basis: 25%;
+}
+.footer__market__title,
+.footer__team__title,
+.footer__captain__title,
+.footer__crew__title {
+	font-size: large;
+}
+
+.footer__captain__description,
+.footer__crew__description {
+	display: flex;
+	align-items: center;
+	font-size: 16px;
+	line-height: 24px;
+	text-decoration: none;
+	color: black;
+}
+.footer__market__title,
+.footer__team__title,
+.footer__crew__title,
+.footer__captain__title {
+	margin-bottom: 15px;
+}
+
+.footer__market__description,
+.footer__captain__description,
+.footer__crew__description {
+	margin-bottom: 10px;
+}
+
+.footer__bottom {
+	width: 100%;
+	text-align: center;
+	font-size: large;
+	padding: 30px 0px 30px 0px;
+	border-top: 1px solid var(--color-light-grey);
+}
