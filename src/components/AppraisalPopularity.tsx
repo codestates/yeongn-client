@@ -5,7 +5,6 @@ import "../styles/AppraisalPopularity.css"
 import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
 import KeyboardArrowLeftIcon from '@material-ui/icons/KeyboardArrowLeft';
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
-
 const initialState = 
     [
         {
@@ -89,13 +88,12 @@ const initialState =
     ]
 
 
-function AppraisalPopularity() {
- 
+function AppraisalHighPrice () {
 
     const [appraisalList, setAppraisalList] = useState(initialState);
 
     // useEffect(() => {
-    //     getAppraisalData()
+        // getAppraisalData()
     // })
 
     // const getAppraisalData = () => {
@@ -106,28 +104,29 @@ function AppraisalPopularity() {
 
     const rightButtonclick = ():void => {
         
-        const next = document.querySelector(".appraisal__highPriceList__right") as HTMLElement
-        const before = document.querySelector(".appraisal__highPriceList") as HTMLElement
+        const next = document.querySelector(".appraisal__popularity__right") as HTMLElement
+        const before = document.querySelector(".appraisal__popularity") as HTMLElement
         const buttonLeft = document.querySelector(".appraisal__nextButton__leftdot") as HTMLElement
         const buttonRight = document.querySelector(".appraisal__nextButton__rightdot") as HTMLElement
-        if (next == null || before == null || buttonLeft == null || buttonRight ==null) {
+        
+        if (next == null || before == null || buttonLeft == null || buttonRight == null) {
             return;
         }
-        next.className="appraisal__highPriceList__right__move"
-        before.className = "appraisal__highPriceList__left__move"
+        next.className="appraisal__popularity__right__move"
+        before.className = "appraisal__popularity__left__move"
         buttonLeft.className = "appraisal__nextButton__rightdot"
         buttonRight.className = "appraisal__nextButton__leftdot"
     }
     const leftButtonclick = ():void  => {
-        const next = document.querySelector(".appraisal__highPriceList__right__move") as HTMLElement
-        const before = document.querySelector(".appraisal__highPriceList__left__move") as HTMLElement
+        const next = document.querySelector(".appraisal__popularity__right__move") as HTMLElement
+        const before = document.querySelector(".appraisal__popularity__left__move") as HTMLElement
         const buttonLeft = document.querySelector(".appraisal__nextButton__leftdot") as HTMLElement
         const buttonRight = document.querySelector(".appraisal__nextButton__rightdot") as HTMLElement
         if (next == null || before == null || buttonLeft == null || buttonRight ==null) {
             return;
         }
-        next.className="appraisal__highPriceList__right"
-        before.className = "appraisal__highPriceList"
+        next.className="appraisal__popularity__right"
+        before.className = "appraisal__popularity"
         buttonLeft.className = "appraisal__nextButton__rightdot"
         buttonRight.className = "appraisal__nextButton__leftdot"
 
@@ -137,40 +136,58 @@ function AppraisalPopularity() {
         <section className="appraisal">
             <div className="appraisal__title__wrap">
                 <div className="appraisal__title">
-                    인기 감정가 리스트
+                    인기 높은 리스트
                 </div>
                 <Link to={`/list/appraisal`}>
-                <button className="appraisal__title__button">
+                <div className="appraisal__title__button">
                         리스트 더보기
-                </button>
+                </div>
                 </Link>
             </div>
-                <div className="appraisal__popularityList">
+            <div className="appraisal__popularity">
                     {appraisalList.slice(0, 6).map((appraisalList) => (
-                    <div className="appraisal__popularityList__card" key={appraisalList.id}>
+                    <div className="appraisal__popularity__card" key={appraisalList.id}>
                     <Link to ={`/appraisal/${appraisalList.id}`} key={appraisalList.id}>
-                    <div className="appraisal__popularityList__img">
+                    <div className="appraisal__popularity__img">
                                 이미지
                     </div>
-                        <div className="appraisal__popularityList__card__wrap">
-                            <div className="appraisal__popularityList__title">{appraisalList.name}</div>
-                                <span className="appraisal__popularityList__price">
-                                    <span className="appraisal__popularityList__price">감정가 </span>
-                                    {appraisalList.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}원</span>
+                        <div className="appraisal__popularity__card__wrap">
+                            <div className="appraisal__popularity__title">{appraisalList.name}</div>
+                                <span className="appraisal__popularity__price">
+                                    <span className="appraisal__popularity__price">감정가 </span>
+                                    {appraisalList.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}원 </span>
                         </div>
                         </Link>
                 </div>
+                ))}
+                </div>
+            <div className="appraisal__popularity__right">
+                {appraisalList.slice(6, 12).map((appraisalList) => (
+                    <div className="appraisal__popularity__card" key={appraisalList.id}>
+                    <Link to ={`/appraisal/${appraisalList.id}`} key={appraisalList.id}>
+                    <div className="appraisal__popularity__img">
+                                이미지 입네다.
+                    </div>
+                        <div className="appraisal__popularity__card__wrap">
+                            <div className="appraisal__popularity__title">{appraisalList.name}</div>
+                                <span className="appraisal__popularity__price">
+                                    <span className="appraisal__popularity__price">감정가 </span>
+                                    {appraisalList.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}원 </span>
+                        </div>
+                        </Link>
+                </div>
+            
                 )
-                )}
+            )}
             </div>
-                        <div className="appraisal__nextButton__container">
+            <div className="appraisal__nextButton__container">
                 <button className="appraisal__nextButton" onClick={leftButtonclick}><KeyboardArrowLeftIcon fontSize="inherit" /></button>
                 <button className="appraisal__nextButton__leftdot" onClick={leftButtonclick}><FiberManualRecordIcon fontSize="inherit" /></button>
                 <button className="appraisal__nextButton__rightdot"  onClick={rightButtonclick}><FiberManualRecordIcon fontSize="inherit" /></button>
                 <button className="appraisal__nextButton" onClick={rightButtonclick}><KeyboardArrowRightIcon fontSize="inherit" /></button>
-                </div>
+            </div>
         </section>
     );
 }
 
-export default withRouter(AppraisalPopularity)
+export default withRouter(AppraisalHighPrice)

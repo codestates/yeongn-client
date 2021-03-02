@@ -184,7 +184,7 @@ function AppraisalHighPrice () {
                 <button className="appraisal__nextButton__leftdot" onClick={leftButtonclick}><FiberManualRecordIcon fontSize="inherit" /></button>
                 <button className="appraisal__nextButton__rightdot"  onClick={rightButtonclick}><FiberManualRecordIcon fontSize="inherit" /></button>
                 <button className="appraisal__nextButton" onClick={rightButtonclick}><KeyboardArrowRightIcon fontSize="inherit" /></button>
-                </div>
+            </div>
         </section>
     );
 }

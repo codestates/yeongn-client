@@ -19,9 +19,9 @@
 .CategoryList__more__up,
 .CategoryList__more__down {
 	position: relative;
-	color: var(--color-pink);
+	color: var(--color-dark-orange);
 	background-color: transparent;
-	top: 5px;
+	top: 8px;
 	font-size: 30px;
 	text-align: center;
 	cursor: pointer;
@@ -30,12 +30,12 @@
 	transition: all 250ms ease-in;
 }
 .CategoryList__more__down:hover {
-	color: var(--color-dark-pink);
-	top: 10px;
+	color: var(--color-dark-orange);
+	top: 13px;
 }
 .CategoryList__more__up:hover {
-	color: var(--color-dark-pink);
-	top: 0px;
+	color: var(--color-dark-orange);
+	top: 3px;
 }
 .CategoryList__buttonBox {
 	margin: auto;
@@ -46,7 +46,7 @@
 	text-align: center;
 	color: rgb(48, 48, 48);
 	background-color: white;
-	border: 1.5px solid var(--color-pink);
+	border: 1.5px solid var(--color-dark-orange);
 	border-radius: 20px;
 	cursor: pointer;
 
@@ -57,13 +57,13 @@
 }
 .CategoryList__buttonBox__button:hover {
 	color: white;
-	background-color: rgb(255, 126, 75);
+	background-color: var(--color-dark-orange);
 }
 .CategoryList__buttonBox__buttonActive {
 	font-size: var(--font-micro);
 	text-align: center;
 	color: white;
-	background-color: rgb(255, 126, 75);
+	background-color: var(--color-dark-orange);
 	border: 1.5px solid var(--color-pink);
 	border-radius: 20px;
 	cursor: pointer;
@@ -101,6 +101,10 @@
 	margin-bottom: 20px;
 }
 
+.appraisalAllList__container__card:hover {
+	transition: all 250ms ease-in;
+	box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
+}
 .appraisalAllList__container__card__wrap {
 	display: flex;
 	justify-content: space-between;
@@ -126,7 +130,7 @@
 
 .appraisalAllList__container__moreButton {
 	text-align: center;
-	margin: -30px;
+
 	font-size: 80px;
 	cursor: pointer;
 	color: var(--color-pink);
@@ -173,9 +177,7 @@
 	.CategoryList__title {
 		margin-left: 10px;
 	}
-	.CategoryList__buttonBox {
-		/* margin-left: 10px; */
-	}
+
 	.CategoryList__buttonBox__button {
 		font-size: 12px;
 		padding: 6px;

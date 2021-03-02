@@ -21,7 +21,7 @@
 	cursor: pointer;
 	border: none;
 	outline: none;
-	transition: all 250ms ease-in;
+	transition: all 300ms ease-in;
 }
 
 .appraisal__title__button:hover {
@@ -31,47 +31,51 @@
 .appraisal__highPriceList {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-between;
+	justify-content: space-around;
 	overflow: hidden;
 	margin: auto;
-	transition: all 350ms;
+	transition: all 350ms ease-in;
 }
 .appraisal__highPriceList__right {
-	width: 1024px;
 	display: flex;
 	margin: auto;
 	position: absolute;
 	top: 120px;
+	width: 100%;
 	left: 1024px;
 	flex-wrap: wrap;
-	justify-content: space-between;
+	justify-content: space-around;
 	overflow: hidden;
-	transition: all 350ms;
+	transition: all 350ms ease-in;
+	transform: translateX(0px);
 }
 .appraisal__highPriceList__right__move {
-	width: 1024px;
 	display: flex;
 	margin: auto;
 	position: relative;
 	left: 1024px;
 	flex-wrap: wrap;
-	justify-content: space-between;
-	transition: all 350ms;
+	justify-content: space-around;
+	overflow: hidden;
+	transition: all 350ms ease-in;
 	transform: translateX(-1024px);
 }
 .appraisal__highPriceList__left__move {
-	width: 1024px;
 	display: flex;
 	position: absolute;
 	flex-wrap: wrap;
-	justify-content: space-between;
+	justify-content: space-around;
 	overflow: hidden;
-	transition: all 350ms;
+	transition: all 350ms ease-in;
 	transform: translateX(-1024px);
+}
+.appraisal__highPriceList__card:hover {
+	transition: all 250ms ease-in;
+	box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
 }
 
 .appraisal__highPriceList__card {
-	width: 330px;
+	width: 328px;
 	margin-bottom: 20px;
 }
 
@@ -81,7 +85,7 @@
 }
 .appraisal__highPriceList__img {
 	background-color: rgb(255, 229, 212);
-	width: 330px;
+	width: 328px;
 	height: 200px;
 	margin-bottom: 7px;
 }
@@ -100,26 +104,23 @@
 
 .appraisal__nextButton {
 	font-size: 50px;
-	margin: auto;
 	cursor: pointer;
 	border: none;
 	outline: none;
 	background-color: transparent;
-	color: var(--color-pink);
+	color: var(--color-dark-orange);
 }
 .appraisal__nextButton__leftdot {
 	font-size: 30px;
-	margin: auto;
 	cursor: pointer;
 	border: none;
 	outline: none;
 	background-color: transparent;
-	color: var(--color-pink);
+	color: var(--color-dark-orange);
 	transition: all 300ms;
 }
 .appraisal__nextButton__rightdot {
 	font-size: 30px;
-	margin: auto;
 	cursor: pointer;
 	border: none;
 	outline: none;
@@ -130,24 +131,28 @@
 .appraisal__nextButton__container {
 	display: flex;
 	justify-content: center;
-	align-items: center;
-	margin: auto;
 }
 
 @media all and (min-width: 768px) and (max-width: 1023px) {
 	.CategoryList__buttonBox {
 		margin-bottom: -20px;
 	}
+
 	.appraisal__title {
-		margin-left: 10px;
+		margin-left: 20px;
 	}
+
 	.appraisal__highPriceList__card {
 		margin: auto;
 		width: 370px;
 		margin-bottom: 20px;
 	}
+
 	.appraisal__highPriceList__img {
 		width: 370px;
+	}
+	.appraisal__title__button {
+		margin-right: 20px;
 	}
 }
 
@@ -155,11 +160,12 @@
 	.CategoryList__buttonBox {
 		margin-bottom: -20px;
 	}
+
 	.appraisal__highPriceList {
-		height: 1000px;
 		margin: auto;
 		overflow: hidden;
 	}
+
 	.appraisal__highPriceList__card {
 		margin: auto;
 		width: 350px;
@@ -170,18 +176,33 @@
 	}
 
 	.appraisal__title {
-		margin-left: 10px;
+		margin-left: 20px;
 		font-size: var(--font-regular);
 	}
 	.appraisal__title__button {
+		margin-right: 20px;
 		font-size: var(--font-small);
 	}
 }
 
 @media all and (max-width: 479px) {
 	.appraisal__highPriceList {
-		height: 490px;
+		height: 740px;
 		margin: auto;
+		overflow: hidden;
+	}
+
+	.appraisal__highPriceList__left__move {
+		height: 490px;
+		overflow: hidden;
+	}
+	.appraisal__highPriceList__right {
+		height: 490px;
+		overflow: hidden;
+	}
+
+	.appraisal__highPriceList__right__move {
+		height: 490px;
 		overflow: hidden;
 	}
 	.appraisal__highPriceList__card {
@@ -193,10 +214,14 @@
 		width: 320px;
 	}
 	.appraisal__title {
-		margin-left: 10px;
+		margin-left: 20px;
 		font-size: var(--font-regular);
 	}
 	.appraisal__title__button {
+		margin-right: 20px;
 		font-size: var(--font-small);
+	}
+	.appraisal__nextButton__container {
+		display: none;
 	}
 }
