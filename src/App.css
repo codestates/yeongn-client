@@ -49,6 +49,8 @@ body {
 a {
 	cursor: pointer;
 	outline: none;
+	text-decoration: none;
+	color: black;
 }
 
 button {

@@ -1,0 +1,266 @@
+.CategoryList {
+	position: relative;
+	margin: auto;
+	max-width: 1024px;
+	margin: auto;
+	top: 30px;
+}
+
+.CategoryList__title__wrap {
+	margin-bottom: 20px;
+}
+
+.CategoryList__title {
+	font-size: var(--font-regular);
+	font-weight: bold;
+	color: rgb(255, 126, 75);
+}
+
+.CategoryList__more__up,
+.CategoryList__more__down {
+	position: relative;
+	color: var(--color-pink);
+	background-color: transparent;
+	top: 5px;
+	font-size: 30px;
+	text-align: center;
+	cursor: pointer;
+	border: none;
+	outline: none;
+	transition: all 250ms ease-in;
+}
+.CategoryList__more__down:hover {
+	color: var(--color-dark-pink);
+	top: 10px;
+}
+.CategoryList__more__up:hover {
+	color: var(--color-dark-pink);
+	top: 0px;
+}
+.CategoryList__buttonBox {
+	margin: auto;
+}
+.CategoryList__buttonBox__button {
+	font-size: var(--font-micro);
+
+	text-align: center;
+	color: rgb(48, 48, 48);
+	background-color: white;
+	border: 1.5px solid var(--color-pink);
+	border-radius: 20px;
+	cursor: pointer;
+
+	outline: none;
+	padding: 10px;
+	margin: 6px;
+	transition: all 250ms ease-in;
+}
+.CategoryList__buttonBox__button:hover {
+	color: white;
+	background-color: rgb(255, 126, 75);
+}
+.CategoryList__buttonBox__buttonActive {
+	font-size: var(--font-micro);
+	text-align: center;
+	color: white;
+	background-color: rgb(255, 126, 75);
+	border: 1.5px solid var(--color-pink);
+	border-radius: 20px;
+	cursor: pointer;
+	outline: none;
+	padding: 10px;
+	margin: 6px;
+	transition: all 250ms ease-in;
+}
+.CategoryList__buttonBox__button__modal {
+	display: none;
+}
+.appraisalAllList {
+	max-width: 1024px;
+	margin: auto;
+}
+.appraisalAllList__title__wrap {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 70px;
+	margin-bottom: 30px;
+}
+.appraisalAllList__title {
+	font-size: var(--font-medium);
+	color: rgb(255, 126, 75);
+	font-weight: bold;
+}
+
+.appraisalAllList__container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+.appraisalAllList__container__card {
+	width: 330px;
+	margin-bottom: 20px;
+}
+
+.appraisalAllList__container__card__wrap {
+	display: flex;
+	justify-content: space-between;
+}
+.appraisalAllList__container__wrap {
+	justify-content: space-between;
+	display: flex;
+}
+.appraisalAllList__container__img {
+	background-color: rgb(255, 229, 212);
+	width: 330px;
+	height: 200px;
+	margin-bottom: 7px;
+}
+.appraisalAllList__container__title {
+	font-weight: bold;
+	font-size: var(--font-small);
+}
+.appraisalAllList__container__price {
+	position: relative;
+	font-size: var(--font-small);
+}
+
+.appraisalAllList__container__moreButton {
+	text-align: center;
+	margin: -30px;
+	font-size: 80px;
+	cursor: pointer;
+	color: var(--color-pink);
+}
+
+@media all and (min-width: 768px) and (max-width: 1023px) {
+	.CategoryList__buttonBox {
+		margin-left: 10px;
+	}
+	.CategoryList__title {
+		margin-left: 10px;
+	}
+	.CategoryList__buttonBox__button {
+		font-size: 12px;
+		padding: 7px;
+		margin: 5px;
+	}
+	.CategoryList__buttonBox__buttonActive {
+		font-size: 12px;
+		padding: 7px;
+		margin: 5px;
+	}
+	.appraisalAllList__title {
+		font-size: var(--font-regular);
+		margin-left: 10px;
+	}
+	.appraisalAllList__container__card {
+		width: 380px;
+		margin: auto;
+		justify-content: space-evenly;
+	}
+	.appraisalAllList__container__img {
+		width: 380px;
+	}
+	.appraisalAllList__container__wrap {
+		margin-bottom: 20px;
+	}
+}
+
+@media all and (min-width: 480px) and (max-width: 767px) {
+	.CategoryList__title__wrap {
+		justify-content: center;
+	}
+	.CategoryList__title {
+		margin-left: 10px;
+	}
+	.CategoryList__buttonBox {
+		/* margin-left: 10px; */
+	}
+	.CategoryList__buttonBox__button {
+		font-size: 12px;
+		padding: 6px;
+		margin: 3px;
+	}
+	.CategoryList__buttonBox__buttonActive {
+		font-size: 12px;
+		padding: 6px;
+		margin: 3px;
+	}
+	.appraisalAllList__title {
+		font-size: var(--font-regular);
+		margin-left: 10px;
+	}
+	.appraisalAllList__container__card {
+		width: 320px;
+		margin: auto;
+		justify-content: space-evenly;
+	}
+	.appraisalAllList__container__img {
+		width: 320px;
+	}
+	.appraisalAllList__container__wrap {
+		margin-bottom: 20px;
+	}
+}
+
+@media all and (max-width: 479px) {
+	.CategoryList__title__wrap {
+		justify-content: center;
+		display: flex;
+	}
+	.CategoryList__title {
+		margin-left: 10px;
+	}
+	.CategoryList__more__up,
+	.CategoryList__more__down {
+		top: -7px;
+		transition: all 250ms ease-in;
+	}
+	.CategoryList__more__down:hover {
+		color: var(--color-dark-pink);
+		top: -2px;
+	}
+	.CategoryList__more__up:hover {
+		color: var(--color-dark-pink);
+		top: -12px;
+	}
+	.CategoryList__buttonBox {
+		max-height: 230px;
+		display: flex;
+		flex-flow: column wrap;
+	}
+	.CategoryList__buttonBox__button {
+		display: none;
+	}
+	.CategoryList__buttonBox__buttonActive {
+		display: none;
+	}
+
+	.CategoryList__buttonBox__button__modal {
+		display: flex;
+		font-size: var(--font-micro);
+		text-align: center;
+		color: rgb(0, 0, 0);
+		background-color: transparent;
+		cursor: pointer;
+		border: none;
+		outline: none;
+		margin: 6px;
+		transition: all 250ms ease-in;
+	}
+	.appraisalAllList__title {
+		margin-left: 10px;
+		font-size: var(--font-regular);
+	}
+	.appraisalAllList__container__card {
+		width: 370px;
+		margin: auto;
+		justify-content: space-evenly;
+	}
+	.appraisalAllList__container__img {
+		width: 370px;
+	}
+	.appraisalAllList__container__wrap {
+		margin-bottom: 20px;
+	}
+}
