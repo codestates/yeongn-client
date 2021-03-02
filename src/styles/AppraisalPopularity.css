@@ -1,3 +1,26 @@
+.appraisal {
+	max-width: 1024px;
+	margin: auto;
+}
+.appraisal__title__wrap {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 50px;
+	margin-bottom: 30px;
+}
+.appraisal__title {
+	font-size: var(--font-medium);
+	color: rgb(255, 126, 75);
+	font-weight: bold;
+}
+.appraisal__title__button {
+	font-size: var(--font-regular);
+	background-color: transparent;
+	cursor: pointer;
+	border: none;
+	outline: none;
+}
+
 .appraisal__popularityList {
 	display: flex;
 	flex-wrap: wrap;
@@ -18,17 +41,17 @@
 	height: 200px;
 	margin-bottom: 7px;
 }
-.appraisal__popularityList__title {
+.aappraisal__popularityList__title {
 	font-weight: bold;
-	font-size: 1.1rem;
+	font-size: var(--font-small);
 }
-.appraisal__popularityList__price__name {
+.aappraisal__popularityList__price__name {
 	position: relative;
-	font-size: 0.9rem;
+	font-size: var(--font-micro);
 }
 .appraisal__popularityList__price {
 	position: relative;
-	font-size: 1.1rem;
+	font-size: var(--font-small);
 }
 
 @media all and (min-width: 768px) and (max-width: 1023px) {
@@ -44,7 +67,7 @@
 
 @media all and (min-width: 480px) and (max-width: 767px) {
 	.appraisal__popularityList {
-		height: 970px;
+		height: 1000px;
 		margin: auto;
 		overflow: hidden;
 	}
@@ -55,6 +78,13 @@
 	}
 	.appraisal__popularityList__img {
 		width: 350px;
+	}
+
+	.appraisal__title {
+		font-size: var(--font-regular);
+	}
+	.appraisal__title__button {
+		font-size: var(--font-small);
 	}
 }
 
@@ -71,5 +101,11 @@
 	}
 	.appraisal__popularityList__img {
 		width: 320px;
+	}
+	.appraisal__title {
+		font-size: var(--font-regular);
+	}
+	.appraisal__title__button {
+		font-size: var(--font-small);
 	}
 }

@@ -40,7 +40,7 @@
 body {
 	padding: 0;
 	margin: 0;
-	min-width: 800px;
+	/* min-width: 800px; */
 	overflow-x: auto;
 	font-family: "noto_sans";
 }
@@ -50,6 +50,8 @@ body {
 a {
 	cursor: pointer;
 	outline: none;
+	text-decoration: none;
+	color: black;
 }
 
 button {

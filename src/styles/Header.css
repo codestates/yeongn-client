@@ -1,8 +1,7 @@
 .header {
 	width: 100%;
-	background: var(--color-yellow);
-	/* border-bottom: 1px solid;
-	box-shadow: 0px 0px 3px 0px var(--color-grey); */
+	background: var(--color-white);
+	border-bottom: 0.1px solid black;
 	font-family: "jua";
 	color: black;
 	font-weight: var(--weight-bold);
@@ -38,7 +37,6 @@
 	box-sizing: border-box;
 	border: none;
 	padding: 6px;
-
 	border-radius: 5px 0px 0px 5px;
 }
 .header__search__button {
