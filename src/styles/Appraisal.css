@@ -32,7 +32,7 @@
 }
 
 .Appraisal__main__button {
-	background-color: rgb(255, 149, 107);
+	background-color: var(--color-dark-orange);
 	color: white;
 	font-size: var(--font-regular);
 	border-radius: 50px;
@@ -57,7 +57,12 @@
 		transition: all 250ms ease-in;
 		width: 500px;
 		top: 130px;
+		margin-left: 20px;
 	}
+	.Appraisal__main__wrap {
+		margin-right: 20px;
+	}
+
 	.Appraisal__main__title {
 		font-size: 1.5rem;
 	}
@@ -90,17 +95,20 @@
 }
 
 @media all and (max-width: 479px) {
+	.Appraisal__main {
+		height: 300px;
+	}
 	.Appraisal__main__container {
 		flex-direction: column-reverse;
 	}
 	.Appraisal__main__image {
 		width: 300px;
 		height: 200px;
-		top: 170px;
+		top: 70px;
 	}
 	.Appraisal__main__wrap {
 		position: relative;
-		top: 120px;
+		top: 50px;
 	}
 	.Appraisal__main__title {
 		font-size: var(--font-small);
