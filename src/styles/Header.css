@@ -1,12 +1,13 @@
 .header {
 	width: 100%;
-	background: var(--color-yellow);
-	font-family: "jua";
+	background: var(--color-white);
+	border-bottom: 1px solid var(--color-light-grey);
+	font-family: "noto_sans";
 	color: black;
-	font-weight: var(--weight-bold);
 	position: sticky;
 	top: 0px;
 	z-index: 3;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .header__container {
@@ -19,19 +20,22 @@
 	padding: 10px;
 	justify-content: space-around;
 }
-
+.menu__link__button {
+	padding-top: 2px;
+	padding-right: 2px;
+}
 .header__logo {
 	height: 40px;
-	flex-basis: 20%;
+	flex-basis: 15%;
 }
 .header__logo > img {
 	height: 40px;
 }
 
 .header__menu {
-	flex-basis: 80%;
+	flex-basis: 85%;
 	display: flex;
-	justify-content: space-around;
+	justify-content: space-between;
 	align-items: center;
 }
 
@@ -45,31 +49,33 @@
 }
 
 .header__menu__search__input {
-	margin-left: 30px;
-	width: 350px;
-	height: 40px;
+	margin-left: 35px;
+	width: 330px;
+	height: 35px;
 	box-sizing: border-box;
-	border: none;
+	border: 1px solid var(--color-dark-orange);
 	padding: 6px;
+	padding-left: 12px;
 	border-radius: 5px 0px 0px 5px;
 }
 .header__menu__search__button {
 	display: inline-block;
 	border-left: 0px;
 	border: none;
-	height: 40px;
-	padding-top: 2px;
+	height: 35px;
+	padding-top: 6px;
 	padding-bottom: 2px;
 	border-radius: 0px 5px 5px 0px;
 	background: var(--color-dark-orange);
 }
 
 .header__menu__link {
-	flex-basis: 45%;
+	margin-right: 20px;
+	flex-basis: 40%;
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
-	font-size: 20px;
+	font-size: 15px;
 }
 .header__menu__link__button {
 	display: flex;
@@ -84,17 +90,15 @@
 	height: 24.8px;
 	line-height: 24.8px;
 	text-align: center;
-	font-family: "jua";
 }
 
 .header__menu__link > button {
 	text-align: center;
-	font-family: "jua";
 	border: none;
 	background: transparent;
 	margin: 0;
 	padding: 0;
-	font-size: 20px;
+	font-size: 15px;
 }
 
 .header__toggle-btn {
