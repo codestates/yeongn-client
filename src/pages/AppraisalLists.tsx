@@ -100,7 +100,7 @@ function AppraisalList() {
     const [categoryMore, setCategoryMore] = useState<boolean>(false);
 
     const categoryButtonClick = (categoryTitle: string, e: any): void => {
-       
+
         setCategoryTitle(categoryTitle)
         if (categoryTitle === "전체") {
             setAppraisalList(initialState)
@@ -129,11 +129,11 @@ function AppraisalList() {
                     el.className ="CategoryList__buttonBox__button"
                 }
             })
-    
 }
     const moreButtonClick = ():void => {
         setCount(count => count + 6)
     }
+
     const moreCategoryButtonUp = ():void => {
         setCategoryMore(false);
     }
