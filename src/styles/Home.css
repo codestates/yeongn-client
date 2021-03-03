@@ -149,17 +149,23 @@
 	.home__category__container {
 		flex-direction: column;
 	}
+	.home__category__contents__title {
+		width: 90%;
+	}
 	.home__category__contents {
 		margin-right: 0px;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-around;
 		align-items: center;
-		width: 300px;
+		width: 320px;
 		margin-bottom: 10px;
 	}
 	.home__appraisal__contents > h2,
-	.home__store__contents > h2,
+	.home__store__contents > h2 {
+		font-size: 26px;
+		text-align: center;
+	}
 	.home__category__contents > h2 {
 		font-size: 26px;
 		text-align: center;

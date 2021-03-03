@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 import { Link, withRouter } from "react-router-dom";
 import "../styles/MyPageStore.css";
+/**
+ *
+ * 가져올 것 userId 이걸로 axios요청으로 자신이 남긴 감정기록을
+ * 조회함
+ */
+
 function MyPageStore() {
 	const initialState = [
 		{
