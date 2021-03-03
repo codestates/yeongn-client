@@ -7,6 +7,9 @@ import AppraisalList from "./pages/AppraisalLists";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import MyPage from "./pages/MyPage";
+import MyPageLikesAdd from "./pages/MyPageLikesAdd";
+import MyPageRequestAdd from "./pages/MyPageRequestAdd";
+import MyPageStoreAdd from "./pages/MyPageStoreAdd";
 import RegisterAppraisal from "./pages/RegisterAppraisal";
 import RegisterSale from "./pages/RegisterSale";
 import Search from "./pages/Search";
@@ -58,6 +61,27 @@ function App() {
 					path="/mypage"
 					render={() => {
 						return <MyPage />;
+					}}
+				/>
+				<Route
+					exact
+					path="/mypage/request"
+					render={() => {
+						return <MyPageRequestAdd />;
+					}}
+				/>
+				<Route
+					exact
+					path="/mypage/shop"
+					render={() => {
+						return <MyPageStoreAdd />;
+					}}
+				/>
+				<Route
+					exact
+					path="/mypage/likes"
+					render={() => {
+						return <MyPageLikesAdd />;
 					}}
 				/>
 				<Route

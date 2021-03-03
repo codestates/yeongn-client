@@ -1,0 +1,115 @@
+.mypage__profile {
+	display: flex;
+	flex-direction: column;
+	margin: 20px;
+	color: black;
+}
+
+.profile__title {
+	font-size: 32px;
+	/* text-align: center; */
+}
+
+.profile__description {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	background-color: var(--color-dark-orange);
+	height: 150px;
+	margin-top: 20px;
+}
+.profile__description__name {
+	display: flex;
+	flex-direction: row;
+	flex-basis: 50%;
+	justify-content: space-between;
+	align-items: flex-end;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+.profile__nickname__container {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 100%;
+}
+.nickname__title {
+	margin-left: 15px;
+	font-size: 10px;
+}
+.name__nickname {
+	font-size: 42px;
+	margin-left: 15px;
+}
+
+.name__change {
+	background-color: transparent;
+	border: none;
+	font-size: 8px;
+	padding: 5px;
+	border-radius: 4px;
+	margin-right: 20px;
+	height: 30px;
+	color: black;
+}
+.help__tier__container {
+	flex-basis: 50%;
+	display: flex;
+}
+.profile__description__help,
+.profile__description__tier {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: flex-start;
+	flex-basis: 50%;
+	border-left: 1px solid black;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.name__change:hover {
+	font-weight: var(--weight-bold);
+}
+.help__title,
+.tier__title {
+	margin-left: 15px;
+	font-size: 10px;
+}
+.help__many,
+.tier__grade {
+	font-size: 32px;
+	margin-left: 15px;
+}
+
+@media all and (max-width: 768px) {
+	.mypage__profile {
+		background-color: var(--color-dark-orange);
+		margin: 0;
+		padding: 0px;
+	}
+	.nickname__title {
+		display: none;
+	}
+	.profile__title {
+		padding-left: 15px;
+		display: none;
+	}
+	.profile__description__name {
+		border-bottom: 1px solid black;
+		padding-bottom: 20px;
+		margin-bottom: 0px;
+	}
+	.profile__description {
+		flex-direction: column;
+		height: 100%;
+		margin: 0;
+	}
+	.profile__description__help {
+		border-left: none;
+		border-right: 1px solid black;
+	}
+	.profile__description__tier {
+		border: none;
+	}
+}

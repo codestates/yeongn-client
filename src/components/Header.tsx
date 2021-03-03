@@ -45,12 +45,16 @@ function Header() {
 					{isLogin ? (
 						<div className="header__menu__link">
 							<Link to="/appraisal" className="header__menu__link__button">
-								<CreateIcon />
-								<div>감정소</div>
+								<div className="menu__link__button">
+									<CreateIcon />
+								</div>
+								감정소
 							</Link>
 							<Link to="/shop" className="header__menu__link__button">
-								<StorefrontIcon />
-								<div>상점</div>
+								<div className="menu__link__button">
+									<StorefrontIcon />
+								</div>
+								상점
 							</Link>
 							<Link to="/mypage" className="header__menu__link__button">
 								마이페이지
@@ -60,12 +64,16 @@ function Header() {
 					) : (
 						<div className="header__menu__link">
 							<Link to="/appraisal" className="header__menu__link__button">
-								<CreateIcon />
-								<div>감정소</div>
+								<div className="menu__link__button">
+									<CreateIcon />
+								</div>
+								감정소
 							</Link>
 							<Link to="/shop" className="header__menu__link__button">
-								<StorefrontIcon />
-								<div>상점</div>
+								<div className="menu__link__button">
+									<StorefrontIcon />
+								</div>
+								상점
 							</Link>
 							<Link to="/login" className="header__menu__link__button">
 								로그인

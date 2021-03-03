@@ -1,7 +1,7 @@
 #footer {
 	width: 100%;
 	background: var(--color-beige);
-	font-family: "jua";
+	font-family: "noto_sans";
 	min-width: 360px;
 }
 .footer__container {
@@ -23,21 +23,18 @@
 .footer__market {
 	flex-basis: 25%;
 	padding-left: 15px;
-	border-left: 1px solid lightgray;
 }
 .footer__team {
 	flex-basis: 25%;
 	padding-left: 15px;
-	border-left: 1px solid lightgray;
 }
 .footer__captain {
 	padding-left: 15px;
-	border-left: 1px solid lightgray;
+
 	flex-basis: 25%;
 }
 .footer__crew {
 	padding-left: 15px;
-	border-left: 1px solid lightgray;
 	flex-basis: 25%;
 }
 .footer__market__title,
@@ -46,7 +43,10 @@
 .footer__crew__title {
 	font-size: large;
 }
-
+.footer__github {
+	padding-right: 5px;
+	padding-top: 3px;
+}
 .footer__captain__description,
 .footer__crew__description {
 	display: flex;
@@ -75,4 +75,26 @@
 	font-size: large;
 	padding: 30px 0px 30px 0px;
 	border-top: 1px solid var(--color-light-grey);
+}
+
+@media all and (max-width: 768px) {
+	.footer__market__title,
+	.footer__team__title,
+	.footer__captain__title,
+	.footer__crew__title {
+		font-size: 18px;
+	}
+	.footer__team__description,
+	.footer__captain__description,
+	.footer__crew__description {
+		display: flex;
+		align-items: center;
+		font-size: 14px;
+		line-height: 24px;
+		text-decoration: none;
+		color: black;
+	}
+	.footer__bottom {
+		padding: 15px 0px 15px 0px;
+	}
 }

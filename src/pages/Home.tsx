@@ -30,7 +30,10 @@ function Home() {
 							감정가를 책정해 줍니다.
 						</h3>
 						<Link to="appraisal" className="home__appraisal__contents__button">
-							<CreateIcon fontSize="inherit" /> 감정소
+							<div className="appraisal__button__icon">
+								<CreateIcon fontSize="inherit" />
+							</div>
+							감정소
 						</Link>
 					</div>
 				</div>
@@ -51,7 +54,9 @@ function Home() {
 							상점에 판매해 봅시다!
 						</h3>
 						<Link to="shop" className="home__store__contents__button">
-							<StorefrontIcon fontSize="inherit" />
+							<div className="store__button__icon">
+								<StorefrontIcon fontSize="inherit" />
+							</div>
 							<div>상점</div>
 						</Link>
 					</div>
@@ -67,9 +72,9 @@ function Home() {
 					</div>
 					<div className="home__category__contents">
 						<h2 className="home__category__contents__title">
-							다양하고 재밌는 카테고리로
+							다양한 카테고리로
 							<br />
-							마음에 드는 물건을 찾아보세요.
+							재밌는 물건을 찾아보세요.
 						</h2>
 						<h3 className="home__category__contents__description">
 							왜 나만 없어? 😭
@@ -82,12 +87,11 @@ function Home() {
 							<li className="home__category__button">#골동품</li>
 							<li className="home__category__button">#엄마요리솜씨</li>
 							<li className="home__category__button">#줘도안씀</li>
-							<li className="home__category__button">#전자기기</li>
+
 							<li className="home__category__button">#책</li>
 							<li className="home__category__button">#키덜트</li>
 							<li className="home__category__button">#귀멸의칼날</li>
 							<li className="home__category__button">#피규어</li>
-							<li className="home__category__button">#내기를받아라</li>
 						</ul>
 					</div>
 				</div>
