@@ -87,7 +87,6 @@ function Home() {
 							<li className="home__category__button">#골동품</li>
 							<li className="home__category__button">#엄마요리솜씨</li>
 							<li className="home__category__button">#줘도안씀</li>
-
 							<li className="home__category__button">#책</li>
 							<li className="home__category__button">#키덜트</li>
 							<li className="home__category__button">#귀멸의칼날</li>

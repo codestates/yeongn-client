@@ -158,13 +158,26 @@
 		width: 300px;
 		margin-bottom: 10px;
 	}
+	.home__appraisal__contents > h2,
+	.home__store__contents > h2,
 	.home__category__contents > h2 {
-		font-size: 30px;
+		font-size: 26px;
+		text-align: center;
 	}
 	.home__store__contents,
 	.home__appraisal__contents,
 	.home__category__contents {
 		min-width: 250px;
+	}
+	.home__appraisal__contents__description,
+	.home__store__contents__description,
+	.home__comments__contents__description {
+		margin-top: 20px;
+		text-align: center;
+	}
+	.home__category__button__container {
+		margin-top: 25px;
+		justify-content: center;
 	}
 	.home__store__img,
 	.home__appraisal__img,
