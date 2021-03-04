@@ -1,7 +1,7 @@
 .home__appraisal {
-	background: var(--color-white);
+	background: var(--color-light-beige);
 	width: 100%;
-	font-family: "jua";
+	font-family: "noto_sans";
 }
 .home__appraisal__container {
 	max-width: 1024px;
@@ -29,32 +29,9 @@
 	margin-left: 30px;
 	display: flex;
 	flex-direction: column;
-	align-items: center;
+	align-items: flex-start;
+	justify-content: flex-start;
 }
-.home__appraisal__contents__title {
-	text-align: center;
-}
-.home__appraisal__contents__description {
-	text-align: center;
-}
-.home__appraisal__contents__button {
-	display: flex;
-	align-items: center;
-	justify-content: space-around;
-	padding: 4px 10px 0 10px;
-	text-decoration: none;
-	color: black;
-	cursor: pointer;
-	border: 3px dashed var(--color-dark-orange);
-	width: 150px;
-	text-align: center;
-	height: 50px;
-	font-size: 30px;
-	line-height: 50px;
-	margin-top: 20px;
-	border-radius: var(--size-border-radius);
-}
-
 .home__store__contents__button:hover {
 	background: var(--color-dark-orange);
 }
@@ -62,9 +39,9 @@
 	background: var(--color-dark-orange);
 }
 .home__store {
-	background: var(--color-light-green);
+	background: var(--color-dark-white);
 	width: 100%;
-	font-family: "jua";
+	font-family: "noto_sans";
 }
 .home__store__container {
 	max-width: 1024px;
@@ -78,36 +55,37 @@
 .home__store__contents {
 	display: flex;
 	flex-direction: column;
-	align-items: center;
+	align-items: flex-start;
 }
-.home__store__contents__title {
-	text-align: center;
-}
-.home__store__contents__description {
-	text-align: center;
-}
-.home__store__contents__button {
+
+.home__store__contents__button,
+.home__appraisal__contents__button {
 	display: flex;
 	align-items: center;
-	padding: 4px 20px 0 20px;
-	justify-content: space-around;
+	padding: 3px 20px 3px 20px;
+	justify-content: center;
 	border: 3px dashed var(--color-dark-orange);
 	text-decoration: none;
 	color: black;
 	cursor: pointer;
 	border: 3px dashed var(--color-dark-orange);
-	width: 150px;
+	width: 130px;
 	text-align: center;
-	height: 50px;
-	font-size: 30px;
+
+	font-size: 20px;
 	line-height: 30px;
 	border-radius: var(--size-border-radius);
 	margin-top: 20px;
 }
+.store__button__icon,
+.appraisal__button__icon {
+	padding-top: 5px;
+	padding-right: 5px;
+}
 .home__category {
 	background: var(--color-white);
 	width: 100%;
-	font-family: "jua";
+	font-family: "noto_sans";
 }
 .home__category__container {
 	max-width: 1024px;
@@ -121,17 +99,12 @@
 	margin-right: 100px;
 	display: flex;
 	flex-direction: column;
-	align-items: center;
+	align-items: flex-start;
 }
-.home__category__contents__title {
-	text-align: center;
-}
-.home__category__contents__description {
-	text-align: center;
-}
+
 .home__category__button__container {
 	display: flex;
-	justify-content: center;
+	justify-content: flex-start;
 	width: 350px;
 	flex-wrap: wrap;
 }
@@ -140,7 +113,10 @@
 	margin-bottom: 10px;
 	background: var(--color-dark-orange);
 	padding: 8px;
+	padding-left: 12px;
+	padding-right: 12px;
 	border-radius: 10px;
+	font-size: 12px;
 }
 @media screen and (min-width: 769px) and (max-width: 1023px) {
 }
@@ -173,22 +149,41 @@
 	.home__category__container {
 		flex-direction: column;
 	}
+	.home__category__contents__title {
+		width: 90%;
+	}
 	.home__category__contents {
 		margin-right: 0px;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-around;
 		align-items: center;
-		width: 300px;
+		width: 320px;
 		margin-bottom: 10px;
 	}
+	.home__appraisal__contents > h2,
+	.home__store__contents > h2 {
+		font-size: 26px;
+		text-align: center;
+	}
 	.home__category__contents > h2 {
-		font-size: 24px;
+		font-size: 26px;
+		text-align: center;
 	}
 	.home__store__contents,
 	.home__appraisal__contents,
 	.home__category__contents {
 		min-width: 250px;
+	}
+	.home__appraisal__contents__description,
+	.home__store__contents__description,
+	.home__comments__contents__description {
+		margin-top: 20px;
+		text-align: center;
+	}
+	.home__category__button__container {
+		margin-top: 25px;
+		justify-content: center;
 	}
 	.home__store__img,
 	.home__appraisal__img,

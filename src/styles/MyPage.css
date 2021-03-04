@@ -1,0 +1,7 @@
+#mypage {
+	width: 100%;
+}
+.mypage__container {
+	max-width: 1024px;
+	margin: auto;
+}

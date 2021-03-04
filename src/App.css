@@ -12,24 +12,28 @@
 	--color-light-grey: #7c7979;
 	--color-blue: #73aace;
 	--color-yellow: #fff7d1;
-	--color-orange: #f3d6aa;
+	--color-orange: #ffa826;
+	--color-brown: #af751d;
 	--color-beige: #fdead5;
-	--color-dark-orange: #ff7c43;
+	--color-light-beige: #fdf5ec;
+	--color-dark-orange: #ff9e75;
 	--color-black: #000000;
 	--color-green: #00251a;
 	--color-light-green: #e1f5d1;
+	--color-dark-white: #f0f0ee;
 
 	/* Font size */
 	--font-large: 48px;
-	--font-medium: 28px;
+	--font-medium: 24px;
 	--font-regular: 18px;
 	--font-small: 16px;
-	--font-micro: 14px;
+	--font-micro: 12px;
 
 	/* Font weight */
 	--weight-bold: 700;
 	--weight-semi-bold: 600;
 	--weight-regular: 400;
+	--weight-small: 200;
 
 	/* Size */
 	--size-border-radius: 4px;
@@ -70,14 +74,14 @@ h1 {
 }
 
 h2 {
-	font-size: var(--font-medium);
+	font-size: 30px;
 	font-weight: var(--weight-semi-bold);
 	color: var(--color-black);
 	margin: 8px 0;
 }
 
 h3 {
-	font-size: var(--font-regular);
+	font-size: 14px;
 	font-weight: var(--weight-regular);
 	color: var(--color-black);
 	margin: 8px 0;

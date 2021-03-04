@@ -21,7 +21,9 @@ function Footer() {
 							target="blank"
 							className="footer__captain__description"
 						>
-							<GitHubIcon />
+							<div className="footer__github">
+								<GitHubIcon fontSize="inherit" />
+							</div>
 							김창민
 						</a>
 					</div>
@@ -32,7 +34,9 @@ function Footer() {
 							target="blank"
 							className="footer__crew__description"
 						>
-							<GitHubIcon />
+							<div className="footer__github">
+								<GitHubIcon fontSize="inherit" />
+							</div>
 							박지상
 						</a>
 
@@ -41,7 +45,9 @@ function Footer() {
 							target="blank"
 							className="footer__crew__description"
 						>
-							<GitHubIcon />
+							<div className="footer__github">
+								<GitHubIcon fontSize="inherit" />
+							</div>
 							이상권
 						</a>
 						<a
@@ -49,7 +55,9 @@ function Footer() {
 							target="blank"
 							className="footer__crew__description"
 						>
-							<GitHubIcon />
+							<div className="footer__github">
+								<GitHubIcon fontSize="inherit" />
+							</div>
 							김제현
 						</a>
 					</div>
