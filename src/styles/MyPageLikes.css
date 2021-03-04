@@ -55,7 +55,8 @@
 		margin-bottom: 20px;
 	}
 	.likes__img {
-		width: 140px;
+		margin: 10px;
+		width: 150px;
 		height: 85px;
 	}
 }

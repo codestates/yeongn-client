@@ -21,7 +21,7 @@ function ArrowUp() {
 			handleScroll();
 			showArrowUp();
 		});
-	});
+	}, [scrollY]);
 	return (
 		<div className={showArrow ? "arrow-up visible" : "arrow-up"} onClick={goUp}>
 			<ArrowUpwardIcon fontSize="inherit" />

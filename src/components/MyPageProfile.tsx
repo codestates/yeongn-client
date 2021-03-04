@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link, withRouter } from "react-router-dom";
 import "../styles/MyPageProfile.css";
 import ArrowUp from "../components/ArrowUp";
 function MyPageProfile() {
@@ -17,7 +18,9 @@ function MyPageProfile() {
 
 	return (
 		<div className="mypage__profile">
-			<div className="profile__title">MY PAGE</div>
+			<div className="profile__title">
+				<Link to="/mypage">MY PAGE</Link>
+			</div>
 			<div className="profile__description">
 				<div className="profile__description__name">
 					<div className="profile__nickname__container">
