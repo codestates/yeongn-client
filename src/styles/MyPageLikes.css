@@ -17,6 +17,7 @@
 	font-size: var(--font-regular);
 	font-weight: bold;
 }
+
 .likes__title__addLink {
 	font-size: var(--font-micro);
 	color: var(--color-light-grey);

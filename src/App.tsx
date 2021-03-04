@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Appraisal from "./pages/Appraisal";
@@ -17,7 +17,20 @@ import Shop from "./pages/Shop";
 import ShopContent from "./pages/ShopContent";
 import ShopList from "./pages/ShopList";
 
+import AuthRoute from "./components/AuthRoute";
+
+type User = {
+	userId: String;
+};
+
 function App() {
+	const [user, setUser] = useState("빵맨");
+	const authenticated = true;
+	// 여기 고쳐야함!!
+	const userInfo: User = {
+		userId: "빵맨",
+	};
+
 	return (
 		<Router>
 			<Switch>
@@ -49,15 +62,8 @@ function App() {
 						return <AppraisalList />;
 					}}
 				/>
+				<Route exact path="/login" />
 				<Route
-					exact
-					path="/login"
-					render={() => {
-						return <Login />;
-					}}
-				/>
-				<Route
-					exact
 					path="/mypage"
 					render={() => {
 						return <MyPage />;
