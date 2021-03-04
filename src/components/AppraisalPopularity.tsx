@@ -88,7 +88,7 @@ const initialState =
     ]
 
 
-function AppraisalHighPrice () {
+function AppraisalPopularity () {
 
     const [appraisalList, setAppraisalList] = useState(initialState);
 
@@ -103,33 +103,31 @@ function AppraisalHighPrice () {
     // }
 
     const rightButtonclick = ():void => {
-        
         const next = document.querySelector(".appraisal__popularity__right") as HTMLElement
         const before = document.querySelector(".appraisal__popularity") as HTMLElement
-        const buttonLeft = document.querySelector(".appraisal__nextButton__leftdot") as HTMLElement
-        const buttonRight = document.querySelector(".appraisal__nextButton__rightdot") as HTMLElement
+        const buttonLeft = document.querySelector(".appraisal__nextButton2__leftdot") as HTMLElement
+        const buttonRight = document.querySelector(".appraisal__nextButton2__rightdot") as HTMLElement
         
         if (next == null || before == null || buttonLeft == null || buttonRight == null) {
             return;
         }
         next.className="appraisal__popularity__right__move"
         before.className = "appraisal__popularity__left__move"
-        buttonLeft.className = "appraisal__nextButton__rightdot"
-        buttonRight.className = "appraisal__nextButton__leftdot"
+        buttonLeft.className ="appraisal__nextButton2__rightdot"
+        buttonRight.className ="appraisal__nextButton2__leftdot"
     }
     const leftButtonclick = ():void  => {
         const next = document.querySelector(".appraisal__popularity__right__move") as HTMLElement
         const before = document.querySelector(".appraisal__popularity__left__move") as HTMLElement
-        const buttonLeft = document.querySelector(".appraisal__nextButton__leftdot") as HTMLElement
-        const buttonRight = document.querySelector(".appraisal__nextButton__rightdot") as HTMLElement
+        const buttonLeft = document.querySelector(".appraisal__nextButton2__leftdot") as HTMLElement
+        const buttonRight = document.querySelector(".appraisal__nextButton2__rightdot") as HTMLElement
         if (next == null || before == null || buttonLeft == null || buttonRight ==null) {
             return;
         }
         next.className="appraisal__popularity__right"
         before.className = "appraisal__popularity"
-        buttonLeft.className = "appraisal__nextButton__rightdot"
-        buttonRight.className = "appraisal__nextButton__leftdot"
-
+        buttonLeft.className ="appraisal__nextButton2__rightdot"
+        buttonRight.className ="appraisal__nextButton2__leftdot"
     }
 
     return (
@@ -149,7 +147,6 @@ function AppraisalHighPrice () {
                     <div className="appraisal__popularity__card" key={appraisalList.id}>
                     <Link to ={`/appraisal/${appraisalList.id}`} key={appraisalList.id}>
                     <div className="appraisal__popularity__img">
-                                이미지
                     </div>
                         <div className="appraisal__popularity__card__wrap">
                             <div className="appraisal__popularity__title">{appraisalList.name}</div>
@@ -166,7 +163,6 @@ function AppraisalHighPrice () {
                     <div className="appraisal__popularity__card" key={appraisalList.id}>
                     <Link to ={`/appraisal/${appraisalList.id}`} key={appraisalList.id}>
                     <div className="appraisal__popularity__img">
-                                이미지 입네다.
                     </div>
                         <div className="appraisal__popularity__card__wrap">
                             <div className="appraisal__popularity__title">{appraisalList.name}</div>
@@ -181,13 +177,13 @@ function AppraisalHighPrice () {
             )}
             </div>
             <div className="appraisal__nextButton__container">
-                <button className="appraisal__nextButton" onClick={leftButtonclick}><KeyboardArrowLeftIcon fontSize="inherit" /></button>
-                <button className="appraisal__nextButton__leftdot" onClick={leftButtonclick}><FiberManualRecordIcon fontSize="inherit" /></button>
-                <button className="appraisal__nextButton__rightdot"  onClick={rightButtonclick}><FiberManualRecordIcon fontSize="inherit" /></button>
-                <button className="appraisal__nextButton" onClick={rightButtonclick}><KeyboardArrowRightIcon fontSize="inherit" /></button>
+                <button className="appraisal__nextButton2" onClick={leftButtonclick}><KeyboardArrowLeftIcon fontSize="inherit" /></button>
+                <button className="appraisal__nextButton2__leftdot" onClick={leftButtonclick}><FiberManualRecordIcon fontSize="inherit" /></button>
+                <button className="appraisal__nextButton2__rightdot" onClick={rightButtonclick}><FiberManualRecordIcon fontSize="inherit" /></button>
+                <button className="appraisal__nextButton2" onClick={rightButtonclick}><KeyboardArrowRightIcon fontSize="inherit" /></button>
             </div>
         </section>
     );
 }
 
-export default withRouter(AppraisalHighPrice)
+export default withRouter(AppraisalPopularity)

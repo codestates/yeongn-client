@@ -103,7 +103,6 @@ function AppraisalHighPrice () {
     // }
 
     const rightButtonclick = ():void => {
-        
         const next = document.querySelector(".appraisal__highPriceList__right") as HTMLElement
         const before = document.querySelector(".appraisal__highPriceList") as HTMLElement
         const buttonLeft = document.querySelector(".appraisal__nextButton__leftdot") as HTMLElement
@@ -112,9 +111,9 @@ function AppraisalHighPrice () {
             return;
         }
         next.className="appraisal__highPriceList__right__move"
-        before.className = "appraisal__highPriceList__left__move"
-        buttonLeft.className = "appraisal__nextButton__rightdot"
-        buttonRight.className = "appraisal__nextButton__leftdot"
+        before.className ="appraisal__highPriceList__left__move"
+        buttonLeft.className ="appraisal__nextButton__rightdot"
+        buttonRight.className ="appraisal__nextButton__leftdot"
     }
     const leftButtonclick = ():void  => {
         const next = document.querySelector(".appraisal__highPriceList__right__move") as HTMLElement
@@ -125,10 +124,9 @@ function AppraisalHighPrice () {
             return;
         }
         next.className="appraisal__highPriceList__right"
-        before.className = "appraisal__highPriceList"
-        buttonLeft.className = "appraisal__nextButton__rightdot"
-        buttonRight.className = "appraisal__nextButton__leftdot"
-
+        before.className ="appraisal__highPriceList"
+        buttonLeft.className ="appraisal__nextButton__rightdot"
+        buttonRight.className ="appraisal__nextButton__leftdot"
     }
 
     return (
@@ -148,7 +146,6 @@ function AppraisalHighPrice () {
                     <div className="appraisal__highPriceList__card" key={appraisalList.id}>
                     <Link to ={`/appraisal/${appraisalList.id}`} key={appraisalList.id}>
                     <div className="appraisal__highPriceList__img">
-                                이미지
                     </div>
                         <div className="appraisal__highPriceList__card__wrap">
                             <div className="appraisal__highPriceList__title">{appraisalList.name}</div>
@@ -165,7 +162,6 @@ function AppraisalHighPrice () {
                     <div className="appraisal__highPriceList__card" key={appraisalList.id}>
                     <Link to ={`/appraisal/${appraisalList.id}`} key={appraisalList.id}>
                     <div className="appraisal__highPriceList__img">
-                                이미지 입네다.
                     </div>
                         <div className="appraisal__highPriceList__card__wrap">
                             <div className="appraisal__highPriceList__title">{appraisalList.name}</div>

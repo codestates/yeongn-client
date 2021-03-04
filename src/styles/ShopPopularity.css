@@ -1,32 +1,33 @@
-.appraisal {
+.shop {
 	max-width: 1024px;
 	margin: auto;
 	overflow: hidden;
 	position: relative;
 }
-.appraisal__title__wrap {
+.shop__title__wrap {
 	display: flex;
 	justify-content: space-between;
 	margin-top: 50px;
 	margin-bottom: 30px;
 }
-.appraisal__title {
+.shop__title {
 	font-size: var(--font-medium);
 }
-.appraisal__title__button {
+.shop__title__button {
 	font-size: var(--font-regular);
 	background-color: transparent;
 	cursor: pointer;
+	margin-top: 6px;
 	border: none;
 	outline: none;
 	transition: all 300ms ease-in;
 }
 
-.appraisal__title__button:hover {
-	color: var(--color-dark-orange);
+.shop__title__button:hover {
+	color: var(--color-dark-pink);
 }
 
-.appraisal__popularity {
+.shop__popularity {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
@@ -35,7 +36,7 @@
 	margin-bottom: -18px;
 	transition: all 350ms ease-in;
 }
-.appraisal__popularity__right {
+.shop__popularity__right {
 	display: flex;
 	margin: auto;
 	position: absolute;
@@ -49,7 +50,7 @@
 	transition: all 350ms ease-in;
 	transform: translateX(0px);
 }
-.appraisal__popularity__right__move {
+.shop__popularity__right__move {
 	display: flex;
 	margin: auto;
 	position: relative;
@@ -61,7 +62,7 @@
 	transition: all 350ms ease-in;
 	transform: translateX(-1024px);
 }
-.appraisal__popularity__left__move {
+.shop__popularity__left__move {
 	display: flex;
 	position: absolute;
 	flex-wrap: wrap;
@@ -71,13 +72,13 @@
 	transition: all 350ms ease-in;
 	transform: translateX(-1024px);
 }
-.appraisal__popularity__card:hover {
+.shop__popularity__card:hover {
 	position: relative;
 	transition: all 250ms ease-in;
 	box-shadow: 0px 0px 2px 1px rgba(109, 109, 109, 0.2);
 }
 
-.appraisal__popularity__card {
+.shop__popularity__card {
 	width: 310px;
 	margin-left: 2px;
 	margin-right: 2px;
@@ -85,51 +86,51 @@
 	border-radius: 6px;
 }
 
-.appraisal__popularity__card__wrap {
+.shop__popularity__card__wrap {
 	justify-content: space-between;
 	display: flex;
 	margin-left: 5px;
 	margin-right: 5px;
 	margin-bottom: 10px;
 }
-.appraisal__popularity__img {
+.shop__popularity__img {
 	background: url("../assets/img/나비.jpeg") center/cover;
 	width: 310px;
 	height: 200px;
 	margin-bottom: 7px;
 	border-radius: 5px;
 }
-.appraisal__popularity__title {
+.shop__popularity__title {
 	font-weight: bold;
 	font-size: var(--font-micro);
 }
-.appraisal__popularity__price__name {
+.shop__popularity__price__name {
 	position: relative;
 	font-size: var(--font-micro);
 }
-.appraisal__popularity__price {
+.shop__popularity__price {
 	position: relative;
 	font-size: var(--font-micro);
 }
 
-.appraisal__nextButton2 {
+.shop__nextButton {
 	font-size: 30px;
 	cursor: pointer;
 	border: none;
 	outline: none;
 	background-color: transparent;
-	color: var(--color-dark-orange);
+	color: var(--color-dark-pink);
 }
-.appraisal__nextButton2__leftdot {
+.shop__nextButton__leftdot {
 	font-size: 20px;
 	cursor: pointer;
 	border: none;
 	outline: none;
 	background-color: transparent;
-	color: var(--color-dark-orange);
+	color: var(--color-dark-pink);
 	transition: all 300ms;
 }
-.appraisal__nextButton2__rightdot {
+.shop__nextButton__rightdot {
 	font-size: 20px;
 	cursor: pointer;
 	border: none;
@@ -138,120 +139,120 @@
 	color: grey;
 	transition: all 300ms;
 }
-.appraisal__nextButton__container {
+.shop__nextButton__container {
 	display: flex;
 	justify-content: center;
 	margin-bottom: -10px;
 }
 @media all and (min-width: 768px) and (max-width: 1023px) {
-	.appraisal {
+	.shop {
 		max-width: 850px;
 	}
 	.CategoryList__buttonBox {
 		margin-bottom: -20px;
 	}
 
-	.appraisal__title__wrap {
+	.shop__title__wrap {
 		margin-top: 50px;
 		margin-bottom: 20px;
 	}
 
-	.appraisal__title {
+	.shop__title {
 		font-size: var(--font-medium);
 		margin-left: 20px;
 	}
 
-	.appraisal__popularity__card {
+	.shop__popularity__card {
 		margin: auto;
 		width: 370px;
 		margin-bottom: 20px;
 	}
 
-	.appraisal__popularity__img {
+	.shop__popularity__img {
 		width: 370px;
 	}
-	.appraisal__title__button {
+	.shop__title__button {
 		margin-top: 5px;
 		margin-right: 20px;
 	}
-	.appraisal__popularity__right {
+	.shop__popularity__right {
 		top: 110px;
 	}
-	.appraisal__popularity__right__move {
+	.shop__popularity__right__move {
 		/* top: 120px; */
 	}
 }
 
 @media all and (min-width: 480px) and (max-width: 767px) {
-	.appraisal {
+	.shop {
 		max-width: 680px;
 	}
 	.CategoryList__buttonBox {
 		margin-bottom: -20px;
 	}
 
-	.appraisal__popularity__card {
+	.shop__popularity__card {
 		margin: auto;
 		width: 300px;
 		margin-bottom: 20px;
 	}
-	.appraisal__popularity__img {
+	.shop__popularity__img {
 		width: 300px;
 	}
 
-	.appraisal__title {
+	.shop__title {
 		margin-left: 20px;
 		font-size: var(--font-regular);
 	}
-	.appraisal__title__button {
+	.shop__title__button {
 		margin-right: 20px;
 		font-size: var(--font-small);
 	}
-	.appraisal__popularity__right {
+	.shop__popularity__right {
 		top: 106px;
 	}
-	.appraisal__popularity__right__move {
+	.shop__popularity__right__move {
 		/* top: 120px; */
 	}
 }
 
 @media all and (max-width: 479px) {
-	.appraisal__popularity {
+	.shop__popularity {
 		height: 740px;
 		margin: auto;
 		overflow: hidden;
 	}
 
-	.appraisal__popularity__left__move {
+	.shop__popularity__left__move {
 		height: 490px;
 		overflow: hidden;
 	}
-	.appraisal__popularity__right {
+	.shop__popularity__right {
 		height: 490px;
 		overflow: hidden;
 	}
 
-	.appraisal__popularity__right__move {
+	.shop__popularity__right__move {
 		height: 490px;
 		overflow: hidden;
 	}
-	.appraisal__popularity__card {
+	.shop__popularity__card {
 		margin: auto;
 		width: 320px;
 		margin-bottom: 20px;
 	}
-	.appraisal__popularity__img {
+	.shop__popularity__img {
 		width: 320px;
 	}
-	.appraisal__title {
+	.shop__title {
 		margin-left: 20px;
 		font-size: var(--font-regular);
 	}
-	.appraisal__title__button {
+	.shop__title__button {
 		margin-right: 20px;
 		font-size: var(--font-small);
 	}
-	.appraisal__nextButton__container {
+	.shop__nextButton__container {
 		display: none;
 	}
 }

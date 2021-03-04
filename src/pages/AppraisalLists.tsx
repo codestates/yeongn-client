@@ -3,15 +3,11 @@ import { Link, withRouter } from "react-router-dom";
 import Header from "../components/Header"
 import "../styles/AppraisalLists.css"
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
-import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
-import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp';
+import ArrowUp from "../components/ArrowUp";
+import Category from "../components/AppraisalCategory"
+
 function AppraisalList() {
 
-    const CategoryButton: Array<string> = [
-        "전체", "높은 감정가", "낮은 감정가", "인기 많은", "줘도 안 가지는", "도저히 분류하기 힘든", "음식"
-        , "의류", "가구", "악기", "알코올", "게임", "피규어", "화장품", "악세사리", "인테리어", "전자기기", "핸드 메이드",
-    ];
-	
     const initialState =
         [
             {
@@ -95,12 +91,10 @@ function AppraisalList() {
         ]
 
     const [appraisalList, setAppraisalList] = useState(initialState);
-    const [categoryTitle, setCategoryTitle] = useState<string>("전체");
+    const [categoryTitle, setCategoryTitle] = useState<string>("전체 감정");
     const [count, setCount] = useState<number>(9);
-    const [categoryMore, setCategoryMore] = useState<boolean>(false);
 
     const categoryButtonClick = (categoryTitle: string, e: any): void => {
-
         setCategoryTitle(categoryTitle)
         if (categoryTitle === "전체") {
             setAppraisalList(initialState)
@@ -134,40 +128,10 @@ function AppraisalList() {
         setCount(count => count + 6)
     }
 
-    const moreCategoryButtonUp = ():void => {
-        setCategoryMore(false);
-    }
-    const moreCategoryButtonDown = ():void => {
-        setCategoryMore(true);
-    }    
-
 	return (
 		<div>
-			<Header/>
-            <section className="CategoryList">
-                <div className="CategoryList__title__wrap">
-                    <span className="CategoryList__title">카테고리</span>
-                {!categoryMore ? <button className="CategoryList__more__down">
-                    <ArrowDropDownIcon fontSize="inherit" onClick={moreCategoryButtonDown} />
-                    </button> : <button className="CategoryList__more__up">
-                            <ArrowDropUpIcon fontSize="inherit" onClick={moreCategoryButtonUp} /></button>}
-                </div>
-                    <div className="CategoryList__buttonBox">
-                    {!categoryMore ? 
-                        CategoryButton.map((CategoryButton) => (
-                            <button className="CategoryList__buttonBox__button" key={CategoryButton}
-                                onClick={(e) => {categoryButtonClick(CategoryButton, e)}}
-                                value={CategoryButton}
-                            ># {CategoryButton}</button>
-                        )) : <div></div>}
-                    {!categoryMore ? 
-                        CategoryButton.map((CategoryButton) => (
-                            <button className="CategoryList__buttonBox__button__modal" key={CategoryButton}
-                                onClick={(e) => { categoryButtonClick(CategoryButton, e) }} value={CategoryButton}
-                            >{CategoryButton}</button>
-                        )) : <div></div>}
-                    </div>
-        </section>
+            <Header />
+            <Category categoryButtonClick={categoryButtonClick} />
 			<section className="appraisalAllList">
             <div className="appraisalAllList__title__wrap">
                 <div className="appraisalAllList__title">
@@ -179,7 +143,6 @@ function AppraisalList() {
                     <div className="appraisalAllList__container__card" key={appraisalList.id}>
                     <Link to ={`/appraisal/${appraisalList.id}`} key={appraisalList.id}>
                     <div className="appraisalAllList__container__img">
-                                이미지 입네다.
                     </div>
                         <div className="appraisalAllList__container__wrap">
                             <div className="appraisalAllList__container__title">{appraisalList.name}</div>
@@ -196,7 +159,7 @@ function AppraisalList() {
                     <KeyboardArrowDownIcon  fontSize="inherit" onClick={moreButtonClick} />
                 </div>
             </section>
-            
+            <ArrowUp />
 		</div>
 	);
 }
