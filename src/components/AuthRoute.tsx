@@ -6,7 +6,7 @@ interface AuthProps {
 	renderComponent: Function;
 	path: string;
 }
-
+//제발 성공하자!
 function AuthRoute({ authenticated, renderComponent, path }: AuthProps) {
 	return (
 		<Route
