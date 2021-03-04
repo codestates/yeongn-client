@@ -1,0 +1,140 @@
+.Shop__main {
+	background-color: #fde5df;
+	height: 400px;
+	width: 100%;
+}
+
+.Shop__main__container {
+	max-width: 1024px;
+	display: flex;
+	margin: auto;
+	align-items: center;
+	justify-content: space-around;
+}
+
+.Shop__main__image {
+	object-fit: fill;
+	position: relative;
+	width: 600px;
+	top: 30px;
+}
+
+.Shop__main__wrap {
+	position: relative;
+	top: 30px;
+	text-align: center;
+	align-items: left;
+}
+
+.Shop__main__title {
+	font-size: var(--font-medium);
+	text-align: left;
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+
+.Shop__main__button {
+	background-color: var(--color-dark-pink);
+	color: white;
+	font-size: var(--font-regular);
+	border-radius: 50px;
+	margin-left: -160px;
+	cursor: pointer;
+	border: none;
+	outline: none;
+	padding: 13px;
+	transition: all 250ms ease-in;
+}
+.Shop__main__button:hover {
+	background-color: white;
+	color: var(--color-dark-pink);
+}
+.Shop__division__line {
+	margin-top: 30px;
+	border-bottom: solid gray 0.1px;
+	opacity: 0.3;
+}
+
+@media all and (min-width: 768px) and (max-width: 1023px) {
+	.Shop__main__image {
+		transition: all 250ms ease-in;
+		width: 500px;
+		top: 50px;
+		margin-left: -60px;
+	}
+	.Shop__main__wrap {
+		margin-right: 20px;
+	}
+
+	.Shop__main__title {
+		font-size: 23px;
+	}
+	.Shop__main__button {
+		font-size: var(--font-small);
+		padding: 13px;
+		margin-left: -100px;
+	}
+}
+
+@media all and (min-width: 480px) and (max-width: 767px) {
+	.Shop__main__container {
+		flex-direction: column-reverse;
+	}
+	.Shop__main__image {
+		position: relative;
+		transition: all 250ms ease-in;
+		width: 400px;
+		height: 200px;
+		top: 170px;
+	}
+	.Shop__main__wrap {
+		display: flex;
+		top: -180px;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+	}
+	.Shop__main__title {
+		font-size: var(--font-regular);
+		text-align: center;
+	}
+	.Shop__main__button {
+		margin: auto;
+		display: flex;
+		font-size: var(--font-micro);
+	}
+}
+
+@media all and (max-width: 479px) {
+	.Shop__main {
+		height: 300px;
+	}
+	.Shop__main__container {
+		flex-direction: column-reverse;
+	}
+	.Shop__main__image {
+		position: relative;
+		transition: all 250ms ease-in;
+		width: 270px;
+		height: 150px;
+		top: 140px;
+	}
+	.Shop__main__wrap {
+		margin: auto;
+		display: flex;
+		top: -120px;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+	}
+	.Shop__main__title {
+		font-size: var(--font-micro);
+		text-align: center;
+	}
+	.Shop__main__button {
+		margin: auto;
+		display: flex;
+		font-size: 10px;
+		padding: 7px;
+	}
+}
