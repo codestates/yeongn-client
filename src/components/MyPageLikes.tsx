@@ -5,9 +5,8 @@ import "../styles/MyPageLikes.css";
 /**
  *
  * 가져올 것 userId 이걸로 axios요청으로 자신이 남긴 감정기록을
- * 조회함 //!mypage에서 가져와야함 
+ * 조회함 //!mypage에서 가져와야함
  */
-
 
 function MyPageLikes() {
 	const initialState = [
@@ -98,7 +97,7 @@ function MyPageLikes() {
 		<div className="mypage__likes">
 			<div className="likes__title__container">
 				<div className="likes__title">내가 좋아한 게시물</div>
-				<Link to="mypage/likes" className="likes__title__addLink">
+				<Link to="/mypage/likes" className="likes__title__addLink">
 					리스트 더보기
 				</Link>
 			</div>

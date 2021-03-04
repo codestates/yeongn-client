@@ -95,7 +95,7 @@ function MyPageStore() {
 		<div className="mypage__store">
 			<div className="store__title__container">
 				<div className="store__title">나의 판매 리스트</div>
-				<Link to="mypage/shop" className="store__title__addLink">
+				<Link to="/mypage/shop" className="store__title__addLink">
 					리스트 더보기
 				</Link>
 			</div>
