@@ -1,80 +1,4 @@
-.CategoryList {
-	position: relative;
-	margin: auto;
-	max-width: 1024px;
-	margin: auto;
-	top: 30px;
-}
 
-.CategoryList__title__wrap {
-	margin-bottom: 20px;
-}
-
-.CategoryList__title {
-	font-size: var(--font-regular);
-	font-weight: bold;
-	color: rgb(255, 126, 75);
-}
-
-.CategoryList__more__up,
-.CategoryList__more__down {
-	position: relative;
-	color: var(--color-dark-orange);
-	background-color: transparent;
-	top: 8px;
-	font-size: 30px;
-	text-align: center;
-	cursor: pointer;
-	border: none;
-	outline: none;
-	transition: all 250ms ease-in;
-}
-.CategoryList__more__down:hover {
-	color: var(--color-dark-orange);
-	top: 13px;
-}
-.CategoryList__more__up:hover {
-	color: var(--color-dark-orange);
-	top: 3px;
-}
-.CategoryList__buttonBox {
-	margin: auto;
-}
-.CategoryList__buttonBox__button {
-	font-size: var(--font-micro);
-
-	text-align: center;
-	color: rgb(48, 48, 48);
-	background-color: white;
-	border: 1.5px solid var(--color-dark-orange);
-	border-radius: 20px;
-	cursor: pointer;
-
-	outline: none;
-	padding: 10px;
-	margin: 6px;
-	transition: all 250ms ease-in;
-}
-.CategoryList__buttonBox__button:hover {
-	color: white;
-	background-color: var(--color-dark-orange);
-}
-.CategoryList__buttonBox__buttonActive {
-	font-size: var(--font-micro);
-	text-align: center;
-	color: white;
-	background-color: var(--color-dark-orange);
-	border: 1.5px solid var(--color-pink);
-	border-radius: 20px;
-	cursor: pointer;
-	outline: none;
-	padding: 10px;
-	margin: 6px;
-	transition: all 250ms ease-in;
-}
-.CategoryList__buttonBox__button__modal {
-	display: none;
-}
 .appraisalAllList {
 	max-width: 1024px;
 	margin: auto;
@@ -88,7 +12,6 @@
 .appraisalAllList__title {
 	font-size: var(--font-medium);
 	color: rgb(255, 126, 75);
-	font-weight: bold;
 }
 
 .appraisalAllList__container {
@@ -97,13 +20,15 @@
 	justify-content: space-between;
 }
 .appraisalAllList__container__card {
-	width: 330px;
+	width: 310px;
 	margin-bottom: 20px;
+	border-radius: 6px;
 }
 
 .appraisalAllList__container__card:hover {
+	position: relative;
 	transition: all 250ms ease-in;
-	box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
+	box-shadow: 0px 0px 2px 1px rgba(109, 109, 109, 0.2);
 }
 .appraisalAllList__container__card__wrap {
 	display: flex;
@@ -112,10 +37,14 @@
 .appraisalAllList__container__wrap {
 	justify-content: space-between;
 	display: flex;
+	margin-left: 5px;
+	margin-right: 5px;
+	margin-bottom: 10px;
 }
 .appraisalAllList__container__img {
-	background-color: rgb(255, 229, 212);
-	width: 330px;
+	background: url("../assets/img/나비.jpeg") center/cover;
+	border-radius: 6px;
+	width: 310px;
 	height: 200px;
 	margin-bottom: 7px;
 }
@@ -137,6 +66,12 @@
 }
 
 @media all and (min-width: 768px) and (max-width: 1023px) {
+	.CategoryList {
+		max-width: 850px;
+	}
+	.appraisalAllList {
+		max-width: 850px;
+	}
 	.CategoryList__buttonBox {
 		margin-left: 10px;
 	}
@@ -155,18 +90,18 @@
 	}
 	.appraisalAllList__title {
 		font-size: var(--font-regular);
-		margin-left: 10px;
 	}
+
 	.appraisalAllList__container__card {
 		width: 380px;
 		margin: auto;
-		justify-content: space-evenly;
+		margin-bottom: 10px;
 	}
 	.appraisalAllList__container__img {
 		width: 380px;
 	}
 	.appraisalAllList__container__wrap {
-		margin-bottom: 20px;
+		margin-bottom: 8px;
 	}
 }
 
@@ -196,12 +131,19 @@
 		width: 320px;
 		margin: auto;
 		justify-content: space-evenly;
+		margin-bottom: 7px;
 	}
 	.appraisalAllList__container__img {
 		width: 320px;
 	}
 	.appraisalAllList__container__wrap {
-		margin-bottom: 20px;
+		margin-bottom: 10px;
+	}
+	.appraisalAllList__container__title {
+		font-size: var(--font-micro);
+	}
+	.appraisalAllList__container__price {
+		font-size: var(--font-micro);
 	}
 }
 
@@ -228,12 +170,15 @@
 	}
 	.CategoryList__buttonBox {
 		max-height: 230px;
+		margin-left: 10px;
 		display: flex;
 		flex-flow: column wrap;
 	}
+
 	.CategoryList__buttonBox__button {
 		display: none;
 	}
+
 	.CategoryList__buttonBox__buttonActive {
 		display: none;
 	}
@@ -255,14 +200,20 @@
 		font-size: var(--font-regular);
 	}
 	.appraisalAllList__container__card {
-		width: 370px;
+		width: 340px;
 		margin: auto;
 		justify-content: space-evenly;
 	}
 	.appraisalAllList__container__img {
-		width: 370px;
+		width: 340px;
 	}
 	.appraisalAllList__container__wrap {
 		margin-bottom: 20px;
+	}
+	.appraisalAllList__container__title {
+		font-size: var(--font-micro);
+	}
+	.appraisalAllList__container__price {
+		font-size: var(--font-micro);
 	}
 }

@@ -1,5 +1,5 @@
 .Appraisal__main {
-	background-color: #fff7d1;
+	background-color: #ffffff;
 	height: 400px;
 	width: 100%;
 }
@@ -13,7 +13,7 @@
 }
 
 .Appraisal__main__image {
-	background: url("../assets/Appraisal__main__image.png") center/cover;
+	background: url("../assets/img/Appraisal__main__image.png") center/cover;
 	position: relative;
 	width: 600px;
 	height: 400px;
