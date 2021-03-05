@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { Link, withRouter } from "react-router-dom";
-import Header from "../components/Header";
+import { Link, withRouter, RouteComponentProps } from "react-router-dom";
 import Footer from "../components/Footer";
 import ArrowUp from "../components/ArrowUp";
 import MyProfile from "../components/MyPageProfile";
@@ -11,7 +10,14 @@ import "../styles/MyPageAdd.css";
  * !게시글 페이징 함수 만들기
  */
 
-function MyPageStoreAdd() {
+interface User {
+	userId: string;
+}
+interface IMypageUser extends RouteComponentProps {
+	user: User;
+}
+
+function MyPageStoreAdd({ user }: IMypageUser) {
 	const initialState = [
 		{
 			id: 1,
@@ -98,9 +104,8 @@ function MyPageStoreAdd() {
 	return (
 		<div id="mypage__add">
 			<ScrollToTop />
-			<Header />
 			<section className="mypage__add__container">
-				<MyProfile />
+				<MyProfile user={user} />
 				<div className="add__title__container">
 					<div className="add__title">나의 판매 리스트</div>
 				</div>

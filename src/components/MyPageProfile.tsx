@@ -2,7 +2,14 @@ import React, { useState } from "react";
 import { Link, withRouter } from "react-router-dom";
 import "../styles/MyPageProfile.css";
 import ArrowUp from "../components/ArrowUp";
-function MyPageProfile() {
+
+interface User {
+	userId: string;
+}
+interface IMypageUser {
+	user: User;
+}
+function MyPageProfile({ user }: IMypageUser) {
 	/**
 	 * 필요한 속성
 	 *
@@ -12,7 +19,8 @@ function MyPageProfile() {
 	 * 버튼을 눌렀을 시 서버에 닉네임 변경 요청
 	 */
 	//!밑에 속성은 임의로 정해준 것 fakedata
-	const myNickname: string = "빵맨";
+	console.log(user);
+	const myNickname: string = user.userId;
 	const myRequest: string = "33";
 	const myTier: string = "전문감정가";
 
@@ -25,7 +33,7 @@ function MyPageProfile() {
 				<div className="profile__description__name">
 					<div className="profile__nickname__container">
 						<div className="nickname__title">{`닉네임 >`}</div>
-						<div className="name__nickname">{myNickname}</div>
+						<div className="name__nickname">{user.userId}</div>
 					</div>
 					<button className="name__change">닉네임 변경</button>
 				</div>
