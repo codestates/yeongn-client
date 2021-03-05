@@ -3,6 +3,7 @@ import { Link, withRouter } from "react-router-dom";
 import AppraisalContents from "../components/AppraisalContents";
 import AppraisalComment from "../components/AppraisalComment";
 import Header from "../components/Header";
+import ScrollToTop from "../components/ScrollToTop";
 function AppraisalContent() {
 	const initialState = [
 		{
@@ -15,6 +16,7 @@ function AppraisalContent() {
 
 	return (
 		<div>
+			<ScrollToTop />
 			<AppraisalContents />
 			<AppraisalComment />
 		</div>

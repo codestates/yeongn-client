@@ -39,7 +39,7 @@
 	background: var(--color-dark-orange);
 }
 .home__store {
-	background: var(--color-dark-white);
+	background: var(--color-light-green);
 	width: 100%;
 	font-family: "noto_sans";
 }
@@ -167,7 +167,7 @@
 		text-align: center;
 	}
 	.home__category__contents > h2 {
-		font-size: 26px;
+		font-size: 24px;
 		text-align: center;
 	}
 	.home__store__contents,

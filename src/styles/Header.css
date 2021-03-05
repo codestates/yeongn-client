@@ -6,7 +6,7 @@
 	color: black;
 	position: sticky;
 	top: 0px;
-	z-index: 3;
+	z-index: 15;
 	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 

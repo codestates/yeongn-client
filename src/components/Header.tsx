@@ -1,17 +1,21 @@
-import React, { useState } from "react";
-import { Link, withRouter } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, withRouter, RouteComponentProps } from "react-router-dom";
 import SearchIcon from "@material-ui/icons/Search";
 import yeongnLogo from "../assets/img/yeongnLogo1.png";
 import StorefrontIcon from "@material-ui/icons/Storefront";
 import CreateIcon from "@material-ui/icons/Create";
 import MenuIcon from "@material-ui/icons/Menu";
 import "../styles/Header.css";
-// type isLogin = {
-//   isLogin: boolean;
-//   userId: string;
-// };
 
-function Header() {
+interface User {
+	userId: string;
+	authenticated: boolean;
+}
+interface IMypageUser extends RouteComponentProps {
+	user: User;
+}
+
+function Header({ user, location }: IMypageUser) {
 	const [isLogin, setLogin] = useState(true);
 	const [id, setId] = useState("lovvp");
 	const [toggleState, setToggle] = useState(true);
@@ -20,6 +24,25 @@ function Header() {
 	const toggleBtnClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
 		setToggle(!toggleState);
 	};
+	useEffect(() => {
+		console.log(location);
+
+		if (user.authenticated) {
+			setLogin(true);
+			return () => {
+				if (toggleState === false) {
+					setToggle(true);
+				}
+			};
+		} else {
+			setLogin(false);
+			return () => {
+				if (toggleState === false) {
+					setToggle(true);
+				}
+			};
+		}
+	});
 
 	return (
 		<div className="header">

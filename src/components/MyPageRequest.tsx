@@ -95,7 +95,7 @@ function MyPageRequest() {
 		<div className="mypage__request">
 			<div className="request__title__container">
 				<div className="request__title">나의 감정 요청 리스트</div>
-				<Link to="mypage/request" className="request__title__addLink">
+				<Link to="/mypage/request" className="request__title__addLink">
 					리스트 더보기
 				</Link>
 			</div>

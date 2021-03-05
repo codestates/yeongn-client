@@ -1,13 +1,13 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
-import Header from "../components/Header";
 import "../styles/Shop.css";
 import shop from "../assets/img/shop.png";
 import ShopPopularity from "../components/ShopPopularity";
-
+import ScrollToTop from "../components/ScrollToTop";
 function Shop() {
 	return (
 		<div>
+			<ScrollToTop />
 			<section className="Shop__main">
 				<div className="Shop__main__container">
 					<div className="Shop__main__wrap">

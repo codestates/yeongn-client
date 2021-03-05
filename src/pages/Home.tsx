@@ -13,7 +13,6 @@ import StorefrontIcon from "@material-ui/icons/Storefront";
 function Home() {
 	return (
 		<div id="home">
-			<Header />
 			<section className="home__appraisal">
 				<div className="home__appraisal__container">
 					<div className="home__appraisal__img">

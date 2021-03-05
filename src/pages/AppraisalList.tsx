@@ -4,7 +4,7 @@ import Header from "../components/Header";
 import AppraisalCategory from "../components/AppraisalCategory";
 import ArrowUp from "../components/ArrowUp";
 import AppraisalAllList from "../components/AppraisalAllList";
-
+import ScrollToTop from "../components/ScrollToTop";
 function AppraisalList() {
 	const initialState = [
 		{
@@ -91,6 +91,7 @@ function AppraisalList() {
 
 	return (
 		<div>
+			<ScrollToTop />
 			<AppraisalCategory setCategoryTitle={setCategoryTitle} />
 			<AppraisalAllList
 				categoryTitle={categoryTitle}

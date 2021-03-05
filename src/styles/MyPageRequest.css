@@ -55,7 +55,8 @@
 		padding-bottom: 1px;
 	}
 	.request__img {
-		width: 140px;
+		margin: 10px;
+		width: 150px;
 		height: 85px;
 	}
 }

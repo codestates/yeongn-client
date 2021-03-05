@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Appraisal from "./pages/Appraisal";
@@ -16,16 +16,60 @@ import Search from "./pages/Search";
 import Shop from "./pages/Shop";
 import ShopContent from "./pages/ShopContent";
 import ShopList from "./pages/ShopList";
+import AuthRoute from "./components/AuthRoute";
+import Header from "./components/Header";
+import axios from "axios";
 
 function App() {
+	const [user, setUser] = useState({});
+	const [accessToken, setToken] = useState("");
+
+	const url = ``;
+
+	// const loginHandler = (userData:any)=> {
+	// 	setUser(userData);
+	// }
+
+	const logoutHandler = () => {
+		setUser({});
+	};
+
+	const issueAccessToken = (token: string) => {
+		setToken(token);
+		axios
+			.get("https://s.nugathesam.com/users", {
+				headers: { Authorization: `Bearer ${token}` },
+			})
+			.then((res) => {
+				setUser(res.data);
+				// console.log(res.data);
+			})
+			.catch((err) => {
+				console.log("무언가 잘못됐다.");
+			});
+	};
+
+	const userInfo = {
+		userId: "김창민",
+		authenticated: false,
+	};
+
 	return (
 		<Router>
+			<Header user={userInfo} />
 			<Switch>
 				<Route
 					exact
 					path="/"
 					render={() => {
 						return <Home />;
+					}}
+				/>
+				<Route
+					exact
+					path="/login"
+					render={() => {
+						return <Login issueAccessToken={issueAccessToken} />;
 					}}
 				/>
 				<Route
@@ -49,41 +93,35 @@ function App() {
 						return <AppraisalList />;
 					}}
 				/>
-				<Route
+				<AuthRoute
 					exact
-					path="/login"
-					render={() => {
-						return <Login />;
-					}}
-				/>
-				<Route
-					exact
+					authenticated={userInfo.authenticated}
 					path="/mypage"
-					render={() => {
-						return <MyPage />;
-					}}
+					component={MyPage}
+					user={userInfo}
 				/>
-				<Route
+				<AuthRoute
+					authenticated={userInfo.authenticated}
 					exact
 					path="/mypage/request"
-					render={() => {
-						return <MyPageRequestAdd />;
-					}}
+					component={MyPageRequestAdd}
+					user={userInfo}
 				/>
-				<Route
+				<AuthRoute
 					exact
+					authenticated={userInfo.authenticated}
 					path="/mypage/shop"
-					render={() => {
-						return <MyPageStoreAdd />;
-					}}
+					component={MyPageStoreAdd}
+					user={userInfo}
 				/>
-				<Route
+				<AuthRoute
 					exact
+					authenticated={userInfo.authenticated}
 					path="/mypage/likes"
-					render={() => {
-						return <MyPageLikesAdd />;
-					}}
+					component={MyPageLikesAdd}
+					user={userInfo}
 				/>
+
 				<Route
 					exact
 					path="/register/appraisal"
@@ -105,6 +143,7 @@ function App() {
 						return <Search />;
 					}}
 				/>
+
 				<Route
 					exact
 					path="/shop"

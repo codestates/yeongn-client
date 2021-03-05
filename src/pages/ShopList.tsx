@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { withRouter } from "react-router-dom";
-import Header from "../components/Header";
+import { Link, withRouter } from "react-router-dom";
+
 import ShopCategory from "../components/ShopCategory";
 import ArrowUp from "../components/ArrowUp";
 import ShopAllList from "../components/ShopAllList";
-
+import ScrollToTop from "../components/ScrollToTop";
 function ShopList() {
 	const initialState = [
 		{
@@ -91,6 +91,7 @@ function ShopList() {
 
 	return (
 		<div>
+			<ScrollToTop />
 			<ShopCategory setCategoryTitle={setCategoryTitle} />
 			<ShopAllList categoryTitle={categoryTitle} initialState={initialState} />
 			<ArrowUp />
