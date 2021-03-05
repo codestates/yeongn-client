@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { Link, withRouter } from "react-router-dom";
-import Header from "../components/Header";
+import { Link, withRouter, RouteComponentProps } from "react-router-dom";
 import Footer from "../components/Footer";
 import ArrowUp from "../components/ArrowUp";
 import MyProfile from "../components/MyPageProfile";
@@ -10,8 +9,14 @@ import ScrollToTop from "../components/ScrollToTop";
  * userid로 좋아요 리스트 받아오기 //! axios요청
  * !게시글 페이징 함수 만들기
  */
+interface User {
+	userId: string;
+}
+interface IMypageUser extends RouteComponentProps {
+	user: User;
+}
 
-function MyPageLikesAdd() {
+function MyPageLikesAdd({ user }: IMypageUser) {
 	const initialState = [
 		{
 			id: 1,
@@ -98,9 +103,8 @@ function MyPageLikesAdd() {
 	return (
 		<div id="mypage__add">
 			<ScrollToTop />
-			<Header />
 			<section className="mypage__add__container">
-				<MyProfile />
+				<MyProfile user={user} />
 				<div className="add__title__container">
 					<div className="add__title">내가 좋아한 게시물</div>
 				</div>

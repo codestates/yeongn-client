@@ -1,6 +1,5 @@
-import React from "react";
-import { Link, withRouter } from "react-router-dom";
-import Header from "../components/Header";
+import React, { ReactComponentElement } from "react";
+import { Link, withRouter, RouteComponentProps } from "react-router-dom";
 import Footer from "../components/Footer";
 import MyPageStore from "../components/MyPageStore";
 import MyPageProfile from "../components/MyPageProfile";
@@ -8,12 +7,22 @@ import MyPageLikes from "../components/MyPageLikes";
 import MyPageRequest from "../components/MyPageRequest";
 import "../styles/MyPage.css";
 
-function MyPage() {
+interface User {
+	userId: string;
+}
+interface IMypageUser extends RouteComponentProps {
+	user: User;
+}
+
+function MyPage({ user, history, match, location }: IMypageUser) {
+	console.log(user);
+	console.log(history);
+	console.log(match);
+	console.log(location);
 	return (
 		<div id="mypage">
-			<Header />
 			<section className="mypage__container">
-				<MyPageProfile />
+				<MyPageProfile user={user} />
 				<MyPageRequest />
 				<MyPageStore />
 				<MyPageLikes />

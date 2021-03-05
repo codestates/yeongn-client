@@ -9,10 +9,10 @@ import lucky from "../assets/img/lucky.png";
 import donthave from "../assets/img/idonthave.png";
 import CreateIcon from "@material-ui/icons/Create";
 import StorefrontIcon from "@material-ui/icons/Storefront";
+
 function Home() {
 	return (
 		<div id="home">
-			<Header />
 			<section className="home__appraisal">
 				<div className="home__appraisal__container">
 					<div className="home__appraisal__img">
