@@ -3,7 +3,7 @@ import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Appraisal from "./pages/Appraisal";
 import AppraisalContent from "./pages/AppraisalContent";
-import AppraisalList from "./pages/AppraisalLists";
+import AppraisalList from "./pages/AppraisalList";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import MyPage from "./pages/MyPage";

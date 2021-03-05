@@ -3,10 +3,12 @@ import { Link, withRouter } from "react-router-dom";
 import AppraisalHighPrice from "../components/AppraisalHighPrice";
 import AppraisalPopularity from "../components/AppraisalPopularity";
 import "../styles/Appraisal.css";
+import ScrollToTop from "../components/ScrollToTop";
 
 function Appraisal() {
 	return (
 		<div>
+			<ScrollToTop />
 			<section className="Appraisal__main">
 				<div className="Appraisal__main__container">
 					<div className="Appraisal__main__image"></div>

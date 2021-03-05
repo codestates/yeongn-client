@@ -1,0 +1,194 @@
+.AppraisalComment {
+	max-width: 600px;
+	margin: auto;
+}
+.AppraisalComment__container {
+	width: 100%;
+	box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
+}
+.AppraisalComment__container:hover {
+	background-color: rgba(197, 197, 197, 0.1);
+}
+.AppraisalComment__noComment {
+	justify-content: center;
+	margin: auto;
+}
+.AppraisalComment__box {
+	padding-top: 10px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+.AppraisalComment__box__nameAndTitle {
+	display: flex;
+	justify-content: space-between;
+}
+.AppraisalComment__box__name {
+	font-size: var(--font-micro);
+	margin-bottom: 15px;
+}
+.AppraisalComment__box__time {
+	font-size: 10px;
+}
+.AppraisalComment__box__textAndButton {
+	display: flex;
+	justify-content: space-between;
+}
+.AppraisalComment__box__text {
+	font-size: var(--font-small);
+}
+.AppraisalComment_divdieLineNameAndTitle {
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+	margin-top: -5px;
+	margin-bottom: 20px;
+}
+.AppraisalComment__box__buttonWrap {
+	float: right;
+}
+.AppraisalComment__box__buttonWrap__submit {
+	font-size: 10px;
+	height: 25px;
+	color: white;
+	background-color: var(--color-dark-orange);
+	border: none;
+	cursor: pointer;
+	outline: none;
+	margin-left: 15px;
+	border-radius: 5px;
+	padding: 3px 12px 3px 12px;
+}
+.AppraisalComment__box__buttonWrap__delete {
+	font-size: 10px;
+	height: 25px;
+	color: white;
+	background-color: var(--color-dark-orange);
+	border: none;
+	cursor: pointer;
+	outline: none;
+	margin-left: 15px;
+	border-radius: 5px;
+	padding: 3px 12px 3px 12px;
+}
+.AppraisalComment__box__buttonWrap__submit:hover,
+.AppraisalComment__box__buttonWrap__delete:hover {
+	background-color: var(--color-orange);
+}
+
+.AppraisalComment_divdieLine {
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+.AppraisalCommentBox_divdieLine {
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+	margin-top: 40px;
+	margin-bottom: 40px;
+}
+.AppraisalCommentBox {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	height: 80px;
+}
+.AppraisalCommentBox__input {
+	height: 30px;
+	width: 70%;
+}
+
+.AppraisalCommentBox__button {
+	height: 30px;
+	color: white;
+	background-color: var(--color-dark-orange);
+	border: none;
+	cursor: pointer;
+	outline: none;
+	margin-left: 15px;
+	border-radius: 5px;
+	padding: 5px 15px 5px 15px;
+}
+.AppraisalCommentBox__button:hover {
+	background-color: var(--color-orange);
+}
+.AppraisalCommentBoxModify {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	height: 20px;
+}
+.AppraisalCommentBox__input__Modify {
+	height: 30px;
+	width: 70%;
+}
+.AppraisalCommentBox__button__Modify {
+	height: 30px;
+	color: white;
+	background-color: var(--color-dark-orange);
+	border: none;
+	cursor: pointer;
+	outline: none;
+	margin-left: 15px;
+	border-radius: 5px;
+	padding: 5px 15px 5px 15px;
+}
+
+@media all and (min-width: 768px) and (max-width: 1023px) {
+	.AppraisalComment__box__text {
+		font-size: 14px;
+	}
+}
+
+@media all and (min-width: 480px) and (max-width: 767px) {
+	.AppraisalComment {
+		max-width: 500px;
+		margin: auto;
+	}
+
+	.AppraisalComment__box__text {
+		font-size: 14px;
+	}
+}
+
+@media all and (max-width: 479px) {
+	.AppraisalComment {
+		max-width: 300px;
+		margin: auto;
+	}
+	.AppraisalComment__box__name {
+		font-size: 10px;
+		margin-bottom: 15px;
+	}
+	.AppraisalComment__box__text {
+		font-size: 12px;
+	}
+	.AppraisalComment__box__time {
+		font-size: 10px;
+	}
+	.AppraisalComment__box__buttonWrap {
+		margin-top: -5px;
+	}
+	.AppraisalComment__box__buttonWrap__submit,
+	.AppraisalComment__box__buttonWrap__delete {
+		font-size: 10px;
+		padding: 0px 4px 0px 4px;
+	}
+
+	.AppraisalCommentBox__input__Modify {
+		height: 20px;
+		width: 70%;
+	}
+	.AppraisalCommentBox__button__Modify {
+		height: 20px;
+		font-size: 3px;
+		color: white;
+		background-color: var(--color-dark-orange);
+		border: none;
+		cursor: pointer;
+		outline: none;
+		margin-left: 15px;
+		border-radius: 5px;
+		padding: 0px 15px 0px 15px;
+	}
+	.AppraisalCommentBox__button {
+		font-size: 10px;
+		padding: 2px 15px 2px 15px;
+	}
+}

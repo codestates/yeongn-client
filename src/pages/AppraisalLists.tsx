@@ -4,7 +4,7 @@ import "../styles/AppraisalLists.css";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 import ArrowUp from "../components/ArrowUp";
 import Category from "../components/AppraisalCategory";
-
+import ScrollToTop from "../components/ScrollToTop";
 function AppraisalList() {
 	const initialState = [
 		{
@@ -129,7 +129,8 @@ function AppraisalList() {
 
 	return (
 		<div>
-			<Category categoryButtonClick={categoryButtonClick} />
+			<ScrollToTop />
+			<Category setCategoryTitle={setCategoryTitle} />
 			<section className="appraisalAllList">
 				<div className="appraisalAllList__title__wrap">
 					<div className="appraisalAllList__title">

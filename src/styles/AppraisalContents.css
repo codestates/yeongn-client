@@ -1,0 +1,506 @@
+.AppraisalContents {
+	max-width: 1024px;
+	margin: auto;
+}
+
+.AppraisalContainer {
+	display: flex;
+	margin: auto;
+	justify-content: space-between;
+	margin-left: 20px;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	margin-right: 20px;
+}
+
+.AppraisalContainer__imgContainer__bigWrap {
+	display: flex;
+	flex-wrap: nowrap;
+	width: 470px;
+	height: 470px;
+	margin-bottom: 13px;
+	/* overflow-x: hidden;
+	overflow-y: hidden; */
+}
+
+.AppraisalContainer__imgContainer__big1 {
+	flex: 0 0 auto;
+	background: url("../assets/img/나비.jpeg") center/cover;
+	width: 470px;
+	height: 470px;
+	margin-bottom: 13px;
+	transition: all 350ms;
+	z-index: 5;
+	opacity: 1;
+}
+.AppraisalContainer__imgContainer__big2 {
+	position: absolute;
+	flex: 0 0 auto;
+	background: url("../assets/img/Appraisal__main__image.png") center/cover;
+	width: 470px;
+	height: 470px;
+	z-index: 4;
+	transition: all 350ms;
+	margin-bottom: 13px;
+}
+.go {
+	transition: all 350ms;
+	opacity: 0;
+}
+.back {
+	transition: all 350ms;
+	opacity: 1;
+}
+.AppraisalContainer__imgContainer__big3 {
+	position: absolute;
+	flex: 0 0 auto;
+	background: url("../assets/img/shop.png") center/cover;
+	width: 470px;
+	height: 470px;
+	transition: all 350ms;
+	z-index: 3;
+	margin-bottom: 13px;
+}
+
+.AppraisalContainer__imgContainer__big4 {
+	position: absolute;
+	flex: 0 0 auto;
+	background: url("../assets/img/shop2.png") center/cover;
+	width: 470px;
+	height: 470px;
+	transition: all 350ms;
+	z-index: 2;
+	margin-bottom: 13px;
+}
+
+.AppraisalContainer__imgContainer__smallWrap {
+	display: flex;
+	justify-content: center;
+	width: 470px;
+}
+.AppraisalContainer__imgContainer__smallWrap__leftButton,
+.AppraisalContainer__imgContainer__smallWrap__rightButton {
+	background-color: transparent;
+	color: var(--color-dark-orange);
+	font-size: 30px;
+	border: none;
+	outline: none;
+}
+.AppraisalContainer__imgContainer__smallWrap__small1 {
+	margin-right: 4px;
+	background: url("../assets/img/나비.jpeg") center/cover;
+	width: 70px;
+	height: 70px;
+}
+.gosmall {
+	transition: all 350ms;
+	border: none;
+}
+.backsmall {
+	transition: all 350ms;
+	border: 1px solid var(--color-dark-pink);
+}
+.AppraisalContainer__imgContainer__smallWrap__small2 {
+	margin-right: 2px;
+	background: url("../assets/img/Appraisal__main__image.png") center/cover;
+	width: 70px;
+	height: 70px;
+}
+.AppraisalContainer__imgContainer__smallWrap__small3 {
+	margin-right: 2px;
+	background: url("../assets/img/shop.png") center/cover;
+	width: 70px;
+	height: 70px;
+}
+.AppraisalContainer__imgContainer__smallWrap__small4 {
+	margin-right: 2px;
+	background: url("../assets/img/shop2.png") center/cover;
+	width: 70px;
+	height: 70px;
+}
+
+.AppraisalContainer__wrap {
+	width: 400px;
+	height: 470px;
+}
+
+.AppraisalContainer__text {
+	display: flex;
+	margin-bottom: 20px;
+}
+.AppraisalContainer__title {
+	font-size: var(--font-small);
+	color: grey;
+	margin-bottom: 13px;
+}
+.AppraisalContainer__nameAndLike {
+	display: flex;
+
+	justify-content: space-between;
+}
+
+.AppraisalContainer__name {
+	font-size: 25px;
+	margin-bottom: 10px;
+}
+.AppraisalContainer__like {
+	margin-top: -5px;
+	color: var(--color-dark-pink);
+	background-color: transparent;
+	border: none;
+	outline: none;
+	font-size: 25px;
+	margin-right: 30px;
+}
+.AppraisalContainer__category {
+	color: grey;
+	font-size: var(--font-micro);
+	margin-bottom: 15px;
+}
+.AppraisalContainer__unlike {
+	margin-top: -5px;
+	color: var(--color-dark-pink);
+	background-color: transparent;
+	border: none;
+	outline: none;
+	font-size: 25px;
+	margin-right: 30px;
+}
+.AppraisalContainer__divideLine {
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+	margin-bottom: 20px;
+}
+.AppraisalContainer__price {
+	margin-top: 10px;
+	color: grey;
+	font-size: var(--font-small);
+	margin-bottom: 12px;
+}
+.AppraisalContainer__right {
+	margin-left: 25px;
+}
+.AppraisalContainer__priceText {
+	margin-top: 7px;
+	font-size: 17px;
+	margin-bottom: 13px;
+}
+.AppraisalContainer__priceNumber {
+	color: grey;
+	font-size: var(--font-small);
+	margin-bottom: 5px;
+}
+.AppraisalContainer__priceNumberText {
+	font-size: 17px;
+}
+.AppraisalContents__body {
+	font-size: 14px;
+	height: 153px;
+	line-height: 25px;
+}
+
+.AppraisalContents__body__buttonWrap {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+}
+.AppraisalContents__body__button {
+	font-size: var(--font-regular);
+	background-color: var(--color-dark-orange);
+	cursor: pointer;
+	border: none;
+	width: 45%;
+	outline: none;
+	border-radius: 5px;
+	padding: 10px 0px 10px 0px;
+	transition: all 350ms;
+}
+.AppraisalContents__body__button:hover {
+	transition: all 350ms;
+	background-color: var(--color-orange);
+}
+.AppraisalContents__body__likebutton {
+	font-size: var(--font-regular);
+	border-radius: 5px;
+	cursor: pointer;
+	transition: all 350ms;
+	width: 45%;
+	border: var(--color-dark-pink);
+	outline: none;
+}
+.AppraisalContents__body__likebutton:hover {
+	background-color: var(--color-dark-pink);
+}
+
+.AppraisalContents__body__submitButton {
+	font-size: var(--font-regular);
+	cursor: pointer;
+	border: none;
+	width: 45%;
+	outline: none;
+	border-radius: 5px;
+	padding: 10px 0px 10px 0px;
+	transition: all 350ms;
+}
+.AppraisalContents__body__deleteButton {
+	font-size: var(--font-regular);
+	background-color: var(--color-dark-orange);
+	cursor: pointer;
+	border: none;
+	width: 45%;
+	outline: none;
+	border-radius: 5px;
+	padding: 10px 0px 10px 0px;
+	transition: all 350ms;
+}
+.AppraisalContents__body__submitButton:hover {
+	background-color: grey;
+}
+
+.AppraisalContents__body__deleteButton:hover {
+	background-color: var(--color-orange);
+}
+.like {
+	background-color: var(--color-dark-pink);
+}
+
+.AppraisalContents__inputModal {
+	display: flex;
+	position: absolute;
+	width: 300px;
+	height: 150px;
+	left: 40%;
+	top: 27%;
+	border-radius: 10px;
+	border: solid 1px var(--color-dark-orange);
+	box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
+	background-color: rgb(255, 255, 255);
+	z-index: 6;
+}
+
+.AppraisalContents__inputWrap {
+	margin: auto;
+	z-index: 11;
+	justify-content: center;
+	text-align: center;
+}
+.AppraisalContents__input__title {
+	text-align: center;
+	font-size: var(--font-small);
+	margin-bottom: 15px;
+}
+.AppraisalContents__input {
+	width: 100px;
+	height: 25px;
+	text-align: right;
+}
+.AppraisalContents__input__text {
+	font-size: var(--font-small);
+	margin-left: 3px;
+}
+
+.AppraisalContents__input__button {
+	font-size: 15px;
+	background-color: var(--color-dark-orange);
+	border-radius: 3px;
+	margin-left: 10px;
+	cursor: pointer;
+	padding: 1px 8px 1px 8px;
+	border: none;
+}
+
+.AppraisalContents__inputModal__close {
+	position: absolute;
+	top: 8px;
+	right: 8px;
+	border: none;
+	cursor: pointer;
+	background-color: transparent;
+	color: var(--color-dark-orange);
+	font-size: 30px;
+}
+
+@media all and (min-width: 768px) and (max-width: 1023px) {
+	.AppraisalContents {
+		max-width: 850px;
+	}
+	.AppraisalContainer {
+		width: 100%;
+		margin: auto;
+		margin-top: 50px;
+		margin-bottom: 50px;
+		justify-content: space-around;
+	}
+	.AppraisalContainer__imgContainer {
+		width: 400px;
+	}
+	.AppraisalContainer__imgContainer__bigWrap {
+		width: 400px;
+		height: 400px;
+	}
+	.AppraisalContainer__imgContainer__big1,
+	.AppraisalContainer__imgContainer__big2,
+	.AppraisalContainer__imgContainer__big3,
+	.AppraisalContainer__imgContainer__big4 {
+		width: 400px;
+		height: 400px;
+	}
+
+	.AppraisalContainer__imgContainer__smallWrap {
+		width: 400px;
+	}
+	.AppraisalContainer__wrap {
+		width: 300px;
+	}
+	.AppraisalContents__body__buttonWrap {
+		justify-content: space-around;
+	}
+	.AppraisalContents__body__button,
+	.AppraisalContents__body__likebutton,
+	.AppraisalContents__body__submitbutton,
+	.AppraisalContents__body__deletebutton {
+		font-size: 12px;
+		width: 36%;
+		padding: 10px 3px 10px 3px;
+	}
+	.AppraisalContents__body {
+		font-size: 12px;
+		height: 140px;
+		line-height: 25px;
+	}
+	.AppraisalContainer__price,
+	.AppraisalContainer__priceNumber {
+		font-size: 12px;
+	}
+
+	.AppraisalContainer__priceText {
+		margin-bottom: 10px;
+	}
+	.AppraisalContainer__priceText,
+	.AppraisalContainer__priceNumberText {
+		font-size: 14px;
+	}
+}
+
+@media all and (min-width: 480px) and (max-width: 767px) {
+	.AppraisalContents {
+		max-width: 600px;
+		margin: auto;
+		display: flex;
+		justify-content: center;
+	}
+	.AppraisalContainer__imgContainer {
+		margin-bottom: 50px;
+	}
+	.AppraisalContainer {
+		max-width: 600px;
+		justify-content: center;
+		flex-direction: column;
+		margin: auto;
+		margin-top: 50px;
+		margin-bottom: 50px;
+	}
+	.AppraisalContainer__wrap {
+		margin: auto;
+	}
+	.AppraisalContents__body__buttonWrap {
+		justify-content: space-around;
+	}
+	.AppraisalContents__body__button,
+	.AppraisalContents__body__likebutton,
+	.AppraisalContents__body__submitbutton,
+	.AppraisalContents__body__deletebutton {
+		font-size: 12px;
+		width: 36%;
+		padding: 10px 3px 10px 3px;
+	}
+	.AppraisalContents__body {
+		font-size: 12px;
+		height: 140px;
+		line-height: 25px;
+	}
+	.AppraisalContainer__price,
+	.AppraisalContainer__priceNumber {
+		font-size: 12px;
+	}
+
+	.AppraisalContainer__priceText {
+		margin-bottom: 10px;
+	}
+	.AppraisalContainer__priceText,
+	.AppraisalContainer__priceNumberText {
+		font-size: 14px;
+	}
+}
+
+@media all and (max-width: 479px) {
+	.AppraisalContents {
+		max-width: 400px;
+		margin: auto;
+		display: flex;
+		justify-content: center;
+	}
+	.AppraisalContainer__imgContainer {
+		margin: auto;
+		margin-bottom: 50px;
+	}
+	.AppraisalContainer {
+		max-width: 400px;
+		justify-content: center;
+		flex-direction: column;
+		margin: auto;
+		margin-top: 50px;
+		margin-bottom: 50px;
+	}
+	.AppraisalContainer__imgContainer__smallWrap {
+		margin: auto;
+		width: 300px;
+	}
+
+	.AppraisalContainer__wrap {
+		max-width: 300px;
+		margin: auto;
+	}
+	.AppraisalContainer__imgContainer {
+		width: 300px;
+	}
+	.AppraisalContainer__imgContainer__bigWrap {
+		width: 300px;
+		height: 300px;
+	}
+	.AppraisalContainer__imgContainer__big1,
+	.AppraisalContainer__imgContainer__big2,
+	.AppraisalContainer__imgContainer__big3,
+	.AppraisalContainer__imgContainer__big4 {
+		width: 300px;
+		height: 300px;
+	}
+
+	.AppraisalContents__body__buttonWrap {
+		justify-content: space-around;
+	}
+	.AppraisalContents__body__button,
+	.AppraisalContents__body__likebutton,
+	.AppraisalContents__body__submitbutton,
+	.AppraisalContents__body__deletebutton {
+		font-size: 12px;
+		width: 36%;
+		padding: 10px 3px 10px 3px;
+	}
+	.AppraisalContents__body {
+		font-size: 12px;
+		height: 140px;
+		line-height: 25px;
+	}
+	.AppraisalContainer__price,
+	.AppraisalContainer__priceNumber {
+		font-size: 12px;
+	}
+
+	.AppraisalContainer__priceText {
+		margin-bottom: 10px;
+	}
+	.AppraisalContainer__priceText,
+	.AppraisalContainer__priceNumberText {
+		font-size: 14px;
+	}
+}
