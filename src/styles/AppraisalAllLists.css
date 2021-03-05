@@ -1,3 +1,80 @@
+.appraisalCategoryList {
+	position: relative;
+	margin: auto;
+	max-width: 1024px;
+	margin: auto;
+	top: 30px;
+}
+
+.appraisalCategoryList__title__wrap {
+	margin-bottom: 20px;
+}
+
+.appraisalCategoryList__title {
+	font-size: var(--font-regular);
+	font-weight: bold;
+	color: var(--color-dark-orange);
+}
+
+.appraisalCategoryList__more__up,
+.appraisalCategoryList__more__down {
+	position: relative;
+	color: var(--color-dark-orange);
+	background-color: transparent;
+	top: 8px;
+	font-size: 30px;
+	text-align: center;
+	cursor: pointer;
+	border: none;
+	outline: none;
+	transition: all 250ms ease-in;
+}
+.appraisalCategoryList__more__down:hover {
+	color: var(--color-dark-orange);
+	top: 13px;
+}
+.appraisalCategoryList__more__up:hover {
+	color: var(--color-dark-orange);
+	top: 3px;
+}
+.appraisalCategoryList__buttonBox {
+	margin: auto;
+}
+.appraisalCategoryList__buttonBox__button {
+	font-size: var(--font-micro);
+
+	text-align: center;
+	color: rgb(48, 48, 48);
+	background-color: white;
+	border: 1.5px solid var(--color-dark-orange);
+	border-radius: 20px;
+	cursor: pointer;
+
+	outline: none;
+	padding: 10px;
+	margin: 6px;
+	transition: all 250ms ease-in;
+}
+.appraisalCategoryList__buttonBox__button:hover {
+	color: white;
+	background-color: var(--color-dark-orange);
+}
+.appraisalCategoryList__buttonBox__buttonActive {
+	font-size: var(--font-micro);
+	text-align: center;
+	color: white;
+	background-color: var(--color-dark-orange);
+	border: 1.5px solid var(--color-orange);
+	border-radius: 20px;
+	cursor: pointer;
+	outline: none;
+	padding: 10px;
+	margin: 6px;
+	transition: all 250ms ease-in;
+}
+.appraisalCategoryList__buttonBox__button__modal {
+	display: none;
+}
 .appraisalAllList {
 	max-width: 1024px;
 	margin: auto;
@@ -10,7 +87,7 @@
 }
 .appraisalAllList__title {
 	font-size: var(--font-medium);
-	color: rgb(255, 126, 75);
+	color: var(--color-dark-orange);
 }
 
 .appraisalAllList__container {
@@ -61,28 +138,28 @@
 
 	font-size: 80px;
 	cursor: pointer;
-	color: var(--color-pink);
+	color: var(--color-orange);
 }
 
 @media all and (min-width: 768px) and (max-width: 1023px) {
-	.CategoryList {
+	.appraisalCategoryList {
 		max-width: 850px;
 	}
 	.appraisalAllList {
 		max-width: 850px;
 	}
-	.CategoryList__buttonBox {
+	.appraisalCategoryList__buttonBox {
 		margin-left: 10px;
 	}
-	.CategoryList__title {
+	.appraisalCategoryList__title {
 		margin-left: 10px;
 	}
-	.CategoryList__buttonBox__button {
+	.appraisalCategoryList__buttonBox__button {
 		font-size: 12px;
 		padding: 7px;
 		margin: 5px;
 	}
-	.CategoryList__buttonBox__buttonActive {
+	.appraisalCategoryList__buttonBox__buttonActive {
 		font-size: 12px;
 		padding: 7px;
 		margin: 5px;
@@ -105,19 +182,19 @@
 }
 
 @media all and (min-width: 480px) and (max-width: 767px) {
-	.CategoryList__title__wrap {
+	.appraisalCategoryList__title__wrap {
 		justify-content: center;
 	}
-	.CategoryList__title {
+	.appraisalCategoryList__title {
 		margin-left: 10px;
 	}
 
-	.CategoryList__buttonBox__button {
+	.appraisalCategoryList__buttonBox__button {
 		font-size: 12px;
 		padding: 6px;
 		margin: 3px;
 	}
-	.CategoryList__buttonBox__buttonActive {
+	.appraisalCategoryList__buttonBox__buttonActive {
 		font-size: 12px;
 		padding: 6px;
 		margin: 3px;
@@ -147,42 +224,42 @@
 }
 
 @media all and (max-width: 479px) {
-	.CategoryList__title__wrap {
+	.appraisalCategoryList__title__wrap {
 		justify-content: center;
 		display: flex;
 	}
-	.CategoryList__title {
+	.appraisalCategoryList__title {
 		margin-left: 10px;
 	}
-	.CategoryList__more__up,
-	.CategoryList__more__down {
+	.appraisalCategoryList__more__up,
+	.appraisalCategoryList__more__down {
 		top: -7px;
 		transition: all 250ms ease-in;
 	}
-	.CategoryList__more__down:hover {
-		color: var(--color-dark-pink);
+	.appraisalCategoryList__more__down:hover {
+		color: var(--color-dark-orange);
 		top: -2px;
 	}
-	.CategoryList__more__up:hover {
-		color: var(--color-dark-pink);
+	.appraisalCategoryList__more__up:hover {
+		color: var(--color-dark-orange);
 		top: -12px;
 	}
-	.CategoryList__buttonBox {
+	.appraisalCategoryList__buttonBox {
 		max-height: 230px;
 		margin-left: 10px;
 		display: flex;
 		flex-flow: column wrap;
 	}
 
-	.CategoryList__buttonBox__button {
+	.appraisalCategoryList__buttonBox__button {
 		display: none;
 	}
 
-	.CategoryList__buttonBox__buttonActive {
+	.appraisalCategoryList__buttonBox__buttonActive {
 		display: none;
 	}
 
-	.CategoryList__buttonBox__button__modal {
+	.appraisalCategoryList__buttonBox__button__modal {
 		display: flex;
 		font-size: var(--font-micro);
 		text-align: center;

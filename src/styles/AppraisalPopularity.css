@@ -101,15 +101,15 @@
 }
 .appraisal__popularity__title {
 	font-weight: bold;
-	font-size: var(--font-micro);
+	font-size: var(--font-small);
 }
 .appraisal__popularity__price__name {
 	position: relative;
-	font-size: var(--font-micro);
+	font-size: var(--font-small);
 }
 .appraisal__popularity__price {
 	position: relative;
-	font-size: var(--font-micro);
+	font-size: var(--font-small);
 }
 
 .appraisal__nextButton2 {
@@ -177,9 +177,7 @@
 	.appraisal__popularity__right {
 		top: 110px;
 	}
-	.appraisal__popularity__right__move {
-		/* top: 120px; */
-	}
+
 }
 
 @media all and (min-width: 480px) and (max-width: 767px) {
@@ -210,8 +208,14 @@
 	.appraisal__popularity__right {
 		top: 106px;
 	}
-	.appraisal__popularity__right__move {
-		/* top: 120px; */
+	.appraisal__popularity__title {
+		font-size: var(--font-micro);
+	}
+	.appraisal__popularity__price__name {
+		font-size: var(--font-micro);
+	}
+	.appraisal__popularity__price {
+		font-size: var(--font-micro);
 	}
 }
 
@@ -253,5 +257,14 @@
 	}
 	.appraisal__nextButton__container {
 		display: none;
+	}
+	.appraisal__popularity__title {
+		font-size: var(--font-micro);
+	}
+	.appraisal__popularity__price__name {
+		font-size: var(--font-micro);
+	}
+	.appraisal__popularity__price {
+		font-size: var(--font-micro);
 	}
 }

@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { withRouter } from "react-router-dom";
 import Header from "../components/Header";
-import ShopCategory from "../components/ShopCategory";
+import AppraisalCategory from "../components/AppraisalCategory";
 import ArrowUp from "../components/ArrowUp";
-import ShopAllList from "../components/ShopAllList";
+import AppraisalAllList from "../components/AppraisalAllList";
 
-function ShopList() {
+function AppraisalList() {
 	const initialState = [
 		{
 			id: 1,
@@ -87,15 +87,18 @@ function ShopList() {
 		},
 	];
 
-	const [categoryTitle, setCategoryTitle] = useState<string>("전체 판매");
+	const [categoryTitle, setCategoryTitle] = useState<string>("전체 감정가");
 
 	return (
 		<div>
-			<ShopCategory setCategoryTitle={setCategoryTitle} />
-			<ShopAllList categoryTitle={categoryTitle} initialState={initialState} />
+			<AppraisalCategory setCategoryTitle={setCategoryTitle} />
+			<AppraisalAllList
+				categoryTitle={categoryTitle}
+				initialState={initialState}
+			/>
 			<ArrowUp />
 		</div>
 	);
 }
 
-export default withRouter(ShopList);
+export default withRouter(AppraisalList);

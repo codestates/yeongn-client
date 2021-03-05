@@ -7,7 +7,7 @@ import MyPageProfile from "../components/MyPageProfile";
 import MyPageLikes from "../components/MyPageLikes";
 import MyPageRequest from "../components/MyPageRequest";
 import "../styles/MyPage.css";
-
+		
 function MyPage() {
 	return (
 		<div id="mypage">
