@@ -21,8 +21,19 @@ import Header from "./components/Header";
 import axios from "axios";
 
 function App() {
+	//! 로그인 했을 때 바뀌는 setUser
 	const [user, setUser] = useState({});
+	//! 로그인 했을 때 부여되는 toekn
 	const [accessToken, setToken] = useState("");
+	//! 헤더에서 상태가 바껴지는 서치 인풋 최상단 에서 관리하여
+	//! 써치로 뿌려주는 형식
+
+	//Search에 보내줘야하는 것들
+	// const [searchInput, setSearch] = useState("");
+	// const handleChangeSearch = (searchInput:string):void =>{
+	// 	console.log(searchInput);
+	// 	setSearch(searchInput);
+	// }
 
 	const url = ``;
 
@@ -138,7 +149,7 @@ function App() {
 				/>
 				<Route
 					exact
-					path="/search"
+					path="/search/:input"
 					render={() => {
 						return <Search />;
 					}}

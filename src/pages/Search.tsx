@@ -1,13 +1,17 @@
 import { List } from "@material-ui/icons";
 import axios from "axios";
 import React from "react";
-import { Link, withRouter } from "react-router-dom";
+import { withRouter, RouteComponentProps } from "react-router-dom";
 
-function Search() {
+interface MatchParams {
+	input: string;
+}
+
+function Search({ match }: RouteComponentProps<MatchParams>) {
 	return (
 		<div>
 			{/* 밑에 h1 삭제하고 컴포넌트 입력하기 */}
-			<h1>써치 페이지 입니다.</h1>
+			<h1>{match.params.input}</h1>
 			{/* todo */}
 		</div>
 	);

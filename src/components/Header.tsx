@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link, withRouter, RouteComponentProps } from "react-router-dom";
 import SearchIcon from "@material-ui/icons/Search";
 import yeongnLogo from "../assets/img/yeongnLogo1.png";
@@ -6,7 +6,7 @@ import StorefrontIcon from "@material-ui/icons/Storefront";
 import CreateIcon from "@material-ui/icons/Create";
 import MenuIcon from "@material-ui/icons/Menu";
 import "../styles/Header.css";
-
+import usePrevious from "../components/usePrevious";
 interface User {
 	userId: string;
 	authenticated: boolean;
@@ -19,28 +19,36 @@ function Header({ user, location }: IMypageUser) {
 	const [isLogin, setLogin] = useState(true);
 	const [id, setId] = useState("lovvp");
 	const [toggleState, setToggle] = useState(true);
-	let headerMenu = document.querySelector(".header__menu") as HTMLElement;
-	const root = document.querySelector("#root") as HTMLElement;
 	const toggleBtnClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
 		setToggle(!toggleState);
 	};
-	useEffect(() => {
-		console.log(location);
+	const input = useRef<HTMLInputElement>(null);
+	const [searchInput, setSearch] = useState("");
+	const handleChangeSearch = (e: React.ChangeEvent<HTMLInputElement>): void => {
+		console.log(e.target.value);
+		setSearch(e.target.value);
+	};
+	const onReset = (): void => {
+		if (input.current) {
+			input.current.value = "";
+		}
+	};
 
+	const prevHistory = usePrevious(location.pathname);
+	useEffect(() => {
+		console.log(input);
 		if (user.authenticated) {
 			setLogin(true);
-			return () => {
-				if (toggleState === false) {
-					setToggle(true);
-				}
-			};
+			if (prevHistory !== location.pathname) {
+				setToggle(true);
+				onReset();
+			}
 		} else {
 			setLogin(false);
-			return () => {
-				if (toggleState === false) {
-					setToggle(true);
-				}
-			};
+			if (prevHistory !== location.pathname) {
+				setToggle(true);
+				onReset();
+			}
 		}
 	});
 
@@ -57,9 +65,11 @@ function Header({ user, location }: IMypageUser) {
 							type="text"
 							placeholder="검색어를 입력하세요"
 							className="header__menu__search__input"
+							onChange={handleChangeSearch}
+							ref={input}
 						/>
 						{/* 검색어 상태는 전역에서 관리해야함;; */}
-						<Link to="search">
+						<Link to={`/search/${searchInput}`}>
 							<button className="header__menu__search__button">
 								<SearchIcon />
 							</button>
