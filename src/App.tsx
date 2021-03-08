@@ -20,11 +20,20 @@ import AuthRoute from "./components/AuthRoute";
 import Header from "./components/Header";
 import axios from "axios";
 
+interface User {
+	userId: string;
+	userEmail: string;
+	authenticated: boolean;
+}
+
 function App() {
 	//! 로그인 했을 때 바뀌는 setUser
-	const [user, setUser] = useState({});
-	//! 로그인 했을 때 부여되는 toekn
-	const [accessToken, setToken] = useState("");
+	const [user, setUser] = useState({
+		userId: "",
+		userEmail: "",
+		authenticated: false,
+	});
+
 	//! 헤더에서 상태가 바껴지는 서치 인풋 최상단 에서 관리하여
 	//! 써치로 뿌려주는 형식
 
@@ -35,39 +44,32 @@ function App() {
 	// 	setSearch(searchInput);
 	// }
 
-	const url = ``;
-
-	// const loginHandler = (userData:any)=> {
-	// 	setUser(userData);
-	// }
+	const loginHandler = (userData: User) => {
+		setUser(userData);
+	};
 
 	const logoutHandler = () => {
-		setUser({});
+		setUser({ userId: "", userEmail: "", authenticated: false });
 	};
 
-	const issueAccessToken = (token: string) => {
-		setToken(token);
-		axios
-			.get("https://s.nugathesam.com/users", {
-				headers: { Authorization: `Bearer ${token}` },
-			})
-			.then((res) => {
-				setUser(res.data);
-				// console.log(res.data);
-			})
-			.catch((err) => {
-				console.log("무언가 잘못됐다.");
-			});
-	};
-
-	const userInfo = {
-		userId: "김창민",
-		authenticated: false,
-	};
+	// const issueAccessToken = (token: string) => {
+	// 	setToken(token);
+	// 	axios
+	// 		.get("https://s.nugathesam.com/users", {
+	// 			headers: { Authorization: `Bearer ${token}` },
+	// 		})
+	// 		.then((res) => {
+	// 			setUser(res.data);
+	// 			// console.log(res.data);
+	// 		})
+	// 		.catch((err) => {
+	// 			console.log("무언가 잘못됐다.");
+	// 		});
+	// };
 
 	return (
 		<Router>
-			<Header user={userInfo} />
+			<Header user={user} />
 			<Switch>
 				<Route
 					exact
@@ -80,7 +82,7 @@ function App() {
 					exact
 					path="/login"
 					render={() => {
-						return <Login issueAccessToken={issueAccessToken} />;
+						return <Login loginHandler={loginHandler} />;
 					}}
 				/>
 				<Route
@@ -106,31 +108,31 @@ function App() {
 				/>
 				<AuthRoute
 					exact
-					authenticated={userInfo.authenticated}
+					authenticated={user.authenticated}
 					path="/mypage"
 					component={MyPage}
-					user={userInfo}
+					user={user}
 				/>
 				<AuthRoute
-					authenticated={userInfo.authenticated}
+					authenticated={user.authenticated}
 					exact
 					path="/mypage/request"
 					component={MyPageRequestAdd}
-					user={userInfo}
+					user={user}
 				/>
 				<AuthRoute
 					exact
-					authenticated={userInfo.authenticated}
+					authenticated={user.authenticated}
 					path="/mypage/shop"
 					component={MyPageStoreAdd}
-					user={userInfo}
+					user={user}
 				/>
 				<AuthRoute
 					exact
-					authenticated={userInfo.authenticated}
+					authenticated={user.authenticated}
 					path="/mypage/likes"
 					component={MyPageLikesAdd}
-					user={userInfo}
+					user={user}
 				/>
 
 				<Route
