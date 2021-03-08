@@ -22,7 +22,7 @@ function Shop() {
 							</button>
 						</Link>
 					</div>
-					<img src={shop} className="Shop__main__image"></img>
+					<img src={shop} alt="shop" className="Shop__main__image"></img>
 				</div>
 			</section>
 			<ShopPopularity />

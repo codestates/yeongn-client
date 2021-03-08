@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../styles/ShopComment.css";
+import Pagination from "./ShopPagination";
 const initialState = [
 	{
 		id: 1,
@@ -30,6 +31,11 @@ function ShopComment() {
 	const [isUser, setIsUser] = useState<boolean>(false);
 	const [test, setTest] = useState<string>("");
 	const [isModify, setIsModify] = useState<boolean>(false);
+	const [currentPage, setCurrentPage] = useState<number>(1);
+	const [postsPerPage, setPostsPerPage] = useState<number>(5);
+
+	const indexOfLast = currentPage * postsPerPage;
+	const indexOfFirst = indexOfLast - postsPerPage;
 
 	useEffect(() => {
 		submitCommnet();
@@ -84,7 +90,7 @@ function ShopComment() {
 					소중한 댓글을 입력해주세요.
 				</div>
 			) : (
-				state.map((comment) => (
+				state.slice(indexOfFirst, indexOfLast).map((comment) => (
 					<div className="ShopComment__container" key={comment.id}>
 						<div className="ShopComment__box">
 							<div className="ShopComment__box__nameAndTitle">
@@ -134,6 +140,11 @@ function ShopComment() {
 				</div>
 			)}
 			<div className="ShopCommentBox_divdieLine"></div>
+			<Pagination
+				postsPerPage={postsPerPage}
+				totalPosts={state.length}
+				paginate={setCurrentPage}
+			/>
 			<div className="ShopCommentBox">
 				<input
 					className="ShopCommentBox__input"

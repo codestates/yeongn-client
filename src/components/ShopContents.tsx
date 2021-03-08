@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import "../styles/ShopContents.css";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import FavoriteIcon from "@material-ui/icons/Favorite";
@@ -185,21 +185,24 @@ function ShopContents() {
 						</div>
 						<div className="ShopContainer__nameAndLike">
 							<div className="ShopContainer__name">{content.name}</div>
-							{like ? (
-								<button
-									className="ShopContainer__like"
-									onClick={likeButtonClick}
-								>
-									<FavoriteIcon fontSize="inherit" />
-								</button>
-							) : (
-								<button
-									className="ShopContainer__unlike"
-									onClick={likeButtonClick}
-								>
-									<FavoriteBorderIcon fontSize="inherit" />
-								</button>
-							)}
+							<div className="ShopContainer__likeAndCount">
+								{like ? (
+									<button
+										className="ShopContainer__like"
+										onClick={likeButtonClick}
+									>
+										<FavoriteIcon fontSize="inherit" />
+									</button>
+								) : (
+									<button
+										className="ShopContainer__unlike"
+										onClick={likeButtonClick}
+									>
+										<FavoriteBorderIcon fontSize="inherit" />
+									</button>
+								)}
+								<span className="ShopContainer__likeCount">123</span>
+							</div>
 						</div>
 						<div className="ShopContainer__category"># {content.category}</div>
 						<div className="ShopContainer__divideLine"></div>
@@ -270,19 +273,9 @@ function ShopContents() {
 						<CloseIcon fontSize="inherit" />
 					</button>
 					<div className="ShopContents__inputWrap">
-						<div className="ShopContents__input__title">당신의 감정가는?</div>
-						<input
-							className="ShopContents__input"
-							onChange={changePrice}
-						></input>
-						<span className="ShopContents__input__text">원</span>
-						<button
-							className="ShopContents__input__button"
-							onClick={submitPrice}
-						>
-							{" "}
-							감정{" "}
-						</button>
+						<div className="ShopContents__input__title">판매자 연락처</div>
+
+						<span className="ShopContents__input__text">010-7307-3883</span>
 					</div>
 				</div>
 			) : null}

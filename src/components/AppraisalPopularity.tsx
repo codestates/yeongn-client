@@ -116,6 +116,7 @@ function AppraisalPopularity() {
 		buttonLeft.className = "appraisal__nextButton2__rightdot";
 		buttonRight.className = "appraisal__nextButton2__leftdot";
 	};
+
 	const leftButtonclick = (): void => {
 		const next = document.querySelector(
 			".appraisal__popularity__right__move",

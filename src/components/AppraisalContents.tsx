@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import "../styles/AppraisalContents.css";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import KeyboardArrowRightIcon from "@material-ui/icons/KeyboardArrowRight";
 import KeyboardArrowLeftIcon from "@material-ui/icons/KeyboardArrowLeft";
 import CloseIcon from "@material-ui/icons/Close";
-
 function AppraisalContents() {
 	const initialState = [
 		{
@@ -82,6 +81,7 @@ function AppraisalContents() {
 		setCount((count) => count + 1);
 		changeLeft();
 	};
+
 	const leftPhotoButton = (): void => {
 		if (count <= 1 || count === 0) {
 			setCount((count) => 1);
@@ -179,25 +179,29 @@ function AppraisalContents() {
 					</div>
 				</div>
 				{initialState.slice(0, 1).map((content: any) => (
-					<div className="AppraisalContainer__wrap">
+					<div className="AppraisalContainer__wrap" key={content.id}>
 						<div className="AppraisalContainer__title">{content.nick}</div>
+
 						<div className="AppraisalContainer__nameAndLike">
 							<div className="AppraisalContainer__name">{content.name}</div>
-							{like ? (
-								<button
-									className="AppraisalContainer__like"
-									onClick={likeButtonClick}
-								>
-									<FavoriteIcon fontSize="inherit" />
-								</button>
-							) : (
-								<button
-									className="AppraisalContainer__unlike"
-									onClick={likeButtonClick}
-								>
-									<FavoriteBorderIcon fontSize="inherit" />
-								</button>
-							)}
+							<div className="AppraisalContainer__likeAndCount">
+								{like ? (
+									<button
+										className="AppraisalContainer__like"
+										onClick={likeButtonClick}
+									>
+										<FavoriteIcon fontSize="inherit" />
+									</button>
+								) : (
+									<button
+										className="AppraisalContainer__unlike"
+										onClick={likeButtonClick}
+									>
+										<FavoriteBorderIcon fontSize="inherit" />
+									</button>
+								)}
+								<span className="AppraisalContainer__likeCount">123</span>
+							</div>
 						</div>
 						<div className="AppraisalContainer__category">
 							# {content.category}

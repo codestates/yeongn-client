@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../styles/AppraisalComment.css";
+import Pagination from "./AppraisalPagination";
 const initialState = [
 	{
 		id: 1,
@@ -21,6 +22,21 @@ const initialState = [
 		nick: "헛소리충",
 		text: "어제 T1경기 본 사람?",
 	},
+	{
+		id: 5,
+		nick: "헛소리충",
+		text: "어제 T1경기 본 사람?",
+	},
+	{
+		id: 6,
+		nick: "헛소리충",
+		text: "어제 T1경기 본 사람?",
+	},
+	{
+		id: 7,
+		nick: "헛소리충",
+		text: "어제 T1경기 본 사람?",
+	},
 ];
 
 function AppraisalComment() {
@@ -30,10 +46,17 @@ function AppraisalComment() {
 	const [isUser, setIsUser] = useState<boolean>(false);
 	const [test, setTest] = useState<string>("");
 	const [isModify, setIsModify] = useState<boolean>(false);
+	const [currentPage, setCurrentPage] = useState<number>(1);
+	const [postsPerPage, setPostsPerPage] = useState<number>(5);
 
 	useEffect(() => {
 		submitCommnet();
 	});
+
+	const indexOfLast = currentPage * postsPerPage;
+	const indexOfFirst = indexOfLast - postsPerPage;
+
+
 	const onChangeCommnet = (e: any): void => {
 		setComment(e.target.value);
 	};
@@ -61,9 +84,7 @@ function AppraisalComment() {
 
 	const commentDelets = (e: any) => {
 		setTest(e.target.value);
-		console.log(initialState);
 		setState(initialState.filter((comment) => comment.nick !== test));
-		console.log(initialState);
 	};
 	const commentModifyController = (e: any) => {
 		setIsModify(true);
@@ -84,8 +105,8 @@ function AppraisalComment() {
 					소중한 댓글을 입력해주세요.
 				</div>
 			) : (
-				state.map((comment) => (
-					<div className="AppraisalComment__container">
+				state.slice(indexOfFirst, indexOfLast).map((comment) => (
+					<div className="AppraisalComment__container" key={comment.id}>
 						<div className="AppraisalComment__box">
 							<div className="AppraisalComment__box__nameAndTitle">
 								<div className="AppraisalComment__box__name">
@@ -124,6 +145,7 @@ function AppraisalComment() {
 					</div>
 				))
 			)}
+
 			{!isModify ? null : (
 				<div className="AppraisalCommentBoxModify">
 					<input
@@ -140,6 +162,11 @@ function AppraisalComment() {
 				</div>
 			)}
 			<div className="AppraisalCommentBox_divdieLine"></div>
+			<Pagination
+				postsPerPage={postsPerPage}
+				totalPosts={state.length}
+				paginate={setCurrentPage}
+			/>
 			<div className="AppraisalCommentBox">
 				<input
 					className="AppraisalCommentBox__input"
