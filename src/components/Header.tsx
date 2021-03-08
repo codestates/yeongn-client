@@ -25,7 +25,6 @@ function Header({ user, location }: IMypageUser) {
 	const input = useRef<HTMLInputElement>(null);
 	const [searchInput, setSearch] = useState("");
 	const handleChangeSearch = (e: React.ChangeEvent<HTMLInputElement>): void => {
-		console.log(e.target.value);
 		setSearch(e.target.value);
 	};
 	const onReset = (): void => {
@@ -36,7 +35,6 @@ function Header({ user, location }: IMypageUser) {
 
 	const prevHistory = usePrevious(location.pathname);
 	useEffect(() => {
-		console.log(input);
 		if (user.authenticated) {
 			setLogin(true);
 			if (prevHistory !== location.pathname) {
