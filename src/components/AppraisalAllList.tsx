@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 import "../styles/AppraisalAllLists.css";
 
-
 type CategoryTitleProps = {
 	categoryTitle: string;
 	initialState: any;
@@ -38,6 +37,7 @@ function AppraisalAllList({ categoryTitle, initialState }: CategoryTitleProps) {
 			);
 		}
 	};
+
 	const moreButtonClick = (): void => {
 		setCount((count) => count + 6);
 	};
