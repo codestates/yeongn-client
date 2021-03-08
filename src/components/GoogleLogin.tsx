@@ -13,7 +13,7 @@ interface ILoginUser extends RouteComponentProps {
 }
 function GoogleLogin({ loginHandler, history, location }: ILoginUser) {
 	const GOOGLE_LOGIN_URL = `https://accounts.google.com/o/oauth2/v2/auth?scope=https://www.googleapis.com/auth/userinfo.profile&access_type=offline&include_granted_scopes=true&state=state_parameter_passthrough_value&
-redirect_uri=http://localhost:3000/login&response_type=code&client_id=
+redirect_uri=https://www.yeongn.com/login&response_type=code&client_id=
 604944373689-q294luegtuje1qpkiq0q3jrfqd8ps6qp.apps.googleusercontent.com`;
 
 	const googleLoginHandler = () => {
