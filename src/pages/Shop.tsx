@@ -4,6 +4,8 @@ import "../styles/Shop.css";
 import shop from "../assets/img/shop.png";
 import ShopPopularity from "../components/ShopPopularity";
 import ScrollToTop from "../components/ScrollToTop";
+import ArrowUp from "../components/ArrowUp";
+
 function Shop() {
 	return (
 		<div>
@@ -27,6 +29,7 @@ function Shop() {
 			</section>
 			<ShopPopularity />
 			<div className="Appraisal__division__line"></div>
+			<ArrowUp />
 		</div>
 	);
 }

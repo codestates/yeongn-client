@@ -54,6 +54,7 @@ function AppraisalContents() {
 	const likeButtonClick = (): void => {
 		setLike(!like);
 	};
+
 	const changeLikeButton = (): void => {
 		if (like === true) {
 			const likeButton = document.querySelector(

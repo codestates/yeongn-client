@@ -14,7 +14,7 @@
 	font-size: var(--font-medium);
 }
 .appraisal__title__button {
-	font-size: var(--font-regular);
+	font-size: var(--font-small);
 	background-color: transparent;
 	cursor: pointer;
 	border: none;
@@ -79,30 +79,62 @@
 }
 
 .appraisal__highPriceList__card {
-	width: 310px;
+	width: 240px;
+	height: 340px;
 	margin-left: 2px;
 	margin-right: 2px;
-	margin-bottom: 35px;
+	margin-bottom: 15px;
 	border-radius: 6px;
 }
 
 .appraisal__highPriceList__card__wrap {
 	justify-content: space-between;
 	display: flex;
+	flex-direction: column;
 	margin-left: 5px;
 	margin-right: 5px;
 	margin-bottom: 10px;
 }
+.appraisal__highPriceList__nickAndLikeWrap {
+	justify-content: space-between;
+	display: flex;
+}
+.appraisal__highPriceList__nick {
+	color: grey;
+	font-size: var(--font-micro);
+	margin-bottom: 3px;
+}
+.appraisal__highPriceList__likeAndCount {
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	flex-direction: column;
+}
+.appraisal__highPriceList__like {
+	margin-right: 5px;
+	color: var(--color-dark-orange);
+}
 .appraisal__highPriceList__img {
 	background: url("../assets/img/나비.jpeg") center/cover;
-	width: 310px;
-	height: 200px;
+	width: 240px;
+	height: 240px;
 	margin-bottom: 7px;
 	border-radius: 5px;
 }
+
+
 .appraisal__highPriceList__title {
 	font-weight: bold;
-	font-size: var(--font-small);
+	font-size: 13px;
+	margin-bottom: 7px;
+}
+.appraisal__highPriceList__titleAndLikeCount {
+	justify-content: space-between;
+	display: flex;
+}
+.appraisal__highPriceList__likeCount {
+	margin-right: 3px;
+	font-size: var(--font-micro);
 }
 .appraisal__highPriceList__price__name {
 	position: relative;
@@ -163,21 +195,28 @@
 		margin-left: 20px;
 	}
 
+	.appraisal__highPriceList__title {
+		font-size: 12px;
+	}
 	.appraisal__highPriceList__card {
+		width: 185px;
+		height: 300px;
 		margin: auto;
-		width: 370px;
-		margin-bottom: 20px;
 	}
 
 	.appraisal__highPriceList__img {
-		width: 370px;
+		width: 185px;
+		height: 185px;
 	}
 	.appraisal__title__button {
 		margin-top: 5px;
 		margin-right: 20px;
 	}
 	.appraisal__highPriceList__right {
-		top: 110px;
+		top: 105px;
+	}
+	.appraisal__highPriceList__price {
+		font-size: 15px;
 	}
 }
 
@@ -191,11 +230,13 @@
 
 	.appraisal__highPriceList__card {
 		margin: auto;
-		width: 300px;
+		width: 270px;
+		height: 350px;
 		margin-bottom: 20px;
 	}
 	.appraisal__highPriceList__img {
-		width: 300px;
+		width: 270px;
+		height: 270px;
 	}
 
 	.appraisal__title {
@@ -207,7 +248,7 @@
 		font-size: var(--font-small);
 	}
 	.appraisal__highPriceList__right {
-		top: 106px;
+		top: 110px;
 	}
 	.appraisal__highPriceList__title {
 		font-size: var(--font-micro);
@@ -215,8 +256,9 @@
 	.appraisal__highPriceList__price__name {
 		font-size: var(--font-micro);
 	}
+
 	.appraisal__highPriceList__price {
-		font-size: var(--font-micro);
+		font-size: 14px;
 	}
 }
 
@@ -242,11 +284,13 @@
 	}
 	.appraisal__highPriceList__card {
 		margin: auto;
-		width: 320px;
+		width: 160px;
+		height: 230px;
 		margin-bottom: 20px;
 	}
 	.appraisal__highPriceList__img {
-		width: 320px;
+		width: 160px;
+		height: 160px;
 	}
 	.appraisal__title {
 		margin-left: 20px;
@@ -259,13 +303,17 @@
 	.appraisal__nextButton__container {
 		display: none;
 	}
-	.appraisal__highPriceList__title {
-		font-size: var(--font-micro);
+	.appraisal__highPriceList__nick {
+		font-size: 10px;
 	}
-	.appraisal__highPriceList__price__name {
-		font-size: var(--font-micro);
+	.appraisal__highPriceList__title {
+		font-size: 10px;
+	}
+	.appraisal__highPriceList__likeCount {
+		font-size: 10px;
+		margin-right: 5px;
 	}
 	.appraisal__highPriceList__price {
-		font-size: var(--font-micro);
+		font-size: 12px;
 	}
 }

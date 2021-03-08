@@ -48,14 +48,13 @@ function AppraisalComment() {
 	const [isModify, setIsModify] = useState<boolean>(false);
 	const [currentPage, setCurrentPage] = useState<number>(1);
 	const [postsPerPage, setPostsPerPage] = useState<number>(5);
+	//* 페이지네이션
+	const indexOfLast = currentPage * postsPerPage;
+	const indexOfFirst = indexOfLast - postsPerPage;
 
 	useEffect(() => {
 		submitCommnet();
 	});
-
-	const indexOfLast = currentPage * postsPerPage;
-	const indexOfFirst = indexOfLast - postsPerPage;
-
 
 	const onChangeCommnet = (e: any): void => {
 		setComment(e.target.value);

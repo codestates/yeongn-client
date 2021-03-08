@@ -46,12 +46,8 @@ function AppraisalCategory({ setCategoryTitle }: CategoryButtonClickProps) {
 		});
 	};
 
-	const moreCategoryButtonUp = (): void => {
-		setCategoryMore(false);
-	};
-
-	const moreCategoryButtonDown = (): void => {
-		setCategoryMore(true);
+	const moreCategoryButton = (): void => {
+		setCategoryMore(!categoryMore);
 	};
 
 	return (
@@ -62,15 +58,12 @@ function AppraisalCategory({ setCategoryTitle }: CategoryButtonClickProps) {
 					<button className="CategoryList__more__down">
 						<ArrowDropDownIcon
 							fontSize="inherit"
-							onClick={moreCategoryButtonDown}
+							onClick={moreCategoryButton}
 						/>
 					</button>
 				) : (
 					<button className="CategoryList__more__up">
-						<ArrowDropUpIcon
-							fontSize="inherit"
-							onClick={moreCategoryButtonUp}
-						/>
+						<ArrowDropUpIcon fontSize="inherit" onClick={moreCategoryButton} />
 					</button>
 				)}
 			</div>

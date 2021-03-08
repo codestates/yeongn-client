@@ -45,13 +45,10 @@ function ShopCategory({ setCategoryTitle }: CategoryButtonClickProps) {
 			}
 		});
 	};
-	const moreCategoryButtonUp = (): void => {
-		setCategoryMore(false);
+	const moreCategoryButton = (): void => {
+		setCategoryMore(!categoryMore);
 	};
 
-	const moreCategoryButtonDown = (): void => {
-		setCategoryMore(true);
-	};
 	return (
 		<section className="ShopCategoryList">
 			<div className="ShopCategoryList__title__wrap">
@@ -60,15 +57,12 @@ function ShopCategory({ setCategoryTitle }: CategoryButtonClickProps) {
 					<button className="ShopCategoryList__more__down">
 						<ArrowDropDownIcon
 							fontSize="inherit"
-							onClick={moreCategoryButtonDown}
+							onClick={moreCategoryButton}
 						/>
 					</button>
 				) : (
 					<button className="ShopCategoryList__more__up">
-						<ArrowDropUpIcon
-							fontSize="inherit"
-							onClick={moreCategoryButtonUp}
-						/>
+						<ArrowDropUpIcon fontSize="inherit" onClick={moreCategoryButton} />
 					</button>
 				)}
 			</div>

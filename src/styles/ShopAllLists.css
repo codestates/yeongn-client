@@ -17,7 +17,6 @@
 }
 
 .ShopCategoryList__more__up,
-
 .ShopCategoryList__more__down {
 	position: relative;
 	color: var(--color-dark-pink);
@@ -43,14 +42,12 @@
 }
 .ShopCategoryList__buttonBox__button {
 	font-size: var(--font-micro);
-
 	text-align: center;
 	color: rgb(48, 48, 48);
 	background-color: white;
 	border: 1.5px solid var(--color-dark-pink);
 	border-radius: 20px;
 	cursor: pointer;
-
 	outline: none;
 	padding: 10px;
 	margin: 6px;
@@ -97,7 +94,8 @@
 	justify-content: space-between;
 }
 .shopAllList__container__card {
-	width: 310px;
+	width: 240px;
+	height: 340px;
 	margin-bottom: 20px;
 	border-radius: 6px;
 }
@@ -114,6 +112,7 @@
 .shopAllList__container__wrap {
 	justify-content: space-between;
 	display: flex;
+	flex-direction: column;
 	margin-left: 5px;
 	margin-right: 5px;
 	margin-bottom: 10px;
@@ -121,17 +120,47 @@
 .shopAllList__container__img {
 	background: url("../assets/img/나비.jpeg") center/cover;
 	border-radius: 6px;
-	width: 310px;
-	height: 200px;
+	width: 240px;
+	height: 240px;
 	margin-bottom: 7px;
+}
+.shopAllList_-container__nickAndLikeWrap {
+	justify-content: space-between;
+	display: flex;
+}
+.shopAllList__container__likeAndCount {
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	flex-direction: column;
+}
+.shopAllList__container__like {
+	margin-right: 5px;
+}
+.shopAllList__container__nick {
+	color: grey;
+	font-size: var(--font-micro);
+	margin-bottom: 3px;
+}
+.shopAllList__container__like {
+	color: var(--color-dark-pink);
+}
+.shopAllList__container__titleAndLikeCount {
+	justify-content: space-between;
+	display: flex;
 }
 .shopAllList__container__title {
 	font-weight: bold;
-	font-size: var(--font-small);
+	font-size: 13px;
+	margin-bottom: 7px;
+}
+.shopAllList__container__likeCount {
+	margin-right: 3px;
+	font-size: var(--font-micro);
 }
 .shopAllList__container__price {
 	position: relative;
-	font-size: var(--font-small);
+	font-size: 15px;
 }
 
 .shopAllList__container__moreButton {
@@ -170,12 +199,12 @@
 	}
 
 	.shopAllList__container__card {
-		width: 380px;
+		width: 240px;
 		margin: auto;
-		margin-bottom: 10px;
+		margin-bottom: 20px;
 	}
 	.shopAllList__container__img {
-		width: 380px;
+		width: 240px;
 	}
 	.shopAllList__container__wrap {
 		margin-bottom: 8px;
@@ -205,22 +234,27 @@
 		margin-left: 10px;
 	}
 	.shopAllList__container__card {
-		width: 320px;
+		width: 200px;
 		margin: auto;
+		height: 300px;
 		justify-content: space-evenly;
 		margin-bottom: 7px;
 	}
 	.shopAllList__container__img {
-		width: 320px;
+		width: 200px;
+		height: 200px;
 	}
 	.shopAllList__container__wrap {
 		margin-bottom: 10px;
 	}
+	.shopAllList__container__nick {
+		font-size: 11px;
+	}
 	.shopAllList__container__title {
-		font-size: var(--font-micro);
+		font-size: 11px;
 	}
 	.shopAllList__container__price {
-		font-size: var(--font-micro);
+		font-size: 13px;
 	}
 }
 
@@ -277,20 +311,29 @@
 		font-size: var(--font-regular);
 	}
 	.shopAllList__container__card {
-		width: 340px;
+		width: 170px;
 		margin: auto;
+		height: 270px;
 		justify-content: space-evenly;
 	}
 	.shopAllList__container__img {
-		width: 340px;
+		width: 170px;
+		height: 170px;
 	}
 	.shopAllList__container__wrap {
 		margin-bottom: 20px;
 	}
+	.shopAllList__container__nick {
+		font-size: 11px;
+	}
 	.shopAllList__container__title {
-		font-size: var(--font-micro);
+		font-size: 11px;
 	}
 	.shopAllList__container__price {
-		font-size: var(--font-micro);
+		font-size: 12px;
+	}
+	.shopAllList__container__likeCount {
+		font-size: 10px;
+		margin-right: 5px;
 	}
 }
