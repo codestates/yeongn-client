@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 import "../styles/ShopAllLists.css";
+import FavoriteIcon from "@material-ui/icons/Favorite";
 
 type CategoryTitleProps = {
 	categoryTitle: string;
@@ -35,6 +36,7 @@ function ShopAllList({ categoryTitle, initialState }: CategoryTitleProps) {
 			setShopList(shopList.filter((el: any) => el.category === categoryTitle));
 		}
 	};
+
 	const moreButtonClick = (): void => {
 		setCount((count) => count + 6);
 	};
@@ -50,16 +52,27 @@ function ShopAllList({ categoryTitle, initialState }: CategoryTitleProps) {
 						<Link to={`/shop/${shopList.id}`} key={shopList.id}>
 							<div className="shopAllList__container__img"></div>
 							<div className="shopAllList__container__wrap">
-								<div className="shopAllList__container__title">
-									{shopList.name}
+								<div className="shopAllList_-container__nickAndLikeWrap">
+									<div className="shopAllList__container__nick">
+										{shopList.nick}
+									</div>
+									<span className="shopAllList__container__like">
+										<FavoriteIcon fontSize="inherit" />
+									</span>
 								</div>
-								<span className="shopAllList__container__price">
+								<div className="shopAllList__container__titleAndLikeCount">
+									<div className="shopAllList__container__title">
+										{shopList.name}
+									</div>
+									<span className="shopAllList__container__likeCount">147</span>
+								</div>
+								<div className="shopAllList__container__price">
 									<span className="shopAllList__container__price">감정가 </span>
 									{shopList.price
 										.toString()
 										.replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
 									원{" "}
-								</span>
+								</div>
 							</div>
 						</Link>
 					</div>

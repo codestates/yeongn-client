@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 import "../styles/AppraisalAllLists.css";
-
+import FavoriteIcon from "@material-ui/icons/Favorite";
 type CategoryTitleProps = {
 	categoryTitle: string;
 	initialState: any;
@@ -56,10 +56,23 @@ function AppraisalAllList({ categoryTitle, initialState }: CategoryTitleProps) {
 						<Link to={`/appraisal/${appraisalList.id}`} key={appraisalList.id}>
 							<div className="appraisalAllList__container__img"></div>
 							<div className="appraisalAllList__container__wrap">
-								<div className="appraisalAllList__container__title">
-									{appraisalList.name}
+								<div className="appraisalAllList_-container__nickAndLikeWrap">
+									<div className="appraisalAllList__container__nick">
+										{appraisalList.nick}
+									</div>
+									<span className="appraisalAllList__container__like">
+										<FavoriteIcon fontSize="inherit" />
+									</span>
 								</div>
-								<span className="appraisalAllList__container__price">
+								<div className="appraisalAllList__container__titleAndLikeCount">
+									<div className="appraisalAllList__container__title">
+										{appraisalList.name}
+									</div>
+									<span className="appraisalAllList__container__likeCount">
+										147
+									</span>
+								</div>
+								<div className="appraisalAllList__container__price">
 									<span className="appraisalAllList__container__price">
 										감정가{" "}
 									</span>
@@ -67,7 +80,7 @@ function AppraisalAllList({ categoryTitle, initialState }: CategoryTitleProps) {
 										.toString()
 										.replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
 									원{" "}
-								</span>
+								</div>
 							</div>
 						</Link>
 					</div>

@@ -4,6 +4,7 @@ import AppraisalHighPrice from "../components/AppraisalHighPrice";
 import AppraisalPopularity from "../components/AppraisalPopularity";
 import "../styles/Appraisal.css";
 import ScrollToTop from "../components/ScrollToTop";
+import ArrowUp from "../components/ArrowUp";
 
 function Appraisal() {
 	return (
@@ -26,6 +27,7 @@ function Appraisal() {
 			<div className="Appraisal__division__line"></div>
 			<AppraisalPopularity />
 			<div className="Appraisal__division__line"></div>
+			<ArrowUp />
 		</div>
 	);
 }

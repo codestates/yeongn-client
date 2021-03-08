@@ -1,5 +1,5 @@
-import React from "react";
 import "../styles/AppraisalPagination.css";
+
 type PaginationProps = {
 	postsPerPage: number;
 	totalPosts: number;
