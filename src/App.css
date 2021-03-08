@@ -107,3 +107,11 @@ ul {
 	font-family: "jua";
 	src: url("./assets/fonts/Jua-Regular.ttf");
 }
+@font-face {
+	font-family: "roboto";
+	src: url("./assets/fonts/Roboto-Regular.ttf");
+}
+@font-face {
+	font-family: "nanum";
+	src: url("./assets/fonts/NanumGothic-ExtraBold.ttf");
+}
