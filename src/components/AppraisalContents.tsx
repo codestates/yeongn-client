@@ -46,7 +46,7 @@ function AppraisalContents() {
 	const [isUser, setIsUser] = useState<boolean>(false);
 
 	useEffect(() => {
-		changeRight();
+		// changeRight();
 		changeLikeButton();
 		isUserController();
 	});
@@ -74,59 +74,59 @@ function AppraisalContents() {
 		}
 	};
 
-	const rightPhotoButton = (): void => {
-		if (count >= initialState.length) {
-			setCount((count) => initialState.length);
-			return;
-		}
-		setCount((count) => count + 1);
-		changeLeft();
-	};
+	// const rightPhotoButton = (): void => {
+	// 	if (count >= initialState.length) {
+	// 		setCount((count) => initialState.length);
+	// 		return;
+	// 	}
+	// 	setCount((count) => count + 1);
+	// 	changeLeft();
+	// };
 
-	const leftPhotoButton = (): void => {
-		if (count <= 1 || count === 0) {
-			setCount((count) => 1);
-			return;
-		}
-		setCount((count) => count - 1);
-		changeRight();
-	};
+	// const leftPhotoButton = (): void => {
+	// 	if (count <= 1 || count === 0) {
+	// 		setCount((count) => 1);
+	// 		return;
+	// 	}
+	// 	setCount((count) => count - 1);
+	// 	changeRight();
+	// };
 
-	const changeLeft = (): void => {
-		const next = document.querySelector(
-			`.AppraisalContainer__imgContainer__big${count}`,
-		) as HTMLElement;
-		const nextsmall = document.querySelector(
-			`.AppraisalContainer__imgContainer__smallWrap__small${count}`,
-		) as HTMLElement;
-		nextsmall.classList.remove("backsmall");
-		nextsmall.classList.add("gosmall");
-		next.classList.remove("back");
-		next.classList.add("go");
-	};
+	// const changeLeft = (): void => {
+	// 	const next = document.querySelector(
+	// 		`.AppraisalContainer__imgContainer__big${count}`,
+	// 	) as HTMLElement;
+	// 	const nextsmall = document.querySelector(
+	// 		`.AppraisalContainer__imgContainer__smallWrap__small${count}`,
+	// 	) as HTMLElement;
+	// 	nextsmall.classList.remove("backsmall");
+	// 	nextsmall.classList.add("gosmall");
+	// 	next.classList.remove("back");
+	// 	next.classList.add("go");
+	// };
 
-	const changeRight = (): void => {
-		const next = document.querySelector(
-			`.AppraisalContainer__imgContainer__big${count}`,
-		) as HTMLElement;
-		const nextsmall = document.querySelector(
-			`.AppraisalContainer__imgContainer__smallWrap__small${count}`,
-		) as HTMLElement;
+	// const changeRight = (): void => {
+	// 	const next = document.querySelector(
+	// 		`.AppraisalContainer__imgContainer__big${count}`,
+	// 	) as HTMLElement;
+	// 	const nextsmall = document.querySelector(
+	// 		`.AppraisalContainer__imgContainer__smallWrap__small${count}`,
+	// 	) as HTMLElement;
 
-		nextsmall.classList.remove("gosmall");
-		nextsmall.classList.add("backsmall");
-		next.classList.remove("go");
-		next.classList.add("back");
+	// 	nextsmall.classList.remove("gosmall");
+	// 	nextsmall.classList.add("backsmall");
+	// 	next.classList.remove("go");
+	// 	next.classList.add("back");
 
-		const nextsmall2 = document.querySelector(
-			`.AppraisalContainer__imgContainer__smallWrap__small${count + 1}`,
-		) as HTMLElement;
-		if (nextsmall2 == null) {
-			return;
-		}
-		nextsmall2.classList.remove("backsmall");
-		nextsmall2.classList.add("gosmall");
-	};
+	// 	const nextsmall2 = document.querySelector(
+	// 		`.AppraisalContainer__imgContainer__smallWrap__small${count + 1}`,
+	// 	) as HTMLElement;
+	// 	if (nextsmall2 == null) {
+	// 		return;
+	// 	}
+	// 	nextsmall2.classList.remove("backsmall");
+	// 	nextsmall2.classList.add("gosmall");
+	// };
 
 	const appraisalButton = (): void => {
 		setApprasialState(!apprasialState);
@@ -160,7 +160,7 @@ function AppraisalContents() {
 							return <div className={name} key={content.id}></div>;
 						})}
 					</div>
-					<div className="AppraisalContainer__imgContainer__smallWrap">
+					{/* <div className="AppraisalContainer__imgContainer__smallWrap">
 						<button className="AppraisalContainer__imgContainer__smallWrap__leftButton">
 							<KeyboardArrowLeftIcon
 								fontSize="inherit"
@@ -177,7 +177,7 @@ function AppraisalContents() {
 						>
 							<KeyboardArrowRightIcon fontSize="inherit" />
 						</button>
-					</div>
+					</div> */}
 				</div>
 				{initialState.slice(0, 1).map((content: any) => (
 					<div className="AppraisalContainer__wrap" key={content.id}>
