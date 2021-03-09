@@ -1,14 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link, withRouter } from "react-router-dom";
-
+import "../styles/RegisterAppraisal.css";
 function RegisterAppraisal() {
-	return (
-		<div>
-			{/* 밑에 h1 삭제하고 컴포넌트 입력하기 */}
-			<h1>감정등록 페이지 입니다.</h1>
-			{/* todo */}
-		</div>
-	);
+	return <div></div>;
 }
 
 export default withRouter(RegisterAppraisal);

@@ -50,6 +50,10 @@ function AppraisalCategory({ setCategoryTitle }: CategoryButtonClickProps) {
 		setCategoryMore(!categoryMore);
 	};
 
+	const moreCategoryButtonDown = (): void => {
+		setCategoryMore(!categoryMore);
+	};
+
 	return (
 		<section className="CategoryList">
 			<div className="CategoryList__title__wrap">
