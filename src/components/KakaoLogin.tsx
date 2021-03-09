@@ -19,15 +19,14 @@ interface ILoginUser extends RouteComponentProps {
 }
 function KakaoLogin() {
 	const history = useHistory();
-	const KAKAO_LOGIN_URL = `https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=6uSvluf8fHGhNvp6U3j2&redirect_uri=http://localhost:3000/login`;
-
-	const naverLoginHandler = () => {
+	const KAKAO_LOGIN_URL = `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=b862dc01a142ef533360f21219d2247b&redirect_uri=http://localhost:3000/login`;
+	const kakaoLoginHandler = () => {
 		window.location.assign(KAKAO_LOGIN_URL);
-		console.log("navernavernavernavernavernaver");
+		console.log("kakaokakaokakaokakaokakaokakaokakao");
 	};
 
 	const getAuth = (authorizationCode: any) => {
-		const url = "https://yeongn.com/api/user/naver";
+		const url = "https://yeongn.com/api/user/kakao";
 		axios.post(url, { authorizationCode }).then((res) => {
 			console.log(res.data);
 		});
@@ -36,15 +35,16 @@ function KakaoLogin() {
 	useEffect(() => {
 		const url = new URL(window.location.href);
 		const authorizationCode = url.searchParams.get("code");
-		const kakaoCheck = window.location.href.indexOf("google");
-		if (authorizationCode && kakaoCheck === -1) {
+		const kakaoCheck = window.location.href.indexOf("login");
+		const googleCheck = window.location.href.indexOf("google");
+		if (authorizationCode && kakaoCheck !== -1 && googleCheck === -1) {
 			console.log("Kakao", authorizationCode);
 			// getAuth(authorizationCode);
 		}
 	});
 
 	return (
-		<div className="loginContainer">
+		<div className="loginContainer" onClick={kakaoLoginHandler}>
 			<img src={KakaoBtn} alt="kakaobutton" className="loginBtn" />
 		</div>
 	);
