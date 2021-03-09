@@ -1,14 +1,19 @@
-import React from "react";
-import { Link, withRouter } from "react-router-dom";
+import { ContactlessOutlined } from "@material-ui/icons";
+import React, { useState, useEffect } from "react";
+import { Link, withRouter, RouteComponentProps } from "react-router-dom";
+
+interface fileForm {
+	file: any;
+}
+
+interface User extends RouteComponentProps {
+	userId: string;
+	userEmail: string;
+	authenticated: boolean;
+}
 
 function RegisterSale() {
-	return (
-		<div>
-			{/* 밑에 h1 삭제하고 컴포넌트 입력하기 */}
-			<h1>판매등록 페이지 입니다.</h1>
-			{/* todo */}
-		</div>
-	);
+	return <form id="registe__store__section">글양식 만들 예정입니다.</form>;
 }
 
 export default withRouter(RegisterSale);

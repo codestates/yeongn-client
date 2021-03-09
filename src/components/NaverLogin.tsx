@@ -36,8 +36,8 @@ function NaverLogin() {
 	useEffect(() => {
 		const url = new URL(window.location.href);
 		const authorizationCode = url.searchParams.get("code");
-		const googleCheck = window.location.href.indexOf("google");
-		if (authorizationCode && googleCheck === -1) {
+		const naverCheck = window.location.href.indexOf("google");
+		if (authorizationCode && naverCheck === -1) {
 			console.log("Naver", authorizationCode);
 			// getAuth(authorizationCode);
 		}
