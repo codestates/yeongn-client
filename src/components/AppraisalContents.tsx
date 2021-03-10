@@ -210,10 +210,12 @@ function AppraisalContents() {
 						<div className="AppraisalContainer__divideLine"></div>
 						<div className="AppraisalContainer__text">
 							<div className="AppraisalContainer__left">
+								<div className="AppraisalContainer__price"> 예상 감정가</div>
 								<div className="AppraisalContainer__price">평균 감정가</div>
 								<div className="AppraisalContainer__priceNumber">참여 인원</div>
 							</div>
 							<div className="AppraisalContainer__right">
+								<div className="AppraisalContainer__priceText">130000원</div>
 								<div className="AppraisalContainer__priceText">
 									₩{" "}
 									{content.price

@@ -7,6 +7,7 @@ import CreateIcon from "@material-ui/icons/Create";
 import MenuIcon from "@material-ui/icons/Menu";
 import "../styles/Header.css";
 import usePrevious from "../components/usePrevious";
+
 interface User {
 	userId: string;
 	token: string;
@@ -17,15 +18,22 @@ interface IMypageUser extends RouteComponentProps {
 	logoutHandler: () => void;
 }
 
+
+
+
+
 function Header({ logoutHandler, user, location }: IMypageUser) {
+
 	const [isLogin, setLogin] = useState(true);
 	const [id, setId] = useState("lovvp");
 	const [toggleState, setToggle] = useState(true);
+	const [searchData, setSearchData] = useState<any>([]);
 	const toggleBtnClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
 		setToggle(!toggleState);
 	};
 	const input = useRef<HTMLInputElement>(null);
 	const [searchInput, setSearch] = useState("");
+
 	const handleChangeSearch = (e: React.ChangeEvent<HTMLInputElement>): void => {
 		setSearch(e.target.value);
 	};
@@ -70,7 +78,10 @@ function Header({ logoutHandler, user, location }: IMypageUser) {
 						/>
 						{/* 검색어 상태는 전역에서 관리해야함;; */}
 						<Link to={`/search/${searchInput}`}>
-							<button className="header__menu__search__button">
+							<button
+								className="header__menu__search__button"
+
+							>
 								<SearchIcon />
 							</button>
 						</Link>

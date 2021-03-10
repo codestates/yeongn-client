@@ -6,6 +6,7 @@ import KeyboardArrowRightIcon from "@material-ui/icons/KeyboardArrowRight";
 import KeyboardArrowLeftIcon from "@material-ui/icons/KeyboardArrowLeft";
 import FiberManualRecordIcon from "@material-ui/icons/FiberManualRecord";
 import FavoriteIcon from "@material-ui/icons/Favorite";
+import Loading from "../components/Loading";
 const initialState = [
 	{
 		id: 1,

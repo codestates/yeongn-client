@@ -171,6 +171,9 @@
 	color: var(--color-orange);
 }
 
+.noSearchData {
+	margin-left: 5px;
+}
 @media all and (min-width: 768px) and (max-width: 1023px) {
 	.appraisalCategoryList {
 		max-width: 850px;
