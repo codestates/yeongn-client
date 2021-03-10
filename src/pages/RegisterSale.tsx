@@ -119,7 +119,7 @@ function RegisterSale({ user, history }: IMypageUser) {
 			.post(uploadUrl, formData, config)
 			.then((res) => {
 				console.log(res.data);
-				history.push("/appraisal");
+				history.push("/shop");
 			})
 			.catch(() => {
 				console.log("ssssiiiBoooowaoooollll");
