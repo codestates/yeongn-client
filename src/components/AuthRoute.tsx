@@ -1,9 +1,10 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
-import { JsxElement } from "typescript";
 
 interface User {
 	userId: string;
+	token: string;
+	authenticated: boolean;
 }
 
 interface AuthProps {

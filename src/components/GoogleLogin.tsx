@@ -22,7 +22,7 @@ redirect_uri=http://localhost:3000/login&response_type=code&client_id=
 	};
 
 	const getAuth = (authorizationCode: string) => {
-		const url = "https://www.yeongn.com/api/user/google";
+		const url = "https://www.yeongn.com/api/user/	google";
 		console.log("jebal");
 		axios
 			.post(url, { authorizationCode }, { withCredentials: true })

@@ -9,16 +9,14 @@ import "../styles/MyPage.css";
 
 interface User {
 	userId: string;
+	token: string;
+	authenticated: boolean;
 }
 interface IMypageUser extends RouteComponentProps {
 	user: User;
 }
 
 function MyPage({ user, history, match, location }: IMypageUser) {
-	console.log(user);
-	console.log(history);
-	console.log(match);
-	console.log(location);
 	return (
 		<div id="mypage">
 			<section className="mypage__container">
