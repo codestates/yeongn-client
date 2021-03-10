@@ -22,7 +22,7 @@ import axios from "axios";
 
 interface User {
 	userId: string;
-	userEmail: string;
+	token: string;
 	authenticated: boolean;
 }
 
@@ -30,8 +30,8 @@ function App() {
 	//! 로그인 했을 때 바뀌는 setUser
 	const [user, setUser] = useState({
 		userId: "",
-		userEmail: "",
-		authenticated: false,
+		token: "",
+		authenticated: true,
 	});
 
 	//! 헤더에서 상태가 바껴지는 서치 인풋 최상단 에서 관리하여
@@ -49,7 +49,7 @@ function App() {
 	};
 
 	const logoutHandler = () => {
-		setUser({ userId: "", userEmail: "", authenticated: false });
+		setUser({ userId: "", token: "", authenticated: false });
 	};
 
 	// const issueAccessToken = (token: string) => {
@@ -69,7 +69,7 @@ function App() {
 
 	return (
 		<Router>
-			<Header user={user} />
+			<Header user={user} logoutHandler={logoutHandler} />
 			<Switch>
 				<Route
 					exact
@@ -134,20 +134,19 @@ function App() {
 					component={MyPageLikesAdd}
 					user={user}
 				/>
-
-				<Route
+				<AuthRoute
 					exact
+					authenticated={user.authenticated}
 					path="/register/appraisal"
-					render={() => {
-						return <RegisterAppraisal />;
-					}}
+					component={RegisterAppraisal}
+					user={user}
 				/>
-				<Route
+				<AuthRoute
 					exact
+					authenticated={user.authenticated}
 					path="/register/shop"
-					render={() => {
-						return <RegisterSale />;
-					}}
+					component={RegisterSale}
+					user={user}
 				/>
 				<Route
 					exact
@@ -156,7 +155,6 @@ function App() {
 						return <Search />;
 					}}
 				/>
-
 				<Route
 					exact
 					path="/shop"
