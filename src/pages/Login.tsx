@@ -17,6 +17,7 @@ interface ILoginUser extends RouteComponentProps {
 function Login({ loginHandler }: ILoginUser) {
 	const [errorMessage, setError] = useState("");
 	const [isLoad, setIsLoad] = useState(false);
+	const [state, setState] = useState("");
 
 	return (
 		<div id="login">

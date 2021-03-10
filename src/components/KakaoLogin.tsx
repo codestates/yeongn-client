@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import KakaoBtn from "../assets/img/button/kakao.png";
 import axios from "axios";
 import "../styles/login.css";
+import usePrevious from "../components/usePrevious";
 import { Link, withRouter, RouteComponentProps } from "react-router-dom";
 interface User {
 	userId: string;
@@ -15,16 +16,14 @@ function KakaoLogin({ loginHandler, history, location }: ILoginUser) {
 	const KAKAO_LOGIN_URL = `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=b862dc01a142ef533360f21219d2247b&redirect_uri=http://localhost:3000/login`;
 	const kakaoLoginHandler = () => {
 		window.location.assign(KAKAO_LOGIN_URL);
-		console.log("kakaokakaokakaokakaokakaokakaokakao");
 	};
 
 	const getAuth = (authorizationCode: any) => {
-		const url = "https://yeongn.com/api/user/kakao";
-		console.log("jebal");
+		const url = "https://www.yeongn.com/api/user/kakao";
+
 		axios
 			.post(url, { authorizationCode }, { withCredentials: true })
 			.then((res) => {
-				console.log(res.data);
 				loginHandler({
 					userId: res.data.userId,
 					token: res.data.token,
@@ -33,18 +32,20 @@ function KakaoLogin({ loginHandler, history, location }: ILoginUser) {
 				history.push("/");
 			})
 			.catch(() => {
-				console.log("ssibal");
+				alert("서버오류로 로그인이 불가합니다.");
 			});
 	};
 
 	useEffect(() => {
 		const url = new URL(window.location.href);
 		const authorizationCode = url.searchParams.get("code");
-		const kakaoCheck = window.location.href.indexOf("login");
 		const googleCheck = window.location.href.indexOf("google");
-		if (authorizationCode && kakaoCheck !== -1 && googleCheck === -1) {
-			console.log("Kakao", authorizationCode);
-			// getAuth(authorizationCode);
+		if (
+			authorizationCode &&
+			authorizationCode.length > 50 &&
+			googleCheck === -1
+		) {
+			getAuth(authorizationCode);
 		}
 	});
 

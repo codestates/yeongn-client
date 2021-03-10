@@ -24,7 +24,6 @@ function RegisterSale({ user, history }: IMypageUser) {
 	const inputRef = useRef<HTMLInputElement>(null);
 	useEffect(() => {
 		const { current } = inputRef;
-		console.log(user);
 		if (current !== null) {
 			current.focus();
 		}
@@ -62,7 +61,6 @@ function RegisterSale({ user, history }: IMypageUser) {
 
 	const handleCategoryClick = (e: any) => {
 		e.preventDefault();
-		console.log(e.target.value);
 		setCategory(e.target.value);
 		const CategoryButtons = document.querySelectorAll(
 			".registerCategoryList__buttonBox__buttonActive",
@@ -104,9 +102,7 @@ function RegisterSale({ user, history }: IMypageUser) {
 		formData.append("price", info.price.toString());
 		formData.append("text", info.text);
 		formData.append("contact", info.contact);
-		for (var pair of formData.entries()) {
-			console.log(pair[0] + ", " + pair[1]);
-		}
+
 		const uploadUrl = "https://www.yeongn.com/api/shop";
 		const config = {
 			headers: {
@@ -118,11 +114,10 @@ function RegisterSale({ user, history }: IMypageUser) {
 		axios
 			.post(uploadUrl, formData, config)
 			.then((res) => {
-				console.log(res.data);
 				history.push("/shop");
 			})
 			.catch(() => {
-				console.log("ssssiiiBoooowaoooollll");
+				alert("서버오류입니다.");
 			});
 	};
 	const handleImgDelete = () => {
@@ -142,7 +137,6 @@ function RegisterSale({ user, history }: IMypageUser) {
 	};
 	const onChange = (e: any) => {
 		const { value, name } = e.target;
-		console.log(name, ":", value);
 		setInfo({
 			...info,
 			[name]: value,
