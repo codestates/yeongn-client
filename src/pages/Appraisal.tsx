@@ -5,10 +5,11 @@ import AppraisalPopularity from "../components/AppraisalPopularity";
 import "../styles/Appraisal.css";
 import ScrollToTop from "../components/ScrollToTop";
 import ArrowUp from "../components/ArrowUp";
-
+import Loading from "../components/Loading";
 function Appraisal() {
 	return (
 		<div>
+			{/* <Loading /> */}
 			<ScrollToTop />
 			<section className="Appraisal__main">
 				<div className="Appraisal__main__container">

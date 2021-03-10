@@ -10,7 +10,7 @@
 	justify-content: space-between;
 	margin-left: 20px;
 	margin-top: 50px;
-	margin-bottom: 50px;
+	margin-bottom: 70px;
 	margin-right: 20px;
 }
 
@@ -27,9 +27,8 @@
 .AppraisalContainer__imgContainer__big1 {
 	flex: 0 0 auto;
 	background: url("../assets/img/나비.jpeg") center/cover;
-	width: 485px;
-	height: 485px;
-
+	width: 500px;
+	height: 500px;
 	transition: all 350ms;
 	z-index: 5;
 	opacity: 1;
