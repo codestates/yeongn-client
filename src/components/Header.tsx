@@ -9,13 +9,15 @@ import "../styles/Header.css";
 import usePrevious from "../components/usePrevious";
 interface User {
 	userId: string;
+	token: string;
 	authenticated: boolean;
 }
 interface IMypageUser extends RouteComponentProps {
 	user: User;
+	logoutHandler: () => void;
 }
 
-function Header({ user, location }: IMypageUser) {
+function Header({ logoutHandler, user, location }: IMypageUser) {
 	const [isLogin, setLogin] = useState(true);
 	const [id, setId] = useState("lovvp");
 	const [toggleState, setToggle] = useState(true);
@@ -90,7 +92,12 @@ function Header({ user, location }: IMypageUser) {
 							<Link to="/mypage" className="header__menu__link__button">
 								마이페이지
 							</Link>
-							<button className="header__menu__link__button">로그아웃</button>
+							<button
+								className="header__menu__link__button"
+								onClick={logoutHandler}
+							>
+								로그아웃
+							</button>
 						</div>
 					) : (
 						<div className="header__menu__link">

@@ -5,7 +5,7 @@ import "../styles/login.css";
 import { Link, withRouter, RouteComponentProps } from "react-router-dom";
 interface User {
 	userId: string;
-	userEmail: string;
+	token: string;
 	authenticated: boolean;
 }
 interface ILoginUser extends RouteComponentProps {
@@ -28,12 +28,12 @@ redirect_uri=http://localhost:3000/login&response_type=code&client_id=
 			.post(url, { authorizationCode }, { withCredentials: true })
 			.then((res) => {
 				console.log(res.data);
-				// loginHandler({
-				// 	userId: res.data.nickname,
-				// 	userEmail: res.data.email,
-				// 	authenticated: true,
-				// });
-				// history.push("/");
+				loginHandler({
+					userId: res.data.userId,
+					token: res.data.token,
+					authenticated: true,
+				});
+				history.push("/");
 			})
 			.catch(() => {
 				console.log("ssibal");

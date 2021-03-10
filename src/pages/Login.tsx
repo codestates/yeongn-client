@@ -8,7 +8,7 @@ import "../styles/login.css";
 
 interface User {
 	userId: string;
-	userEmail: string;
+	token: string;
 	authenticated: boolean;
 }
 interface ILoginUser extends RouteComponentProps {
@@ -29,8 +29,8 @@ function Login({ loginHandler }: ILoginUser) {
 					물건들의 가치를 같이 알아보아요!
 				</div>
 				<GoogleLogin loginHandler={loginHandler} />
-				<NaverLogin />
-				<KakaoLogin />
+				<NaverLogin loginHandler={loginHandler} />
+				<KakaoLogin loginHandler={loginHandler} />
 			</section>
 		</div>
 	);
