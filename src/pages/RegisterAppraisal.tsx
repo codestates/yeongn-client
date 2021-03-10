@@ -23,7 +23,6 @@ function RegisterAppraisal({ user, history }: IMypageUser) {
 	//userId가 넘어와야함
 	const inputRef = useRef<HTMLInputElement>(null);
 	useEffect(() => {
-		console.log(user);
 		const { current } = inputRef;
 		if (current !== null) {
 			current.focus();
@@ -61,7 +60,6 @@ function RegisterAppraisal({ user, history }: IMypageUser) {
 
 	const handleCategoryClick = (e: any) => {
 		e.preventDefault();
-		console.log(e.target.value);
 		setCategory(e.target.value);
 		const CategoryButtons = document.querySelectorAll(
 			".registerAppraisal__buttonBox__buttonActive",
@@ -100,9 +98,7 @@ function RegisterAppraisal({ user, history }: IMypageUser) {
 		formData.append("category", category);
 		formData.append("price", info.price.toString());
 		formData.append("text", info.text);
-		for (var pair of formData.entries()) {
-			console.log(pair[0] + ", " + pair[1]);
-		}
+
 		const uploadUrl = "https://www.yeongn.com/api/appraisal";
 		const config = {
 			headers: {
@@ -113,11 +109,10 @@ function RegisterAppraisal({ user, history }: IMypageUser) {
 		axios
 			.post(uploadUrl, formData, config)
 			.then((res) => {
-				console.log(res.data);
 				history.push("/appraisal");
 			})
 			.catch(() => {
-				console.log("ssssiiiBoooowaoooollll");
+				alert("서버오류입니다.");
 			});
 	};
 	const handleImgDelete = () => {
@@ -137,7 +132,6 @@ function RegisterAppraisal({ user, history }: IMypageUser) {
 	};
 	const onChange = (e: any) => {
 		const { value, name } = e.target;
-		console.log(name, ":", value);
 		setInfo({
 			...info,
 			[name]: value,

@@ -16,15 +16,13 @@ function NaverLogin({ loginHandler, history, location }: ILoginUser) {
 
 	const naverLoginHandler = () => {
 		window.location.assign(NAVER_LOGIN_URL);
-		console.log("navernavernavernavernavernaver");
 	};
 
 	const getAuth = (authorizationCode: any) => {
-		const url = "https://yeongn.com/api/user/naver";
+		const url = "https://www.yeongn.com/api/user/naver";
 		axios
 			.post(url, { authorizationCode }, { withCredentials: true })
 			.then((res) => {
-				console.log(res.data);
 				loginHandler({
 					userId: res.data.userId,
 					token: res.data.token,
@@ -33,7 +31,7 @@ function NaverLogin({ loginHandler, history, location }: ILoginUser) {
 				history.push("/");
 			})
 			.catch(() => {
-				console.log("ssibal");
+				alert("서버오류로 로그인이 불가합니다.");
 			});
 	};
 
@@ -41,9 +39,12 @@ function NaverLogin({ loginHandler, history, location }: ILoginUser) {
 		const url = new URL(window.location.href);
 		const authorizationCode = url.searchParams.get("code");
 		const naverCheck = window.location.href.indexOf("google");
-		if (authorizationCode && naverCheck === -1) {
-			console.log("Naver", authorizationCode);
-			// getAuth(authorizationCode);
+		if (
+			authorizationCode &&
+			authorizationCode.length < 50 &&
+			naverCheck === -1
+		) {
+			getAuth(authorizationCode);
 		}
 	});
 

@@ -4,8 +4,6 @@ import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 import "../styles/AppraisalAllLists.css";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 
-
-
 type CategoryTitleProps = {
 	categoryTitle: string;
 	initialState: any;

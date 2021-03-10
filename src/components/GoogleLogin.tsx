@@ -18,16 +18,14 @@ redirect_uri=http://localhost:3000/login&response_type=code&client_id=
 
 	const googleLoginHandler = () => {
 		window.location.assign(GOOGLE_LOGIN_URL);
-		console.log("googlegooglegooglegooglegooglegoogle");
 	};
 
 	const getAuth = (authorizationCode: string) => {
-		const url = "https://www.yeongn.com/api/user/	google";
-		console.log("jebal");
+		const url = "https://www.yeongn.com/api/user/google";
+
 		axios
 			.post(url, { authorizationCode }, { withCredentials: true })
 			.then((res) => {
-				console.log(res.data);
 				loginHandler({
 					userId: res.data.userId,
 					token: res.data.token,
@@ -36,18 +34,15 @@ redirect_uri=http://localhost:3000/login&response_type=code&client_id=
 				history.push("/");
 			})
 			.catch(() => {
-				console.log("ssibal");
+				alert("서버오류로 로그인이 불가합니다.");
 			});
 	};
 
 	useEffect(() => {
 		const url = new URL(window.location.href);
-		// console.log(location);
-		// console.log(history);
 		const authorizationCode = url.searchParams.get("code");
 		const googleCheck = window.location.href.indexOf("google");
 		if (authorizationCode && googleCheck !== -1) {
-			console.log("google", authorizationCode);
 			getAuth(authorizationCode);
 		}
 	});
