@@ -3,23 +3,28 @@ import { Link, withRouter, RouteComponentProps } from "react-router-dom";
 import AddIcon from "@material-ui/icons/Add";
 import axios from "axios";
 import "../styles/RegisterSale.css";
-import Footer from "../components/Footer";
+import ArrowUp from "../components/ArrowUp";
 interface fileForm {
 	selectedFile: any;
 	previewURL: any;
 }
 
-interface User extends RouteComponentProps {
+interface User {
 	userId: string;
-	userEmail: string;
+	token: string;
 	authenticated: boolean;
 }
 
-function RegisterSale() {
+interface IMypageUser extends RouteComponentProps {
+	user: User;
+}
+
+function RegisterSale({ user, history }: IMypageUser) {
 	//userId가 넘어와야함
 	const inputRef = useRef<HTMLInputElement>(null);
 	useEffect(() => {
 		const { current } = inputRef;
+		console.log(user);
 		if (current !== null) {
 			current.focus();
 		}
@@ -102,14 +107,23 @@ function RegisterSale() {
 		for (var pair of formData.entries()) {
 			console.log(pair[0] + ", " + pair[1]);
 		}
-
+		const uploadUrl = "https://www.yeongn.com/api/shop";
 		const config = {
 			headers: {
 				"content-type": "multipart/form-data",
+				Authorization: `Bearer ${user.token}`,
 			},
 		};
 
-		// axios.post(`uploadAPI`, { formData, data }, config);
+		axios
+			.post(uploadUrl, formData, config)
+			.then((res) => {
+				console.log(res.data);
+				history.push("/appraisal");
+			})
+			.catch(() => {
+				console.log("ssssiiiBoooowaoooollll");
+			});
 	};
 	const handleImgDelete = () => {
 		setFile({ selectedFile: "", previewURL: null });
@@ -241,10 +255,11 @@ function RegisterSale() {
 				</div>
 
 				<button type="submit" className="register__form__btn">
-					등록하기
+					등록
 				</button>
 			</form>
-			<Footer />
+			{/* <Footer /> */}
+			<ArrowUp />
 		</div>
 	);
 }

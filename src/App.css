@@ -99,6 +99,10 @@ ul {
 	padding-left: 0;
 }
 
+textarea {
+	resize: none;
+}
+
 @font-face {
 	font-family: "noto_sans";
 	src: url("./assets/fonts/NotoSansKR-Medium.otf");
