@@ -19,7 +19,7 @@ interface User {
 interface IMypageUser extends RouteComponentProps {
 	user: User;
 }
-function RegisterAppraisal({ user }: IMypageUser) {
+function RegisterAppraisal({ user, history }: IMypageUser) {
 	//userId가 넘어와야함
 	const inputRef = useRef<HTMLInputElement>(null);
 	useEffect(() => {
@@ -114,6 +114,7 @@ function RegisterAppraisal({ user }: IMypageUser) {
 			.post(uploadUrl, formData, config)
 			.then((res) => {
 				console.log(res.data);
+				history.push("/appraisal");
 			})
 			.catch(() => {
 				console.log("ssssiiiBoooowaoooollll");
