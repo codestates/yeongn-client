@@ -2,23 +2,16 @@ import React, { useState, useEffect } from "react";
 import NaverBtn from "../assets/img/button/naver.png";
 import axios from "axios";
 import "../styles/login.css";
-import {
-	Link,
-	withRouter,
-	RouteComponentProps,
-	useHistory,
-} from "react-router-dom";
+import { Link, withRouter, RouteComponentProps } from "react-router-dom";
 interface User {
 	userId: string;
-	userEmail: string;
+	token: string;
 	authenticated: boolean;
 }
 interface ILoginUser extends RouteComponentProps {
-	user: User;
 	loginHandler: (user: User) => void;
 }
-function NaverLogin() {
-	const history = useHistory();
+function NaverLogin({ loginHandler, history, location }: ILoginUser) {
 	const NAVER_LOGIN_URL = `https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=6uSvluf8fHGhNvp6U3j2&redirect_uri=http://localhost:3000/login`;
 
 	const naverLoginHandler = () => {
@@ -28,9 +21,20 @@ function NaverLogin() {
 
 	const getAuth = (authorizationCode: any) => {
 		const url = "https://yeongn.com/api/user/naver";
-		axios.post(url, { authorizationCode }).then((res) => {
-			console.log(res.data);
-		});
+		axios
+			.post(url, { authorizationCode }, { withCredentials: true })
+			.then((res) => {
+				console.log(res.data);
+				loginHandler({
+					userId: res.data.userId,
+					token: res.data.token,
+					authenticated: true,
+				});
+				history.push("/");
+			})
+			.catch(() => {
+				console.log("ssibal");
+			});
 	};
 
 	useEffect(() => {
@@ -50,4 +54,4 @@ function NaverLogin() {
 	);
 }
 
-export default NaverLogin;
+export default withRouter(NaverLogin);

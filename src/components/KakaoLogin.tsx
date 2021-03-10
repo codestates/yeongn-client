@@ -2,23 +2,16 @@ import React, { useState, useEffect } from "react";
 import KakaoBtn from "../assets/img/button/kakao.png";
 import axios from "axios";
 import "../styles/login.css";
-import {
-	Link,
-	withRouter,
-	RouteComponentProps,
-	useHistory,
-} from "react-router-dom";
+import { Link, withRouter, RouteComponentProps } from "react-router-dom";
 interface User {
 	userId: string;
-	userEmail: string;
+	token: string;
 	authenticated: boolean;
 }
 interface ILoginUser extends RouteComponentProps {
-	user: User;
 	loginHandler: (user: User) => void;
 }
-function KakaoLogin() {
-	const history = useHistory();
+function KakaoLogin({ loginHandler, history, location }: ILoginUser) {
 	const KAKAO_LOGIN_URL = `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=b862dc01a142ef533360f21219d2247b&redirect_uri=http://localhost:3000/login`;
 	const kakaoLoginHandler = () => {
 		window.location.assign(KAKAO_LOGIN_URL);
@@ -27,9 +20,21 @@ function KakaoLogin() {
 
 	const getAuth = (authorizationCode: any) => {
 		const url = "https://yeongn.com/api/user/kakao";
-		axios.post(url, { authorizationCode }).then((res) => {
-			console.log(res.data);
-		});
+		console.log("jebal");
+		axios
+			.post(url, { authorizationCode }, { withCredentials: true })
+			.then((res) => {
+				console.log(res.data);
+				loginHandler({
+					userId: res.data.userId,
+					token: res.data.token,
+					authenticated: true,
+				});
+				history.push("/");
+			})
+			.catch(() => {
+				console.log("ssibal");
+			});
 	};
 
 	useEffect(() => {
@@ -50,4 +55,4 @@ function KakaoLogin() {
 	);
 }
 
-export default KakaoLogin;
+export default withRouter(KakaoLogin);

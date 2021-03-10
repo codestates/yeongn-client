@@ -1,4 +1,4 @@
-#register__appraisal__section {
+#register__store__section {
 	width: 100%;
 	background-color: var(--color-white);
 	display: flex;
@@ -7,14 +7,14 @@
 	font-family: "noto_sans";
 }
 
-.register__appraisal__title {
+.register__store__title {
 	margin-top: 40px;
 	margin-bottom: 20px;
 	width: 100%;
 	padding: 0px 32px 16px;
 	border-bottom: 2px solid var(--color-light-grey);
 }
-.register__appraisal__container {
+.register__store__container {
 	max-width: 1024px;
 	display: flex;
 	flex-direction: column;
@@ -29,21 +29,23 @@
 	padding: 0px 32px 0px 32px;
 }
 
-.appraisal__register__title__content,
-.appraisal__register__price__content {
+.register__title__content,
+.register__price__content,
+.register__contact__content {
 	margin-top: 16px;
 	background: transparent;
 	border: none;
-	border: 2px solid var(--color-dark-orange);
+	border: 2px solid var(--color-pink);
 	font-size: 20px;
 	padding: 16px;
 	border-radius: 4px;
 }
 
-.register__appraisal__category__container,
-.register__appraisal__price__container,
-.register__appraisal__description__container,
-.register__appraisal__img__container {
+.register__category__container,
+.register__price__container,
+.register__description__container,
+.register__contact__container,
+.register__img__container {
 	display: flex;
 	flex-direction: column;
 	width: 100%;
@@ -51,30 +53,31 @@
 	padding-left: 32px;
 	padding-right: 32px;
 }
-.appraisal__category__title,
-.appraisal__register__title,
-.appraisal__price__title,
-.appraisal__description__title,
-.appraisal__img__title {
+.category__title,
+.register__title,
+.price__title,
+.description__title,
+.contact__title,
+.img__title {
 	font-size: 24px;
 }
 
-.appraisal__category__button__container {
+.category__button__container {
 	margin-top: 16px;
 }
 input::placeholder {
 	font-size: 16px;
 	color: var(--color-light-grey);
 }
-.appraisal__description__container {
+.description__container {
 	margin-top: 16px;
 	background: transparent;
-	border: 2px solid var(--color-dark-orange);
+	border: 2px solid var(--color-pink);
 	font-size: 20px;
 	padding: 16px;
 	border-radius: 4px;
 }
-.appraisal__description__content {
+.description__content {
 	background: transparent;
 	width: 100%;
 	height: 150px;
@@ -87,35 +90,35 @@ input::placeholder {
 
 .description__info {
 	font-size: small;
-	color: var(--color-dark-orange);
+	color: var(--color-pink);
 	margin-top: 10px;
 }
 .input-file-button {
 	width: 60px;
 	text-align: center;
 }
-.appraisal__input__file__button {
+.input__file__button {
 	margin: 16px;
 	font-size: 24px;
 	padding-top: 0px;
 	height: 32px;
 	width: 32px;
 	text-align: center;
-	background: var(--color-dark-orange);
+	background: var(--color-pink);
 	cursor: pointer;
 	border-radius: 50%;
 }
-.appraisal__register__img__box {
+.register__img__box {
 	margin-left: 16px;
 	margin-bottom: 16px;
 	font-size: 12px;
 	color: var(--color-dark-grey);
 }
-/* .register__appraisal__img__container {
+.img__container {
 	padding: 16px;
-} */
-.appraisal__img__delete__btn {
-	background-color: var(--color-dark-orange);
+}
+.img__delete__btn {
+	background-color: var(--color-pink);
 	border: none;
 	padding: 6px;
 	border-radius: 4px;
@@ -123,24 +126,24 @@ input::placeholder {
 	font-size: 12px;
 	transition: all var(--animation-duration);
 }
-.appraisal__img__delete__btn:hover {
+.img__delete__btn:hover {
 	transform: scale(1.1);
 }
-.appraisal__register__form__btn {
+.register__form__btn {
 	margin: 50px;
 	font-size: 18px;
 	border: none;
-	background: var(--color-dark-orange);
+	background: var(--color-pink);
 	padding: 12px 24px 12px 24px;
 	border-radius: var(--size-border-radius);
 	transition: all var(--animation-duration);
 }
 .register__form__btn:hover {
 	transform: scale(1.1);
-	background: var(--color-dark-orange);
+	background: var(--color-dark-pink);
 }
 
-.registerAppraisal {
+.registerCategoryList {
 	position: relative;
 	margin: auto;
 	max-width: 1024px;
@@ -148,42 +151,44 @@ input::placeholder {
 	top: 30px;
 }
 
-.registerAppraisal__title__wrap {
+.registerCategoryList__title__wrap {
 	margin-bottom: 20px;
 }
 
-.registerAppraisal__title {
+.registerCategoryList__title {
 	font-size: var(--font-regular);
 	font-weight: bold;
-	color: var(--color-dark-orange);
+	color: var(--color-dark-pink);
 }
 
-.registerAppraisal__buttonBox {
+.registerCategoryList__buttonBox {
 	margin: auto;
 }
-.registerAppraisal__buttonBox__button {
+.registerCategoryList__buttonBox__button {
 	font-size: var(--font-micro);
+
 	text-align: center;
 	color: rgb(48, 48, 48);
 	background-color: white;
-	border: 1.5px solid var(--color-dark-orange);
+	border: 1.5px solid var(--color-dark-pink);
 	border-radius: 20px;
 	cursor: pointer;
+
 	outline: none;
 	padding: 10px;
 	margin: 6px;
 	transition: all 250ms ease-in;
 }
-.registerAppraisal__buttonBox__button:hover {
+.registerCategoryList__buttonBox__button:hover {
 	color: white;
-	background-color: var(--color-dark-orange);
+	background-color: var(--color-dark-pink);
 }
-.registerAppraisal__buttonBox__buttonActive {
+.registerCategoryList__buttonBox__buttonActive {
 	font-size: var(--font-micro);
 	text-align: center;
 	color: white;
-	background-color: var(--color-dark-orange);
-	border: 1.5px solid var(--color-dark-orange);
+	background-color: var(--color-dark-pink);
+	border: 1.5px solid var(--color-pink);
 	border-radius: 20px;
 	cursor: pointer;
 	outline: none;
@@ -193,24 +198,24 @@ input::placeholder {
 }
 
 @media all and (min-width: 768px) and (max-width: 1023px) {
-	.registerAppraisal {
+	.registerCategoryList {
 		max-width: 850px;
 	}
 	.registerAllList {
 		max-width: 850px;
 	}
-	.registerAppraisal__buttonBox {
+	.registerCategoryList__buttonBox {
 		margin-left: 10px;
 	}
-	.registerAppraisal__title {
+	.registerCategoryList__title {
 		margin-left: 10px;
 	}
-	.registerAppraisal__buttonBox__button {
+	.registerCategoryList__buttonBox__button {
 		font-size: 12px;
 		padding: 7px;
 		margin: 5px;
 	}
-	.registerAppraisal__buttonBox__buttonActive {
+	.registerCategoryList__buttonBox__buttonActive {
 		font-size: 12px;
 		padding: 7px;
 		margin: 5px;
