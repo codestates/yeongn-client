@@ -99,7 +99,6 @@ function MyPageRequestAdd({ user }: IMypageUser) {
 	];
 
 	const [appraisalList, setList] = useState(initialState.reverse());
-	console.log(appraisalList);
 	return (
 		<div id="mypage__add">
 			<ScrollToTop />

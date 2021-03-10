@@ -3,19 +3,23 @@ import { Link, withRouter, RouteComponentProps } from "react-router-dom";
 import AddIcon from "@material-ui/icons/Add";
 import axios from "axios";
 import "../styles/RegisterAppraisal.css";
-import Footer from "../components/Footer";
+import ArrowUp from "../components/ArrowUp";
+
 interface fileForm {
 	selectedFile: any;
 	previewURL: any;
 }
 
-interface User extends RouteComponentProps {
+interface User {
 	userId: string;
-	userEmail: string;
+	token: string;
 	authenticated: boolean;
 }
 
-function RegisterAppraisal() {
+interface IMypageUser extends RouteComponentProps {
+	user: User;
+}
+function RegisterAppraisal({ user, history }: IMypageUser) {
 	//userId가 넘어와야함
 	const inputRef = useRef<HTMLInputElement>(null);
 	useEffect(() => {
@@ -56,7 +60,6 @@ function RegisterAppraisal() {
 
 	const handleCategoryClick = (e: any) => {
 		e.preventDefault();
-		console.log(e.target.value);
 		setCategory(e.target.value);
 		const CategoryButtons = document.querySelectorAll(
 			".registerAppraisal__buttonBox__buttonActive",
@@ -95,17 +98,22 @@ function RegisterAppraisal() {
 		formData.append("category", category);
 		formData.append("price", info.price.toString());
 		formData.append("text", info.text);
-		for (var pair of formData.entries()) {
-			console.log(pair[0] + ", " + pair[1]);
-		}
 
+		const uploadUrl = "https://www.yeongn.com/api/appraisal";
 		const config = {
 			headers: {
 				"content-type": "multipart/form-data",
+				Authorization: `Bearer ${user.token}`,
 			},
 		};
-
-		// axios.post(`uploadAPI`, { formData, data }, config);
+		axios
+			.post(uploadUrl, formData, config)
+			.then((res) => {
+				history.push("/appraisal");
+			})
+			.catch(() => {
+				alert("서버오류입니다.");
+			});
 	};
 	const handleImgDelete = () => {
 		setFile({ selectedFile: "", previewURL: null });
@@ -124,7 +132,6 @@ function RegisterAppraisal() {
 	};
 	const onChange = (e: any) => {
 		const { value, name } = e.target;
-		console.log(name, ":", value);
 		setInfo({
 			...info,
 			[name]: value,
@@ -154,7 +161,7 @@ function RegisterAppraisal() {
 						})}
 					</div>
 				</div>
-				<div className="register__title__container">
+				<div className="appraisal__register__title__container">
 					<div className="appraisal__register__title">제목</div>
 					<input
 						type="text"
@@ -229,10 +236,13 @@ function RegisterAppraisal() {
 				</div>
 
 				<button type="submit" className="appraisal__register__form__btn">
-					등록하기
+					등록
 				</button>
 			</form>
-			<Footer />
+			{/* 
+				<Footer />
+			 */}
+			<ArrowUp />
 		</div>
 	);
 }

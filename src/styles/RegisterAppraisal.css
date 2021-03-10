@@ -40,6 +40,7 @@
 	border-radius: 4px;
 }
 
+.appraisal__register__title__container,
 .register__appraisal__category__container,
 .register__appraisal__price__container,
 .register__appraisal__description__container,
@@ -214,5 +215,72 @@ input::placeholder {
 		font-size: 12px;
 		padding: 7px;
 		margin: 5px;
+	}
+}
+@media all and (max-width: 768px) {
+	.register__appraisal__title {
+		margin: 0px;
+		padding: 10px 0px 10px 16px;
+		border: none;
+		background: var(--color-dark-orange);
+		font-size: 24px;
+	}
+	.appraisal__register__title__container,
+	.register__appraisal__category__container,
+	.register__appraisal__price__container,
+	.register__appraisal__description__container,
+	.register__appraisal__img__container {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		margin-top: 16px;
+		margin-bottom: 0px;
+		padding-left: 16px;
+		padding-right: 16px;
+	}
+	.appraisal__category__title,
+	.appraisal__register__title,
+	.appraisal__price__title,
+	.appraisal__description__title,
+	.appraisal__img__title {
+		font-size: 16px;
+	}
+
+	.appraisal__register__title__content,
+	.appraisal__register__price__content {
+		margin-top: 8px;
+		background: transparent;
+		border: none;
+		border: 2px solid var(--color-dark-orange);
+		font-size: 16px;
+		padding: 8px;
+		border-radius: 4px;
+	}
+	.appraisal__description__container {
+		margin-top: 8px;
+		padding: 8px;
+		font-size: 16px;
+	}
+	.appraisal__register__form__btn {
+		margin-top: 32px;
+		margin-bottom: 40px;
+		padding: 8px 16px 8px 16px;
+	}
+	.register__footer {
+		display: none;
+	}
+	.registerAppraisal__buttonBox__button {
+		padding: 4px 8px 4px 8px;
+		margin: 2px;
+		font-size: 10px;
+	}
+	.appraisal__category__button__container {
+		justify-content: center;
+	}
+	.appraisal__input__file__button {
+		margin: 8px 0px 8px 8px;
+	}
+	.appraisal__register__img__box {
+		margin: 0px 0px 0px 8px;
 	}
 }

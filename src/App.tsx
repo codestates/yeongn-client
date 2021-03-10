@@ -31,18 +31,11 @@ function App() {
 	const [user, setUser] = useState({
 		userId: "",
 		token: "",
-		authenticated: true,
+		authenticated: false,
 	});
 
 	//! 헤더에서 상태가 바껴지는 서치 인풋 최상단 에서 관리하여
 	//! 써치로 뿌려주는 형식
-
-	//Search에 보내줘야하는 것들
-	// const [searchInput, setSearch] = useState("");
-	// const handleChangeSearch = (searchInput:string):void =>{
-	// 	console.log(searchInput);
-	// 	setSearch(searchInput);
-	// }
 
 	const loginHandler = (userData: User) => {
 		setUser(userData);
@@ -51,22 +44,6 @@ function App() {
 	const logoutHandler = () => {
 		setUser({ userId: "", token: "", authenticated: false });
 	};
-
-	// const issueAccessToken = (token: string) => {
-	// 	setToken(token);
-	// 	axios
-	// 		.get("https://s.nugathesam.com/users", {
-	// 			headers: { Authorization: `Bearer ${token}` },
-	// 		})
-	// 		.then((res) => {
-	// 			setUser(res.data);
-	// 			// console.log(res.data);
-	// 		})
-	// 		.catch((err) => {
-	// 			console.log("무언가 잘못됐다.");
-	// 		});
-	// };
-
 	return (
 		<Router>
 			<Header user={user} logoutHandler={logoutHandler} />

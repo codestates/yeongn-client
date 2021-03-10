@@ -18,7 +18,12 @@ interface IMypageUser extends RouteComponentProps {
 	logoutHandler: () => void;
 }
 
+
+
+
+
 function Header({ logoutHandler, user, location }: IMypageUser) {
+
 	const [isLogin, setLogin] = useState(true);
 	const [id, setId] = useState("lovvp");
 	const [toggleState, setToggle] = useState(true);
@@ -73,7 +78,10 @@ function Header({ logoutHandler, user, location }: IMypageUser) {
 						/>
 						{/* 검색어 상태는 전역에서 관리해야함;; */}
 						<Link to={`/search/${searchInput}`}>
-							<button className="header__menu__search__button">
+							<button
+								className="header__menu__search__button"
+
+							>
 								<SearchIcon />
 							</button>
 						</Link>

@@ -221,3 +221,77 @@ input::placeholder {
 		margin: 5px;
 	}
 }
+
+@media all and (max-width: 768px) {
+	.register__store__title {
+		margin: 0px;
+		padding: 10px 0px 10px 16px;
+		border: none;
+		background: var(--color-pink);
+		font-size: 24px;
+	}
+	.register__title__container,
+	.register__category__container,
+	.register__price__container,
+	.register__description__container,
+	.register__contact__container,
+	.register__img__container {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		margin-top: 16px;
+		margin-bottom: 0px;
+		padding-left: 16px;
+		padding-right: 16px;
+	}
+	.category__title,
+	.contact__title,
+	.register__title,
+	.price__title,
+	.description__title,
+	.img__title {
+		font-size: 16px;
+	}
+
+	.register__title__content,
+	.register__price__content,
+	.register__contact__content {
+		margin-top: 8px;
+		background: transparent;
+		border: none;
+		border: 2px solid var(--color-pink);
+		font-size: 16px;
+		padding: 8px;
+		border-radius: 4px;
+	}
+	.description__container {
+		margin-top: 8px;
+		padding: 8px;
+		font-size: 16px;
+	}
+	.register__form__btn {
+		margin-top: 32px;
+		margin-bottom: 40px;
+		padding: 8px 16px 8px 16px;
+	}
+	.description__info {
+		font-size: 8px;
+	}
+	.register__footer {
+		display: none;
+	}
+	.registerCategoryList__buttonBox__button {
+		padding: 4px 8px 4px 8px;
+		margin: 2px;
+		font-size: 10px;
+	}
+	.category__button__container {
+		justify-content: center;
+	}
+	.input__file__button {
+		margin: 8px 0px 8px 8px;
+	}
+	.register__img__box {
+		margin: 0px 0px 0px 8px;
+	}
+}
