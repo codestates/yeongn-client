@@ -115,3 +115,8 @@ ul {
 	font-family: "nanum";
 	src: url("./assets/fonts/NanumGothic-ExtraBold.ttf");
 }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+}
