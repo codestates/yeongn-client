@@ -142,6 +142,7 @@ function RegisterSale({ user, history }: IMypageUser) {
 			[name]: value,
 		});
 	};
+
 	return (
 		<div id="register__store__section">
 			<form className="register__store__container" onSubmit={handleFormSubmit}>

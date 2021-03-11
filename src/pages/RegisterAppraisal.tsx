@@ -111,7 +111,8 @@ function RegisterAppraisal({ user, history }: IMypageUser) {
 			.then((res) => {
 				history.push("/appraisal");
 			})
-			.catch(() => {
+			.catch((err) => {
+				console.log(err);
 				alert("서버오류입니다.");
 			});
 	};
