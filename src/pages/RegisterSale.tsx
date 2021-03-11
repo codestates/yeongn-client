@@ -22,6 +22,7 @@ interface IMypageUser extends RouteComponentProps {
 function RegisterSale({ user, history }: IMypageUser) {
 	//userId가 넘어와야함
 	const inputRef = useRef<HTMLInputElement>(null);
+	const numberRef = useRef<HTMLInputElement>(null);
 	useEffect(() => {
 		const { current } = inputRef;
 		if (current !== null) {
@@ -44,19 +45,18 @@ function RegisterSale({ user, history }: IMypageUser) {
 		"전자기기",
 		"핸드 메이드",
 	];
-	// const id = userId
-	const id = 3;
+	//!파일
 	const [file, setFile] = useState<fileForm>({
 		selectedFile: "",
 		previewURL: null,
 	});
+	//!인포
 	const [info, setInfo] = useState({
 		title: "",
 		text: "",
 		price: 0,
 		contact: "",
 	});
-
 	const [category, setCategory] = useState("");
 
 	const handleCategoryClick = (e: any) => {
@@ -80,14 +80,39 @@ function RegisterSale({ user, history }: IMypageUser) {
 			alert("title을 입력하세요");
 		} else if (category === "") {
 			alert("카테고리를 선택하세요");
-		} else if (info.price === 0) {
-			alert("카테고리를 선택하세요");
+		} else if (info.price === 0 || info.price < 0) {
+			alert("금액은 입력되어야하고 0보다 커야합니다.");
 		} else if (info.text === "") {
 			alert("상품 설명을 입력하세요");
 		} else if (info.contact === "") {
 			alert("연락받으실 정보를 입력하세요");
 		} else if (file.selectedFile === "") {
 			alert("이미지를 등록하세요");
+		} else {
+			const formData = new FormData();
+			formData.append("image", file.selectedFile);
+			formData.append("title", info.title);
+			formData.append("category", category);
+			formData.append("price", info.price.toString());
+			formData.append("text", info.text);
+			formData.append("contact", info.contact);
+
+			const uploadUrl = "https://www.yeongn.com/api/shop";
+			const config = {
+				headers: {
+					"content-type": "multipart/form-data",
+					Authorization: `Bearer ${user.token}`,
+				},
+			};
+
+			axios
+				.post(uploadUrl, formData, config)
+				.then((res) => {
+					history.push("/shop");
+				})
+				.catch(() => {
+					alert("서버오류입니다.");
+				});
 		}
 	};
 
@@ -95,30 +120,6 @@ function RegisterSale({ user, history }: IMypageUser) {
 		e.preventDefault();
 		const url = "url";
 		validateForm();
-		const formData = new FormData();
-		formData.append("image", file.selectedFile);
-		formData.append("title", info.title);
-		formData.append("category", category);
-		formData.append("price", info.price.toString());
-		formData.append("text", info.text);
-		formData.append("contact", info.contact);
-
-		const uploadUrl = "https://www.yeongn.com/api/shop";
-		const config = {
-			headers: {
-				"content-type": "multipart/form-data",
-				Authorization: `Bearer ${user.token}`,
-			},
-		};
-
-		axios
-			.post(uploadUrl, formData, config)
-			.then((res) => {
-				history.push("/shop");
-			})
-			.catch(() => {
-				alert("서버오류입니다.");
-			});
 	};
 	const handleImgDelete = () => {
 		setFile({ selectedFile: "", previewURL: null });
@@ -142,6 +143,13 @@ function RegisterSale({ user, history }: IMypageUser) {
 			[name]: value,
 		});
 	};
+
+	const onWheel = () => {
+		if (numberRef.current !== null) {
+			numberRef.current.blur();
+		}
+	};
+
 	return (
 		<div id="register__store__section">
 			<form className="register__store__container" onSubmit={handleFormSubmit}>
@@ -184,6 +192,8 @@ function RegisterSale({ user, history }: IMypageUser) {
 						onChange={onChange}
 						className="register__price__content"
 						placeholder="숫자로만 입력하세요"
+						ref={numberRef}
+						onWheel={onWheel}
 					/>
 				</div>
 				<div className="register__description__container">
