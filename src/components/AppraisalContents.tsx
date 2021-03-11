@@ -133,6 +133,7 @@ function AppraisalContents() {
 	};
 
 	const changePrice = (e: any) => {
+		const regex = /[^0-9]/g;
 		setPrice(e.target.value);
 	};
 
@@ -285,6 +286,7 @@ function AppraisalContents() {
 						<input
 							className="AppraisalContents__input"
 							onChange={changePrice}
+							type="Number"
 						></input>
 						<span className="AppraisalContents__input__text">원</span>
 						<button

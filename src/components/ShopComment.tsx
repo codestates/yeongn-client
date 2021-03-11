@@ -24,6 +24,7 @@ const initialState = [
 	},
 ];
 
+// text: "할말";
 function ShopComment() {
 	const [state, setState] = useState(initialState);
 	const [comment, setComment] = useState<string>("");
