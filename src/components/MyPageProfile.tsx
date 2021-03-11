@@ -19,7 +19,6 @@ function MyPageProfile({ user }: IMypageUser) {
 	 * 버튼을 눌렀을 시 서버에 닉네임 변경 요청
 	 */
 	//!밑에 속성은 임의로 정해준 것 fakedata
-	console.log(user);
 	const myNickname: string = user.userId;
 	const myRequest: string = "33";
 	const myTier: string = "전문감정가";

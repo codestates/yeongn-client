@@ -91,7 +91,7 @@ function MyPageLikes() {
 	];
 
 	const [appraisalList, setList] = useState(initialState.reverse());
-	console.log(appraisalList);
+
 
 	return (
 		<div className="mypage__likes">
