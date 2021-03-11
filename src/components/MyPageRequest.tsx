@@ -90,7 +90,6 @@ function MyPageRequest() {
 	];
 
 	const [appraisalList, setList] = useState(initialState.reverse());
-	console.log(appraisalList);
 	return (
 		<div className="mypage__request">
 			<div className="request__title__container">

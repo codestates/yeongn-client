@@ -90,7 +90,6 @@ function MyPageStore() {
 	];
 
 	const [appraisalList, setList] = useState(initialState.reverse());
-	console.log(appraisalList);
 	return (
 		<div className="mypage__store">
 			<div className="store__title__container">
