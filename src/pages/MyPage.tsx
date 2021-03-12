@@ -23,7 +23,7 @@ function MyPage({ user, history, match, location }: IMypageUser) {
 				<MyPageProfile user={user} />
 				<MyPageRequest />
 				<MyPageStore />
-				<MyPageLikes />
+				<MyPageLikes user={user} />
 			</section>
 			<Footer />
 		</div>

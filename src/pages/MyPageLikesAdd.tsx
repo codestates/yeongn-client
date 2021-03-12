@@ -11,6 +11,8 @@ import ScrollToTop from "../components/ScrollToTop";
  */
 interface User {
 	userId: string;
+	token: string;
+	authenticated: boolean;
 }
 interface IMypageUser extends RouteComponentProps {
 	user: User;

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { Link, withRouter, RouteComponentProps } from "react-router-dom";
 import "../styles/MyPageLikes.css";
 
 /**
@@ -8,7 +8,16 @@ import "../styles/MyPageLikes.css";
  * 조회함 //!mypage에서 가져와야함
  */
 
-function MyPageLikes() {
+interface User {
+	userId: string;
+	token: string;
+	authenticated: boolean;
+}
+interface IMypageUser extends RouteComponentProps {
+	user: User;
+}
+
+function MyPageLikes({ user }: IMypageUser) {
 	const initialState = [
 		{
 			id: 1,
@@ -91,7 +100,6 @@ function MyPageLikes() {
 	];
 
 	const [appraisalList, setList] = useState(initialState.reverse());
-
 
 	return (
 		<div className="mypage__likes">

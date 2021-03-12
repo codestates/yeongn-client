@@ -68,6 +68,24 @@
 	margin-bottom: 20px;
 }
 
+#changeNick__section {
+	z-index: 4;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.changeNick__modal__container {
+	z-index: 5;
+	width: 350px;
+	height: 350px;
+	background: var(--color-dark-orange);
+}
+.changeNick__modal__disable {
+	display: none;
+}
+
 .name__change:hover {
 	font-weight: var(--weight-bold);
 }
