@@ -33,7 +33,6 @@ function AppraisalAllList({
 	const moreButtonClick = (): void => {
 		setCount((count) => count + 8);
 	};
-
 	return (
 		<section className="appraisalAllList">
 			<div className="appraisalAllList__title__wrap">
@@ -51,7 +50,7 @@ function AppraisalAllList({
 									to={`/appraisal/${appraisalList.id}`}
 									key={appraisalList.id}
 								>
-								<img
+									<img
 										alt="이미지"
 										src={appraisalList.imgUrl}
 										className="appraisalAllList__container__img"
