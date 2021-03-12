@@ -13,7 +13,7 @@ interface ILoginUser extends RouteComponentProps {
 	loginHandler: (user: User) => void;
 }
 function KakaoLogin({ loginHandler, history, location }: ILoginUser) {
-	const KAKAO_LOGIN_URL = `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=b862dc01a142ef533360f21219d2247b&redirect_uri=http://localhost:3000/login`;
+	const KAKAO_LOGIN_URL = `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=b862dc01a142ef533360f21219d2247b&redirect_uri=https://www.yeongn.com/login`;
 	const kakaoLoginHandler = () => {
 		window.location.assign(KAKAO_LOGIN_URL);
 	};
