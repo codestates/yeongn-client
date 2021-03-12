@@ -23,12 +23,14 @@ function RegisterAppraisal({ user, history }: IMypageUser) {
 	//userId가 넘어와야함
 	const inputRef = useRef<HTMLInputElement>(null);
 	const numberRef = useRef<HTMLInputElement>(null);
+
 	useEffect(() => {
 		const { current } = inputRef;
 		if (current !== null) {
 			current.focus();
 		}
 	}, []);
+
 	const CategoryButton: Array<string> = [
 		"전체",
 		"높은 가격",
@@ -52,6 +54,7 @@ function RegisterAppraisal({ user, history }: IMypageUser) {
 		"전자기기",
 		"핸드 메이드",
 	];
+
 	// const id = userId
 	const [file, setFile] = useState<fileForm>({
 		selectedFile: "",
