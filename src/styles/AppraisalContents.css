@@ -26,7 +26,6 @@
 
 .AppraisalContainer__imgContainer__big1 {
 	flex: 0 0 auto;
-	background: url("../assets/img/나비.jpeg") center/cover;
 	width: 500px;
 	height: 500px;
 	transition: all 350ms;
@@ -202,7 +201,7 @@
 }
 .AppraisalContents__body {
 	font-size: 14px;
-	height: 153px;
+	height: 135px;
 	line-height: 25px;
 }
 
@@ -230,14 +229,13 @@
 	font-size: var(--font-regular);
 	border-radius: 5px;
 	cursor: pointer;
-	transition: all 350ms;
 	width: 45%;
 	border: var(--color-dark-pink);
 	outline: none;
 }
-.AppraisalContents__body__likebutton:hover {
+/* .AppraisalContents__body__likebutton:hover {
 	background-color: var(--color-dark-pink);
-}
+} */
 
 .AppraisalContents__body__submitButton {
 	font-size: var(--font-regular);

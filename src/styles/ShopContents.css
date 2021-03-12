@@ -26,7 +26,7 @@
 
 .ShopContainer__imgContainer__big1 {
 	flex: 0 0 auto;
-	background: url("../assets/img/나비.jpeg") center/cover;
+	background: center/cover;
 	width: 485px;
 	height: 485px;
 	margin-bottom: 13px;

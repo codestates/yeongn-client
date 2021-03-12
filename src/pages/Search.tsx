@@ -1,6 +1,4 @@
-import { List } from "@material-ui/icons";
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { withRouter, RouteComponentProps } from "react-router-dom";
 import SearchAppraisalList from "../components/SearchAppraisalList";
 import SearchShopList from "../components/SearchShopList";

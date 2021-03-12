@@ -122,7 +122,6 @@
 	border-radius: 5px;
 }
 
-
 .appraisal__highPriceList__title {
 	font-weight: bold;
 	font-size: 13px;
@@ -133,7 +132,7 @@
 	display: flex;
 }
 .appraisal__highPriceList__likeCount {
-	margin-right: 3px;
+	margin-right: 9px;
 	font-size: var(--font-micro);
 }
 .appraisal__highPriceList__price__name {
@@ -264,7 +263,7 @@
 
 @media all and (max-width: 479px) {
 	.appraisal__highPriceList {
-		height: 740px;
+		height: 800px;
 		margin: auto;
 		overflow: hidden;
 	}
@@ -286,7 +285,7 @@
 		margin: auto;
 		width: 160px;
 		height: 230px;
-		margin-bottom: 20px;
+		margin-bottom: 40px;
 	}
 	.appraisal__highPriceList__img {
 		width: 160px;
@@ -311,7 +310,7 @@
 	}
 	.appraisal__highPriceList__likeCount {
 		font-size: 10px;
-		margin-right: 5px;
+		margin-right: 9.5px;
 	}
 	.appraisal__highPriceList__price {
 		font-size: 12px;

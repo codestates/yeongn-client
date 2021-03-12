@@ -1,14 +1,30 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link, withRouter } from "react-router-dom";
+import axios from "axios";
 import "../styles/Shop.css";
 import shop from "../assets/img/shop.png";
 import ShopPopularity from "../components/ShopPopularity";
 import ScrollToTop from "../components/ScrollToTop";
 import ArrowUp from "../components/ArrowUp";
+import Loading from "../components/Loading";
 
 function Shop() {
+	const [shopList, setShopList] = useState<any>([]);
+	const [isLoading, setIsLoading] = useState<boolean>(false);
+
+	useEffect(() => {
+		axios
+			.get(`https://www.yeongn.com/api/shop`)
+			.then((res) => {
+				setIsLoading(true);
+				setShopList(res.data);
+			})
+			.catch((err) => console.log(err));
+	}, []);
+
 	return (
 		<div>
+			{!isLoading || !shopList ? <Loading /> : null}
 			<ScrollToTop />
 			<section className="Shop__main">
 				<div className="Shop__main__container">

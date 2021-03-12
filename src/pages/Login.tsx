@@ -5,6 +5,7 @@ import NaverLogin from "../components/NaverLogin";
 import KakaoLogin from "../components/KakaoLogin";
 import logo from "../assets/img/logo.png";
 import "../styles/login.css";
+import ScrollToTop from "../components/ScrollToTop";
 
 interface User {
 	userId: string;
@@ -33,6 +34,7 @@ function Login({ loginHandler }: ILoginUser) {
 				<NaverLogin loginHandler={loginHandler} />
 				<KakaoLogin loginHandler={loginHandler} />
 			</section>
+			<ScrollToTop />
 		</div>
 	);
 }

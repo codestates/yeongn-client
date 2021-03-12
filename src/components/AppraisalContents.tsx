@@ -1,281 +1,317 @@
-import React, { useState, useEffect } from "react";
-import { withRouter } from "react-router-dom";
+import React, { useState, useEffect, useRef } from "react";
+import { withRouter, RouteComponentProps } from "react-router-dom";
+import axios from "axios";
 import "../styles/AppraisalContents.css";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import FavoriteIcon from "@material-ui/icons/Favorite";
-import KeyboardArrowRightIcon from "@material-ui/icons/KeyboardArrowRight";
-import KeyboardArrowLeftIcon from "@material-ui/icons/KeyboardArrowLeft";
 import CloseIcon from "@material-ui/icons/Close";
-function AppraisalContents() {
-	const initialState = [
-		{
-			id: 1,
-			nick: "제킴",
-			name: "잠자는 나비",
-			price: 120000,
-			category: "도저히 분류할 수 없는",
-		},
-		{
-			id: 2,
-			nick: "제킴",
-			name: "잠자는 나비",
-			price: 120000,
-			category: "음식",
-		},
-		{
-			id: 3,
-			nick: "제킴",
-			name: "잠자는 나비",
-			price: 120000,
-			category: "음식",
-		},
-		{
-			id: 4,
-			nick: "제킴",
-			name: "잠자는 나비",
-			price: 120000,
-			category: "음식",
-		},
-	];
+import Loading from "../components/Loading";
 
+interface User {
+	userId: string;
+	token: string;
+	authenticated: boolean;
+}
+interface IMypageUser extends RouteComponentProps<any> {
+	user: User;
+}
+
+// interface UserData {
+// 	appraisalCount: number;
+// 	average: number;
+// 	category: string;
+// 	createdAt: string;
+// 	description: string;
+// 	id: number;
+// 	imgUrl: string;
+// 	itemName: string;
+// 	likeCount: number;
+// 	nickname: string;
+// 	userId: number;
+// 	userPrice: string;
+// 	usersAppraisalsPrices: [];
+// }
+
+function AppraisalContents({ user, match, history }: IMypageUser) {
+	const id = match.params.id;
+
+	const [appraisalList, setAppraisalList] = useState<any>();
 	const [like, setLike] = useState<boolean>(false);
-	const [count, setCount] = useState<number>(1);
+	const [count, setCount] = useState<number>();
 	const [apprasialState, setApprasialState] = useState<boolean>(false);
 	const [price, setPrice] = useState<number>(0);
-	const [userInfo, setUserInfo] = useState<string>("");
 	const [isUser, setIsUser] = useState<boolean>(false);
 
 	useEffect(() => {
-		// changeRight();
-		changeLikeButton();
-		isUserController();
-	});
-
+		if (user.token) {
+			axios
+				.get(`https://www.yeongn.com/api/appraisal/${id}`, {
+					headers: {
+						Authorization: `Bearer ${user.token}`,
+					},
+				})
+				.then((res) => {
+					if (res.data.userId === user.userId) {
+						setIsUser(!isUser);
+					}
+					setCount(res.data.likeCount);
+					setAppraisalList(res.data);
+					if (res.data.isRecommend) {
+						setLike(true);
+						const likeButton = document.querySelector(
+							`.AppraisalContents__body__likebutton`,
+						) as HTMLElement;
+						if (!likeButton) {
+							return;
+						}
+						likeButton.classList.add("like");
+					} else {
+						setLike(false);
+						const likeButton = document.querySelector(
+							`.AppraisalContents__body__likebutton.like`,
+						) as HTMLElement;
+						if (!likeButton) {
+							return;
+						}
+						likeButton.classList.remove("like");
+					}
+				});
+		} else {
+			axios
+				.get(`https://www.yeongn.com/api/appraisal/${id}`, {})
+				.then((res) => {
+					console.log(res);
+					setCount(res.data.likeCount);
+					setAppraisalList(res.data);
+				});
+		}
+	}, []);
 	const likeButtonClick = (): void => {
-		setLike(!like);
-	};
-
-	const changeLikeButton = (): void => {
-		if (like === true) {
-			const likeButton = document.querySelector(
-				`.AppraisalContents__body__likebutton`,
-			) as HTMLElement;
-			likeButton.classList.add("like");
+		if (!user.token) {
+			alert("로그인 후 이용해주세요.");
 		}
-
-		if (like === false) {
-			const likeButton = document.querySelector(
-				`.AppraisalContents__body__likebutton.like`,
-			) as HTMLElement;
-			if (likeButton == null) {
-				return;
-			}
-			likeButton.classList.remove("like");
-		}
+		axios
+			.patch(
+				`https://www.yeongn.com/api/appraisal/${id}/recommend`,
+				{},
+				{
+					headers: {
+						Authorization: `Bearer ${user.token}`,
+					},
+				},
+			)
+			.then((res) => {
+				setCount(res.data.count);
+				if (like) {
+					setLike(false);
+					const likeButton = document.querySelector(
+						`.AppraisalContents__body__likebutton.like`,
+					) as HTMLElement;
+					likeButton.classList.remove("like");
+				} else {
+					setLike(true);
+					const likeButton = document.querySelector(
+						`.AppraisalContents__body__likebutton`,
+					) as HTMLElement;
+					if (likeButton == null) {
+						return;
+					}
+					likeButton.classList.add("like");
+				}
+			})
+			.catch((err) => console.log(err));
 	};
-
-	// const rightPhotoButton = (): void => {
-	// 	if (count >= initialState.length) {
-	// 		setCount((count) => initialState.length);
-	// 		return;
-	// 	}
-	// 	setCount((count) => count + 1);
-	// 	changeLeft();
-	// };
-
-	// const leftPhotoButton = (): void => {
-	// 	if (count <= 1 || count === 0) {
-	// 		setCount((count) => 1);
-	// 		return;
-	// 	}
-	// 	setCount((count) => count - 1);
-	// 	changeRight();
-	// };
-
-	// const changeLeft = (): void => {
-	// 	const next = document.querySelector(
-	// 		`.AppraisalContainer__imgContainer__big${count}`,
-	// 	) as HTMLElement;
-	// 	const nextsmall = document.querySelector(
-	// 		`.AppraisalContainer__imgContainer__smallWrap__small${count}`,
-	// 	) as HTMLElement;
-	// 	nextsmall.classList.remove("backsmall");
-	// 	nextsmall.classList.add("gosmall");
-	// 	next.classList.remove("back");
-	// 	next.classList.add("go");
-	// };
-
-	// const changeRight = (): void => {
-	// 	const next = document.querySelector(
-	// 		`.AppraisalContainer__imgContainer__big${count}`,
-	// 	) as HTMLElement;
-	// 	const nextsmall = document.querySelector(
-	// 		`.AppraisalContainer__imgContainer__smallWrap__small${count}`,
-	// 	) as HTMLElement;
-
-	// 	nextsmall.classList.remove("gosmall");
-	// 	nextsmall.classList.add("backsmall");
-	// 	next.classList.remove("go");
-	// 	next.classList.add("back");
-
-	// 	const nextsmall2 = document.querySelector(
-	// 		`.AppraisalContainer__imgContainer__smallWrap__small${count + 1}`,
-	// 	) as HTMLElement;
-	// 	if (nextsmall2 == null) {
-	// 		return;
-	// 	}
-	// 	nextsmall2.classList.remove("backsmall");
-	// 	nextsmall2.classList.add("gosmall");
-	// };
+	const modalButton = () => {
+		if (!user.token) {
+			return alert("로그인 후 이용해주세요.");
+		}
+		setApprasialState(!apprasialState);
+	};
 
 	const appraisalButton = (): void => {
-		setApprasialState(!apprasialState);
+		if (!user.token) {
+			alert("로그인 후 이용해주세요.");
+		}
+		axios
+			.post(
+				`https://www.yeongn.com/api/appraisal/${id}`,
+				{ price },
+				{
+					headers: {
+						Authorization: `Bearer ${user.token}`,
+					},
+				},
+			)
+			.then(() => {
+				setApprasialState(!apprasialState);
+				axios
+					.get(`https://www.yeongn.com/api/appraisal/${id}`, {})
+					.then((res) => {
+						setAppraisalList(res.data);
+					});
+			});
 	};
 
 	const changePrice = (e: any) => {
-		const regex = /[^0-9]/g;
 		setPrice(e.target.value);
 	};
 
-	const submitPrice = () => {
-		setApprasialState(!apprasialState);
+	const numRef = useRef<HTMLInputElement>(null);
+	const onWheel = () => {
+		if (numRef.current !== null) {
+			numRef.current.blur();
+		}
 	};
 
-	const isUserController = () => {
-		initialState.map((content) => {
-			if (content.nick === userInfo) {
-				setIsUser(true);
-			} else {
-				setIsUser(false);
-			}
-		});
+	const deleteContent = () => {
+		const result = window.confirm("삭제 하시겠습니까?");
+
+		if (result) {
+			axios
+				.delete(`https://www.yeongn.com/api/appraisal/${id}`, {
+					headers: {
+						Authorization: `Bearer ${user.token}`,
+					},
+				})
+				.then(() => history.push("/appraisal"))
+				.catch((err) => console.log(err));
+		} else {
+			return;
+		}
 	};
 
 	return (
 		<section className="AppraisalContents">
-			<div className="AppraisalContainer">
-				<div className="AppraisalContainer__imgContainer">
-					<div className="AppraisalContainer__imgContainer__bigWrap">
-						{initialState.map((content: any) => {
-							let name = `AppraisalContainer__imgContainer__big${content.id}`;
-							return <div className={name} key={content.id}></div>;
-						})}
-					</div>
-					{/* <div className="AppraisalContainer__imgContainer__smallWrap">
-						<button className="AppraisalContainer__imgContainer__smallWrap__leftButton">
-							<KeyboardArrowLeftIcon
-								fontSize="inherit"
-								onClick={leftPhotoButton}
-							/>
-						</button>
-						{initialState.map((content: any) => {
-							let name = `AppraisalContainer__imgContainer__smallWrap__small${content.id}`;
-							return <div className={name} key={content.id}></div>;
-						})}
-						<button
-							className="AppraisalContainer__imgContainer__smallWrap__rightButton"
-							onClick={rightPhotoButton}
-						>
-							<KeyboardArrowRightIcon fontSize="inherit" />
-						</button>
-					</div> */}
-				</div>
-				{initialState.slice(0, 1).map((content: any) => (
-					<div className="AppraisalContainer__wrap" key={content.id}>
-						<div className="AppraisalContainer__title">{content.nick}</div>
+			{!appraisalList ? (
+				<Loading />
+			) : (
+				<div>
+					{" "}
+					<div className="AppraisalContainer">
+						<div className="AppraisalContainer__imgContainer">
+							<div className="AppraisalContainer__imgContainer__bigWrap">
+								<img
+									src={!appraisalList ? null : appraisalList.imgUrl}
+									className="AppraisalContainer__imgContainer__big1"
+								></img>
+							</div>
+						</div>
+						{!appraisalList ? null : (
+							<div className="AppraisalContainer__wrap">
+								<div className="AppraisalContainer__title">
+									{appraisalList.nickname}
+								</div>
 
-						<div className="AppraisalContainer__nameAndLike">
-							<div className="AppraisalContainer__name">{content.name}</div>
-							<div className="AppraisalContainer__likeAndCount">
-								{like ? (
-									<button
-										className="AppraisalContainer__like"
-										onClick={likeButtonClick}
-									>
-										<FavoriteIcon fontSize="inherit" />
-									</button>
+								<div className="AppraisalContainer__nameAndLike">
+									<div className="AppraisalContainer__name">
+										{appraisalList.itemName}
+									</div>
+									<div className="AppraisalContainer__likeAndCount">
+										{like ? (
+											<button
+												className="AppraisalContainer__like"
+												onClick={likeButtonClick}
+											>
+												<FavoriteIcon fontSize="inherit" />
+											</button>
+										) : (
+											<button
+												className="AppraisalContainer__unlike"
+												onClick={likeButtonClick}
+											>
+												<FavoriteBorderIcon fontSize="inherit" />
+											</button>
+										)}
+										<span className="AppraisalContainer__likeCount">
+											{count}
+										</span>
+									</div>
+								</div>
+								<div className="AppraisalContainer__category">
+									# {appraisalList.category}
+								</div>
+								<div className="AppraisalContainer__divideLine"></div>
+								<div className="AppraisalContainer__text">
+									<div className="AppraisalContainer__left">
+										<div className="AppraisalContainer__price">
+											{" "}
+											예상 감정가
+										</div>
+										<div className="AppraisalContainer__price">평균 감정가</div>
+										<div className="AppraisalContainer__priceNumber">
+											참여 인원
+										</div>
+									</div>
+									<div className="AppraisalContainer__right">
+										<div className="AppraisalContainer__priceText">
+											{!appraisalList
+												? null
+												: appraisalList.userPrice
+														.toString()
+														.replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{" "}
+											원
+										</div>
+										<div className="AppraisalContainer__priceText">
+											₩{" "}
+											{!appraisalList
+												? null
+												: appraisalList.average
+														.toString()
+														.replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{" "}
+											원
+										</div>
+										<div className="AppraisalContainer__priceNumberText">
+											{appraisalList.appraisalCount} 명
+										</div>
+									</div>
+								</div>
+								<div className="AppraisalContainer__divideLine"></div>
+								<div className="AppraisalContents__body">
+									{appraisalList.description}
+								</div>
+								<div className="AppraisalContainer__divideLine"></div>
+
+								{isUser ? (
+									<div className="AppraisalContents__body__buttonWrap">
+										<button
+											className="AppraisalContents__body__submitButton"
+											onClick={likeButtonClick}
+										>
+											수정
+										</button>
+										<button
+											className="AppraisalContents__body__deleteButton"
+											onClick={deleteContent}
+										>
+											삭제
+										</button>
+									</div>
 								) : (
-									<button
-										className="AppraisalContainer__unlike"
-										onClick={likeButtonClick}
-									>
-										<FavoriteBorderIcon fontSize="inherit" />
-									</button>
+									<div className="AppraisalContents__body__buttonWrap">
+										<button
+											className="AppraisalContents__body__likebutton"
+											onClick={likeButtonClick}
+										>
+											좋아요
+										</button>
+										<button
+											className="AppraisalContents__body__button"
+											onClick={modalButton}
+										>
+											감정하기
+										</button>
+									</div>
 								)}
-								<span className="AppraisalContainer__likeCount">123</span>
-							</div>
-						</div>
-						<div className="AppraisalContainer__category">
-							# {content.category}
-						</div>
-						<div className="AppraisalContainer__divideLine"></div>
-						<div className="AppraisalContainer__text">
-							<div className="AppraisalContainer__left">
-								<div className="AppraisalContainer__price"> 예상 감정가</div>
-								<div className="AppraisalContainer__price">평균 감정가</div>
-								<div className="AppraisalContainer__priceNumber">참여 인원</div>
-							</div>
-							<div className="AppraisalContainer__right">
-								<div className="AppraisalContainer__priceText">130000원</div>
-								<div className="AppraisalContainer__priceText">
-									₩{" "}
-									{content.price
-										.toString()
-										.replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
-								</div>
-								<div className="AppraisalContainer__priceNumberText">
-									102 명
-								</div>
-							</div>
-						</div>
-						<div className="AppraisalContainer__divideLine"></div>
-						<div className="AppraisalContents__body">
-							잠자는 나비 포즈 실화냐? <br />
-							너무 커엽다 가슴이 웅장해진다..
-							<br /> 진짜 나비는 전설이다
-							<br /> 이 정도 나비면 국대 원탑 급 고양이다 ㅇㅈ?
-						</div>
-						<div className="AppraisalContainer__divideLine"></div>
-
-						{isUser ? (
-							<div className="AppraisalContents__body__buttonWrap">
-								<button
-									className="AppraisalContents__body__submitButton"
-									onClick={likeButtonClick}
-								>
-									수정
-								</button>
-								<button
-									className="AppraisalContents__body__deleteButton"
-									onClick={appraisalButton}
-								>
-									삭제
-								</button>
-							</div>
-						) : (
-							<div className="AppraisalContents__body__buttonWrap">
-								<button
-									className="AppraisalContents__body__likebutton"
-									onClick={likeButtonClick}
-								>
-									좋아요
-								</button>
-								<button
-									className="AppraisalContents__body__button"
-									onClick={appraisalButton}
-								>
-									감정하기
-								</button>
 							</div>
 						)}
 					</div>
-				))}
-			</div>
+				</div>
+			)}
 			{apprasialState ? (
 				<div className="AppraisalContents__inputModal">
 					<button
 						className="AppraisalContents__inputModal__close"
-						onClick={appraisalButton}
+						onClick={modalButton}
 					>
 						<CloseIcon fontSize="inherit" />
 					</button>
@@ -287,11 +323,13 @@ function AppraisalContents() {
 							className="AppraisalContents__input"
 							onChange={changePrice}
 							type="Number"
+							ref={numRef}
+							onWheel={onWheel}
 						></input>
 						<span className="AppraisalContents__input__text">원</span>
 						<button
 							className="AppraisalContents__input__button"
-							onClick={submitPrice}
+							onClick={appraisalButton}
 						>
 							{" "}
 							감정{" "}

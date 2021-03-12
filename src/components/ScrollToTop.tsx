@@ -7,7 +7,7 @@ function ScrollToTop() {
 			top: 0,
 			left: 0,
 		});
-	});
+	}, []);
 	return null;
 }
 

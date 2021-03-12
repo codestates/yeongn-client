@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 import "../styles/ShopAllLists.css";
@@ -6,39 +6,14 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 
 type CategoryTitleProps = {
 	categoryTitle: string;
-	initialState: any;
+	shopList: any;
 };
 
-function ShopAllList({ categoryTitle, initialState }: CategoryTitleProps) {
-	const [count, setCount] = useState<number>(9);
-	const [shopList, setShopList] = useState(initialState);
-	const [category, setCategory] = useState(categoryTitle);
-
-	useEffect(() => {
-		filterCategory(categoryTitle);
-		setCategory(categoryTitle);
-	});
-
-	const filterCategory = (categoryTitle: string): void => {
-		if (categoryTitle === "전체" || categoryTitle === "전체 판매") {
-			setShopList(initialState);
-		} else if (categoryTitle === "높은 가격") {
-			const highPriceData = shopList.sort(function (a: any, b: any) {
-				return a.price < b.price ? 1 : -1;
-			});
-			setShopList(highPriceData);
-		} else if (categoryTitle === "낮은 가격") {
-			const highPriceData = shopList.sort(function (a: any, b: any) {
-				return a.price > b.price ? 1 : -1;
-			});
-			setShopList(highPriceData);
-		} else {
-			setShopList(shopList.filter((el: any) => el.category === categoryTitle));
-		}
-	};
+function ShopAllList({ categoryTitle, shopList }: CategoryTitleProps) {
+	const [count, setCount] = useState<number>(8);
 
 	const moreButtonClick = (): void => {
-		setCount((count) => count + 6);
+		setCount((count) => count + 8);
 	};
 
 	return (
@@ -50,11 +25,15 @@ function ShopAllList({ categoryTitle, initialState }: CategoryTitleProps) {
 				{shopList.slice(0, count).map((shopList: any) => (
 					<div className="shopAllList__container__card" key={shopList.id}>
 						<Link to={`/shop/${shopList.id}`} key={shopList.id}>
-							<div className="shopAllList__container__img"></div>
+							<img
+								alt={"이미지"}
+								className="shopAllList__container__img"
+								src={shopList.imgUrl}
+							></img>
 							<div className="shopAllList__container__wrap">
 								<div className="shopAllList_-container__nickAndLikeWrap">
 									<div className="shopAllList__container__nick">
-										{shopList.nick}
+										{shopList.nickname}
 									</div>
 									<span className="shopAllList__container__like">
 										<FavoriteIcon fontSize="inherit" />
@@ -62,15 +41,19 @@ function ShopAllList({ categoryTitle, initialState }: CategoryTitleProps) {
 								</div>
 								<div className="shopAllList__container__titleAndLikeCount">
 									<div className="shopAllList__container__title">
-										{shopList.name}
+										{shopList.itemName}
 									</div>
-									<span className="shopAllList__container__likeCount">147</span>
+									<span className="shopAllList__container__likeCount">
+										{shopList.likeCount}
+									</span>
 								</div>
 								<div className="shopAllList__container__price">
-									<span className="shopAllList__container__price">감정가 </span>
-									{shopList.price
-										.toString()
-										.replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+									<span className="shopAllList__container__price">판매가 </span>
+									{!shopList
+										? null
+										: shopList.userPrice
+												.toString()
+												.replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{" "}
 									원{" "}
 								</div>
 							</div>
