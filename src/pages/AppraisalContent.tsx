@@ -1,14 +1,23 @@
-import React from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter, RouteComponentProps } from "react-router-dom";
 import AppraisalContents from "../components/AppraisalContents";
 import AppraisalComment from "../components/AppraisalComment";
 import ScrollToTop from "../components/ScrollToTop";
-function AppraisalContent() {
+
+interface User {
+	userId: string;
+	token: string;
+	authenticated: boolean;
+}
+interface IMypageUser extends RouteComponentProps {
+	user: User;
+}
+
+function AppraisalContent({ user }: IMypageUser) {
 	return (
 		<div>
 			<ScrollToTop />
-			<AppraisalContents />
-			<AppraisalComment />
+			<AppraisalContents user={user} />
+			<AppraisalComment user={user} />
 		</div>
 	);
 }

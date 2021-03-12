@@ -91,11 +91,12 @@
 .appraisalAllList__container {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-between;
+	justify-content: flex-start;
 }
 .appraisalAllList__container__card {
 	width: 240px;
 	height: 340px;
+	margin-right: 16px;
 	margin-bottom: 20px;
 	border-radius: 6px;
 }
@@ -155,7 +156,7 @@
 	margin-bottom: 7px;
 }
 .appraisalAllList__container__likeCount {
-	margin-right: 3px;
+	margin-right: 9px;
 	font-size: var(--font-micro);
 }
 .appraisalAllList__container__price {
@@ -168,7 +169,7 @@
 
 	font-size: 80px;
 	cursor: pointer;
-	color: var(--color-orange);
+	color: var(--color-dark-orange);
 }
 
 .noSearchData {
@@ -318,6 +319,7 @@
 		width: 170px;
 		margin: auto;
 		height: 270px;
+		margin-bottom: 10px;
 		justify-content: space-evenly;
 	}
 	.appraisalAllList__container__img {
@@ -338,6 +340,6 @@
 	}
 	.appraisalAllList__container__likeCount {
 		font-size: 10px;
-		margin-right: 5px;
+		margin-right: 10px;
 	}
 }

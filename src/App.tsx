@@ -18,7 +18,6 @@ import ShopContent from "./pages/ShopContent";
 import ShopList from "./pages/ShopList";
 import AuthRoute from "./components/AuthRoute";
 import Header from "./components/Header";
-import axios from "axios";
 
 interface User {
 	userId: string;
@@ -73,7 +72,7 @@ function App() {
 					exact
 					path="/appraisal/:id"
 					render={() => {
-						return <AppraisalContent />;
+						return <AppraisalContent user={user} />;
 					}}
 				/>
 				<Route
@@ -143,7 +142,7 @@ function App() {
 					exact
 					path="/shop/:id"
 					render={() => {
-						return <ShopContent />;
+						return <ShopContent user={user} />;
 					}}
 				/>
 				<Route

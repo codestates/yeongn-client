@@ -95,7 +95,7 @@
 	margin-bottom: 10px;
 }
 .shop__popularity__img {
-	background: url("../assets/img/나비.jpeg") center/cover;
+	background: center/cover;
 	width: 240px;
 	height: 240px;
 	margin-bottom: 7px;
@@ -132,7 +132,7 @@
 	display: flex;
 }
 .shop__popularity__likeCount {
-	margin-right: 3px;
+	margin-right: 9.5px;
 	font-size: var(--font-micro);
 }
 .shop__popularity__price__name {
@@ -262,7 +262,7 @@
 
 @media all and (max-width: 479px) {
 	.shop__popularity {
-		height: 740px;
+		height: 800px;
 		margin: auto;
 		overflow: hidden;
 	}
@@ -284,7 +284,7 @@
 		margin: auto;
 		width: 160px;
 		height: 230px;
-		margin-bottom: 20px;
+		margin-bottom: 40px;
 	}
 	.shop__popularity__img {
 		width: 160px;
@@ -309,7 +309,7 @@
 	}
 	.shop__popularity__likeCount {
 		font-size: 10px;
-		margin-right: 5px;
+		margin-right: 9.5px;
 	}
 	.shop__popularity__price {
 		font-size: 12px;

@@ -2,7 +2,6 @@
 	position: relative;
 	margin: auto;
 	max-width: 1024px;
-	margin: auto;
 	top: 30px;
 }
 
@@ -91,11 +90,13 @@
 .shopAllList__container {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-between;
+	justify-content: flex-start;
 }
 .shopAllList__container__card {
 	width: 240px;
 	height: 340px;
+	margin-left: 8px;
+	margin-right: 8px;
 	margin-bottom: 20px;
 	border-radius: 6px;
 }
@@ -155,7 +156,7 @@
 	margin-bottom: 7px;
 }
 .shopAllList__container__likeCount {
-	margin-right: 3px;
+	margin-right: 9px;
 	font-size: var(--font-micro);
 }
 .shopAllList__container__price {
@@ -195,6 +196,7 @@
 		margin: 5px;
 	}
 	.shopAllList__title {
+		margin-left: 10px;
 		font-size: var(--font-regular);
 	}
 
@@ -235,9 +237,8 @@
 	}
 	.shopAllList__container__card {
 		width: 200px;
-		margin: auto;
 		height: 300px;
-		justify-content: space-evenly;
+		margin: auto;
 		margin-bottom: 7px;
 	}
 	.shopAllList__container__img {
@@ -314,6 +315,7 @@
 		width: 170px;
 		margin: auto;
 		height: 270px;
+		margin-bottom: 10px;
 		justify-content: space-evenly;
 	}
 	.shopAllList__container__img {
@@ -334,6 +336,6 @@
 	}
 	.shopAllList__container__likeCount {
 		font-size: 10px;
-		margin-right: 5px;
+		margin-right: 10px;
 	}
 }

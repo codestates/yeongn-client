@@ -1,119 +1,133 @@
 import React, { useState, useEffect } from "react";
 import "../styles/ShopComment.css";
+import { withRouter, RouteComponentProps } from "react-router-dom";
 import Pagination from "./ShopPagination";
-const initialState = [
-	{
-		id: 1,
-		nick: "잠자는 나비",
-		text: "어맛 넘모 귀엽다",
-	},
-	{
-		id: 2,
-		nick: "나비 짱짱맨",
-		text: "나비야 잘 살고 있니",
-	},
-	{
-		id: 3,
-		nick: "이것이 나비",
-		text: "나비 요즘 머하냐 가족 생겼던데",
-	},
-	{
-		id: 4,
-		nick: "헛소리충",
-		text: "어제 T1경기 본 사람?",
-	},
-];
+import axios from "axios";
 
-// text: "할말";
-function ShopComment() {
-	const [state, setState] = useState(initialState);
+interface User {
+	userId: string;
+	token: string;
+	authenticated: boolean;
+}
+interface IMypageUser extends RouteComponentProps<any> {
+	user: User;
+}
+
+function ShopComment({ user, match }: IMypageUser) {
+	const [commentState, setCommentState] = useState<any>([]);
 	const [comment, setComment] = useState<string>("");
-	const [userInfo, setUserInfo] = useState<string>("코공");
-	const [isUser, setIsUser] = useState<boolean>(false);
-	const [test, setTest] = useState<string>("");
+	const [commentId, setCommentId] = useState<number>();
 	const [isModify, setIsModify] = useState<boolean>(false);
 	const [currentPage, setCurrentPage] = useState<number>(1);
 	const [postsPerPage, setPostsPerPage] = useState<number>(5);
 
 	const indexOfLast = currentPage * postsPerPage;
 	const indexOfFirst = indexOfLast - postsPerPage;
+	const id = match.params.id;
 
 	useEffect(() => {
-		submitCommnet();
+		axios.get(`https://www.yeongn.com/api/shop/${id}`).then((res) => {
+			setCommentState(res.data.comments);
+		});
 	});
+
 	const onChangeCommnet = (e: any): void => {
 		setComment(e.target.value);
 	};
-
 	const submitCommnet = (): void => {
 		if (comment.length === 0) {
-			return;
+			return alert("댓글을 입력해주세요.");
+		} else {
+			axios
+				.post(
+					`https://www.yeongn.com/api/shop/${id}/comment`,
+					{
+						text: comment,
+					},
+					{
+						headers: {
+							Authorization: `Bearer ${user.token}`,
+						},
+					},
+				)
+				.then(() => {
+					axios.get(`https://www.yeongn.com/api/shop/${id}`).then((res) => {
+						console.log(res.data.comments);
+						setCommentState(res.data.comments);
+					});
+				});
 		}
-		initialState.push({
-			id: 5,
-			nick: "코공",
-			text: comment,
-		});
-	};
-
-	const isUserController = () => {
-		initialState.map((content) => {
-			if (content.nick === userInfo) {
-				setIsUser(true);
-			} else {
-				setIsUser(false);
-			}
-		});
 	};
 
 	const commentDelets = (e: any) => {
-		setTest(e.target.value);
-		console.log(initialState);
-		setState(initialState.filter((comment) => comment.nick !== test));
-		console.log(initialState);
+		const CommentId = e.target.value;
+		axios
+			.delete(`https://www.yeongn.com/api/shop/comment/${CommentId}`, {
+				headers: {
+					Authorization: `Bearer ${user.token}`,
+				},
+			})
+			.then()
+			.catch((err) => console.log(err));
 	};
 	const commentModifyController = (e: any) => {
 		setIsModify(true);
+		setCommentId(e.target.value);
 	};
 
-	const commentModify = (): void => {
+	const commentModify = (e: any): void => {
 		if (comment.length === 0) {
-			return;
+			setPostsPerPage(5);
+			return alert("수정할 댓글을 입력해주세요.");
 		}
+		axios
+			.patch(
+				`https://www.yeongn.com/api/shop/comment/${commentId}`,
+				{
+					text: comment,
+				},
+				{
+					headers: {
+						Authorization: `Bearer ${user.token}`,
+					},
+				},
+			)
+			.then(() => setIsModify(false))
+			.catch((err) => console.log(err));
 	};
 
 	return (
 		<section className="ShopComment">
 			<div className="ShopComment_divdieLine"></div>
 
-			{state == null || state.length === 0 ? (
-				<div className="ShopComment__noComment">
+			{commentState == null || commentState.length === 0 ? (
+				<div className="AppraisalComment__noComment">
 					소중한 댓글을 입력해주세요.
 				</div>
 			) : (
-				state.slice(indexOfFirst, indexOfLast).map((comment) => (
+				commentState.slice(indexOfFirst, indexOfLast).map((comment: any) => (
 					<div className="ShopComment__container" key={comment.id}>
 						<div className="ShopComment__box">
 							<div className="ShopComment__box__nameAndTitle">
-								<div className="ShopComment__box__name">{comment.nick}</div>
+								<div className="ShopComment__box__name">{comment.nickname}</div>
 								<div className="ShopComment__box__time">2021년 3월 5일</div>
 							</div>
 							<div className="ShopComment_divdieLineNameAndTitle"></div>
 							<div className="ShopComment__box__textAndButton">
 								<div className="ShopComment__box__text">{comment.text}</div>
-								{userInfo === comment.nick ? (
+								{user.userId === comment.userId ? (
 									<div className="ShopComment__box__buttonWrap">
 										<button
 											className="ShopComment__box__buttonWrap__submit"
-											key={comment.nick}
 											onClick={commentModifyController}
+											value={comment.id}
 										>
 											수정
 										</button>
 										<button
 											className="ShopComment__box__buttonWrap__delete"
 											onClick={commentDelets}
-											value={comment.nick}
+											value={comment.id}
 										>
 											삭제
 										</button>
@@ -134,7 +148,7 @@ function ShopComment() {
 					></input>
 					<button
 						className="ShopCommentBox__button__Modify"
-						onClick={submitCommnet}
+						onClick={commentModify}
 					>
 						등록
 					</button>
@@ -143,7 +157,7 @@ function ShopComment() {
 			<div className="ShopCommentBox_divdieLine"></div>
 			<Pagination
 				postsPerPage={postsPerPage}
-				totalPosts={state.length}
+				totalPosts={commentState.length}
 				paginate={setCurrentPage}
 			/>
 			<div className="ShopCommentBox">
@@ -152,7 +166,7 @@ function ShopComment() {
 					placeholder="댓글을 남겨주세요"
 					onChange={onChangeCommnet}
 				></input>
-				<button className="ShopCommentBox__button" onClick={commentModify}>
+				<button className="ShopCommentBox__button" onClick={submitCommnet}>
 					등록
 				</button>
 			</div>
@@ -160,4 +174,4 @@ function ShopComment() {
 	);
 }
 
-export default ShopComment;
+export default withRouter(ShopComment);

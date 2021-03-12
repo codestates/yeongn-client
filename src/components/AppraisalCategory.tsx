@@ -1,14 +1,18 @@
 import React, { useState } from "react";
-import "../styles/AppraisalLists.css";
+import axios from "axios";
+import "../styles/AppraisalCategory.css";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 import ArrowDropUpIcon from "@material-ui/icons/ArrowDropUp";
-import "../styles/AppraisalCategory.css";
 
 type CategoryButtonClickProps = {
 	setCategoryTitle: (CategoryTitle: string) => void;
+	setAppraisalList: (e: any) => void;
 };
 
-function AppraisalCategory({ setCategoryTitle }: CategoryButtonClickProps) {
+function AppraisalCategory({
+	setCategoryTitle,
+	setAppraisalList,
+}: CategoryButtonClickProps) {
 	const CategoryButton: Array<string> = [
 		"전체",
 		"높은 가격",
@@ -16,12 +20,15 @@ function AppraisalCategory({ setCategoryTitle }: CategoryButtonClickProps) {
 		"인기 많은",
 		"줘도 안 가지는",
 		"도저히 분류하기 힘든",
+		"꽃",
+		"책",
 		"음식",
 		"의류",
 		"가구",
 		"악기",
-		"알코올",
 		"게임",
+		"알코올",
+		"장난감",
 		"피규어",
 		"화장품",
 		"악세사리",
@@ -29,10 +36,12 @@ function AppraisalCategory({ setCategoryTitle }: CategoryButtonClickProps) {
 		"전자기기",
 		"핸드 메이드",
 	];
+
 	const [categoryMore, setCategoryMore] = useState<boolean>(false);
 
 	const categoryButtonClick = (categoryTitle: string, e: any): void => {
 		setCategoryTitle(categoryTitle);
+
 		const CategoryButtons = document.querySelectorAll(
 			".CategoryList__buttonBox__buttonActive",
 		);
@@ -44,13 +53,44 @@ function AppraisalCategory({ setCategoryTitle }: CategoryButtonClickProps) {
 				el.className = "CategoryList__buttonBox__button";
 			}
 		});
+
+		if (categoryTitle === "전체" || categoryTitle === "전체 감정가") {
+			axios.get(`https://www.yeongn.com/api/appraisal`).then((res) => {
+				setAppraisalList(res.data);
+				console.log(res.data);
+			});
+		} else if (categoryTitle === "높은 가격") {
+			axios.get(`https://www.yeongn.com/api/appraisal`).then((res) => {
+				const highPriceData = res.data.sort(function (a: any, b: any) {
+					return a.average < b.average ? 1 : -1;
+				});
+				setAppraisalList(highPriceData);
+			});
+		} else if (categoryTitle === "낮은 가격") {
+			axios.get(`https://www.yeongn.com/api/appraisal`).then((res) => {
+				const highPriceData = res.data.sort(function (a: any, b: any) {
+					return a.average > b.average ? 1 : -1;
+				});
+				setAppraisalList(highPriceData);
+			});
+		} else if (categoryTitle === "인기 많은") {
+			axios.get(`https://www.yeongn.com/api/appraisal`).then((res) => {
+				const LikeCount = res.data.sort(function (a: any, b: any) {
+					return a.likeCount < b.likeCount ? 1 : -1;
+				});
+				setAppraisalList(LikeCount);
+			});
+		} else {
+			axios.get(`https://www.yeongn.com/api/appraisal`).then((res) => {
+				const filterdata = res.data.filter(
+					(el: any) => el.category === categoryTitle,
+				);
+				setAppraisalList(filterdata);
+			});
+		}
 	};
 
 	const moreCategoryButton = (): void => {
-		setCategoryMore(!categoryMore);
-	};
-
-	const moreCategoryButtonDown = (): void => {
 		setCategoryMore(!categoryMore);
 	};
 

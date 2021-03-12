@@ -1,16 +1,45 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link, withRouter } from "react-router-dom";
+import axios from "axios";
+import "../styles/Appraisal.css";
 import AppraisalHighPrice from "../components/AppraisalHighPrice";
 import AppraisalPopularity from "../components/AppraisalPopularity";
-import "../styles/Appraisal.css";
 import ScrollToTop from "../components/ScrollToTop";
 import ArrowUp from "../components/ArrowUp";
 import Loading from "../components/Loading";
+
+interface List {
+	average: number;
+	category: string;
+	createdAt: string;
+	description: string;
+	id: number;
+	imgUrl: string;
+	itemName: string;
+	likeCount: number;
+	nickname: string;
+	userId: number;
+	userPrice: string;
+	usersAppraisalsPrices: {};
+}
+
 function Appraisal() {
+	const [appraisalList, setAppraisalList] = useState<any>([]);
+	const [isLoading, setIsLoading] = useState<boolean>(false);
+
+	useEffect(() => {
+		axios
+			.get(`https://www.yeongn.com/api/appraisal`)
+			.then((res) => {
+				setIsLoading(true);
+				setAppraisalList(res.data);
+			})
+			.catch((err) => console.log(err));
+	}, []);
+
 	return (
 		<div>
-			{/* <Loading /> */}
-			<ScrollToTop />
+			{!isLoading || !appraisalList ? <Loading /> : null}
 			<section className="Appraisal__main">
 				<div className="Appraisal__main__container">
 					<div className="Appraisal__main__image"></div>
@@ -29,6 +58,7 @@ function Appraisal() {
 			<AppraisalPopularity />
 			<div className="Appraisal__division__line"></div>
 			<ArrowUp />
+			<ScrollToTop />
 		</div>
 	);
 }

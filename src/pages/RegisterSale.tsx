@@ -30,14 +30,21 @@ function RegisterSale({ user, history }: IMypageUser) {
 		}
 	}, []);
 	const CategoryButton: Array<string> = [
+		"전체",
+		"높은 가격",
+		"낮은 가격",
+		"인기 많은",
 		"줘도 안 가지는",
 		"도저히 분류하기 힘든",
+		"꽃",
+		"책",
 		"음식",
 		"의류",
 		"가구",
 		"악기",
-		"알코올",
 		"게임",
+		"알코올",
+		"장난감",
 		"피규어",
 		"화장품",
 		"악세사리",

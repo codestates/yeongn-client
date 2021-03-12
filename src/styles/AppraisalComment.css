@@ -10,8 +10,10 @@
 	background-color: rgba(197, 197, 197, 0.1);
 }
 .AppraisalComment__noComment {
+	display: flex;
 	justify-content: center;
-	margin: auto;
+	left: 50%;
+	margin-top: 40px;
 }
 .AppraisalComment__box {
 	padding-top: 10px;
