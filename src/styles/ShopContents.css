@@ -204,7 +204,7 @@
 }
 .ShopContents__body {
 	font-size: 14px;
-	height: 180px;
+	height: 190px;
 	line-height: 25px;
 }
 
@@ -245,6 +245,8 @@
 	font-size: var(--font-regular);
 	cursor: pointer;
 	border: none;
+	text-align: center;
+	background-color: rgb(206, 206, 206);
 	width: 45%;
 	outline: none;
 	border-radius: 5px;
@@ -375,7 +377,7 @@
 	}
 	.ShopContents__body {
 		font-size: 12px;
-		height: 140px;
+		height: 120px;
 		line-height: 25px;
 	}
 	.ShopContainer__price,
@@ -419,6 +421,9 @@
 	}
 	.ShopContainer {
 		max-width: 600px;
+
+		height: 900px;
+
 		justify-content: center;
 		flex-direction: column;
 		margin: auto;
@@ -479,6 +484,9 @@
 		margin: auto;
 		display: flex;
 		justify-content: center;
+	}
+	.ShopContainer {
+		height: 700px;
 	}
 	.ShopContainer__imgContainer {
 		margin: auto;
@@ -561,5 +569,12 @@
 	}
 	.ShopContainer__likeCount {
 		font-size: 12px;
+	}
+	.ShopContainer__name {
+		font-size: 18px;
+	}
+	.ShopContainer__like,
+	.ShopContainer__unlike {
+		margin-top: -5px;
 	}
 }

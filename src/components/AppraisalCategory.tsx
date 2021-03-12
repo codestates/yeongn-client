@@ -48,6 +48,7 @@ function AppraisalCategory({
 		if (e.target.className === "CategoryList__buttonBox__button") {
 			e.target.className = "CategoryList__buttonBox__buttonActive";
 		}
+
 		CategoryButtons.forEach((el) => {
 			if (el.innerHTML !== `# ${categoryTitle}`) {
 				el.className = "CategoryList__buttonBox__button";

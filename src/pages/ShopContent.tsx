@@ -10,13 +10,14 @@ interface User {
 }
 interface IMypageUser extends RouteComponentProps {
 	user: User;
+	setContentId: (e: any) => void;
 }
 
-function ShopContent({ user }: IMypageUser) {
+function ShopContent({ user, setContentId }: IMypageUser) {
 	return (
 		<div>
 			<ScrollToTop />
-			<ShopContents user={user} />
+			<ShopContents user={user} setContentId={setContentId} />
 			<ShopComment user={user} />
 		</div>
 	);
