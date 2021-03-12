@@ -12,11 +12,12 @@ import "../styles/MyPageAdd.css";
 
 interface User {
 	userId: string;
+	token: string;
+	authenticated: boolean;
 }
 interface IMypageUser extends RouteComponentProps {
 	user: User;
 }
-
 function MyPageStoreAdd({ user }: IMypageUser) {
 	const initialState = [
 		{
