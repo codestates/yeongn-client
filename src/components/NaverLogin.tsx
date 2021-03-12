@@ -12,7 +12,7 @@ interface ILoginUser extends RouteComponentProps {
 	loginHandler: (user: User) => void;
 }
 function NaverLogin({ loginHandler, history, location }: ILoginUser) {
-	const NAVER_LOGIN_URL = `https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=6uSvluf8fHGhNvp6U3j2&redirect_uri=http://localhost:3000/login`;
+	const NAVER_LOGIN_URL = `https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=6uSvluf8fHGhNvp6U3j2&redirect_uri=https://www.yeongn.com/login`;
 
 	const naverLoginHandler = () => {
 		window.location.assign(NAVER_LOGIN_URL);
