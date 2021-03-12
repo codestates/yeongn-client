@@ -29,7 +29,7 @@ function AppraisalComment({ user, match }: IMypageUser) {
 		axios.get(`https://www.yeongn.com/api/appraisal/${id}`).then((res) => {
 			setCommentState(res.data.comments);
 		});
-	});
+	}, []);
 
 	const onChangeCommnet = (e: any): void => {
 		setComment(e.target.value);
@@ -115,7 +115,7 @@ function AppraisalComment({ user, match }: IMypageUser) {
 									{comment.nickname}
 								</div>
 								<div className="AppraisalComment__box__time">
-									2021년 3월 5일
+									{comment.createdAt.slice(0, 10)}
 								</div>
 							</div>
 							<div className="AppraisalComment_divdieLineNameAndTitle"></div>

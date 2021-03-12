@@ -2,9 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 import { Link, withRouter, RouteComponentProps } from "react-router-dom";
 import AddIcon from "@material-ui/icons/Add";
 import axios from "axios";
-import "../styles/RegisterAppraisal.css";
+import "../styles/RegisterSale.css";
 import ArrowUp from "../components/ArrowUp";
-
 interface fileForm {
 	selectedFile: any;
 	previewURL: any;
@@ -18,17 +17,43 @@ interface User {
 
 interface IMypageUser extends RouteComponentProps {
 	user: User;
+	contentId: any;
 }
 
-function RegisterAppraisal({ user, history }: IMypageUser) {
+function RegisterSaleModify({ user, history, contentId }: IMypageUser) {
 	const inputRef = useRef<HTMLInputElement>(null);
 	const numberRef = useRef<HTMLInputElement>(null);
+	const [state, setState] = useState<any>();
 
 	useEffect(() => {
-		const { current } = inputRef;
-		if (current !== null) {
-			current.focus();
-		}
+		console.log(contentId);
+		axios
+			.get(`https://www.yeongn.com/api/shop/${contentId}`, {
+				headers: {
+					Authorization: `Bearer ${user.token}`,
+				},
+			})
+			.then((res) => {
+				setState(res.data);
+				setInfo({
+					title: res.data.itemName,
+					text: res.data.description,
+					price: res.data.userPrice,
+					contact: res.data.contact,
+				});
+
+				setFile({ selectedFile: "", previewURL: res.data.imgUrl });
+				setCategory(res.data.category);
+				const CategoryButtons = document.querySelectorAll(
+					".registerCategoryList__buttonBox__button",
+				);
+
+				CategoryButtons.forEach((el) => {
+					if (el.innerHTML === `${res.data.category}`) {
+						el.className = "registerCategoryList__buttonBox__buttonActive";
+					}
+				});
+			});
 	}, []);
 
 	const CategoryButton: Array<string> = [
@@ -55,31 +80,33 @@ function RegisterAppraisal({ user, history }: IMypageUser) {
 		"핸드 메이드",
 	];
 
-	// const id = userId
+	//!파일
 	const [file, setFile] = useState<fileForm>({
 		selectedFile: "",
 		previewURL: null,
 	});
+	//!인포
+
 	const [info, setInfo] = useState({
 		title: "",
 		text: "",
 		price: 0,
+		contact: "",
 	});
-
 	const [category, setCategory] = useState("");
 
 	const handleCategoryClick = (e: any) => {
 		e.preventDefault();
 		setCategory(e.target.value);
 		const CategoryButtons = document.querySelectorAll(
-			".registerAppraisal__buttonBox__buttonActive",
+			".registerCategoryList__buttonBox__buttonActive",
 		);
-		if (e.target.className === "registerAppraisal__buttonBox__button") {
-			e.target.className = "registerAppraisal__buttonBox__buttonActive";
+		if (e.target.className === "registerCategoryList__buttonBox__button") {
+			e.target.className = "registerCategoryList__buttonBox__buttonActive";
 		}
 		CategoryButtons.forEach((el) => {
 			if (el.innerHTML !== `# ${category}`) {
-				el.className = "registerAppraisal__buttonBox__button";
+				el.className = "registerCategoryList__buttonBox__button";
 			}
 		});
 	};
@@ -93,28 +120,30 @@ function RegisterAppraisal({ user, history }: IMypageUser) {
 			alert("금액은 입력되어야하고 0보다 커야합니다.");
 		} else if (info.text === "") {
 			alert("상품 설명을 입력하세요");
-		} else if (file.selectedFile === "") {
-			alert("이미지를 등록하세요");
+		} else if (info.contact === "") {
+			alert("연락받으실 정보를 입력하세요");
 		} else {
 			const formData = new FormData();
-			formData.append("image", file.selectedFile);
+			if (file.selectedFile) {
+				formData.append("image", file.selectedFile);
+			}
 			formData.append("title", info.title);
 			formData.append("category", category);
 			formData.append("price", info.price.toString());
 			formData.append("text", info.text);
+			formData.append("contact", info.contact);
 
-			const uploadUrl = "https://www.yeongn.com/api/appraisal";
+			const uploadUrl = `https://www.yeongn.com/api/shop/${contentId}`;
 			const config = {
 				headers: {
 					"content-type": "multipart/form-data",
 					Authorization: `Bearer ${user.token}`,
 				},
 			};
-
 			axios
-				.post(uploadUrl, formData, config)
+				.patch(uploadUrl, formData, config)
 				.then((res) => {
-					history.push("/appraisal");
+					history.push("/shop");
 				})
 				.catch((err) => {
 					console.log(err);
@@ -150,6 +179,7 @@ function RegisterAppraisal({ user, history }: IMypageUser) {
 			[name]: value,
 		});
 	};
+
 	const onWheel = () => {
 		if (numberRef.current !== null) {
 			numberRef.current.blur();
@@ -157,20 +187,17 @@ function RegisterAppraisal({ user, history }: IMypageUser) {
 	};
 
 	return (
-		<div id="register__appraisal__section">
-			<form
-				className="register__appraisal__container"
-				onSubmit={handleFormSubmit}
-			>
-				<h2 className="register__appraisal__title">감정 등록</h2>
-				<div className="register__appraisal__category__container">
-					<div className="appraisal__category__title">카테고리</div>
-					<div className="appraisal__category__button__container">
+		<div id="register__store__section">
+			<form className="register__store__container" onSubmit={handleFormSubmit}>
+				<h2 className="register__store__title">상품 등록</h2>
+				<div className="register__category__container">
+					<div className="category__title">카테고리</div>
+					<div className="category__button__container">
 						{CategoryButton.map((item, index) => {
 							return (
 								<button
 									key={index}
-									className="registerAppraisal__buttonBox__button"
+									className="registerCategoryList__buttonBox__button"
 									onClick={handleCategoryClick}
 									value={item}
 								>
@@ -180,48 +207,66 @@ function RegisterAppraisal({ user, history }: IMypageUser) {
 						})}
 					</div>
 				</div>
-				<div className="appraisal__register__title__container">
-					<div className="appraisal__register__title">제목</div>
+				<div className="register__title__container">
+					<div className="register__title">제목</div>
 					<input
 						type="text"
 						name="title"
+						defaultValue={!state ? null : state.itemName}
 						onChange={onChange}
-						className="appraisal__register__title__content"
+						className="register__title__content"
 						placeholder="15자 이내로 입력하세요"
 						maxLength={15}
 						ref={inputRef}
 					/>
 				</div>
 
-				<div className="register__appraisal__price__container">
-					<div className="appraisal__price__title">예상감정가</div>
+				<div className="register__price__container">
+					<div className="price__title">희망 가격</div>
 					<input
 						type="number"
 						name="price"
 						onChange={onChange}
-						className="appraisal__register__price__content"
+						defaultValue={!state ? null : state.userPrice}
+						className="register__price__content"
 						placeholder="숫자로만 입력하세요"
 						ref={numberRef}
 						onWheel={onWheel}
 					/>
 				</div>
-				<div className="register__appraisal__description__container">
-					<div className="appraisal__description__title">상품 설명</div>
-					<div className="appraisal__description__container">
+				<div className="register__description__container">
+					<div className="description__title">상품 설명</div>
+					<div className="description__container">
 						<textarea
 							name="text"
 							onChange={onChange}
-							className="appraisal__description__content"
+							defaultValue={!state ? null : state.description}
+							className="description__content"
 							placeholder="100자 이내로 제품을 설명해주세요"
 							maxLength={100}
 							wrap="virtual"
 						/>
 					</div>
 				</div>
-				<div className="register__appraisal__img__container">
-					<div className="appraisal__img__title">이미지 등록</div>
-					<label className="appraisal__input-file-button" htmlFor="input-file">
-						<div className="appraisal__input__file__button">
+				<div className="register__contact__container">
+					<div className="contact__title">연락처</div>
+					<input
+						type="textarea"
+						name="contact"
+						defaultValue={!state ? null : state.contact}
+						onChange={onChange}
+						className="register__contact__content"
+						maxLength={50}
+						placeholder="연락처를 50자 이내로 공유해주세요"
+					/>
+					<div className="description__info">
+						👀 해당 연락처는 구매희망을 원하는 회원에게만 보여집니다 👀
+					</div>
+				</div>
+				<div className="register__img__container">
+					<div className="img__title">이미지 등록</div>
+					<label className="input-file-button" htmlFor="input-file">
+						<div className="input__file__button">
 							<AddIcon fontSize="inherit" />
 						</div>
 					</label>
@@ -233,39 +278,34 @@ function RegisterAppraisal({ user, history }: IMypageUser) {
 						style={{ display: "none" }}
 					/>
 					{file.previewURL ? (
-						<div className="appraisal__img__container">
+						<div className="img__container">
 							<img
-								className="register__appraisal__img"
+								className="register__img"
 								src={file.previewURL}
 								style={{
 									width: "150px",
 									height: "150px",
 								}}
 							/>
-							<button
-								className="appraisal__img__delete__btn"
-								onClick={handleImgDelete}
-							>
+							<button className="img__delete__btn" onClick={handleImgDelete}>
 								삭제
 							</button>
 						</div>
 					) : (
-						<div className="appraisal__register__img__box">
+						<div className="register__img__box">
 							대표 이미지 1개를 등록해주세요.
 						</div>
 					)}
 				</div>
 
-				<button type="submit" className="appraisal__register__form__btn">
-					등록
+				<button type="submit" className="register__form__btn">
+					수정
 				</button>
 			</form>
-			{/* 
-				<Footer />
-			 */}
+			{/* <Footer /> */}
 			<ArrowUp />
 		</div>
 	);
 }
 
-export default withRouter(RegisterAppraisal);
+export default withRouter(RegisterSaleModify);
