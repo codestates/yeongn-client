@@ -11,12 +11,8 @@ function SearchAppraisalList({ word }: MatchParams) {
 	const [appraisalList, setAppraisalList] = useState<any>();
 
 	useEffect(() => {
-		axios.get(`https://www.yeongn.com/api/appraisal`).then((res) => {
-			console.log(res.data);
-
-			const filter = res.data.filter((el: any) => el.itemName.includes(word));
-
-			setAppraisalList(filter);
+		axios.get(`https://www.yeongn.com/api/search/${word}`).then((res) => {
+			setAppraisalList(res.data.appraisals);
 		});
 	}, []);
 

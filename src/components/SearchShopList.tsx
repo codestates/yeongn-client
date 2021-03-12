@@ -8,13 +8,16 @@ interface MatchParams {
 
 function SearchshopList({ word }: MatchParams) {
 	const [shopState, setshopState] = useState<any>();
-
+	const [count, setCount] = useState<any>();
 	useEffect(() => {
-		axios.get(`https://www.yeongn.com/api/shop`).then((res) => {
-			const filter = res.data.filter((el: any) => el.itemName.includes(word));
-			setshopState(filter);
+		axios.get(`https://www.yeongn.com/api/search/${word}`).then((res) => {
+			setshopState(res.data.sales);
 		});
 	}, []);
+
+	const countPlus = () => {
+		setCount(+1);
+	};
 
 	return (
 		<section className="shopAllList">

@@ -43,9 +43,11 @@ function App() {
 	const logoutHandler = () => {
 		setUser({ userId: "", token: "", authenticated: false });
 	};
+
+	
 	return (
 		<Router>
-			<Header user={user} logoutHandler={logoutHandler} />
+			<Header user={user} logoutHandler={logoutHandler}  />
 			<Switch>
 				<Route
 					exact

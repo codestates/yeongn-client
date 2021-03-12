@@ -7,6 +7,7 @@ import CreateIcon from "@material-ui/icons/Create";
 import MenuIcon from "@material-ui/icons/Menu";
 import "../styles/Header.css";
 import usePrevious from "../components/usePrevious";
+import axios from "axios";
 
 interface User {
 	userId: string;
@@ -18,7 +19,7 @@ interface IMypageUser extends RouteComponentProps {
 	logoutHandler: () => void;
 }
 
-function Header({ logoutHandler, user, location }: IMypageUser) {
+function Header({ logoutHandler, user, location, history }: IMypageUser) {
 	const [isLogin, setLogin] = useState(true);
 	const [id, setId] = useState("lovvp");
 	const [toggleState, setToggle] = useState(true);
@@ -55,13 +56,19 @@ function Header({ logoutHandler, user, location }: IMypageUser) {
 		}
 	});
 
+	const searchBtn = () => {
+		history.push(`/search/`);
+		setTimeout(() => {
+			history.push(`/search/${searchInput}`);
+		}, 0);
+	};
+
 	return (
 		<div className="header">
 			<div className="header__container">
 				<Link to="/" className="header__logo">
 					<img src={yeongnLogo} alt="yeongnLogo" />
 				</Link>
-				{/* 컴포넌트 Search.tsx로 변경예정 */}
 				<div className={toggleState ? "header__menu" : "header__menu open"}>
 					<div className="header__menu__search">
 						<input
@@ -71,12 +78,14 @@ function Header({ logoutHandler, user, location }: IMypageUser) {
 							onChange={handleChangeSearch}
 							ref={input}
 						/>
-						{/* 검색어 상태는 전역에서 관리해야함;; */}
-						<Link to={`/search/${searchInput}`}>
-							<button className="header__menu__search__button">
-								<SearchIcon />
-							</button>
-						</Link>
+						{/* <Link to={`/search/${searchInput}`}> */}
+						<button
+							className="header__menu__search__button"
+							onClick={searchBtn}
+						>
+							<SearchIcon />
+						</button>
+						{/* </Link> */}
 					</div>
 					{isLogin ? (
 						<div className="header__menu__link">
