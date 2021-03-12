@@ -38,7 +38,7 @@
 	font-size: 10px;
 }
 .name__nickname {
-	font-size: 42px;
+	font-size: 36px;
 	margin-left: 15px;
 }
 
@@ -78,16 +78,62 @@
 
 .changeNick__modal__container {
 	z-index: 5;
-	width: 350px;
-	height: 350px;
-	background: var(--color-dark-orange);
+	width: 300px;
+	height: 150px;
+	background: var(--color-white);
+	border: var(--color-dark-orange) 3px solid;
+	border-radius: 16px;
+	display: flex;
+	flex-direction: column;
 }
 .changeNick__modal__disable {
 	display: none;
 }
-
+.changeNick__modal__close {
+	display: flex;
+	flex-direction: row-reverse;
+	margin: 8px 6px 0px 0px;
+}
+.modal__close__btn {
+	border: none;
+	background: none;
+	font-size: 24px;
+	color: var(--color-dark-orange);
+}
+.modal__input__container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-basis: 60%;
+}
+.modal__nick__input {
+	height: 40px;
+	width: 70%;
+	padding-left: 4px;
+	font-size: 20px;
+	background: transparent;
+	margin-right: 15px;
+	margin-bottom: 15px;
+	border: none;
+	border-bottom: 3px solid var(--color-dark-orange);
+}
+.modal__nick__btn {
+	height: 40px;
+	border: 3px solid var(--color-dark-orange);
+	border-radius: 50%;
+	background: transparent;
+	transition: all 300ms;
+}
+.modal__nick__btn:hover {
+	background: var(--color-dark-orange);
+	color: white;
+}
 .name__change:hover {
 	font-weight: var(--weight-bold);
+	color: white;
+}
+.modal__nick__input::placeholder {
+	font-size: 14px;
 }
 .help__title,
 .tier__title {
@@ -106,8 +152,16 @@
 		margin: 0;
 		padding: 0px;
 	}
+	.help__many,
+	.tier__grade {
+		font-size: 24px;
+		margin-left: 15px;
+	}
 	.nickname__title {
 		display: none;
+	}
+	.name__nickname {
+		font-size: 24px;
 	}
 	.profile__title {
 		padding-left: 15px;

@@ -7,7 +7,6 @@ import CreateIcon from "@material-ui/icons/Create";
 import MenuIcon from "@material-ui/icons/Menu";
 import "../styles/Header.css";
 import usePrevious from "../components/usePrevious";
-import axios from "axios";
 
 interface User {
 	userId: string;
@@ -56,6 +55,11 @@ function Header({ logoutHandler, user, location, history }: IMypageUser) {
 		}
 	});
 
+	const handleKeyPress = (e: any) => {
+		if (e.key === "Enter") {
+			searchBtn();
+		}
+	};
 	const searchBtn = () => {
 		history.push(`/search/`);
 		setTimeout(() => {
@@ -77,6 +81,7 @@ function Header({ logoutHandler, user, location, history }: IMypageUser) {
 							className="header__menu__search__input"
 							onChange={handleChangeSearch}
 							ref={input}
+							onKeyPress={handleKeyPress}
 						/>
 						{/* <Link to={`/search/${searchInput}`}> */}
 						<button

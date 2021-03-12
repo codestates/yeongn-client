@@ -4,6 +4,7 @@
 .mypage__add__container {
 	max-width: 1024px;
 	margin: auto;
+	min-height: 650px;
 }
 .add__title__container {
 	display: flex;

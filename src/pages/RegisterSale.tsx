@@ -30,7 +30,6 @@ function RegisterSale({ user, history }: IMypageUser) {
 		}
 	}, []);
 	const CategoryButton: Array<string> = [
-		"전체",
 		"높은 가격",
 		"낮은 가격",
 		"인기 많은",

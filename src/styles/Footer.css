@@ -78,6 +78,10 @@
 }
 
 @media all and (max-width: 768px) {
+	.footer__container {
+		padding-top: 15px;
+	}
+
 	.footer__market__title,
 	.footer__team__title,
 	.footer__captain__title,
@@ -96,5 +100,11 @@
 	}
 	.footer__bottom {
 		padding: 15px 0px 15px 0px;
+	}
+	.footer__top {
+		margin-bottom: 0px;
+	}
+	.footer__crew__description {
+		margin-bottom: 6px;
 	}
 }

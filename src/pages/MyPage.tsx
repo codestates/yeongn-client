@@ -3,7 +3,6 @@ import { Link, withRouter, RouteComponentProps } from "react-router-dom";
 import Footer from "../components/Footer";
 import MyPageStore from "../components/MyPageStore";
 import MyPageProfile from "../components/MyPageProfile";
-import MyPageLikes from "../components/MyPageLikes";
 import MyPageRequest from "../components/MyPageRequest";
 import "../styles/MyPage.css";
 
@@ -21,9 +20,8 @@ function MyPage({ user, history, match, location }: IMypageUser) {
 		<div id="mypage">
 			<section className="mypage__container">
 				<MyPageProfile user={user} />
-				<MyPageRequest />
-				<MyPageStore />
-				<MyPageLikes user={user} />
+				<MyPageRequest user={user} />
+				<MyPageStore user={user} />
 			</section>
 			<Footer />
 		</div>

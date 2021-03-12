@@ -3,6 +3,7 @@ import { Link, withRouter, RouteComponentProps } from "react-router-dom";
 import "../styles/MyPageProfile.css";
 import ArrowUp from "../components/ArrowUp";
 import axios from "axios";
+import CloseIcon from "@material-ui/icons/Close";
 
 interface User {
 	userId: string;
@@ -13,15 +14,6 @@ interface IMypageUser extends RouteComponentProps {
 	user: User;
 }
 function MyPageProfile({ user, history }: IMypageUser) {
-	/**
-	 * 필요한 속성
-	 *
-	 * 나의 닉네임, 내가 감정한 횟수, 나의 티어 //!마이페이지에서 가져와야함
-	 *
-	 * 필요한 기능
-	 * 버튼을 눌렀을 시 서버에 닉네임 변경 요청
-	 */
-
 	useEffect(() => {
 		const getUrl = "https://www.yeongn.com/api/user";
 		const config = {
@@ -56,17 +48,21 @@ function MyPageProfile({ user, history }: IMypageUser) {
 	const [changeNick, setChangeNick] = useState("");
 	const [isChangeNick, setisChangeNick] = useState(false);
 	const modalEl = useRef<HTMLInputElement>(null);
+	const inputEl = useRef<HTMLInputElement>(null);
 
 	const handleClickOutside = (e: any) => {
 		if (modalEl.current !== null) {
 			console.log(isChangeNick);
 			console.log(modalEl.current.contains(e.target));
 			console.log(e.target);
-			if (isChangeNick && !modalEl.current.contains(e.target)) {
-				setisChangeNick(false);
-				console.log("success");
-			} else {
-				console.log("fail");
+			if (inputEl.current !== null) {
+				inputEl.current.focus();
+				if (isChangeNick && !modalEl.current.contains(e.target)) {
+					setisChangeNick(false);
+					console.log("success");
+				} else {
+					console.log("fail");
+				}
 			}
 		}
 	};
@@ -108,7 +104,11 @@ function MyPageProfile({ user, history }: IMypageUser) {
 			setTier("챌린저");
 		}
 	};
-
+	const handleKeyPress = (e: any) => {
+		if (e.key === "Enter") {
+			handleNickChangeClick();
+		}
+	};
 	const changeButtonHandler = () => {
 		setisChangeNick(true);
 	};
@@ -170,16 +170,24 @@ function MyPageProfile({ user, history }: IMypageUser) {
 										className="modal__close__btn"
 										onClick={closeButtonHandler}
 									>
-										x
+										<CloseIcon fontSize="inherit" />
 									</button>
 								</div>
-								<div>
+								<div className="modal__input__container">
 									<input
 										type="text"
 										onChange={handleChangeNick}
-										placeholder=" 2 - 8 자리 수만 입력가능합니다."
+										onKeyPress={handleKeyPress}
+										placeholder=" 2~8 자리만 입력가능합니다."
+										className="modal__nick__input"
+										ref={inputEl}
 									/>
-									<button onClick={handleNickChangeClick}>변경</button>
+									<button
+										className="modal__nick__btn"
+										onClick={handleNickChangeClick}
+									>
+										변경
+									</button>
 								</div>
 							</div>
 						</div>
