@@ -62,7 +62,6 @@ function AppraisalHighPrice() {
 		buttonLeft.className = "appraisal__nextButton__rightdot";
 		buttonRight.className = "appraisal__nextButton__leftdot";
 	};
-
 	const leftButtonclick = (): void => {
 		const next = document.querySelector(
 			".appraisal__highPriceList__right__move",

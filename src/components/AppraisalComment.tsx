@@ -34,7 +34,6 @@ function AppraisalComment({ user, match }: IMypageUser) {
 	const onChangeCommnet = (e: any): void => {
 		setComment(e.target.value);
 	};
-
 	const submitCommnet = (): void => {
 		if (comment.length === 0) {
 			return alert("댓글을 입력해주세요.");

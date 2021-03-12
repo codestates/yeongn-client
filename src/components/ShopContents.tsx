@@ -21,7 +21,6 @@ function ShopContents({ user, match, history }: IMypageUser) {
 	const [count, setCount] = useState<number>(1);
 	const [shopButton, setShopButton] = useState<boolean>(false);
 	const [isUser, setIsUser] = useState<boolean>(false);
-
 	const id = match.params.id;
 
 	useEffect(() => {

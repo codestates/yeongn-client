@@ -33,6 +33,7 @@ function AppraisalAllList({
 	const moreButtonClick = (): void => {
 		setCount((count) => count + 8);
 	};
+
 	return (
 		<section className="appraisalAllList">
 			<div className="appraisalAllList__title__wrap">

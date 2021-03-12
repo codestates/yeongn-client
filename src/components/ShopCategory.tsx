@@ -38,7 +38,6 @@ function ShopCategory({
 	];
 
 	const [categoryMore, setCategoryMore] = useState<boolean>(false);
-
 	const categoryButtonClick = (categoryTitle: string, e: any): void => {
 		setCategoryTitle(categoryTitle);
 

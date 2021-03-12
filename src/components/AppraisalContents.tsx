@@ -86,7 +86,6 @@ function AppraisalContents({ user, match, history }: IMypageUser) {
 				});
 		}
 	}, []);
-
 	const likeButtonClick = (): void => {
 		if (!user.token) {
 			alert("로그인 후 이용해주세요.");
@@ -122,7 +121,6 @@ function AppraisalContents({ user, match, history }: IMypageUser) {
 			})
 			.catch((err) => console.log(err));
 	};
-
 	const modalButton = () => {
 		if (!user.token) {
 			return alert("로그인 후 이용해주세요.");

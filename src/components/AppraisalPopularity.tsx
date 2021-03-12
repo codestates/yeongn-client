@@ -23,7 +23,6 @@ interface List {
 }
 function AppraisalPopularity() {
 	const [appraisalList, setAppraisalList] = useState<List[]>([]);
-
 	useEffect(() => {
 		axios
 			.get(`https://www.yeongn.com/api/appraisal`)

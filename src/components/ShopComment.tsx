@@ -95,7 +95,6 @@ function ShopComment({ user, match }: IMypageUser) {
 			.then(() => setIsModify(false))
 			.catch((err) => console.log(err));
 	};
-
 	return (
 		<section className="ShopComment">
 			<div className="ShopComment_divdieLine"></div>

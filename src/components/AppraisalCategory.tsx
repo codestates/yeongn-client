@@ -93,7 +93,6 @@ function AppraisalCategory({
 	const moreCategoryButton = (): void => {
 		setCategoryMore(!categoryMore);
 	};
-
 	return (
 		<section className="CategoryList">
 			<div className="CategoryList__title__wrap">
