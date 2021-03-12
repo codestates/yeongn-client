@@ -29,7 +29,7 @@ function ShopComment({ user, match }: IMypageUser) {
 		axios.get(`https://www.yeongn.com/api/shop/${id}`).then((res) => {
 			setCommentState(res.data.comments);
 		});
-	});
+	}, []);
 
 	const onChangeCommnet = (e: any): void => {
 		setComment(e.target.value);
@@ -109,7 +109,9 @@ function ShopComment({ user, match }: IMypageUser) {
 						<div className="ShopComment__box">
 							<div className="ShopComment__box__nameAndTitle">
 								<div className="ShopComment__box__name">{comment.nickname}</div>
-								<div className="ShopComment__box__time">2021년 3월 5일</div>
+								<div className="ShopComment__box__time">
+									{comment.createdAt.slice(0, 10)}
+								</div>
 							</div>
 							<div className="ShopComment_divdieLineNameAndTitle"></div>
 							<div className="ShopComment__box__textAndButton">

@@ -18,6 +18,8 @@ import ShopContent from "./pages/ShopContent";
 import ShopList from "./pages/ShopList";
 import AuthRoute from "./components/AuthRoute";
 import Header from "./components/Header";
+import RegisterAppraisalModify from "./pages/RegisterAppraisalModify";
+import RegisterSaleModify from "./pages/RegisterSaleModify";
 
 interface User {
 	userId: string;
@@ -33,6 +35,10 @@ function App() {
 		authenticated: false,
 	});
 
+	const [userIdM, setUserId] = useState<any>();
+	const [contentId, setContentId] = useState<any>();
+	const [Modify, setModify] = useState<boolean>(false);
+
 	//! 헤더에서 상태가 바껴지는 서치 인풋 최상단 에서 관리하여
 	//! 써치로 뿌려주는 형식
 
@@ -44,10 +50,9 @@ function App() {
 		setUser({ userId: "", token: "", authenticated: false });
 	};
 
-	
 	return (
 		<Router>
-			<Header user={user} logoutHandler={logoutHandler}  />
+			<Header user={user} logoutHandler={logoutHandler} />
 			<Switch>
 				<Route
 					exact
@@ -74,7 +79,14 @@ function App() {
 					exact
 					path="/appraisal/:id"
 					render={() => {
-						return <AppraisalContent user={user} />;
+						return (
+							<AppraisalContent
+								user={user}
+								setContentId={setContentId}
+								setUserId={setUserId}
+								setModify={setModify}
+							/>
+						);
 					}}
 				/>
 				<Route
@@ -142,9 +154,25 @@ function App() {
 				/>
 				<Route
 					exact
+					path="/modify/appraisal"
+					render={() => {
+						return (
+							<RegisterAppraisalModify user={user} contentId={contentId} />
+						);
+					}}
+				/>
+				<Route
+					exact
+					path="/modify/shop"
+					render={() => {
+						return <RegisterSaleModify user={user} contentId={contentId} />;
+					}}
+				/>
+				<Route
+					exact
 					path="/shop/:id"
 					render={() => {
-						return <ShopContent user={user} />;
+						return <ShopContent user={user} setContentId={setContentId} />;
 					}}
 				/>
 				<Route

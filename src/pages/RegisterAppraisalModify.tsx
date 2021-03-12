@@ -18,17 +18,40 @@ interface User {
 
 interface IMypageUser extends RouteComponentProps {
 	user: User;
+	contentId: any;
 }
 
-function RegisterAppraisal({ user, history }: IMypageUser) {
+function RegisterAppraisal({ user, history, contentId }: IMypageUser) {
 	const inputRef = useRef<HTMLInputElement>(null);
 	const numberRef = useRef<HTMLInputElement>(null);
+	const [state, setState] = useState<any>();
 
 	useEffect(() => {
-		const { current } = inputRef;
-		if (current !== null) {
-			current.focus();
-		}
+		axios
+			.get(`https://www.yeongn.com/api/appraisal/${contentId}`, {
+				headers: {
+					Authorization: `Bearer ${user.token}`,
+				},
+			})
+			.then((res) => {
+				setState(res.data);
+				setInfo({
+					title: res.data.itemName,
+					text: res.data.description,
+					price: res.data.userPrice,
+				});
+				setFile({ selectedFile: "", previewURL: res.data.imgUrl });
+				setCategory(res.data.category);
+				const CategoryButtons = document.querySelectorAll(
+					".registerAppraisal__buttonBox__button",
+				);
+
+				CategoryButtons.forEach((el) => {
+					if (el.innerHTML === `${res.data.category}`) {
+						el.className = "registerAppraisal__buttonBox__buttonActive";
+					}
+				});
+			});
 	}, []);
 
 	const CategoryButton: Array<string> = [
@@ -93,17 +116,17 @@ function RegisterAppraisal({ user, history }: IMypageUser) {
 			alert("금액은 입력되어야하고 0보다 커야합니다.");
 		} else if (info.text === "") {
 			alert("상품 설명을 입력하세요");
-		} else if (file.selectedFile === "") {
-			alert("이미지를 등록하세요");
 		} else {
+			
 			const formData = new FormData();
-			formData.append("image", file.selectedFile);
+			if (file.selectedFile) {
+				formData.append("image", file.selectedFile);
+			}
 			formData.append("title", info.title);
 			formData.append("category", category);
 			formData.append("price", info.price.toString());
 			formData.append("text", info.text);
-
-			const uploadUrl = "https://www.yeongn.com/api/appraisal";
+			const uploadUrl = `https://www.yeongn.com/api/appraisal/${contentId}`;
 			const config = {
 				headers: {
 					"content-type": "multipart/form-data",
@@ -112,7 +135,7 @@ function RegisterAppraisal({ user, history }: IMypageUser) {
 			};
 
 			axios
-				.post(uploadUrl, formData, config)
+				.patch(uploadUrl, formData, config)
 				.then((res) => {
 					history.push("/appraisal");
 				})
@@ -185,6 +208,7 @@ function RegisterAppraisal({ user, history }: IMypageUser) {
 					<input
 						type="text"
 						name="title"
+						defaultValue={!state ? null : state.itemName}
 						onChange={onChange}
 						className="appraisal__register__title__content"
 						placeholder="15자 이내로 입력하세요"
@@ -199,6 +223,7 @@ function RegisterAppraisal({ user, history }: IMypageUser) {
 						type="number"
 						name="price"
 						onChange={onChange}
+						defaultValue={!state ? null : state.userPrice}
 						className="appraisal__register__price__content"
 						placeholder="숫자로만 입력하세요"
 						ref={numberRef}
@@ -211,6 +236,7 @@ function RegisterAppraisal({ user, history }: IMypageUser) {
 						<textarea
 							name="text"
 							onChange={onChange}
+							defaultValue={!state ? null : state.description}
 							className="appraisal__description__content"
 							placeholder="100자 이내로 제품을 설명해주세요"
 							maxLength={100}
@@ -257,7 +283,7 @@ function RegisterAppraisal({ user, history }: IMypageUser) {
 				</div>
 
 				<button type="submit" className="appraisal__register__form__btn">
-					등록
+					수정
 				</button>
 			</form>
 			{/* 

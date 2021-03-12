@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { withRouter, RouteComponentProps } from "react-router-dom";
+import { Link, withRouter, RouteComponentProps } from "react-router-dom";
 import axios from "axios";
 import "../styles/AppraisalContents.css";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
@@ -14,6 +14,9 @@ interface User {
 }
 interface IMypageUser extends RouteComponentProps<any> {
 	user: User;
+	setContentId: (e: any) => void;
+	setUserId: (e: any) => void;
+	setModify: (e: boolean) => void;
 }
 
 // interface UserData {
@@ -32,7 +35,14 @@ interface IMypageUser extends RouteComponentProps<any> {
 // 	usersAppraisalsPrices: [];
 // }
 
-function AppraisalContents({ user, match, history }: IMypageUser) {
+function AppraisalContents({
+	user,
+	match,
+	history,
+	setContentId,
+	setUserId,
+	setModify,
+}: IMypageUser) {
 	const id = match.params.id;
 
 	const [appraisalList, setAppraisalList] = useState<any>();
@@ -54,6 +64,8 @@ function AppraisalContents({ user, match, history }: IMypageUser) {
 					if (res.data.userId === user.userId) {
 						setIsUser(!isUser);
 					}
+					setUserId(res.data.userId);
+					setContentId(res.data.id);
 					setCount(res.data.likeCount);
 					setAppraisalList(res.data);
 					if (res.data.isRecommend) {
@@ -180,6 +192,10 @@ function AppraisalContents({ user, match, history }: IMypageUser) {
 		}
 	};
 
+	const modifyBtn = () => {
+		setModify(true);
+	};
+
 	return (
 		<section className="AppraisalContents">
 			{!appraisalList ? (
@@ -273,12 +289,13 @@ function AppraisalContents({ user, match, history }: IMypageUser) {
 
 								{isUser ? (
 									<div className="AppraisalContents__body__buttonWrap">
-										<button
+										<Link
+											to={"/modify/appraisal"}
 											className="AppraisalContents__body__submitButton"
-											onClick={likeButtonClick}
+											onClick={modifyBtn}
 										>
 											수정
-										</button>
+										</Link>
 										<button
 											className="AppraisalContents__body__deleteButton"
 											onClick={deleteContent}

@@ -10,13 +10,26 @@ interface User {
 }
 interface IMypageUser extends RouteComponentProps {
 	user: User;
+	setContentId: (e: any) => void;
+	setUserId: (e: any) => void;
+	setModify: (e: boolean) => void;
 }
 
-function AppraisalContent({ user }: IMypageUser) {
+function AppraisalContent({
+	user,
+	setContentId,
+	setUserId,
+	setModify,
+}: IMypageUser) {
 	return (
 		<div>
 			<ScrollToTop />
-			<AppraisalContents user={user} />
+			<AppraisalContents
+				user={user}
+				setContentId={setContentId}
+				setUserId={setUserId}
+				setModify={setModify}
+			/>
 			<AppraisalComment user={user} />
 		</div>
 	);

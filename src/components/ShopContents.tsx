@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { withRouter, RouteComponentProps } from "react-router-dom";
+import { Link, withRouter, RouteComponentProps } from "react-router-dom";
 import "../styles/ShopContents.css";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import FavoriteIcon from "@material-ui/icons/Favorite";
@@ -13,9 +13,10 @@ interface User {
 }
 interface IMypageUser extends RouteComponentProps<any> {
 	user: User;
+	setContentId: (e: any) => void;
 }
 
-function ShopContents({ user, match, history }: IMypageUser) {
+function ShopContents({ user, match, history, setContentId }: IMypageUser) {
 	const [shopList, setShopList] = useState<any>();
 	const [like, setLike] = useState<boolean>(false);
 	const [count, setCount] = useState<number>(1);
@@ -35,6 +36,7 @@ function ShopContents({ user, match, history }: IMypageUser) {
 					if (res.data.userId === user.userId) {
 						setIsUser(!isUser);
 					}
+					setContentId(res.data.id);
 					setCount(res.data.likeCount);
 					setShopList(res.data);
 					if (res.data.isRecommend) {
@@ -45,6 +47,7 @@ function ShopContents({ user, match, history }: IMypageUser) {
 						likeButton.classList.add("like");
 					} else {
 						setLike(false);
+
 						const likeButton = document.querySelector(
 							`.ShopContents__body__likebutton.like`,
 						) as HTMLElement;
@@ -84,7 +87,7 @@ function ShopContents({ user, match, history }: IMypageUser) {
 					const likeButton = document.querySelector(
 						`.ShopContents__body__likebutton.like`,
 					) as HTMLElement;
-					if (!likeButton) {
+					if (likeButton == null) {
 						return;
 					}
 					likeButton.classList.remove("like");
@@ -124,6 +127,10 @@ function ShopContents({ user, match, history }: IMypageUser) {
 		} else {
 			return;
 		}
+	};
+
+	const closeBtn = () => {
+		setShopButton(false);
 	};
 	return (
 		<section className="ShopContents">
@@ -183,12 +190,12 @@ function ShopContents({ user, match, history }: IMypageUser) {
 						<div className="ShopContainer__divideLine"></div>
 						{isUser ? (
 							<div className="ShopContents__body__buttonWrap">
-								<button
+								<Link
+									to={"/modify/shop"}
 									className="ShopContents__body__submitButton"
-									onClick={likeButtonClick}
 								>
 									수정
-								</button>
+								</Link>
 								<button
 									className="ShopContents__body__deleteButton"
 									onClick={deleteContent}
@@ -219,7 +226,7 @@ function ShopContents({ user, match, history }: IMypageUser) {
 				<div className="ShopContents__inputModal">
 					<button
 						className="ShopContents__inputModal__close"
-						onClick={modalButton}
+						onClick={closeBtn}
 					>
 						<CloseIcon fontSize="inherit" />
 					</button>
