@@ -2,6 +2,7 @@
 	display: flex;
 	flex-direction: column;
 	margin-top: 15px;
+	min-height: 360px;
 }
 
 .store__title__container {
@@ -34,12 +35,50 @@
 	margin: auto;
 	padding: 5px;
 	justify-content: center;
+	margin-bottom: 30px;
 }
 .store__img {
 	width: 220px;
 	margin: 15px;
-	height: 140px;
+	margin-bottom: 0px;
+	height: 220px;
 	background-color: var(--color-light-green);
+}
+.store__img__name {
+	margin-left: 15px;
+	color: var(--color-dark-grey);
+	font-size: 12px;
+}
+
+.request__none {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	margin: 40px 0px 40px 0px;
+}
+.request__none__img {
+	width: 40px;
+	text-align: center;
+}
+.request__none__title {
+	margin-top: 20px;
+	font-size: 20px;
+}
+.mypage__goshop__btn {
+	margin-top: 20px;
+	background: var(--color-pink);
+	padding: 4px 8px 4px 8px;
+	border-radius: 6px;
+	border: none;
+}
+.mypage__goappraisal__btn {
+	margin-top: 20px;
+	background: var(--color-dark-orange);
+	padding: 4px 8px 4px 8px;
+	border-radius: 6px;
+	border: none;
 }
 
 @media all and (max-width: 768px) {
@@ -53,7 +92,13 @@
 	}
 	.store__img {
 		margin: 10px;
+		margin-bottom: 0px;
 		width: 150px;
-		height: 85px;
+		height: 150px;
+	}
+	.store__img__name {
+		margin-left: 10px;
+		color: var(--color-light-grey);
+		font-size: 10px;
 	}
 }

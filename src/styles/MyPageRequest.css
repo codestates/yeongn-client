@@ -2,6 +2,7 @@
 	display: flex;
 	flex-direction: column;
 	margin-top: 10px;
+	min-height: 360px;
 }
 
 .request__title__container {
@@ -39,8 +40,14 @@
 .request__img {
 	width: 220px;
 	margin: 15px;
-	height: 140px;
+	margin-bottom: 0px;
+	height: 220px;
 	background-color: var(--color-light-green);
+}
+.request__img__name {
+	margin-left: 15px;
+	color: var(--color-dark-grey);
+	font-size: 12px;
 }
 @media all and (max-width: 768px) {
 	.mypage__request {
@@ -56,7 +63,13 @@
 	}
 	.request__img {
 		margin: 10px;
+		margin-bottom: 0px;
 		width: 150px;
-		height: 85px;
+		height: 150px;
+	}
+	.request__img__name {
+		margin-left: 10px;
+		color: var(--color-light-grey);
+		font-size: 10px;
 	}
 }
