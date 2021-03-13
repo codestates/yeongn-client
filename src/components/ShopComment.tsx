@@ -25,10 +25,14 @@ function ShopComment({ user, match }: IMypageUser) {
 	const indexOfFirst = indexOfLast - postsPerPage;
 	const id = match.params.id;
 
-	useEffect(() => {
+	const renderComment = (): void => {
 		axios.get(`https://www.yeongn.com/api/shop/${id}`).then((res) => {
 			setCommentState(res.data.comments);
 		});
+	};
+
+	useEffect(() => {
+		renderComment();
 	}, []);
 
 	const onChangeCommnet = (e: any): void => {
@@ -51,10 +55,7 @@ function ShopComment({ user, match }: IMypageUser) {
 					},
 				)
 				.then(() => {
-					axios.get(`https://www.yeongn.com/api/shop/${id}`).then((res) => {
-						console.log(res.data.comments);
-						setCommentState(res.data.comments);
-					});
+					renderComment();
 				});
 		}
 	};
@@ -67,7 +68,7 @@ function ShopComment({ user, match }: IMypageUser) {
 					Authorization: `Bearer ${user.token}`,
 				},
 			})
-			.then()
+			.then(() => renderComment())
 			.catch((err) => console.log(err));
 	};
 	const commentModifyController = (e: any) => {
@@ -92,7 +93,10 @@ function ShopComment({ user, match }: IMypageUser) {
 					},
 				},
 			)
-			.then(() => setIsModify(false))
+			.then(() => {
+				renderComment();
+				setIsModify(false);
+			})
 			.catch((err) => console.log(err));
 	};
 	return (
@@ -116,7 +120,7 @@ function ShopComment({ user, match }: IMypageUser) {
 							<div className="ShopComment_divdieLineNameAndTitle"></div>
 							<div className="ShopComment__box__textAndButton">
 								<div className="ShopComment__box__text">{comment.text}</div>
-								{user.userId === comment.userId ? (
+								{+user.userId === comment.userId ? (
 									<div className="ShopComment__box__buttonWrap">
 										<button
 											className="ShopComment__box__buttonWrap__submit"

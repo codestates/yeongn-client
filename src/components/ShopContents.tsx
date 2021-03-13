@@ -24,7 +24,7 @@ function ShopContents({ user, match, history, setContentId }: IMypageUser) {
 	const [isUser, setIsUser] = useState<boolean>(false);
 	const id = match.params.id;
 
-	useEffect(() => {
+	const renderContents = (): void => {
 		if (user.token) {
 			axios
 				.get(`https://www.yeongn.com/api/shop/${id}`, {
@@ -64,6 +64,10 @@ function ShopContents({ user, match, history, setContentId }: IMypageUser) {
 				setShopList(res.data);
 			});
 		}
+	};
+
+	useEffect(() => {
+		renderContents();
 	}, []);
 
 	const likeButtonClick = (): void => {

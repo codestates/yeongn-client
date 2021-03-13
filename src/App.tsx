@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Appraisal from "./pages/Appraisal";
@@ -20,6 +20,8 @@ import AuthRoute from "./components/AuthRoute";
 import Header from "./components/Header";
 import RegisterAppraisalModify from "./pages/RegisterAppraisalModify";
 import RegisterSaleModify from "./pages/RegisterSaleModify";
+import Cookies from "js-cookie";
+import axios from "axios";
 
 interface User {
 	userId: string;
@@ -29,10 +31,13 @@ interface User {
 
 function App() {
 	//! 로그인 했을 때 바뀌는 setUser
+	const userIdCookie = Cookies.get("userId");
+	const tokenCookie = Cookies.get("token");
+
 	const [user, setUser] = useState({
-		userId: "",
-		token: "",
-		authenticated: false,
+		userId: userIdCookie ? userIdCookie : "",
+		token: tokenCookie ? tokenCookie : "",
+		authenticated: userIdCookie && tokenCookie ? true : false,
 	});
 
 	const [userIdM, setUserId] = useState<any>();
@@ -46,9 +51,24 @@ function App() {
 		setUser(userData);
 	};
 
-	const logoutHandler = () => {
+	const logoutHandler = async () => {
+		const LOGOUT_URI = "https://www.yeongn.com/api/user/logout";
 		setUser({ userId: "", token: "", authenticated: false });
+		try {
+			await axios.post(LOGOUT_URI, {}, { withCredentials: true });
+		} catch {
+			alert("문제가 발생했습니다.");
+		}
 	};
+
+	useEffect(() => {
+		if (userIdCookie && tokenCookie && !user.authenticated)
+			loginHandler({
+				userId: userIdCookie,
+				token: tokenCookie,
+				authenticated: true,
+			});
+	}, []);
 
 	return (
 		<Router>

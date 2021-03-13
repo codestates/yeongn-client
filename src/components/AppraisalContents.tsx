@@ -52,7 +52,7 @@ function AppraisalContents({
 	const [price, setPrice] = useState<number>(0);
 	const [isUser, setIsUser] = useState<boolean>(false);
 
-	useEffect(() => {
+	const renderContents = (): void => {
 		if (user.token) {
 			axios
 				.get(`https://www.yeongn.com/api/appraisal/${id}`, {
@@ -97,6 +97,10 @@ function AppraisalContents({
 					setAppraisalList(res.data);
 				});
 		}
+	};
+
+	useEffect(() => {
+		renderContents();
 	}, []);
 	const likeButtonClick = (): void => {
 		if (!user.token) {
@@ -156,11 +160,7 @@ function AppraisalContents({
 			)
 			.then(() => {
 				setApprasialState(!apprasialState);
-				axios
-					.get(`https://www.yeongn.com/api/appraisal/${id}`, {})
-					.then((res) => {
-						setAppraisalList(res.data);
-					});
+				renderContents();
 			});
 	};
 
