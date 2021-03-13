@@ -1,7 +1,8 @@
 <img src="https://i.imgur.com/VDbXnS3.gif" title="source: imgur.com" width="400"/>
 <img src="https://i.imgur.com/TKzYbDG.png" title="source: imgur.com" width= "400"/>
 
-## ❣️ 이 세상에 무쓸모는 없다 ❣️
+
+# ❣️ 이 세상에 무쓸모는 없다 ❣️
 
 오래된 책들, 과거의 추억이 있는 물건, 집안 대대로 전해져 오는 가보, 그리고 자신만 가지고 있는 신기한 물건, 나만 알고 있는 정보 등
 
