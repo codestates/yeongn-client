@@ -51,6 +51,7 @@ function AppraisalContents({
 	const [apprasialState, setApprasialState] = useState<boolean>(false);
 	const [price, setPrice] = useState<number>(0);
 	const [isUser, setIsUser] = useState<boolean>(false);
+	const [isAppraisal, setIsAppraisal] = useState<boolean>(false);
 
 	useEffect(() => {
 		if (user.token) {
@@ -64,6 +65,7 @@ function AppraisalContents({
 					if (res.data.userId === user.userId) {
 						setIsUser(!isUser);
 					}
+					setIsAppraisal(res.data.didAppraisal);
 					setUserId(res.data.userId);
 					setContentId(res.data.id);
 					setCount(res.data.likeCount);
@@ -134,6 +136,10 @@ function AppraisalContents({
 			.catch((err) => console.log(err));
 	};
 	const modalButton = () => {
+		if (isAppraisal) {
+			return alert("이미 감정하신 게시글입니다.");
+		}
+
 		if (!user.token) {
 			return alert("로그인 후 이용해주세요.");
 		}
@@ -159,6 +165,7 @@ function AppraisalContents({
 				axios
 					.get(`https://www.yeongn.com/api/appraisal/${id}`, {})
 					.then((res) => {
+						setIsAppraisal(true);
 						setAppraisalList(res.data);
 					});
 			});
