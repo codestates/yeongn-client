@@ -32,7 +32,7 @@
 
 ![](https://img.shields.io/badge/frontend-React_Hooks-039be5?style=for-the-badge&logo=react)
 
-![](https://img.shields.io/badge/frontend-Typescript-039be5?style=for-the-badge&logo=typescript)
+![](https://img.shields.io/badge/frontend-Typescript-0d47a1?style=for-the-badge&logo=typescript)
 
 ## BACK
 
@@ -52,7 +52,7 @@
 
 ![](https://img.shields.io/badge/deployement-docker-1e88e5?style=for-the-badge&logo=docker)
 
-![](https://img.shields.io/badge/deployement-circleci-1e88e5?style=for-the-badge&logo=circleci)
+![](https://img.shields.io/badge/deployement-circleci-000000?style=for-the-badge&logo=circleci)
 
 ![](https://img.shields.io/badge/deployement-nginx-1b5e20?style=for-the-badge&logo=nginx)
 
