@@ -10,7 +10,7 @@
 
 바로 지금 연근마켓에 오셔서 다른 유저들에게 감정도 받아보고 상점에 한번 팔아보세요~ 
 
-www.yeongn.com 🔍     ![](https://img.shields.io/badge/PROJECT-yeongn%20market-ffe0b2?style=for-the-badge)
+![](https://img.shields.io/badge/PROJECT-yeongn%20market-ffe0b2?style=for-the-badge) www.yeongn.com 🔍     
 
 ##  📣 팀원 소개 📣
 
