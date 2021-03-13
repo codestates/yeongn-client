@@ -1,7 +1,5 @@
-<img src="https://i.imgur.com/TKzYbDG.png" title="source: imgur.com" width= "400"/>
 <img src="https://i.imgur.com/VDbXnS3.gif" title="source: imgur.com" width="400"/>
-
-![](https://img.shields.io/badge/PROJECT-yeongn%20market-ffe0b2?style=for-the-badge)
+<img src="https://i.imgur.com/TKzYbDG.png" title="source: imgur.com" width= "400"/>
 
 ## ❣️ 이 세상에 무쓸모는 없다 ❣️
 
@@ -13,6 +11,7 @@
 
 www.yeongn.com 🔍
 
+![](https://img.shields.io/badge/PROJECT-yeongn%20market-ffe0b2?style=for-the-badge)
 
 ##  📣 팀원 소개 📣
 
