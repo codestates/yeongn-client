@@ -230,17 +230,17 @@ function ShopContents({ user, match, history, setContentId }: IMypageUser) {
 			</div>
 			{shopButton ? (
 				<div className="ShopContents__inputModal">
-					<button
-						className="ShopContents__inputModal__close"
-						onClick={closeBtn}
-					>
-						<CloseIcon fontSize="inherit" />
-					</button>
+					<div className="ShopContents__inputModalWrap">
+						<span className="ShopContents__input__title">판매자 연락처</span>
+						<button
+							className="ShopContents__inputModal__close"
+							onClick={closeBtn}
+						>
+							<CloseIcon fontSize="inherit" />
+						</button>
+					</div>
 					<div className="ShopContents__inputWrap">
-						<div className="ShopContents__input__title">판매자 연락처</div>
-						<span className="ShopContents__input__text">
-							{shopList.contact}
-						</span>
+						<div className="ShopContents__input__text">{shopList.contact}</div>
 					</div>
 				</div>
 			) : null}
