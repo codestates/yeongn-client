@@ -36,15 +36,15 @@
 
 ![](https://img.shields.io/badge/backend-node.js-338a3e?style=for-the-badge&logo=node.js)
 
-![](https://img.shields.io/badge/backend-Fastify-039be5?style=for-the-badge&logo=fastify)
+![](https://img.shields.io/badge/backend-Fastify-000000?style=for-the-badge&logo=fastify)
 
-![](https://img.shields.io/badge/backend-typeorm-039be5?style=for-the-badge&logo=typeorm)
+![](https://img.shields.io/badge/backend-typeorm-bb002f?style=for-the-badge&logo=typeorm)
 
-![](https://img.shields.io/badge/backend-nestjs-039be5?style=for-the-badge&logo=nestjs)
+![](https://img.shields.io/badge/backend-nestjs-f50057?style=for-the-badge&logo=nestjs)
 
 ![](https://img.shields.io/badge/backend-mysql-00acc1?style=for-the-badge&logo=mysql)
 
-![](https://img.shields.io/badge/backend-redis-039be5?style=for-the-badge&logo=redis)
+![](https://img.shields.io/badge/backend-redis-ff7543?style=for-the-badge&logo=redis)
 
 ## Version Control
 
