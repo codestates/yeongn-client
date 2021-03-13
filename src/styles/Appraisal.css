@@ -1,5 +1,5 @@
 .Appraisal__main {
-	background-color: #fff1e4;
+	background-color: rgb(255, 242, 232);
 	height: 400px;
 	width: 100%;
 }
@@ -17,7 +17,7 @@
 	position: relative;
 	width: 600px;
 	height: 400px;
-	top: 120px;
+	top: 90px;
 }
 
 .Appraisal__main__wrap {
@@ -56,11 +56,11 @@
 	.Appraisal__main__image {
 		transition: all 250ms ease-in;
 		width: 500px;
-		top: 130px;
-		margin-left: 20px;
+		top: 106px;
+		margin-left: 50px;
 	}
 	.Appraisal__main__wrap {
-		margin-right: 20px;
+		margin-right: 80px;
 	}
 
 	.Appraisal__main__title {
@@ -80,7 +80,7 @@
 		transition: all 250ms ease-in;
 		width: 400px;
 		height: 200px;
-		top: 150px;
+		top: 135px;
 	}
 	.Appraisal__main__wrap {
 		position: relative;
@@ -104,7 +104,7 @@
 	.Appraisal__main__image {
 		width: 300px;
 		height: 200px;
-		top: 70px;
+		top: 50px;
 	}
 	.Appraisal__main__wrap {
 		position: relative;
