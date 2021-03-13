@@ -432,6 +432,7 @@
 	}
 	.AppraisalContainer {
 		max-width: 600px;
+
 		justify-content: center;
 		flex-direction: column;
 		margin: auto;
@@ -505,6 +506,7 @@
 		max-width: 400px;
 		margin: auto;
 		display: flex;
+		margin-top: 20px;
 		justify-content: center;
 	}
 	.AppraisalContainer__imgContainer {
