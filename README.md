@@ -38,13 +38,25 @@
 
 ![](https://img.shields.io/badge/backend-Fastify-000000?style=for-the-badge&logo=fastify)
 
-![](https://img.shields.io/badge/backend-typeorm-bb002f?style=for-the-badge&logo=typeorm)
-
 ![](https://img.shields.io/badge/backend-nestjs-f50057?style=for-the-badge&logo=nestjs)
 
 ![](https://img.shields.io/badge/backend-mysql-00acc1?style=for-the-badge&logo=mysql)
 
 ![](https://img.shields.io/badge/backend-redis-ff7543?style=for-the-badge&logo=redis)
+
+![](https://img.shields.io/badge/backend-typeorm-bb002f?style=for-the-badge&logo=typeorm)
+
+## DEPLOYEMENT
+
+![](https://img.shields.io/badge/deployement-docker-1e88e5?style=for-the-badge&logo=docker)
+
+![](https://img.shields.io/badge/deployement-circleci-1e88e5?style=for-the-badge&logo=circleci)
+
+![](https://img.shields.io/badge/deployement-nginx-1b5e20?style=for-the-badge&logo=nginx)
+
+![](https://img.shields.io/badge/deployement-elasticache-f57c00?style=for-the-badge&logo=elasticache)
+
+![](https://img.shields.io/badge/deployement-elasticbeanstalk-f57c00?style=for-the-badge&logo=elasticbeanstalk)
 
 ## Version Control
 
