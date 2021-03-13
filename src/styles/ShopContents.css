@@ -136,7 +136,6 @@
 }
 .ShopContainer__nameAndLike {
 	display: flex;
-
 	justify-content: space-between;
 }
 
@@ -234,6 +233,7 @@
 	cursor: pointer;
 	transition: all 350ms;
 	width: 45%;
+	background-color: rgb(204, 204, 204);
 	border: var(--color-dark-pink);
 	outline: none;
 }
@@ -277,6 +277,7 @@
 
 .ShopContents__inputModal {
 	display: flex;
+	flex-direction: column;
 	overflow: scroll;
 	position: absolute;
 	width: 250px;
@@ -294,23 +295,25 @@
 .ShopContents__inputWrap {
 	margin: auto;
 	z-index: 11;
+	margin-top: -20px;
 	overflow: scroll;
-	justify-content: center;
-	text-align: center;
+}
+.ShopContents__inputModalWrap {
+	display: flex;
+	margin: auto;
 }
 .ShopContents__input__title {
 	text-align: center;
 	overflow: scroll;
+	margin-left: 80px;
+	margin-right: 35px;
 	font-size: var(--font-small);
-	margin-bottom: 15px;
+	margin-bottom: 0px;
 }
-.ShopContents__input {
-	width: 100px;
-	height: 25px;
-	overflow: scroll;
-	text-align: right;
-}
+
 .ShopContents__input__text {
+	height: 50px;
+	margin: auto;
 	font-size: var(--font-small);
 	margin-left: 3px;
 	overflow: scroll;
@@ -327,14 +330,13 @@
 }
 
 .ShopContents__inputModal__close {
-	position: absolute;
-	top: 8px;
-	right: 8px;
+	position: relative;
+	top: -5px;
 	border: none;
 	cursor: pointer;
 	background-color: transparent;
 	color: var(--color-dark-pink);
-	font-size: 30px;
+	font-size: 27px;
 }
 
 @media all and (min-width: 768px) and (max-width: 1023px) {

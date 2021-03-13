@@ -230,6 +230,7 @@
 	border-radius: 5px;
 	cursor: pointer;
 	width: 45%;
+	background-color: rgb(204, 204, 204);
 	border: var(--color-dark-pink);
 	outline: none;
 }
