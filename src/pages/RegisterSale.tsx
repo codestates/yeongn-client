@@ -4,6 +4,7 @@ import AddIcon from "@material-ui/icons/Add";
 import axios from "axios";
 import "../styles/RegisterSale.css";
 import ArrowUp from "../components/ArrowUp";
+import Loading from "../components/Loading";
 interface fileForm {
 	selectedFile: any;
 	previewURL: any;
@@ -23,6 +24,9 @@ function RegisterSale({ user, history }: IMypageUser) {
 	//userId가 넘어와야함
 	const inputRef = useRef<HTMLInputElement>(null);
 	const numberRef = useRef<HTMLInputElement>(null);
+
+	const [isLoading, setLoading] = useState<boolean>(false);
+
 	useEffect(() => {
 		const { current } = inputRef;
 		if (current !== null) {
@@ -110,14 +114,16 @@ function RegisterSale({ user, history }: IMypageUser) {
 					Authorization: `Bearer ${user.token}`,
 				},
 			};
-
+			setLoading(true);
 			axios
 				.post(uploadUrl, formData, config)
 				.then((res) => {
-					history.push("/shop");
+					setLoading(false);
+					history.push(`/shop/${res.data.saleId}`);
 				})
 				.catch(() => {
-					alert("서버오류입니다.");
+					setLoading(false);
+					alert("파일 용량을 확인해주세요 (최대15MB)");
 				});
 		}
 	};
@@ -158,6 +164,7 @@ function RegisterSale({ user, history }: IMypageUser) {
 
 	return (
 		<div id="register__store__section">
+			{isLoading ? <Loading /> : null}
 			<form className="register__store__container" onSubmit={handleFormSubmit}>
 				<h2 className="register__store__title">상품 등록</h2>
 				<div className="register__category__container">

@@ -61,7 +61,7 @@ function AppraisalContents({
 					},
 				})
 				.then((res) => {
-					if (res.data.userId === user.userId) {
+					if (res.data.userId === +user.userId) {
 						setIsUser(!isUser);
 					}
 					setUserId(res.data.userId);

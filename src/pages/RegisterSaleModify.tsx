@@ -4,6 +4,7 @@ import AddIcon from "@material-ui/icons/Add";
 import axios from "axios";
 import "../styles/RegisterSale.css";
 import ArrowUp from "../components/ArrowUp";
+import Loading from "../components/Loading";
 interface fileForm {
 	selectedFile: any;
 	previewURL: any;
@@ -24,6 +25,7 @@ function RegisterSaleModify({ user, history, contentId }: IMypageUser) {
 	const inputRef = useRef<HTMLInputElement>(null);
 	const numberRef = useRef<HTMLInputElement>(null);
 	const [state, setState] = useState<any>();
+	const [isLoading, setLoading] = useState<boolean>(false);
 
 	useEffect(() => {
 		console.log(contentId);
@@ -133,6 +135,8 @@ function RegisterSaleModify({ user, history, contentId }: IMypageUser) {
 			formData.append("text", info.text);
 			formData.append("contact", info.contact);
 
+			setLoading(true);
+
 			const uploadUrl = `https://www.yeongn.com/api/shop/${contentId}`;
 			const config = {
 				headers: {
@@ -143,11 +147,12 @@ function RegisterSaleModify({ user, history, contentId }: IMypageUser) {
 			axios
 				.patch(uploadUrl, formData, config)
 				.then((res) => {
-					history.push("/shop");
+					setLoading(false);
+					history.push(`/shop/${contentId}`);
 				})
 				.catch((err) => {
-					console.log(err);
-					alert("서버오류입니다.");
+					setLoading(false);
+					alert("파일용량을 확인해주세요 (최대 15MB)");
 				});
 		}
 	};
@@ -188,6 +193,7 @@ function RegisterSaleModify({ user, history, contentId }: IMypageUser) {
 
 	return (
 		<div id="register__store__section">
+			{isLoading ? <Loading /> : null}
 			<form className="register__store__container" onSubmit={handleFormSubmit}>
 				<h2 className="register__store__title">상품 등록</h2>
 				<div className="register__category__container">

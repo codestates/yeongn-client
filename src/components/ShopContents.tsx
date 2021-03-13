@@ -33,7 +33,7 @@ function ShopContents({ user, match, history, setContentId }: IMypageUser) {
 					},
 				})
 				.then((res) => {
-					if (res.data.userId === user.userId) {
+					if (res.data.userId === +user.userId) {
 						setIsUser(!isUser);
 					}
 					setContentId(res.data.id);
