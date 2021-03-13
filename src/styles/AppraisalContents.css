@@ -230,6 +230,7 @@
 	border-radius: 5px;
 	cursor: pointer;
 	width: 45%;
+	background-color: rgb(204, 204, 204);
 	border: var(--color-dark-pink);
 	outline: none;
 }
@@ -432,6 +433,7 @@
 	}
 	.AppraisalContainer {
 		max-width: 600px;
+
 		justify-content: center;
 		flex-direction: column;
 		margin: auto;
@@ -505,6 +507,7 @@
 		max-width: 400px;
 		margin: auto;
 		display: flex;
+		margin-top: 20px;
 		justify-content: center;
 	}
 	.AppraisalContainer__imgContainer {
