@@ -31,7 +31,7 @@ function AppraisalList() {
 			.then((res) => {
 				setAppraisalList(res.data);
 			})
-			.catch((err) => console.log(err));
+			.catch((err) => alert(err));
 	}, []);
 
 	return (

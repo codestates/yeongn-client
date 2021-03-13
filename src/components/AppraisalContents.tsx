@@ -6,6 +6,7 @@ import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import CloseIcon from "@material-ui/icons/Close";
 import Loading from "../components/Loading";
+import { AddAlertSharp } from "@material-ui/icons";
 
 interface User {
 	userId: string;
@@ -94,7 +95,6 @@ function AppraisalContents({
 			axios
 				.get(`https://www.yeongn.com/api/appraisal/${id}`, {})
 				.then((res) => {
-					console.log(res);
 					setCount(res.data.likeCount);
 					setAppraisalList(res.data);
 				});
@@ -137,7 +137,7 @@ function AppraisalContents({
 					likeButton.classList.add("like");
 				}
 			})
-			.catch((err) => console.log(err));
+			.catch((err) => alert(err));
 	};
 	const modalButton = () => {
 		if (isAppraisal) {
@@ -175,7 +175,11 @@ function AppraisalContents({
 				renderContents();
 			});
 	};
-
+	const handleKeyPress = (e: any) => {
+		if (e.key === "Enter") {
+			appraisalButton();
+		}
+	};
 	const changePrice = (e: any) => {
 		setPrice(e.target.value);
 	};
@@ -198,7 +202,7 @@ function AppraisalContents({
 					},
 				})
 				.then(() => history.push("/appraisal"))
-				.catch((err) => console.log(err));
+				.catch((err) => alert(err));
 		} else {
 			return;
 		}
@@ -354,6 +358,7 @@ function AppraisalContents({
 							type="Number"
 							ref={numRef}
 							onWheel={onWheel}
+							onKeyPress={handleKeyPress}
 						></input>
 						<span className="AppraisalContents__input__text">원</span>
 						<button

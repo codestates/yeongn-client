@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+	BrowserRouter as Router,
+	Switch,
+	Route,
+	useHistory,
+} from "react-router-dom";
 import Appraisal from "./pages/Appraisal";
 import AppraisalContent from "./pages/AppraisalContent";
 import AppraisalList from "./pages/AppraisalList";
@@ -50,7 +55,7 @@ function App() {
 	const loginHandler = (userData: User) => {
 		setUser(userData);
 	};
-
+	const history = useHistory();
 	const logoutHandler = async () => {
 		const LOGOUT_URI = "https://www.yeongn.com/api/user/logout";
 		setUser({ userId: "", token: "", authenticated: false });
@@ -60,7 +65,9 @@ function App() {
 			alert("문제가 발생했습니다.");
 		}
 	};
-
+	const handleUserdata = () => {
+		setUser({ userId: "", token: "", authenticated: false });
+	};
 	useEffect(() => {
 		if (userIdCookie && tokenCookie && !user.authenticated)
 			loginHandler({
@@ -90,6 +97,13 @@ function App() {
 				/>
 				<Route
 					exact
+					path="/mypage"
+					render={() => {
+						return <MyPage user={user} handleUserdata={handleUserdata} />;
+					}}
+				/>
+				<Route
+					exact
 					path="/appraisal"
 					render={() => {
 						return <Appraisal />;
@@ -115,13 +129,6 @@ function App() {
 					render={() => {
 						return <AppraisalList />;
 					}}
-				/>
-				<AuthRoute
-					exact
-					authenticated={user.authenticated}
-					path="/mypage"
-					component={MyPage}
-					user={user}
 				/>
 				<AuthRoute
 					authenticated={user.authenticated}

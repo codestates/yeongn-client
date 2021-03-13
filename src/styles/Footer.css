@@ -2,7 +2,6 @@
 	width: 100%;
 	background: var(--color-beige);
 	font-family: "noto_sans";
-	min-width: 360px;
 }
 .footer__container {
 	margin: auto;
@@ -60,7 +59,7 @@
 .footer__team__title,
 .footer__crew__title,
 .footer__captain__title {
-	margin-bottom: 15px;
+	margin-bottom: 8px;
 }
 
 .footer__market__description,
@@ -86,7 +85,7 @@
 	.footer__team__title,
 	.footer__captain__title,
 	.footer__crew__title {
-		font-size: 18px;
+		font-size: 16px;
 	}
 	.footer__team__description,
 	.footer__captain__description,

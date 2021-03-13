@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "../styles/AppraisalComment.css";
 import { withRouter, RouteComponentProps } from "react-router-dom";
 import Pagination from "./AppraisalPagination";
@@ -20,14 +20,27 @@ function AppraisalComment({ user, match }: IMypageUser) {
 	const [currentPage, setCurrentPage] = useState<number>(1);
 	const [postsPerPage, setPostsPerPage] = useState<number>(5);
 	const id = match.params.id;
-
+	const inputRef = useRef<HTMLInputElement>(null);
+	const ModifyInputRef = useRef<HTMLInputElement>(null);
 	//* 페이지네이션
 	const indexOfLast = currentPage * postsPerPage;
 	const indexOfFirst = indexOfLast - postsPerPage;
 
+	const handleKeyPress = (e: any) => {
+		if (e.key === "Enter") {
+			submitCommnet();
+		}
+	};
+
+	const handleModifyKeyPress = (e: any) => {
+		if (e.key === "Enter") {
+			commentModify();
+		}
+	};
+
 	const renderComment = (): void => {
 		axios.get(`https://www.yeongn.com/api/appraisal/${id}`).then((res) => {
-			setCommentState(res.data.comments);
+			setCommentState(res.data.comments.reverse());
 		});
 	};
 
@@ -39,6 +52,9 @@ function AppraisalComment({ user, match }: IMypageUser) {
 		setComment(e.target.value);
 	};
 	const submitCommnet = (): void => {
+		if (!user.token) {
+			alert("로그인 후 이용해주세요.");
+		}
 		if (comment.length === 0) {
 			return alert("댓글을 입력해주세요.");
 		} else {
@@ -55,6 +71,9 @@ function AppraisalComment({ user, match }: IMypageUser) {
 					},
 				)
 				.then(() => {
+					if (inputRef.current !== null) {
+						inputRef.current.value = "";
+					}
 					renderComment();
 				});
 		}
@@ -71,7 +90,7 @@ function AppraisalComment({ user, match }: IMypageUser) {
 			.then(() => {
 				renderComment();
 			})
-			.catch((err) => console.log(err));
+			.catch((err) => alert(err));
 	};
 
 	const commentModifyController = (e: any) => {
@@ -79,7 +98,10 @@ function AppraisalComment({ user, match }: IMypageUser) {
 		setCommentId(e.target.value);
 	};
 
-	const commentModify = (e: any): void => {
+	const commentModify = () => {
+		if (!user.token) {
+			alert("로그인 후 이용해주세요.");
+		}
 		if (comment.length === 0) {
 			setPostsPerPage(5);
 			return alert("수정할 댓글을 입력해주세요.");
@@ -99,8 +121,11 @@ function AppraisalComment({ user, match }: IMypageUser) {
 			.then(() => {
 				renderComment();
 				setIsModify(false);
+				if (ModifyInputRef.current !== null) {
+					ModifyInputRef.current.value = "";
+				}
 			})
-			.catch((err) => console.log(err));
+			.catch((err) => alert(err));
 	};
 
 	return (
@@ -158,6 +183,8 @@ function AppraisalComment({ user, match }: IMypageUser) {
 						className="AppraisalCommentBox__input__Modify"
 						placeholder="수정할 댓글을 적어주세요"
 						onChange={onChangeCommnet}
+						onKeyPress={handleModifyKeyPress}
+						ref={ModifyInputRef}
 					></input>
 					<button
 						className="AppraisalCommentBox__button__Modify"
@@ -178,6 +205,8 @@ function AppraisalComment({ user, match }: IMypageUser) {
 					className="AppraisalCommentBox__input"
 					placeholder="댓글을 남겨주세요"
 					onChange={onChangeCommnet}
+					onKeyPress={handleKeyPress}
+					ref={inputRef}
 				></input>
 				<button className="AppraisalCommentBox__button" onClick={submitCommnet}>
 					등록

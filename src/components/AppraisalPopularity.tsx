@@ -32,7 +32,7 @@ function AppraisalPopularity() {
 				});
 				setAppraisalList(LikeCount);
 			})
-			.catch((err) => console.log(err));
+			.catch((err) => alert(err));
 	}, []);
 
 	const rightButtonclick = (): void => {

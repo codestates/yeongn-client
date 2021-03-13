@@ -38,7 +38,10 @@ function Header({ logoutHandler, user, location, history }: IMypageUser) {
 			input.current.value = "";
 		}
 	};
-
+	const handleLogoutClick = () => {
+		history.push("/");
+		logoutHandler();
+	};
 	const prevHistory = usePrevious(location.pathname);
 	useEffect(() => {
 		if (user.authenticated) {
@@ -112,7 +115,7 @@ function Header({ logoutHandler, user, location, history }: IMypageUser) {
 							</Link>
 							<button
 								className="header__menu__link__button"
-								onClick={logoutHandler}
+								onClick={handleLogoutClick}
 							>
 								로그아웃
 							</button>

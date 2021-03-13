@@ -56,7 +56,6 @@ function ShopCategory({
 		if (categoryTitle === "전체" || categoryTitle === "전체 감정가") {
 			axios.get(`https://www.yeongn.com/api/shop`).then((res) => {
 				setShopList(res.data);
-				console.log(res.data);
 			});
 		} else if (categoryTitle === "높은 가격") {
 			axios.get(`https://www.yeongn.com/api/shop`).then((res) => {

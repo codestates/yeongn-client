@@ -17,10 +17,9 @@ function ShopPopularity() {
 				const LikeCount = res.data.sort(function (a: any, b: any) {
 					return a.likeCount < b.likeCount ? 1 : -1;
 				});
-				console.log(res.data);
 				setShopList(LikeCount);
 			})
-			.catch((err) => console.log(err));
+			.catch((err) => alert(err));
 	}, []);
 
 	const rightButtonclick = (): void => {
