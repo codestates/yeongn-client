@@ -33,7 +33,7 @@ function AppraisalHighPrice() {
 				});
 				setAppraisalList(highPriceData);
 			})
-			.catch((err) => console.log(err));
+			.catch((err) => alert(err));
 	}, []);
 
 	const rightButtonclick = (): void => {

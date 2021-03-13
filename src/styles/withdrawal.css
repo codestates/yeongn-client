@@ -1,0 +1,20 @@
+#withdrawal__section {
+	max-width: 1024px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin-bottom: 30px;
+}
+.whithdrawal__title {
+	margin-left: 20px;
+	font-size: 8px;
+	color: grey;
+}
+
+.withdrawal__btn {
+	font-size: 6px;
+	margin-left: 10px;
+	color: lightgrey;
+	border: none;
+	background: transparent;
+}

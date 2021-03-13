@@ -16,7 +16,7 @@ function ShopList() {
 			.then((res) => {
 				setShopList(res.data);
 			})
-			.catch((err) => console.log(err));
+			.catch((err) => alert(err));
 	}, []);
 
 	return (

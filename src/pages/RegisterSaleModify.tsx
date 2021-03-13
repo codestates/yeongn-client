@@ -28,7 +28,6 @@ function RegisterSaleModify({ user, history, contentId }: IMypageUser) {
 	const [isLoading, setLoading] = useState<boolean>(false);
 
 	useEffect(() => {
-		console.log(contentId);
 		axios
 			.get(`https://www.yeongn.com/api/shop/${contentId}`, {
 				headers: {

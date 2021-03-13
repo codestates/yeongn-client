@@ -31,9 +31,7 @@ function MyPageRequestAdd({ user }: IMypageUser) {
 		axios
 			.get(getUrl, config)
 			.then((res) => {
-				setList(res.data.appraisals);
-				console.log(res.data.appraisals);
-				console.log(res.data);
+				setList(res.data.appraisals.reverse());
 			})
 			.catch((err) => {
 				alert(err);

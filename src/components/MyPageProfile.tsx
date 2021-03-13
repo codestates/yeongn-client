@@ -27,9 +27,6 @@ function MyPageProfile({ user, history }: IMypageUser) {
 				setNick(res.data.nickname);
 				setAppraisalCount(res.data.appraisalCount);
 				handleTier(res.data.appraisalCount);
-				console.log(res.data);
-				console.log(res.data.nickname);
-				console.log(res.data.appraisalCount);
 			})
 			.catch((err) => {
 				alert(err);
@@ -52,16 +49,10 @@ function MyPageProfile({ user, history }: IMypageUser) {
 
 	const handleClickOutside = (e: any) => {
 		if (modalEl.current !== null) {
-			console.log(isChangeNick);
-			console.log(modalEl.current.contains(e.target));
-			console.log(e.target);
 			if (inputEl.current !== null) {
 				inputEl.current.focus();
 				if (isChangeNick && !modalEl.current.contains(e.target)) {
 					setisChangeNick(false);
-					console.log("success");
-				} else {
-					console.log("fail");
 				}
 			}
 		}
@@ -84,21 +75,21 @@ function MyPageProfile({ user, history }: IMypageUser) {
 	const [myTier, setTier] = useState("");
 
 	const handleTier = (tier: number) => {
-		if (tier < 50) {
+		if (tier < 5) {
 			setTier("아이언");
-		} else if (tier < 100) {
+		} else if (tier < 10) {
 			setTier("브론즈");
-		} else if (tier < 150) {
+		} else if (tier < 15) {
 			setTier("실버");
-		} else if (tier < 200) {
+		} else if (tier < 30) {
 			setTier("골드");
-		} else if (tier < 250) {
+		} else if (tier < 40) {
 			setTier("플래티넘");
-		} else if (tier < 300) {
+		} else if (tier < 50) {
 			setTier("다이아몬드");
-		} else if (tier < 500) {
+		} else if (tier < 100) {
 			setTier("마스터");
-		} else if (tier < 750) {
+		} else if (tier < 200) {
 			setTier("그랜드마스터");
 		} else {
 			setTier("챌린저");
@@ -135,7 +126,6 @@ function MyPageProfile({ user, history }: IMypageUser) {
 					config,
 				)
 				.then((res) => {
-					console.log(res);
 					alert("닉네임 변경 성공!");
 					setisChangeNick(false);
 					history.push("/mypage");

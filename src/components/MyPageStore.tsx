@@ -27,9 +27,7 @@ function MyPageStore({ user }: IMypageUser) {
 		axios
 			.get(getUrl, config)
 			.then((res) => {
-				setList(res.data.sales);
-				console.log(res.data.sales);
-				console.log(res.data);
+				setList(res.data.sales.reverse());
 			})
 			.catch((err) => {
 				alert(err);

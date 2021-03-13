@@ -44,6 +44,9 @@ function ShopContents({ user, match, history, setContentId }: IMypageUser) {
 						const likeButton = document.querySelector(
 							`.ShopContents__body__likebutton`,
 						) as HTMLElement;
+						if (likeButton == null) {
+							return;
+						}
 						likeButton.classList.add("like");
 					} else {
 						setLike(false);
@@ -59,7 +62,6 @@ function ShopContents({ user, match, history, setContentId }: IMypageUser) {
 				});
 		} else {
 			axios.get(`https://www.yeongn.com/api/shop/${id}`, {}).then((res) => {
-				console.log(res);
 				setCount(res.data.likeCount);
 				setShopList(res.data);
 			});
@@ -106,7 +108,7 @@ function ShopContents({ user, match, history, setContentId }: IMypageUser) {
 					likeButton.classList.add("like");
 				}
 			})
-			.catch((err) => console.log(err));
+			.catch((err) => alert(err));
 	};
 
 	const modalButton = () => {
@@ -127,7 +129,7 @@ function ShopContents({ user, match, history, setContentId }: IMypageUser) {
 					},
 				})
 				.then(() => history.push("/shop"))
-				.catch((err) => console.log(err));
+				.catch((err) => alert(err));
 		} else {
 			return;
 		}

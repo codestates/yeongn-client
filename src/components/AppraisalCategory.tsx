@@ -58,7 +58,6 @@ function AppraisalCategory({
 		if (categoryTitle === "전체" || categoryTitle === "전체 감정가") {
 			axios.get(`https://www.yeongn.com/api/appraisal`).then((res) => {
 				setAppraisalList(res.data);
-				console.log(res.data);
 			});
 		} else if (categoryTitle === "높은 가격") {
 			axios.get(`https://www.yeongn.com/api/appraisal`).then((res) => {

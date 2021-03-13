@@ -13,7 +13,7 @@ interface ILoginUser extends RouteComponentProps {
 }
 function GoogleLogin({ loginHandler, history, location }: ILoginUser) {
 	const GOOGLE_LOGIN_URL = `https://accounts.google.com/o/oauth2/v2/auth?scope=https://www.googleapis.com/auth/userinfo.profile&access_type=offline&include_granted_scopes=true&state=state_parameter_passthrough_value&
-redirect_uri=http://localhost:3000/login&response_type=code&client_id=
+redirect_uri=https://www.yeongn.com/login&response_type=code&client_id=
 604944373689-q294luegtuje1qpkiq0q3jrfqd8ps6qp.apps.googleusercontent.com`;
 
 	const googleLoginHandler = () => {
@@ -22,7 +22,6 @@ redirect_uri=http://localhost:3000/login&response_type=code&client_id=
 
 	const getAuth = (authorizationCode: string) => {
 		const url = "https://www.yeongn.com/api/user/google";
-
 		axios
 			.post(url, { authorizationCode }, { withCredentials: true })
 			.then((res) => {
@@ -37,7 +36,6 @@ redirect_uri=http://localhost:3000/login&response_type=code&client_id=
 				alert("서버오류로 로그인이 불가합니다.");
 			});
 	};
-
 	useEffect(() => {
 		const url = new URL(window.location.href);
 		const authorizationCode = url.searchParams.get("code");
