@@ -1,11 +1,16 @@
 ![](https://img.shields.io/badge/PROJECT-yeongn%20market-ffe0b2?style=for-the-badge)
 
-# 연근마켓 🏪
+# 연근마켓 
 <img src="https://i.imgur.com/VDbXnS3.gif" title="source: imgur.com" width="300"/>
 
-# 이 세상에 무쓸모는 없다!!
+### 이 세상에 무쓸모는 없다!!
 
-## 당신의 물건을 감정받아보세요!!
+오래된 책들, 과거의 추억이 있는 물건, 집안 대대로 전해져 오는 가보, 그리고 자신만 가지고 있는 신기한 물건, 나만 알고 있는 정보 등
+
+어떠한 것들도 다 괜찮아요!
+
+바로 지금 연근마켓에 오셔서 다른 유저들에게 감정도 받아보고 상점에 한번 팔아보세요~ 
+
 
 ##  팀원 소개
 
@@ -37,10 +42,15 @@
 ## BACK
 
 ![](https://img.shields.io/badge/backend-node.js-338a3e?style=for-the-badge&logo=node.js)
+
 ![](https://img.shields.io/badge/backend-Fastify-000000?style=for-the-badge&logo=fastify)
+
 ![](https://img.shields.io/badge/backend-nestjs-f50057?style=for-the-badge&logo=nestjs)
+
 ![](https://img.shields.io/badge/backend-mysql-00acc1?style=for-the-badge&logo=mysql)
+
 ![](https://img.shields.io/badge/backend-redis-ff7543?style=for-the-badge&logo=redis)
+
 ![](https://img.shields.io/badge/backend-typeorm-bb002f?style=for-the-badge&logo=typeorm)
 
 ## DEPLOYEMENT
