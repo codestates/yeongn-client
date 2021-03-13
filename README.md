@@ -61,6 +61,8 @@ www.yeongn.com 🔍
 
 ![](https://img.shields.io/badge/deployement-nginx-1b5e20?style=for-the-badge&logo=nginx)
 
+![](https://img.shields.io/badge/deployement-RDS-f57c00?style=for-the-badge&logo=amazon%20aws)
+
 ![](https://img.shields.io/badge/deployement-elasticache-f57c00?style=for-the-badge&logo=amazon%20aws)
 
 ![](https://img.shields.io/badge/deployement-elasticbeanstalk-f57c00?style=for-the-badge&logo=amazon%20aws)
@@ -71,15 +73,15 @@ www.yeongn.com 🔍
 
 ## 🛠 Architecture
 
-<img src="https://i.imgur.com/wndIfcY.png" title="source: imgur.com" />
+<img src="https://i.imgur.com/ztX6C0E.png" title="source: imgur.com" />
 
 ### FrontEnd Flowchart
 
-<img src="https://i.imgur.com/uCow8s7.png" title="source: imgur.com" width="700"/>
+<img src="https://i.imgur.com/avco7wg.png" title="source: imgur.com" width="700" />
 
 ### BackEnd Flowchart
 
-<img src="https://i.imgur.com/avco7wg.png" title="source: imgur.com" width="700" />
+<img src="https://i.imgur.com/uCow8s7.png" title="source: imgur.com" width="700"/>
 
 ## 자세한 내용 보러가기
 
