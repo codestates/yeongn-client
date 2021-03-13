@@ -25,10 +25,14 @@ function AppraisalComment({ user, match }: IMypageUser) {
 	const indexOfLast = currentPage * postsPerPage;
 	const indexOfFirst = indexOfLast - postsPerPage;
 
-	useEffect(() => {
+	const renderComment = (): void => {
 		axios.get(`https://www.yeongn.com/api/appraisal/${id}`).then((res) => {
 			setCommentState(res.data.comments);
 		});
+	};
+
+	useEffect(() => {
+		renderComment();
 	}, []);
 
 	const onChangeCommnet = (e: any): void => {
@@ -51,12 +55,7 @@ function AppraisalComment({ user, match }: IMypageUser) {
 					},
 				)
 				.then(() => {
-					axios
-						.get(`https://www.yeongn.com/api/appraisal/${id}`)
-						.then((res) => {
-							console.log(res.data.comments);
-							setCommentState(res.data.comments);
-						});
+					renderComment();
 				});
 		}
 	};
@@ -69,7 +68,9 @@ function AppraisalComment({ user, match }: IMypageUser) {
 					Authorization: `Bearer ${user.token}`,
 				},
 			})
-			.then()
+			.then(() => {
+				renderComment();
+			})
 			.catch((err) => console.log(err));
 	};
 
@@ -95,7 +96,10 @@ function AppraisalComment({ user, match }: IMypageUser) {
 					},
 				},
 			)
-			.then(() => setIsModify(false))
+			.then(() => {
+				renderComment();
+				setIsModify(false);
+			})
 			.catch((err) => console.log(err));
 	};
 
@@ -123,7 +127,7 @@ function AppraisalComment({ user, match }: IMypageUser) {
 								<div className="AppraisalComment__box__text">
 									{comment.text}
 								</div>
-								{user.userId === comment.userId ? (
+								{+user.userId === comment.userId ? (
 									<div className="AppraisalComment__box__buttonWrap">
 										<button
 											className="AppraisalComment__box__buttonWrap__submit"

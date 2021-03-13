@@ -4,6 +4,7 @@ import AddIcon from "@material-ui/icons/Add";
 import axios from "axios";
 import "../styles/RegisterAppraisal.css";
 import ArrowUp from "../components/ArrowUp";
+import Loading from "../components/Loading";
 
 interface fileForm {
 	selectedFile: any;
@@ -25,6 +26,7 @@ function RegisterAppraisal({ user, history, contentId }: IMypageUser) {
 	const inputRef = useRef<HTMLInputElement>(null);
 	const numberRef = useRef<HTMLInputElement>(null);
 	const [state, setState] = useState<any>();
+	const [isLoading, setLoading] = useState<boolean>(false);
 
 	useEffect(() => {
 		axios
@@ -117,7 +119,6 @@ function RegisterAppraisal({ user, history, contentId }: IMypageUser) {
 		} else if (info.text === "") {
 			alert("상품 설명을 입력하세요");
 		} else {
-			
 			const formData = new FormData();
 			if (file.selectedFile) {
 				formData.append("image", file.selectedFile);
@@ -133,15 +134,16 @@ function RegisterAppraisal({ user, history, contentId }: IMypageUser) {
 					Authorization: `Bearer ${user.token}`,
 				},
 			};
-
+			setLoading(true);
 			axios
 				.patch(uploadUrl, formData, config)
 				.then((res) => {
-					history.push("/appraisal");
+					setLoading(false);
+					history.push(`/appraisal/${contentId}`);
 				})
 				.catch((err) => {
-					console.log(err);
-					alert("서버오류입니다.");
+					setLoading(false);
+					alert("파일 용량을 확인해주세요 (최대15MB)");
 				});
 		}
 	};
@@ -181,6 +183,7 @@ function RegisterAppraisal({ user, history, contentId }: IMypageUser) {
 
 	return (
 		<div id="register__appraisal__section">
+			{isLoading ? <Loading /> : null}
 			<form
 				className="register__appraisal__container"
 				onSubmit={handleFormSubmit}

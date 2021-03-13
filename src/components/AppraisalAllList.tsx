@@ -42,52 +42,55 @@ function AppraisalAllList({
 			<div className="appraisalAllList__container">
 				{!appraisalList
 					? null
-					: appraisalList.slice(0, count).map((appraisalList) => (
-							<div
-								className="appraisalAllList__container__card"
-								key={appraisalList.id}
-							>
-								<Link
-									to={`/appraisal/${appraisalList.id}`}
+					: appraisalList
+							.map((appraisalList) => (
+								<div
+									className="appraisalAllList__container__card"
 									key={appraisalList.id}
 								>
-									<img
-										alt="이미지"
-										src={appraisalList.imgUrl}
-										className="appraisalAllList__container__img"
-									></img>
-									<div className="appraisalAllList__container__wrap">
-										<div className="appraisalAllList_-container__nickAndLikeWrap">
-											<div className="appraisalAllList__container__nick">
-												{appraisalList.nickname}
+									<Link
+										to={`/appraisal/${appraisalList.id}`}
+										key={appraisalList.id}
+									>
+										<img
+											alt="이미지"
+											src={appraisalList.imgUrl}
+											className="appraisalAllList__container__img"
+										></img>
+										<div className="appraisalAllList__container__wrap">
+											<div className="appraisalAllList_-container__nickAndLikeWrap">
+												<div className="appraisalAllList__container__nick">
+													{appraisalList.nickname}
+												</div>
+												<span className="appraisalAllList__container__like">
+													<FavoriteIcon fontSize="inherit" />
+												</span>
 											</div>
-											<span className="appraisalAllList__container__like">
-												<FavoriteIcon fontSize="inherit" />
-											</span>
-										</div>
-										<div className="appraisalAllList__container__titleAndLikeCount">
-											<div className="appraisalAllList__container__title">
-												{appraisalList.itemName}
+											<div className="appraisalAllList__container__titleAndLikeCount">
+												<div className="appraisalAllList__container__title">
+													{appraisalList.itemName}
+												</div>
+												<span className="appraisalAllList__container__likeCount">
+													{appraisalList.likeCount}
+												</span>
 											</div>
-											<span className="appraisalAllList__container__likeCount">
-												{appraisalList.likeCount}
-											</span>
+											<div className="appraisalAllList__container__price">
+												<span className="appraisalAllList__container__price">
+													감정가{" "}
+												</span>
+												{!appraisalList
+													? null
+													: appraisalList.average
+															.toString()
+															.replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{" "}
+												원
+											</div>
 										</div>
-										<div className="appraisalAllList__container__price">
-											<span className="appraisalAllList__container__price">
-												감정가{" "}
-											</span>
-											{!appraisalList
-												? null
-												: appraisalList.average
-														.toString()
-														.replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{" "}
-											원
-										</div>
-									</div>
-								</Link>
-							</div>
-					  ))}
+									</Link>
+								</div>
+							))
+							.reverse()
+							.slice(0, count)}
 			</div>
 			<div className="appraisalAllList__container__moreButton">
 				<KeyboardArrowDownIcon fontSize="inherit" onClick={moreButtonClick} />

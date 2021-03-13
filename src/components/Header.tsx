@@ -7,6 +7,7 @@ import CreateIcon from "@material-ui/icons/Create";
 import MenuIcon from "@material-ui/icons/Menu";
 import "../styles/Header.css";
 import usePrevious from "../components/usePrevious";
+import Cookies from "js-cookie";
 
 interface User {
 	userId: string;

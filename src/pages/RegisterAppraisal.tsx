@@ -4,6 +4,7 @@ import AddIcon from "@material-ui/icons/Add";
 import axios from "axios";
 import "../styles/RegisterAppraisal.css";
 import ArrowUp from "../components/ArrowUp";
+import Loading from "../components/Loading";
 
 interface fileForm {
 	selectedFile: any;
@@ -23,6 +24,8 @@ interface IMypageUser extends RouteComponentProps {
 function RegisterAppraisal({ user, history }: IMypageUser) {
 	const inputRef = useRef<HTMLInputElement>(null);
 	const numberRef = useRef<HTMLInputElement>(null);
+
+	const [isLoading, setLoading] = useState<boolean>(false);
 
 	useEffect(() => {
 		const { current } = inputRef;
@@ -109,15 +112,16 @@ function RegisterAppraisal({ user, history }: IMypageUser) {
 					Authorization: `Bearer ${user.token}`,
 				},
 			};
-
+			setLoading(true);
 			axios
 				.post(uploadUrl, formData, config)
 				.then((res) => {
-					history.push("/appraisal");
+					setLoading(false);
+					history.push(`/appraisal/${res.data.appraisalId}`);
 				})
-				.catch((err) => {
-					console.log(err);
-					alert("서버오류입니다.");
+				.catch(() => {
+					setLoading(false);
+					alert("파일 용량을 확인해주세요 (최대15MB)");
 				});
 		}
 	};
@@ -157,6 +161,7 @@ function RegisterAppraisal({ user, history }: IMypageUser) {
 
 	return (
 		<div id="register__appraisal__section">
+			{isLoading ? <Loading /> : null}
 			<form
 				className="register__appraisal__container"
 				onSubmit={handleFormSubmit}
