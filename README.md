@@ -1,6 +1,6 @@
 ![](https://img.shields.io/badge/PROJECT-yeongn%20market-ffe0b2?style=for-the-badge)
 
-# 연근마켓
+# 연근마켓 🏪
 <img src="https://i.imgur.com/VDbXnS3.gif" title="source: imgur.com" width="300"/>
 
 # 이 세상에 무쓸모는 없다!!
