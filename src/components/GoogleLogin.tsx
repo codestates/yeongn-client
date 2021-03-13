@@ -21,7 +21,7 @@ redirect_uri=https://www.yeongn.com/login&response_type=code&client_id=
 	};
 
 	const getAuth = (authorizationCode: string) => {
-		const url = "https://www.yeongn.com/api/user/google";
+		const url = "/api/user/google";
 		axios
 			.post(url, { authorizationCode }, { withCredentials: true })
 			.then((res) => {

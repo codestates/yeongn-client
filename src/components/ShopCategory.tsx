@@ -54,32 +54,32 @@ function ShopCategory({
 		});
 
 		if (categoryTitle === "전체" || categoryTitle === "전체 감정가") {
-			axios.get(`https://www.yeongn.com/api/shop`).then((res) => {
+			axios.get(`/api/shop`).then((res) => {
 				setShopList(res.data);
 			});
 		} else if (categoryTitle === "높은 가격") {
-			axios.get(`https://www.yeongn.com/api/shop`).then((res) => {
+			axios.get(`/api/shop`).then((res) => {
 				const highPriceData = res.data.sort(function (a: any, b: any) {
 					return Number(a.userPrice) < Number(b.userPrice) ? 1 : -1;
 				});
 				setShopList(highPriceData);
 			});
 		} else if (categoryTitle === "낮은 가격") {
-			axios.get(`https://www.yeongn.com/api/shop`).then((res) => {
+			axios.get(`/api/shop`).then((res) => {
 				const highPriceData = res.data.sort(function (a: any, b: any) {
 					return Number(a.userPrice) > Number(b.userPrice) ? 1 : -1;
 				});
 				setShopList(highPriceData);
 			});
 		} else if (categoryTitle === "인기 많은") {
-			axios.get(`https://www.yeongn.com/api/shop`).then((res) => {
+			axios.get(`/api/shop`).then((res) => {
 				const LikeCount = res.data.sort(function (a: any, b: any) {
 					return a.likeCount < b.likeCount ? 1 : -1;
 				});
 				setShopList(LikeCount);
 			});
 		} else {
-			axios.get(`https://www.yeongn.com/api/shop`).then((res) => {
+			axios.get(`/api/shop`).then((res) => {
 				const filterdata = res.data.filter(
 					(el: any) => el.category === categoryTitle,
 				);

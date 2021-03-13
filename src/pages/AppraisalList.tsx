@@ -27,7 +27,7 @@ function AppraisalList() {
 
 	useEffect(() => {
 		axios
-			.get(`https://www.yeongn.com/api/appraisal`)
+			.get(`/api/appraisal`)
 			.then((res) => {
 				setAppraisalList(res.data);
 			})

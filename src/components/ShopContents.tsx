@@ -27,7 +27,7 @@ function ShopContents({ user, match, history, setContentId }: IMypageUser) {
 	const renderContents = (): void => {
 		if (user.token) {
 			axios
-				.get(`https://www.yeongn.com/api/shop/${id}`, {
+				.get(`/api/shop/${id}`, {
 					headers: {
 						Authorization: `Bearer ${user.token}`,
 					},
@@ -61,7 +61,7 @@ function ShopContents({ user, match, history, setContentId }: IMypageUser) {
 					}
 				});
 		} else {
-			axios.get(`https://www.yeongn.com/api/shop/${id}`, {}).then((res) => {
+			axios.get(`/api/shop/${id}`, {}).then((res) => {
 				setCount(res.data.likeCount);
 				setShopList(res.data);
 			});
@@ -78,7 +78,7 @@ function ShopContents({ user, match, history, setContentId }: IMypageUser) {
 		}
 		axios
 			.patch(
-				`https://www.yeongn.com/api/shop/${id}/recommend`,
+				`/api/shop/${id}/recommend`,
 				{},
 				{
 					headers: {
@@ -123,7 +123,7 @@ function ShopContents({ user, match, history, setContentId }: IMypageUser) {
 
 		if (result) {
 			axios
-				.delete(`https://www.yeongn.com/api/shop/${id}`, {
+				.delete(`/api/shop/${id}`, {
 					headers: {
 						Authorization: `Bearer ${user.token}`,
 					},

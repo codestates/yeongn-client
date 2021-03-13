@@ -30,7 +30,7 @@ function RegisterAppraisal({ user, history, contentId }: IMypageUser) {
 
 	useEffect(() => {
 		axios
-			.get(`https://www.yeongn.com/api/appraisal/${contentId}`, {
+			.get(`/api/appraisal/${contentId}`, {
 				headers: {
 					Authorization: `Bearer ${user.token}`,
 				},
@@ -127,7 +127,7 @@ function RegisterAppraisal({ user, history, contentId }: IMypageUser) {
 			formData.append("category", category);
 			formData.append("price", info.price.toString());
 			formData.append("text", info.text);
-			const uploadUrl = `https://www.yeongn.com/api/appraisal/${contentId}`;
+			const uploadUrl = `/api/appraisal/${contentId}`;
 			const config = {
 				headers: {
 					"content-type": "multipart/form-data",

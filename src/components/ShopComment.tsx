@@ -38,7 +38,7 @@ function ShopComment({ user, match }: IMypageUser) {
 	};
 
 	const renderComment = (): void => {
-		axios.get(`https://www.yeongn.com/api/shop/${id}`).then((res) => {
+		axios.get(`/api/shop/${id}`).then((res) => {
 			setCommentState(res.data.comments.reverse());
 		});
 	};
@@ -59,7 +59,7 @@ function ShopComment({ user, match }: IMypageUser) {
 		} else {
 			axios
 				.post(
-					`https://www.yeongn.com/api/shop/${id}/comment`,
+					`/api/shop/${id}/comment`,
 					{
 						text: comment,
 					},
@@ -81,7 +81,7 @@ function ShopComment({ user, match }: IMypageUser) {
 	const commentDelets = (e: any) => {
 		const CommentId = e.target.value;
 		axios
-			.delete(`https://www.yeongn.com/api/shop/comment/${CommentId}`, {
+			.delete(`/api/shop/comment/${CommentId}`, {
 				headers: {
 					Authorization: `Bearer ${user.token}`,
 				},
@@ -104,7 +104,7 @@ function ShopComment({ user, match }: IMypageUser) {
 		}
 		axios
 			.patch(
-				`https://www.yeongn.com/api/shop/comment/${commentId}`,
+				`/api/shop/comment/${commentId}`,
 				{
 					text: comment,
 				},

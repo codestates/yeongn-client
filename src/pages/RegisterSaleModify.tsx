@@ -29,7 +29,7 @@ function RegisterSaleModify({ user, history, contentId }: IMypageUser) {
 
 	useEffect(() => {
 		axios
-			.get(`https://www.yeongn.com/api/shop/${contentId}`, {
+			.get(`/api/shop/${contentId}`, {
 				headers: {
 					Authorization: `Bearer ${user.token}`,
 				},
@@ -136,7 +136,7 @@ function RegisterSaleModify({ user, history, contentId }: IMypageUser) {
 
 			setLoading(true);
 
-			const uploadUrl = `https://www.yeongn.com/api/shop/${contentId}`;
+			const uploadUrl = `/api/shop/${contentId}`;
 			const config = {
 				headers: {
 					"content-type": "multipart/form-data",

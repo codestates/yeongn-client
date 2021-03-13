@@ -105,7 +105,7 @@ function RegisterAppraisal({ user, history }: IMypageUser) {
 			formData.append("price", info.price.toString());
 			formData.append("text", info.text);
 
-			const uploadUrl = "https://www.yeongn.com/api/appraisal";
+			const uploadUrl = "/api/appraisal";
 			const config = {
 				headers: {
 					"content-type": "multipart/form-data",

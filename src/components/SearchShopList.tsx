@@ -10,7 +10,7 @@ function SearchshopList({ word }: MatchParams) {
 	const [shopState, setshopState] = useState<any>();
 	const [count, setCount] = useState<any>();
 	useEffect(() => {
-		axios.get(`https://www.yeongn.com/api/search/${word}`).then((res) => {
+		axios.get(`/api/search/${word}`).then((res) => {
 			setshopState(res.data.sales);
 		});
 	}, []);

@@ -107,7 +107,7 @@ function RegisterSale({ user, history }: IMypageUser) {
 			formData.append("text", info.text);
 			formData.append("contact", info.contact);
 
-			const uploadUrl = "https://www.yeongn.com/api/shop";
+			const uploadUrl = "/api/shop";
 			const config = {
 				headers: {
 					"content-type": "multipart/form-data",

@@ -20,7 +20,7 @@ function Withdrawal({ handleUserdata, history, user }: IMypageUser) {
 		);
 		if (result) {
 			axios
-				.delete(`https://www.yeongn.com/api/user`, {
+				.delete(`/api/user`, {
 					headers: {
 						Authorization: `Bearer ${user.token}`,
 					},

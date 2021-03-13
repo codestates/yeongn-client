@@ -18,7 +18,7 @@ interface IMypageUser extends RouteComponentProps {
 }
 function MyPageStore({ user }: IMypageUser) {
 	useEffect(() => {
-		const getUrl = "https://www.yeongn.com/api/user";
+		const getUrl = "/api/user";
 		const config = {
 			headers: {
 				Authorization: `Bearer ${user.token}`,
