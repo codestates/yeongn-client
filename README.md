@@ -54,9 +54,9 @@
 
 ![](https://img.shields.io/badge/deployement-nginx-1b5e20?style=for-the-badge&logo=nginx)
 
-![](https://img.shields.io/badge/deployement-elasticache-f57c00?style=for-the-badge&logo=elasticache)
+![](https://img.shields.io/badge/deployement-elasticache-f57c00?style=for-the-badge&logo=amazon%20aws)
 
-![](https://img.shields.io/badge/deployement-elasticbeanstalk-f57c00?style=for-the-badge&logo=elasticbeanstalk)
+![](https://img.shields.io/badge/deployement-elasticbeanstalk-f57c00?style=for-the-badge&logo=amazon%20aws)
 
 ## Version Control
 
