@@ -44,6 +44,8 @@
 
 ![](https://img.shields.io/badge/backend-mysql-00acc1?style=for-the-badge&logo=mysql)
 
+![](https://img.shields.io/badge/backend-redis-039be5?style=for-the-badge&logo=redis)
+
 ## Version Control
 
 ![](https://img.shields.io/badge/version_control-github-0d47a1?style=for-the-badge&logo=github)
@@ -57,3 +59,7 @@
 ### BackEnd Flowchart
 
 <img src="https://i.imgur.com/avco7wg.png" title="source: imgur.com" width="700" />
+
+## 자세한 내용 보러가기
+
+### [WIKI]
