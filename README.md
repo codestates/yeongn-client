@@ -1,9 +1,9 @@
 # 연근마켓
 <img src="https://i.imgur.com/VDbXnS3.gif" title="source: imgur.com" width="300"/>
+
 # 이 세상에 무쓸모는 없다!!
+
 ## 당신의 물건을 감정받아보세요!!
-
-
 
 ##  팀원 소개
 
@@ -52,8 +52,8 @@
 
 ### FrontEnd Flowchart
 
-<img src="https://i.imgur.com/uCow8s7.png" title="source: imgur.com" width="500"/>
+<img src="https://i.imgur.com/uCow8s7.png" title="source: imgur.com" width="700"/>
 
 ### BackEnd Flowchart
 
-<img src="https://i.imgur.com/k52foKv.png" title="source: imgur.com" width="500"/>
+<img src="https://i.imgur.com/avco7wg.png" title="source: imgur.com" width="700" />
