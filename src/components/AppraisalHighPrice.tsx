@@ -26,7 +26,7 @@ function AppraisalHighPrice() {
 
 	useEffect(() => {
 		axios
-			.get(`https://www.yeongn.com/api/appraisal`)
+			.get(`/api/appraisal`)
 			.then((res) => {
 				const highPriceData = res.data.sort(function (a: any, b: any) {
 					return a.average < b.average ? 1 : -1;

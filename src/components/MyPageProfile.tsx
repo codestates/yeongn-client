@@ -15,7 +15,7 @@ interface IMypageUser extends RouteComponentProps {
 }
 function MyPageProfile({ user, history }: IMypageUser) {
 	useEffect(() => {
-		const getUrl = "https://www.yeongn.com/api/user";
+		const getUrl = "/api/user";
 		const config = {
 			headers: {
 				Authorization: `Bearer ${user.token}`,
@@ -111,7 +111,7 @@ function MyPageProfile({ user, history }: IMypageUser) {
 	};
 	const handleNickChangeClick = () => {
 		if (validNickCheck(changeNick)) {
-			const postUrl = "https://www.yeongn.com/api/user";
+			const postUrl = "/api/user";
 			const config = {
 				headers: {
 					Authorization: `Bearer ${user.token}`,

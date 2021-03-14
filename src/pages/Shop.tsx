@@ -14,7 +14,7 @@ function Shop() {
 
 	useEffect(() => {
 		axios
-			.get(`https://www.yeongn.com/api/shop`)
+			.get(`/api/shop`)
 			.then((res) => {
 				setIsLoading(true);
 				setShopList(res.data);

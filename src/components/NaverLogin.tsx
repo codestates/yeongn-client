@@ -19,7 +19,7 @@ function NaverLogin({ loginHandler, history, location }: ILoginUser) {
 	};
 
 	const getAuth = (authorizationCode: any) => {
-		const url = "https://www.yeongn.com/api/user/naver";
+		const url = "/api/user/naver";
 		axios
 			.post(url, { authorizationCode }, { withCredentials: true })
 			.then((res) => {

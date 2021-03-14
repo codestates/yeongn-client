@@ -57,7 +57,7 @@ function App() {
 	};
 	const history = useHistory();
 	const logoutHandler = async () => {
-		const LOGOUT_URI = "https://www.yeongn.com/api/user/logout";
+		const LOGOUT_URI = "/api/user/logout";
 		setUser({ userId: "", token: "", authenticated: false });
 		try {
 			await axios.post(LOGOUT_URI, {}, { withCredentials: true });

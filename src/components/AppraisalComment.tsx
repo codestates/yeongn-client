@@ -39,7 +39,7 @@ function AppraisalComment({ user, match }: IMypageUser) {
 	};
 
 	const renderComment = (): void => {
-		axios.get(`https://www.yeongn.com/api/appraisal/${id}`).then((res) => {
+		axios.get(`/api/appraisal/${id}`).then((res) => {
 			setCommentState(res.data.comments.reverse());
 		});
 	};
@@ -60,7 +60,7 @@ function AppraisalComment({ user, match }: IMypageUser) {
 		} else {
 			axios
 				.post(
-					`https://www.yeongn.com/api/appraisal/${id}/comment`,
+					`/api/appraisal/${id}/comment`,
 					{
 						text: comment,
 					},
@@ -82,7 +82,7 @@ function AppraisalComment({ user, match }: IMypageUser) {
 	const commentDelets = (e: any) => {
 		const CommentId = e.target.value;
 		axios
-			.delete(`https://www.yeongn.com/api/appraisal/comment/${CommentId}`, {
+			.delete(`/api/appraisal/comment/${CommentId}`, {
 				headers: {
 					Authorization: `Bearer ${user.token}`,
 				},
@@ -108,7 +108,7 @@ function AppraisalComment({ user, match }: IMypageUser) {
 		}
 		axios
 			.patch(
-				`https://www.yeongn.com/api/appraisal/comment/${commentId}`,
+				`/api/appraisal/comment/${commentId}`,
 				{
 					text: comment,
 				},

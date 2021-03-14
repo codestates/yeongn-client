@@ -12,7 +12,7 @@ function ShopPopularity() {
 
 	useEffect(() => {
 		axios
-			.get(`https://www.yeongn.com/api/shop`)
+			.get(`/api/shop`)
 			.then((res) => {
 				const LikeCount = res.data.sort(function (a: any, b: any) {
 					return a.likeCount < b.likeCount ? 1 : -1;

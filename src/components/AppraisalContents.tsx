@@ -57,7 +57,7 @@ function AppraisalContents({
 	const renderContents = (): void => {
 		if (user.token) {
 			axios
-				.get(`https://www.yeongn.com/api/appraisal/${id}`, {
+				.get(`/api/appraisal/${id}`, {
 					headers: {
 						Authorization: `Bearer ${user.token}`,
 					},
@@ -92,12 +92,10 @@ function AppraisalContents({
 					}
 				});
 		} else {
-			axios
-				.get(`https://www.yeongn.com/api/appraisal/${id}`, {})
-				.then((res) => {
-					setCount(res.data.likeCount);
-					setAppraisalList(res.data);
-				});
+			axios.get(`/api/appraisal/${id}`, {}).then((res) => {
+				setCount(res.data.likeCount);
+				setAppraisalList(res.data);
+			});
 		}
 	};
 
@@ -110,7 +108,7 @@ function AppraisalContents({
 		}
 		axios
 			.patch(
-				`https://www.yeongn.com/api/appraisal/${id}/recommend`,
+				`/api/appraisal/${id}/recommend`,
 				{},
 				{
 					headers: {
@@ -156,7 +154,7 @@ function AppraisalContents({
 		}
 		axios
 			.post(
-				`https://www.yeongn.com/api/appraisal/${id}`,
+				`/api/appraisal/${id}`,
 				{ price },
 				{
 					headers: {
@@ -166,12 +164,10 @@ function AppraisalContents({
 			)
 			.then(() => {
 				setApprasialState(!apprasialState);
-				axios
-					.get(`https://www.yeongn.com/api/appraisal/${id}`, {})
-					.then((res) => {
-						setIsAppraisal(true);
-						setAppraisalList(res.data);
-					});
+				axios.get(`/api/appraisal/${id}`, {}).then((res) => {
+					setIsAppraisal(true);
+					setAppraisalList(res.data);
+				});
 				renderContents();
 			});
 	};
@@ -196,7 +192,7 @@ function AppraisalContents({
 
 		if (result) {
 			axios
-				.delete(`https://www.yeongn.com/api/appraisal/${id}`, {
+				.delete(`/api/appraisal/${id}`, {
 					headers: {
 						Authorization: `Bearer ${user.token}`,
 					},

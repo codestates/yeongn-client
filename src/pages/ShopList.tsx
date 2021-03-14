@@ -12,7 +12,7 @@ function ShopList() {
 
 	useEffect(() => {
 		axios
-			.get(`https://www.yeongn.com/api/shop`)
+			.get(`/api/shop`)
 			.then((res) => {
 				setShopList(res.data);
 			})

@@ -56,32 +56,32 @@ function AppraisalCategory({
 		});
 
 		if (categoryTitle === "전체" || categoryTitle === "전체 감정가") {
-			axios.get(`https://www.yeongn.com/api/appraisal`).then((res) => {
+			axios.get(`/api/appraisal`).then((res) => {
 				setAppraisalList(res.data);
 			});
 		} else if (categoryTitle === "높은 가격") {
-			axios.get(`https://www.yeongn.com/api/appraisal`).then((res) => {
+			axios.get(`/api/appraisal`).then((res) => {
 				const highPriceData = res.data.sort(function (a: any, b: any) {
 					return a.average < b.average ? 1 : -1;
 				});
 				setAppraisalList(highPriceData);
 			});
 		} else if (categoryTitle === "낮은 가격") {
-			axios.get(`https://www.yeongn.com/api/appraisal`).then((res) => {
+			axios.get(`/api/appraisal`).then((res) => {
 				const highPriceData = res.data.sort(function (a: any, b: any) {
 					return a.average > b.average ? 1 : -1;
 				});
 				setAppraisalList(highPriceData);
 			});
 		} else if (categoryTitle === "인기 많은") {
-			axios.get(`https://www.yeongn.com/api/appraisal`).then((res) => {
+			axios.get(`/api/appraisal`).then((res) => {
 				const LikeCount = res.data.sort(function (a: any, b: any) {
 					return a.likeCount < b.likeCount ? 1 : -1;
 				});
 				setAppraisalList(LikeCount);
 			});
 		} else {
-			axios.get(`https://www.yeongn.com/api/appraisal`).then((res) => {
+			axios.get(`/api/appraisal`).then((res) => {
 				const filterdata = res.data.filter(
 					(el: any) => el.category === categoryTitle,
 				);

@@ -19,7 +19,7 @@ function KakaoLogin({ loginHandler, history, location }: ILoginUser) {
 	};
 
 	const getAuth = (authorizationCode: any) => {
-		const url = "https://www.yeongn.com/api/user/kakao";
+		const url = "/api/user/kakao";
 
 		axios
 			.post(url, { authorizationCode }, { withCredentials: true })

@@ -25,7 +25,7 @@ function AppraisalPopularity() {
 	const [appraisalList, setAppraisalList] = useState<List[]>([]);
 	useEffect(() => {
 		axios
-			.get(`https://www.yeongn.com/api/appraisal`)
+			.get(`/api/appraisal`)
 			.then((res) => {
 				const LikeCount = res.data.sort(function (a: any, b: any) {
 					return a.likeCount < b.likeCount ? 1 : -1;
