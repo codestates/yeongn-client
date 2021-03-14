@@ -166,7 +166,12 @@ function AppraisalPopularity() {
 								</div>
 								<span className="appraisal__popularity__price">
 									<span className="appraisal__popularity__price">감정가 </span>
-									{appraisalList.average} 원{" "}
+									{!appraisalList
+										? null
+										: appraisalList.average
+												.toString()
+												.replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{" "}
+									원
 								</span>
 							</div>
 						</Link>
