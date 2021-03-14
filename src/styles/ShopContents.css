@@ -559,16 +559,18 @@
 		font-size: 14px;
 	}
 	.ShopContents__inputModal {
-		width: 180px;
+		width: 200px;
 		height: 100px;
 		left: 29%;
 		top: 70%;
 	}
+
 	.ShopContents__input__title {
-		font-size: 11px;
+		font-size: 10px;
+		margin-right: 30px;
 	}
 	.ShopContents__input__text {
-		font-size: 11px;
+		font-size: 9px;
 	}
 	.ShopContents__inputModal__close {
 		font-size: 20px;
