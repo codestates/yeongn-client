@@ -73,15 +73,15 @@ www.yeongn.com 🔍
 
 ## 🛠 Architecture
 
-<img src="https://i.imgur.com/ztX6C0E.png" title="source: imgur.com" />
+<img src="https://i.imgur.com/ztX6C0E.png" title="source: imgur.com" width="900"/>
 
 ### FrontEnd Flowchart
 
-<img src="https://i.imgur.com/avco7wg.png" title="source: imgur.com" width="700" />
+<img src="https://i.imgur.com/avco7wg.png" title="source: imgur.com" width="900" />
 
 ### BackEnd Flowchart
 
-<img src="https://i.imgur.com/uCow8s7.png" title="source: imgur.com" width="700"/>
+<img src="https://i.imgur.com/uCow8s7.png" title="source: imgur.com" width="900"/>
 
 ## 자세한 내용 보러가기
 
