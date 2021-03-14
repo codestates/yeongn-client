@@ -85,4 +85,5 @@ www.yeongn.com 🔍
 
 ## 자세한 내용 보러가기
 
-### [WIKI]
+### [WIKI](https://github.com/codestates/yeongn-client/wiki)
+
