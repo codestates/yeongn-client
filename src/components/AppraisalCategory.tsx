@@ -62,14 +62,14 @@ function AppraisalCategory({
 		} else if (categoryTitle === "높은 가격") {
 			axios.get(`/api/appraisal`).then((res) => {
 				const highPriceData = res.data.sort(function (a: any, b: any) {
-					return a.average < b.average ? 1 : -1;
+					return a.average > b.average ? 1 : -1;
 				});
 				setAppraisalList(highPriceData);
 			});
 		} else if (categoryTitle === "낮은 가격") {
 			axios.get(`/api/appraisal`).then((res) => {
 				const highPriceData = res.data.sort(function (a: any, b: any) {
-					return a.average > b.average ? 1 : -1;
+					return a.average < b.average ? 1 : -1;
 				});
 				setAppraisalList(highPriceData);
 			});

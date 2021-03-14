@@ -60,14 +60,14 @@ function ShopCategory({
 		} else if (categoryTitle === "높은 가격") {
 			axios.get(`/api/shop`).then((res) => {
 				const highPriceData = res.data.sort(function (a: any, b: any) {
-					return Number(a.userPrice) < Number(b.userPrice) ? 1 : -1;
+					return Number(a.userPrice) > Number(b.userPrice) ? 1 : -1;
 				});
 				setShopList(highPriceData);
 			});
 		} else if (categoryTitle === "낮은 가격") {
 			axios.get(`/api/shop`).then((res) => {
 				const highPriceData = res.data.sort(function (a: any, b: any) {
-					return Number(a.userPrice) > Number(b.userPrice) ? 1 : -1;
+					return Number(a.userPrice) < Number(b.userPrice) ? 1 : -1;
 				});
 				setShopList(highPriceData);
 			});
