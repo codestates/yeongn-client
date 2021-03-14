@@ -567,6 +567,7 @@
 
 	.ShopContents__input__title {
 		font-size: 10px;
+		margin-left: 60px;
 		margin-right: 20px;
 	}
 	.ShopContents__input__text {
