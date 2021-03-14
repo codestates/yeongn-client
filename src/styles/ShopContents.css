@@ -572,6 +572,8 @@
 	}
 	.ShopContents__input__text {
 		font-size: 9px;
+		width: 180px;
+		margin: auto;
 	}
 	.ShopContents__inputModal__close {
 		font-size: 20px;
