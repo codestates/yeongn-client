@@ -1,5 +1,5 @@
-<img src="https://i.imgur.com/VDbXnS3.gif" title="source: imgur.com" width="400"/>
-<img src="https://i.imgur.com/TKzYbDG.png" title="source: imgur.com" width= "400"/>
+<img src="https://i.imgur.com/VDbXnS3.gif" title="source: imgur.com" width="300"/>
+<img src="https://i.imgur.com/TKzYbDG.png" title="source: imgur.com" width= "00"/>
 
 # ❣️ 이 세상에 무쓸모는 없다 ❣️
 
