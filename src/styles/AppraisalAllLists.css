@@ -119,7 +119,7 @@
 	margin-bottom: 10px;
 }
 .appraisalAllList__container__img {
-	background: url("../assets/img/나비.jpeg") center/cover;
+	background: center/cover;
 	border-radius: 6px;
 	width: 240px;
 	height: 240px;
