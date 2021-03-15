@@ -74,7 +74,7 @@ function ShopCategory({
 		} else if (categoryTitle === "인기 많은") {
 			axios.get(`/api/shop`).then((res) => {
 				const LikeCount = res.data.sort(function (a: any, b: any) {
-					return a.likeCount < b.likeCount ? 1 : -1;
+					return a.likeCount > b.likeCount ? 1 : -1;
 				});
 				setShopList(LikeCount);
 			});
