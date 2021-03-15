@@ -365,6 +365,7 @@
 	.AppraisalContents__body__buttonWrap {
 		justify-content: space-around;
 	}
+
 	.AppraisalContents__body__button,
 	.AppraisalContents__body__likebutton,
 	.AppraisalContents__body__submitButton,
@@ -449,8 +450,8 @@
 	}
 	.AppraisalContents__body__button,
 	.AppraisalContents__body__likebutton,
-	.AppraisalContents__body__submitbutton,
-	.AppraisalContents__body__deletebutton {
+	.AppraisalContents__body__submitButton,
+	.AppraisalContents__body__deleteButton {
 		font-size: 12px;
 		width: 36%;
 		padding: 10px 3px 10px 3px;
@@ -556,8 +557,8 @@
 	}
 	.AppraisalContents__body__button,
 	.AppraisalContents__body__likebutton,
-	.AppraisalContents__body__submitbutton,
-	.AppraisalContents__body__deletebutton {
+	.AppraisalContents__body__submitButton,
+	.AppraisalContents__body__deleteButton {
 		font-size: 12px;
 		width: 36%;
 		padding: 10px 3px 10px 3px;
